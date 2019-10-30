@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-  <field>
-    <name>PatientId</name>
-    <fieldType>Text</fieldType>
-  </field>
-</configuration>

@@ -2,6 +2,7 @@
 #test to show standard logic with invalid control.
 #Should produce a positive CT and a negative NG
 
+
 begin atomic 1
 throw 10002,0
 delay 100
@@ -101,92 +102,36 @@ valve v12 on
 delay 50
 
 #charge vacuum
-res res1 hold 500 700 2 ackvac
+#res res1 hold 500 700 2 ackvac
 #charge positive hard 
 res res2 hold 900 1100 2 initpswID 
 res res3 hold 500 700 3 ack1
+delay 300
 
-#set up valve conditions to suck in fluid forming a meniscus in sample well inlet
-valve v2 on
-delay 50
-valve v1 on
-delay 100
-#allow bellows to close fully before closing v3
-valve v3 on
-valve v4 on
-valve v5 on
-valve v6 on
-valve v7 on
-valve v8 on
-delay 20
-
-
-#-------Simulate Pump---------------------
-
-#Prime_to_pump_to_waste:  sets up the fluidic path
-valve v1 on
-valve v2 off
-valve v3 on
-valve v4 on
-valve v5 on 
-valve v6 on
-valve v7 off
-valve v8 on
-
+#-------Simulate Pump in noise--------------------- 
 
 #pumps fluid
-begin nonatomic 1 pumped
-	 valve v3 on
-	 delay 5			
-	 valve v2 off
-	 delay 5	
-	 valve v1 off
-	 delay 100
-	 valve v2 on
-	 delay 5
-	 valve v3 off
-	 delay 5
-	 valve v1 on
-	 delay 50
-valve v1 off
-delay 30
-valve v1 on
+begin nonatomic 3 pumped
+	  valve v3 on
+          delay 30
+          valve v3 off
+          delay 30
 end
 
 
-#--------3s airdry------------------------------------
+#--------3s airdry noise------------------------------------
 
+delay 100
 valve v1 on
-valve v2 on
-valve v3 on
-valve v4 on
-valve v5 off
-valve v6 on
-valve v7 off
-valve v8 off
-valve v10 on
-delay 300
-valve v8 on
-delay 10
-valve v10 off
-
+delay 300 
+valve v1 off
 
 #-------Simulate PCR fill with DPR---------------------
 #Homogenisation ramp
-#Set start conditions
-valve v1 off
-valve v2 off
-valve v3 on
-valve v4 on
-valve v5 on
-valve v6 on
-valve v7 on
-valve v8 on
-valve v16 on
 
 #Set DPR to on and fill to 17% atmospheric
-dpr dpr1 on 30 300
-delay 330
+dpr dpr1 on 30 100
+delay 120
 dpr dpr1 off
 valve v16 off
 
