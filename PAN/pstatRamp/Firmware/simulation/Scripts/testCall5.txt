@@ -1,0 +1,2 @@
+res res1 hold 5 6 1
+call testCall6.txt

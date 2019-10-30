@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<Users xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <IUser xsi:type="User">
+    <Name>Administrator</Name>
+    <Enabled>true</Enabled>
+    <Type>Administrator</Type>
+    <PasswordHash>X03MO1qnZdYdgyfeuILPmQ==</PasswordHash>
+  </IUser>
+</Users>

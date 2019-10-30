@@ -1,0 +1,94 @@
+#---------------------------------------------
+#draft Alpha II script initialise_run July2012
+#Tom Edwards 9th Aug 2012
+#copyright Atlas Genetics Ltd 2012
+#---------------------------------------------
+
+#revision history
+#0.2 TE 29-08-2012
+#0.3 TE 03-09-2012
+#0.4 AB 02-09-2012 - lowered tank pressures - 
+#0.5 TE 13-11-2012 - excersise and set all valves
+#0.6 AB -6-12-2012 - Lowered res 2 pressure to stop pump stalling out. was 900 now 700
+#0.7 AB 06-12-2012 - raised res 2 pressure back to 900. 
+#0.8 TE 04-01-2013 - adjusted for Alpha II/beta cartridge clamp configuration
+#0.9 AB 19-02-2013 - Corrected Lyse and Wash motor names so they are on the correct actuators
+#1.0 TE 17-04-2013 - issued as MASTER deleted hashed commands no longer used, tidied
+#1.1 TE 06-06-2013 - reinstated digital_pressure_enable OFF to prevent bleed of air at startup.
+
+#this script sets reservoir pressures, initialises steppers, and names I/O correctly 
+#equivalent to 'initialise_instrument'
+
+#map names, not necessary on M insturments.
+#---------------------------------------------
+map V1   Bellows
+map v2    pump_V1_pcr
+map v3    pump_V2
+map v4    V3_wash_inlet
+map v5    V4_elute_inlet
+map v6    V5_elute_enable
+map v7    V6_waste_enable
+map v8    airdry_enable
+map v9    wash_air_dry
+map v10   elute_air_dry
+map V11   Vacuum_Dump
+map V12   Vacuum_Enable
+map V13   Low_High_Pressure_Select
+map V14   Low_Pressure_Dump
+map V15   High_Pressure_Dump
+map V16   digital_Enable                 #aka   pp9
+map l1 clamp
+map l2 elute
+map l3 Wash
+map l4 Lyse
+map l5 mechanical_valve
+map s1 drawer_catch
+map m1 isolation_release
+
+
+
+#-------------------------------------------------------------------------------
+		
+solenoid isolation_release on 		# isolation solenoid should be powered up indefinitely
+solenoid drawer_catch off  		# drawer_catch should be left off normally
+
+#pressure valves are rippled on-and-off 
+valve vacuum_enable on
+valve Low_High_Pressure_Select on
+valve bellows on
+valve pump_V1_pcr on
+valve pump_V2 on
+valve V3_wash_inlet on
+valve V4_elute_inlet on
+valve V5_elute_enable on
+valve v6_waste_enable on
+valve wash_air_dry on
+valve elute_air_dry on
+valve low_pressure_dump on
+valve high_pressure_dump on 
+valve digital_enable on
+valve vacuum_enable on
+valve vacuum_dump on
+
+valve vacuum_enable off
+valve Low_High_Pressure_Select off
+valve bellows off
+valve pump_V1_pcr off
+valve pump_V2 off
+valve V3_wash_inlet off
+valve V4_elute_inlet off
+valve V5_elute_enable off
+valve v6_waste_enable off
+valve wash_air_dry off
+valve elute_air_dry off
+valve digital_enable off
+valve vacuum_enable off
+valve airdry_enable off
+
+#reservoirs are pumped up.
+res res1 hold 500 600 20 initvswID
+res res2 hold 900 1000 20 initpswID
+res res3 hold 700 800 30 initregID
+wait initvswID 10
+wait initpswID 10
+wait initregID 10

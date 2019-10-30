@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-16"?>
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AutoLogoffPeriodInSeconds>60</AutoLogoffPeriodInSeconds>
+  <Locale>English</Locale>
+  <InstrumentName>IO</InstrumentName>
+  <PasswordRules xsi:type="PasswordRules">
+    <MinimumLength>6</MinimumLength>
+    <MinimumAlphabetical>0</MinimumAlphabetical>
+    <MinimumAlphanumeric>0</MinimumAlphanumeric>
+    <ExpiryTimeInDays>1</ExpiryTimeInDays>
+    <MixedCase>false</MixedCase>
+  </PasswordRules>
+  <Fields>
+    <IField xsi:type="Field">
+      <Name>Name</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Surname</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>ContactNo</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Address</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>PatientId</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>DateOfBirth</Name>
+      <FieldType>Date</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Name</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Surname</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>ContactNo</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Address</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>PatientId</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>DateOfBirth</Name>
+      <FieldType>Date</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Name</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Surname</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>ContactNo</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Address</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>PatientId</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>DateOfBirth</Name>
+      <FieldType>Date</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Name</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Surname</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>ContactNo</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Address</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>PatientId</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>DateOfBirth</Name>
+      <FieldType>Date</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Name</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Surname</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>ContactNo</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Address</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>PatientId</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>DateOfBirth</Name>
+      <FieldType>Date</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Name</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Surname</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>ContactNo</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Address</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>PatientId</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>DateOfBirth</Name>
+      <FieldType>Date</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Name</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Surname</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>ContactNo</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Address</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>PatientId</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>DateOfBirth</Name>
+      <FieldType>Date</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Name</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Surname</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>ContactNo</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Address</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>PatientId</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>DateOfBirth</Name>
+      <FieldType>Date</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Name</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Surname</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>ContactNo</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Address</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>PatientId</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>DateOfBirth</Name>
+      <FieldType>Date</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Name</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Surname</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>ContactNo</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Address</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>PatientId</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>DateOfBirth</Name>
+      <FieldType>Date</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Name</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Surname</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>ContactNo</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Address</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>PatientId</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>DateOfBirth</Name>
+      <FieldType>Date</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Name</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Surname</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>ContactNo</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Address</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>PatientId</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>DateOfBirth</Name>
+      <FieldType>Date</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Name</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Surname</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>ContactNo</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>Address</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>PatientId</Name>
+      <FieldType>Text</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+    <IField xsi:type="Field">
+      <Name>DateOfBirth</Name>
+      <FieldType>Date</FieldType>
+      <Policy>Display</Policy>
+    </IField>
+  </Fields>
+  <DeveloperPort>0</DeveloperPort>
+</Configuration>

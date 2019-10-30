@@ -1,0 +1,5 @@
+# Main script for C.Trachomatis
+
+name res1 Vacuum
+
+call PrimeReservoirs

@@ -1,0 +1,138 @@
+#---------------------------------------------
+#draft Alpha II script initialise_run July2012
+#Tom Edwards 9th Aug 2012
+#copyright Atlas Genetics Ltd 2012
+#---------------------------------------------
+
+#revision history
+#0.2 TE 29-08-2012
+#0.3 TE 03-09-2012
+#0.4 AB 02-09-2012 - lowered tank pressures - 
+
+#this script sets reservoir pressures, initialises steppers, and names I/O correctly 
+#equivalent to 'initialise_Run'
+#---------------------------------------------
+#map the external instrument valve names to the Randox output names (temporary translation)
+map V1   Bellows
+map v2    pump_V1_pcr
+map v3    pump_V2
+map v4    V3_wash_inlet
+map v5    V4_elute_inlet
+map v6    V5_elute_enable
+map v7    V6_waste_enable
+map v8    not_used
+map v9    wash_air_dry
+map v10   elute_air_dry
+
+#map internal valves
+map V11   Vacuum_Dump
+map V12   Vacuum_Enable
+map V13   Low_High_Pressure_Select
+map V14   Low_Pressure_Dump
+map V15   High_Pressure_Dump
+map V16   Low_Pressure_Enable
+#map V17  High_presssure_enable
+
+
+#map dpr1 digital_air
+#map solenoid pr1
+
+name PS1 vacuum_pressure(-mbar)
+name PS2 positive_logic(mbar)
+name PS3 airline(mbar)
+name PS4 n/c
+name PS5 digital_out(mbar)
+name PS6 flying_sensor(not_cal)
+name PS7 n/c
+name PS8 n/c
+
+#map v13 select
+map l1 clamp
+map l2 elute
+map l3 lyse
+map l4 wash
+map l5 mechanical_valve
+
+map s1 drawer_catch
+map m1 isolation_release
+#etc..
+
+
+#apply Rx labels as friendly names in PC
+#pneumatics
+name v1 A6 
+name v2 A7 
+name v3 A8
+name v4 A9
+name v5 A10
+name v6 A12
+name v7 A11 
+name v8 A1 
+name v9 A2 
+name v10 A3 
+name v11 -
+name v12 -
+name v13 -
+name v14 -
+name v15 -
+name v16 -
+name l1 L5
+name l2 L4
+name l3 L3
+name l4 L2
+#name dpr1 pp9
+
+
+#configure detection heater
+call setup_detection.txt
+
+#configure PCR heater
+call setup_PCR.txt
+
+
+#________________________________________________________________________
+#initialise
+#warn the user then setup the reservoir operating pressures
+#dialog ok "Press OK to start the reservoir pumps"
+res res1 hold 500 20 initvswID
+res res2 hold 900 20 initpswID
+res res3 hold 700 30 initregID
+
+#set valves and steppers to initial positions by driving them quickly as far back as possible. 
+#stepper [name] [steps/sec] [distance, steps]
+#stepper name speed distance.Full steps 
+#clamp steps 0.0125mm per step, 
+#stepper Clamp 100 1100
+#actuators 0.0254mm per step. Following are corrected to full steps, Rx all in 1/8 steps.
+#stepper elute 400 -1500
+#stepper lyse 400 -1500
+#stepper wash 400 -1500
+#stepper mechanical_valve 400 -1500
+
+# isolation solenoid should be powered up indefinitely
+# drawer_catch should be powered up normally
+solenoid isolation_release on    
+solenoid drawer_catch off   
+
+#pressure valves are initiated correctly.
+valve vacuum_enable off
+valve Low_High_Pressure_Select off
+valve bellows off
+valve pump_V1_pcr off
+valve pump_V2 off
+valve V3_wash_inlet off
+valve V4_elute_inlet off
+valve V5_elute_enable off
+valve v6_waste_enable off
+valve wash_air_dry off
+valve elute_air_dry off
+
+#etc
+
+#now wait to make sure that pressure reservoirs are charged
+wait initvswID 60
+wait initpswID 60
+wait initregID 60
+
+#get OK from user to continue
+dialog ok "Reservoirs are charged, press OK to continue."

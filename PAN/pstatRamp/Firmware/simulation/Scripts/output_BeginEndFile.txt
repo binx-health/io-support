@@ -1,0 +1,13 @@
+*L=Calling test_BeginEndFile.txt
+*H=res1,2
+*L=res1,2,200,200
+*H=res1,2
+*L=res1,2,200,200
+*H=res1,2
+*L=res1,2,200,200
+*H=res1,2
+*L=res1,2,200,200
+*H=res1,2
+*L=res1,2,200,200
+*H=res1,2
+*L=res1,2,200,200

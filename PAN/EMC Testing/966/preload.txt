@@ -1,0 +1,78 @@
+﻿#Approvals:
+
+#Author:
+
+#Reviewer:
+#------------------------
+#Atlas Genetics 2017
+#io core script 'Preoad.txt' PAN-D-108
+#used to check the clamp for receiving a cartridge.
+#------------------------
+#revision history
+#1.0  08 Mar 2016  for distribution with PAN-D-050 and PAN-D-051 revision 5.0 PAN-CM-0399 processed on PAN-CM-0423
+#2.0  09 Aug 2016  Amended clamp step to 1400 to fully close clamp for Pstat check, Processed on PAN-CM-0458
+#3.0  14 Mar 2017  Change to power supplied to stepper motors (85% instead of 70%) during script.For release with PAN-D-050 and PAN-D-051 revision 5.4 PAN-CM-488
+#4.0  13 Sep 2017  Added delay in before pstat checking to allow for clamp to fully engage with pins and resistance to settle. 
+#                  added preheated step to control Peltier temps. allowed for 10C target offset for this script
+
+#-------------------------
+
+set Peltier.Detection.TargetOffset 100
+set Peltier.Lysis.TargetOffset 100
+set Peltier.Pcr.TargetOffset 100
+
+#start preheat procedure
+therm therm3 on 25 AckDET
+therm therm2 on 25 AckPCR
+therm therm1 on 25 AckSAMP
+
+# Activate and fully open to  pick up the electromagnet, raise the clamp and release the drawer
+solenoid m1 on
+stepper l1 450 -1400 ackVar  		# close clamp fully for potentiostat
+wait ackVar 20
+
+# Check the isolation valve
+isovalve
+
+# Allow delay for clamp to fully complete movement and sensors to settle
+delay 100     #allow time for pins to settle on resistor board. 
+
+# Check potentiostat values and ambient values
+pstat					#if expected value of resistors, OK, else check with user if cartridge were present (via reset)
+psensor
+
+set Motor.Steppers.Pwm 85			#override defaultmetrics for this script only
+# push any cartridge out using lyse and mech actuators as clamp opens. Unlikely that cartridge present and not detected by pstat.
+stepper l1 500 850 ackVar		# Clamp
+stepper l3 500 1000 lyseAck	        # Lyse	
+stepper l5 500 800 mechAck		# Mechanical valve
+wait ackVar 30
+
+stepper l1 250 500 done                 #finish opening clamp at high torque to engage isolation valve.
+wait lyseAck 30
+wait mechAck 30
+wait done 30
+set Motor.Steppers.Pwm 70			#restore defaultmetrics
+
+stepper l5 500 -400 mech_retract
+stepper l3 500 -1000 lyseAck
+wait mech_retract 30
+stepper l5 400 20
+wait lyseAck 30
+stepper l3 400 20
+
+stepper l1 400 -550 done                    #reset clamp to ordinary positon
+wait done 20
+
+wait AckDET 20
+wait AckPCR 20
+wait AckSAMP 20
+
+therm therm3 off
+therm therm2 off
+therm therm1 off
+
+set Peltier.Detection.TargetOffset 0
+set Peltier.Lysis.TargetOffset 0
+set Peltier.Pcr.TargetOffset 5
+

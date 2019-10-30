@@ -1,0 +1,9 @@
+res res1 hold 500 600 20 initvswID	#test comment on same line as command
+# normal comment
+res res2 hold 100 200 10 flag2 #another comment
+if initvswID#another comment2
+	voltammetry differential 1 2 3 4 5 6 ackVar
+else
+	voltammetry differential 6 5 4 3 2 1 ackVar
+endif
+res res3 dump

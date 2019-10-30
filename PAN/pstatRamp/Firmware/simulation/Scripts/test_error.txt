@@ -1,0 +1,8 @@
+res res1 hold 500 700 20 initvswID
+res v1 hold 100 200 10 flag2
+if initvswID
+	voltammetry 1 2 3 4 5 6 ackVar
+else
+	voltammetry 6 5 4 3 2 1 ackVar
+endif
+res res3 dump

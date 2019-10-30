@@ -1,0 +1,2 @@
+General.Log.Error ""
+General.Log.ReportingPeriod 1000

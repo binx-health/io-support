@@ -1,0 +1,41 @@
+#testing ignoring comment
+	#comment with tab
+		res res2 hold 14 30 4
+res res1 hold 500 600 20 initvswID
+res res1 hold 100 200 20 initvswID
+begin atomic 1
+  res res1 hold 200 300 20
+    begin atomic 1
+	  res res1 hold 300 400 20
+	    begin atomic 1
+		  res res1 hold 400 500 20
+		    begin atomic 6
+		      res res1 hold 500 600 20
+			  begin atomic 1
+			    res res1 hold 600 700 20
+				begin atomic 1
+				  res res1 hold 700 800 20
+				    begin atomic 1
+					  res res1 hold 800 900 20
+					    begin atomic 1
+						  res res1 hold 900 1000 20
+						    begin atomic 1
+							  res res1 hold 910 1100 20
+							end
+						end
+					end
+				end
+			  end
+			end
+		end
+	end
+end
+res res2 hold 100 200 10 flag2
+if initvswID
+	voltammetry differential 1 2 3 4 5 6 ackVar
+	res res3 dump
+else
+	voltammetry differential 6 5 4 3 2 1 ackVar
+	res res1 dump
+endif
+res res3 dump

@@ -1,0 +1,2 @@
+call test_BeginEndFile.txt
+delay 100

@@ -1,0 +1,1 @@
+makecert -pe -n "CN=IO Server" -ss my -sr Localmachine -a sha1 -sky exchange -eku 1.3.6.1.5.5.7.3.1 -in "IO Server Root Authority" -is root -ir LocalMachine -sp "Microsoft RSA SChannel Cryptographic Provider" -sy 12 IoServer.cer

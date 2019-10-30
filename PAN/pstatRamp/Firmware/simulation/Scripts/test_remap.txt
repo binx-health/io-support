@@ -1,0 +1,5 @@
+# map v1 to same name again
+map v1 bellows
+
+#map v2 to a new name
+map v2 v2_new_name

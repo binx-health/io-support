@@ -1,0 +1,146 @@
+﻿#------------------------------------------
+#Main
+#EMC Testing Script 
+#Originated antony brown 04/07/2019
+#Copyright Atlas Genetics Ltd 2019
+#------------------------------------------
+
+#set up intrument prior to run
+  call preload
+
+#make sure electromagnet stays on
+  solenoid m1 on
+
+#set pstat up to run constatntly 
+  pstat 1000 external
+
+#clamp up 
+  call clamp
+
+#start everything running for EMC test
+#turn solenoid off to avoid overheating
+solenoid m1 off
+
+  #charge pumps
+  begin atomic 10000
+
+    valve v12 off #vacuum_enable off
+    valve v13 off #Low_High_Pressure_Select off
+    valve v1 off  #bellows off
+    valve v2 off  #pump_V1_pcr off
+    valve v3 off  #pump_V2 off
+    valve v4 off  #V3_wash_inlet off
+    valve v5 off  #V4_elute_inlet off
+    valve v6 off  #V5_elute_enable off
+    valve v7 off  #v6_waste_enable off
+    valve v8 off  #air_dry_enable off
+    valve v9 off  #wash_air_dry off
+    valve v10 off #elute_air_dry off
+    valve v14 off #low_pressure_dump off
+    valve v15 off #high_pressure_dump off
+    valve v16 off #digital_enable off
+    valve v11 off #vacuum_dump off
+    valve v17 off #digital_outlet atmospheric off
+
+
+    res res2 hold 700 900 20 ackp2
+    res res3 hold 900 1100 20 ackp3
+
+
+    wait ackp2 5
+    wait ackp3 10
+
+
+
+    if ackp2
+      #do nothing
+      else
+      call error_30010
+    endif
+
+    if ackp3
+      #do nothing
+      else
+      call error_30014
+    endif
+      
+    
+      valve v16 on
+      valve v17 on
+      Dpr dpr1 on 30 0
+      delay 100
+      dpr dpr1 off
+      valve v16 off
+      valve v17 off 
+      delay 100
+   
+     res res2 dump
+     res res3 dump
+
+
+      #pressure valves are rippled on-and-off to cause pumps to run
+      valve v12 on #vacuum_enable on
+      valve v13 on #Low_High_Pressure_Select on
+      valve v1 on  #bellows on
+      valve v2 on  #pump_V1_pcr on
+      valve v3 on  #pump_V2 on
+      valve v4 on  #V3_wash_inlet on
+      valve v5 on  #V4_elute_inlet on
+      valve v6 on  #V5_elute_enable on
+      valve v7 on  #v6_waste_enable on
+      valve v8 on
+      valve v9 on  #wash_air_dry on
+      valve v10 on #elute_air_dry on
+      valve v14 on #low_pressure_dump on
+      valve v15 on #high_pressure_dump on 
+      valve v16 on #digital_enable on
+      valve v11 on #vacuum_dump on
+      valve v17 on
+
+
+
+      res res1 hold 500 700 20 ackp1
+      wait ackp1 5
+        if ackp1
+        #do nothing
+        else
+       call error_30011
+      endif
+
+      delay 100
+
+      res res1 dump
+      delay 100
+  end
+
+  #steppers
+    begin atomic 1500
+      stepper l2 500 600
+      stepper l3 500 600
+      stepper l4 500 600
+      stepper l5 500 600 
+#      stepper l1 250 500
+      delay 220
+
+      stepper l2 500 -600
+      stepper l3 500 -600
+      stepper l4 500 -600
+      stepper l5 500 -600  
+#      stepper l1 250 -500
+      delay 220
+    end
+
+     
+
+  #peltier
+    begin atomic 1
+      therm therm3 on 50 ackt3
+      wait ackt3 5
+    end
+
+    begin atomic 1500
+      therm therm2 on 90 ackt2
+      wait ackt2 10
+      therm therm2 on 60 ackt22
+      wait ackt22 10
+    end

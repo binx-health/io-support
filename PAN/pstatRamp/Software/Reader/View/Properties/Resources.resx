@@ -1,0 +1,672 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Minute" xml:space="preserve">
+    <value>Minute</value>
+  </data>
+  <data name="Detected" xml:space="preserve">
+    <value>{0} DETECTED</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="USB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\USB.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AllResults" xml:space="preserve">
+    <value>Available Test Results</value>
+  </data>
+  <data name="InvalidCredentials" xml:space="preserve">
+    <value>The credentials are invalid.</value>
+  </data>
+  <data name="CheckingForAssays" xml:space="preserve">
+    <value>Checking For Latest Tests</value>
+  </data>
+  <data name="Instrument_drawer_open" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Instrument_drawer_open.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExportHeader" xml:space="preserve">
+    <value>WARNING: THIS IS AN UNCONTROLLED FILE
+
+Date and time of export: {0} UTC
+Instrument ID: {1}
+
+</value>
+  </data>
+  <data name="CartridgeErrorConfirm" xml:space="preserve">
+    <value>The cartridge barcode could not be read.
+Eject, check barcode and try again.</value>
+  </data>
+  <data name="ExportOverwrite" xml:space="preserve">
+    <value>A matching file already exists. This file will be overwritten.
+WARNING: ANY DATA IN THE EXISTING FILE WILL BE LOST</value>
+  </data>
+  <data name="DeleteUserConfirm" xml:space="preserve">
+    <value>Do you want to delete this user account?</value>
+  </data>
+  <data name="QcTestDue" xml:space="preserve">
+    <value>QC Test Due</value>
+  </data>
+  <data name="SearchedResults" xml:space="preserve">
+    <value>Searched Test results</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="InvalidLoginText" xml:space="preserve">
+    <value>The User Name or Password entered was not recognised.
+Please re-enter this information or select Cancel.</value>
+  </data>
+  <data name="ReviewTest" xml:space="preserve">
+    <value>Review Test Input</value>
+  </data>
+  <data name="AutoSampleId" xml:space="preserve">
+    <value>You have not entered a Specimen ID.
+Would you like the Reader to assign a reference number for future identification?</value>
+  </data>
+  <data name="EditUser" xml:space="preserve">
+    <value>View/Edit User Account</value>
+  </data>
+  <data name="Display" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="ReaderQuarantineTextAdmin" xml:space="preserve">
+    <value>ATTENTION: This reader has been placed under
+quarantine as a result of a target found during a QC test.
+
+WARNING: Only unlock the reader if the source of the target
+has been removed using suitable cleaning methods.</value>
+  </data>
+  <data name="PressBackToReturn" xml:space="preserve">
+    <value>
+
+Press Back to return</value>
+  </data>
+  <data name="RemoveAndDispose" xml:space="preserve">
+    <value>A cartridge may be present from an aborted test.
+Please remove and safely dispose of any cartridge and close the drawer.</value>
+  </data>
+  <data name="Blank_Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Blank_Background.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Login_icon_selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Login_icon_selected.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Tick" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Tick.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fault" xml:space="preserve">
+    <value>This instrument has developed a fault.
+Please try restarting, or contact your sales
+representative with the fault reference below.</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="ServerSettings" xml:space="preserve">
+    <value>Server Settings</value>
+  </data>
+  <data name="Invalid" xml:space="preserve">
+    <value>Invalid</value>
+  </data>
+  <data name="CancelTest" xml:space="preserve">
+    <value>Cancel Test</value>
+  </data>
+  <data name="CancelTestConfirm" xml:space="preserve">
+    <value>Do you want to cancel the current test?
+Test data and the specimen will be lost.</value>
+  </data>
+  <data name="MissingInformationText" xml:space="preserve">
+    <value>Please enter data to all boxes to enable tracking
+and future tracing of test results</value>
+  </data>
+  <data name="MainMenuAdmin" xml:space="preserve">
+    <value>Main Menu (admin account)</value>
+  </data>
+  <data name="EnterQcSampleId" xml:space="preserve">
+    <value>Enter QC Specimen ID or Scan Barcode</value>
+  </data>
+  <data name="EnterSampleId" xml:space="preserve">
+    <value>Enter Specimen ID or Scan Barcode</value>
+  </data>
+  <data name="ShutdownConfirm" xml:space="preserve">
+    <value>Are you sure you want to shut the instrument down?</value>
+  </data>
+  <data name="Weekly" xml:space="preserve">
+    <value>Weekly</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Set Language</value>
+  </data>
+  <data name="Home_icon_selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Home_icon_selected.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Daily" xml:space="preserve">
+    <value>Daily</value>
+  </data>
+  <data name="AboutTitle" xml:space="preserve">
+    <value>About IO</value>
+  </data>
+  <data name="AssayVersion" xml:space="preserve">
+    <value>Assay Version</value>
+  </data>
+  <data name="TestInvalid" xml:space="preserve">
+    <value>{0} TEST INVALID</value>
+  </data>
+  <data name="Monthly" xml:space="preserve">
+    <value>Monthly</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="SelectNewAssay" xml:space="preserve">
+    <value>Select Test To Add</value>
+  </data>
+  <data name="Enabled" xml:space="preserve">
+    <value>Enabled</value>
+  </data>
+  <data name="Unlocked" xml:space="preserve">
+    <value>Unlocked</value>
+  </data>
+  <data name="LoadSample" xml:space="preserve">
+    <value>Load Specimen into Cartridge</value>
+  </data>
+  <data name="CartridgeError" xml:space="preserve">
+    <value>Cartridge Error</value>
+  </data>
+  <data name="UpdateInProgress" xml:space="preserve">
+    <value>Update In Progress</value>
+  </data>
+  <data name="Negative" xml:space="preserve">
+    <value>Negative</value>
+  </data>
+  <data name="Seconds" xml:space="preserve">
+    <value>Seconds</value>
+  </data>
+  <data name="PasswordRules" xml:space="preserve">
+    <value>Password Rules</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="CartridgeCode" xml:space="preserve">
+    <value>Cartridge Code</value>
+  </data>
+  <data name="AddNewAssay" xml:space="preserve">
+    <value>Add New Assay Type</value>
+  </data>
+  <data name="Back_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Back_icon.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NoNewAssays" xml:space="preserve">
+    <value>No New Assays</value>
+  </data>
+  <data name="Load_cartridge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Load_cartridge.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AbandonTestSetup" xml:space="preserve">
+    <value>Abandon Setup Confirmation</value>
+  </data>
+  <data name="PasswordExpiredConfirm" xml:space="preserve">
+    <value>Your password has expired.
+Please renew your password on the following screen.</value>
+  </data>
+  <data name="SetDateTime" xml:space="preserve">
+    <value>Set Date/Time</value>
+  </data>
+  <data name="Setup" xml:space="preserve">
+    <value>System Setup</value>
+  </data>
+  <data name="PrintOptions" xml:space="preserve">
+    <value>Print Options</value>
+  </data>
+  <data name="Locked" xml:space="preserve">
+    <value>Locked</value>
+  </data>
+  <data name="IncorrectCartridge" xml:space="preserve">
+    <value>Incorrect Cartridge Detected</value>
+  </data>
+  <data name="LoadCartridge" xml:space="preserve">
+    <value>Load Cartridge into Instrument</value>
+  </data>
+  <data name="QcTestDismissal" xml:space="preserve">
+    <value>QC Test Dismissal</value>
+  </data>
+  <data name="QcTestDueText" xml:space="preserve">
+    <value>ATTENTION: QC Test is due to be run on this Reader.
+Would you like to run this test now?</value>
+  </data>
+  <data name="Administrator" xml:space="preserve">
+    <value>Administrator</value>
+  </data>
+  <data name="AssaySettings" xml:space="preserve">
+    <value>Assay Settings</value>
+  </data>
+  <data name="OperatorId" xml:space="preserve">
+    <value>Operator ID</value>
+  </data>
+  <data name="ReviewQcTest" xml:space="preserve">
+    <value>Review QC Test Input</value>
+  </data>
+  <data name="Positive" xml:space="preserve">
+    <value>Positive</value>
+  </data>
+  <data name="Login_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Login_icon.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MissingInformation" xml:space="preserve">
+    <value>Missing Information</value>
+  </data>
+  <data name="LogoutConfirm" xml:space="preserve">
+    <value>Are you sure you want to log out?</value>
+  </data>
+  <data name="ContactNo" xml:space="preserve">
+    <value>Contact No.</value>
+  </data>
+  <data name="io_processing" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\io_processing.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ConfirmSample" xml:space="preserve">
+    <value>Confirm Specimen is Correctly Loaded</value>
+  </data>
+  <data name="QcTestDismissalText" xml:space="preserve">
+    <value>Only an Administrator can dismiss a QC Test.
+Please log in to a current Administrator account.</value>
+  </data>
+  <data name="TestRunning" xml:space="preserve">
+    <value>Test Running</value>
+  </data>
+  <data name="AbandonQcSetupConfirm" xml:space="preserve">
+    <value>Do you want to abandon this QC setup?</value>
+  </data>
+  <data name="ExportSuccess" xml:space="preserve">
+    <value>The {0} file has been saved successfully.
+ATTENTION: THIS FILE IS UNCONTROLLED.</value>
+  </data>
+  <data name="Confirm_sample" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Confirm_sample.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MainMenu" xml:space="preserve">
+    <value>Main Menu</value>
+  </data>
+  <data name="SetDate" xml:space="preserve">
+    <value>Select Date</value>
+  </data>
+  <data name="EnterUniqueSampleId" xml:space="preserve">
+    <value>The Specimen ID entered has already been tested. Please enter a unique specimen ID.</value>
+  </data>
+  <data name="IO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IO.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InvalidLogin" xml:space="preserve">
+    <value>Invalid User Name Or Password</value>
+  </data>
+  <data name="AbandonQcTestSetup" xml:space="preserve">
+    <value>Abandon QC Setup Confirmation</value>
+  </data>
+  <data name="Record" xml:space="preserve">
+    <value>Record</value>
+  </data>
+  <data name="Aborted" xml:space="preserve">
+    <value>User Aborted</value>
+  </data>
+  <data name="IncorrectCartridgeConfirm" xml:space="preserve">
+    <value>The detected cartridge cannot be run on this
+Reader. Would you like to add this test?</value>
+  </data>
+  <data name="PatientId" xml:space="preserve">
+    <value>Patient ID</value>
+  </data>
+  <data name="ForInvestigationUseOnly" xml:space="preserve">
+    <value>for investigation use only</value>
+  </data>
+  <data name="ExpiredCartridgeConfirm" xml:space="preserve">
+    <value>The cartridge is passed its expiry date.
+The test cannot be run.</value>
+  </data>
+  <data name="EnterUser" xml:space="preserve">
+    <value>Enter User Account Details</value>
+  </data>
+  <data name="EnterPatientDetails" xml:space="preserve">
+    <value>Enter Patient Details</value>
+  </data>
+  <data name="PermanentSystem" xml:space="preserve">
+    <value>Permanent System</value>
+  </data>
+  <data name="PasswordExpired" xml:space="preserve">
+    <value>Password Expired</value>
+  </data>
+  <data name="Second" xml:space="preserve">
+    <value>Second</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="SampleId" xml:space="preserve">
+    <value>Specimen ID</value>
+  </data>
+  <data name="AbandonSetupConfirm" xml:space="preserve">
+    <value>Do you want to abandon this setup?</value>
+  </data>
+  <data name="Never" xml:space="preserve">
+    <value>Never</value>
+  </data>
+  <data name="ReaderQuarantine" xml:space="preserve">
+    <value>Reader Quarantine</value>
+  </data>
+  <data name="NoHelp" xml:space="preserve">
+    <value>No help is available for this screen</value>
+  </data>
+  <data name="QcTestSetup" xml:space="preserve">
+    <value>QC Test Setup</value>
+  </data>
+  <data name="UnexpectedShutdown" xml:space="preserve">
+    <value>Unexpected Shutdown</value>
+  </data>
+  <data name="SearchTestResults" xml:space="preserve">
+    <value>Search Test Results</value>
+  </data>
+  <data name="DoNotQuarantine" xml:space="preserve">
+    <value>Do Not Quarantine</value>
+  </data>
+  <data name="NoRemovableStorage" xml:space="preserve">
+    <value>No compatible removable storage devices have been found.</value>
+  </data>
+  <data name="MaximumAdministrators" xml:space="preserve">
+    <value>The maximum number of administrators ({0}) already exist in the system</value>
+  </data>
+  <data name="NotDetected" xml:space="preserve">
+    <value>{0} NOT DETECTED</value>
+  </data>
+  <data name="io_processing_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\io_processing 2.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InstrumentFailedToInitialise" xml:space="preserve">
+    <value>Instrument Failed To Initialise</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>Minutes</value>
+  </data>
+  <data name="TestComplete" xml:space="preserve">
+    <value>Test Complete</value>
+  </data>
+  <data name="Shutdown" xml:space="preserve">
+    <value>Shut Down</value>
+  </data>
+  <data name="EnterNewPassword" xml:space="preserve">
+    <value>Enter New Password</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="DeleteUser" xml:space="preserve">
+    <value>Delete User Account</value>
+  </data>
+  <data name="Atlas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Atlas.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AboutText" xml:space="preserve">
+    <value>Software version: {0}
+Firmware version : {1}
+Total results: {2}
+Queued results: {3}
+Storage space available: {4}
+Serial number: {5}</value>
+  </data>
+  <data name="ReaderQuarantineTextUser" xml:space="preserve">
+    <value>ATTENTION: This reader has been placed under quarantine.
+Please log into a current Administrator account to unlock.</value>
+  </data>
+  <data name="FirmwareVersion" xml:space="preserve">
+    <value>Software version {0}</value>
+  </data>
+  <data name="TestInProgress" xml:space="preserve">
+    <value>Test in progress.
+User: {0}</value>
+  </data>
+  <data name="InstrumentDrawerOpen" xml:space="preserve">
+    <value>Instrument Drawer Open</value>
+  </data>
+  <data name="Quarantined" xml:space="preserve">
+    <value>Quarantined</value>
+  </data>
+  <data name="InstrumentConfiguration" xml:space="preserve">
+    <value>Instrument Configuration</value>
+  </data>
+  <data name="InstrumentName" xml:space="preserve">
+    <value>Instrument Name</value>
+  </data>
+  <data name="QcTestResults" xml:space="preserve">
+    <value>QC Test Result</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Disabled</value>
+  </data>
+  <data name="TestResult" xml:space="preserve">
+    <value>Test Results</value>
+  </data>
+  <data name="ExportError" xml:space="preserve">
+    <value>An error occurred exporting the data</value>
+  </data>
+  <data name="TestResults" xml:space="preserve">
+    <value>Test Results</value>
+  </data>
+  <data name="ReplacePcrStack" xml:space="preserve">
+    <value>The PCR heater needs to be replaced</value>
+  </data>
+  <data name="TestCompleteIn" xml:space="preserve">
+    <value>Test Complete In {0} {1}</value>
+  </data>
+  <data name="PrintToFile" xml:space="preserve">
+    <value>Print To File</value>
+  </data>
+  <data name="DateAndTime" xml:space="preserve">
+    <value>Date &amp; Time</value>
+  </data>
+  <data name="Timeout" xml:space="preserve">
+    <value>Timeout Settings</value>
+  </data>
+  <data name="Help_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Help_icon.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Export Data</value>
+  </data>
+  <data name="EditQcDetails" xml:space="preserve">
+    <value>Edit QCDetails</value>
+  </data>
+  <data name="UnexpectedShutdownText" xml:space="preserve">
+    <value>The Reader has recovered from an unexpected shutdown.
+
+Please ensure the Cartridge drawer is empty and closed.</value>
+  </data>
+  <data name="Help_icon_selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Help_icon_selected.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CloseReaderDrawer" xml:space="preserve">
+    <value>To enable a new test to start,
+please close the reader drawer
+after removing a used Cartridge</value>
+  </data>
+  <data name="NewAndVerifyMustMatch" xml:space="preserve">
+    <value>New Password and Verify Password must match.</value>
+  </data>
+  <data name="DataPolicy" xml:space="preserve">
+    <value>Data Policy</value>
+  </data>
+  <data name="Download" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Download.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TimeoutSettings" xml:space="preserve">
+    <value>Timeout Settings</value>
+  </data>
+  <data name="SystemIdle" xml:space="preserve">
+    <value>System Idle</value>
+  </data>
+  <data name="UserManagement" xml:space="preserve">
+    <value>User Management</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>User Accounts Available</value>
+  </data>
+  <data name="Home_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Home_icon.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TestType" xml:space="preserve">
+    <value>Test Type</value>
+  </data>
+  <data name="NoNewAssaysHaveBeenFound" xml:space="preserve">
+    <value>There are no new assays available</value>
+  </data>
+  <data name="Ignore" xml:space="preserve">
+    <value>Ignore</value>
+  </data>
+  <data name="Load_sample" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Load_sample.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Surname" xml:space="preserve">
+    <value>Surname</value>
+  </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>D.O.B.</value>
+  </data>
+  <data name="Update_in_progress" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Update_in_progress.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Barcode_scan" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Barcode_scan.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CannotEject" xml:space="preserve">
+    <value>The Reader cannot eject at this time.</value>
+  </data>
+  <data name="PrinterNotFound" xml:space="preserve">
+    <value>No printer is available</value>
+  </data>
+  <data name="UniqueSmpleId" xml:space="preserve">
+    <value>You have not entered a unique Specimen ID.
+Would you like the Reader to append a unique reference number for future identification?</value>
+  </data>
+  <data name="EmptyReaderDrawer" xml:space="preserve">
+    <value>If there is a used Cartridge in the drawer please remove it and close the drawer. If not please press Continue.</value>
+  </data>
+  <data name="AssayUpdateFailed" xml:space="preserve">
+    <value>The Assay provided is invalid.</value>
+  </data>
+</root>

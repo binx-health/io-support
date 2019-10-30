@@ -1,0 +1,14 @@
+﻿#------------------------------------------
+#EMC_Voltammetry
+#Originated antony brown 23/07/2019
+#Copyright Atlas Genetics Ltd 2019
+#------------------------------------------
+
+#-------version history--------------------
+#v1.0 - 23Jul2019 - basic voltammetry to run for EMC
+#------------------------------------------
+
+
+
+voltammetry differential 0 50 3 600 40 60 
+delay 2200

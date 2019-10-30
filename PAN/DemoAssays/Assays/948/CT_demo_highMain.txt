@@ -1,0 +1,51 @@
+﻿# Start in the clamped position
+# Main script for C.Trachomatis
+
+throw 10002,0
+delay 100
+throw 10002,5
+delay 100
+throw 10002,10
+delay 100
+throw 10002,15
+delay 100
+throw 10002,20
+delay 100
+throw 10002,25
+delay 100
+throw 10002,30
+delay 100
+throw 10002,35
+delay 100
+throw 10002,40
+delay 100
+throw 10002,45
+delay 100
+throw 10002,50
+delay 100
+throw 10002,55
+delay 100
+throw 10002,60
+delay 100
+throw 10002,65
+delay 100
+throw 10002,70
+delay 100
+throw 10002,75
+delay 100
+throw 10002,80
+delay 100
+throw 10002,85
+delay 100
+throw 10002,90
+delay 100
+throw 10002,95
+delay 100
+
+peak algorithm "DefaultAnalysis" 25 25
+peak define "Ignore" Ignore 1 -100 0
+peak define "CT" Positive 1  109 309 229 20 30 Infinity 100 80
+peak define "Ignore" Ignore 2 -100 0
+peak define "Control" Positive 2  109 309 229 20 30 Infinity 100 80
+
+throw 10002,100

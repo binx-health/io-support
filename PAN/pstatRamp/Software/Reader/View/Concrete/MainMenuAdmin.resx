@@ -1,0 +1,513 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="panelBottom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 410</value>
+  </data>
+  <data name="panelBottom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>800, 70</value>
+  </data>
+  <data name="&gt;&gt;panelBottom.Name" xml:space="preserve">
+    <value>panelBottom</value>
+  </data>
+  <data name="&gt;&gt;panelBottom.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelBottom.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panelBottom.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxBack.Name" xml:space="preserve">
+    <value>pictureBoxBack</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxBack.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxBack.Parent" xml:space="preserve">
+    <value>panelBottom</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxBack.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;labelStatus.Name" xml:space="preserve">
+    <value>labelStatus</value>
+  </data>
+  <data name="&gt;&gt;labelStatus.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelStatus.Parent" xml:space="preserve">
+    <value>panelBottom</value>
+  </data>
+  <data name="&gt;&gt;labelStatus.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxLogin.Name" xml:space="preserve">
+    <value>pictureBoxLogin</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxLogin.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxLogin.Parent" xml:space="preserve">
+    <value>panelBottom</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxLogin.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxHelp.Name" xml:space="preserve">
+    <value>pictureBoxHelp</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxHelp.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxHelp.Parent" xml:space="preserve">
+    <value>panelBottom</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxHelp.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxHome.Name" xml:space="preserve">
+    <value>pictureBoxHome</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxHome.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxHome.Parent" xml:space="preserve">
+    <value>panelBottom</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxHome.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panelTop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>800, 50</value>
+  </data>
+  <data name="&gt;&gt;panelTop.Name" xml:space="preserve">
+    <value>panelTop</value>
+  </data>
+  <data name="&gt;&gt;panelTop.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelTop.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panelTop.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="labelUser.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;labelUser.Name" xml:space="preserve">
+    <value>labelUser</value>
+  </data>
+  <data name="&gt;&gt;labelUser.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelUser.Parent" xml:space="preserve">
+    <value>panelTop</value>
+  </data>
+  <data name="&gt;&gt;labelUser.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <metadata name="timerClock.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>122, 17</value>
+  </metadata>
+  <data name="labelDate.Text" xml:space="preserve">
+    <value>12 Sep 2013</value>
+  </data>
+  <data name="&gt;&gt;labelDate.Name" xml:space="preserve">
+    <value>labelDate</value>
+  </data>
+  <data name="&gt;&gt;labelDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelDate.Parent" xml:space="preserve">
+    <value>panelTop</value>
+  </data>
+  <data name="&gt;&gt;labelDate.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="labelTime.Text" xml:space="preserve">
+    <value>14:31:51</value>
+  </data>
+  <data name="&gt;&gt;labelTime.Name" xml:space="preserve">
+    <value>labelTime</value>
+  </data>
+  <data name="&gt;&gt;labelTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelTime.Parent" xml:space="preserve">
+    <value>panelTop</value>
+  </data>
+  <data name="&gt;&gt;labelTime.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxAnimation.Name" xml:space="preserve">
+    <value>pictureBoxAnimation</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxAnimation.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxAnimation.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxAnimation.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <metadata name="timerWait.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="&gt;&gt;titleBar.Name" xml:space="preserve">
+    <value>titleBar</value>
+  </data>
+  <data name="&gt;&gt;titleBar.Type" xml:space="preserve">
+    <value>IO.View.Title, View, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;titleBar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;titleBar.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxBackground.Name" xml:space="preserve">
+    <value>pictureBoxBackground</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxBackground.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxBackground.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxBackground.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="buttonRunTest.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial Black, 14.25pt, style=Bold</value>
+  </data>
+  <data name="buttonRunTest.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 130</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="buttonRunTest.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>15, 15, 15, 15</value>
+  </data>
+  <data name="buttonRunTest.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 40</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="buttonRunTest.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="buttonRunTest.Text" xml:space="preserve">
+    <value>Run/Cancel Test</value>
+  </data>
+  <data name="&gt;&gt;buttonRunTest.Name" xml:space="preserve">
+    <value>buttonRunTest</value>
+  </data>
+  <data name="&gt;&gt;buttonRunTest.Type" xml:space="preserve">
+    <value>IO.View.Button, View, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;buttonRunTest.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;buttonRunTest.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="buttonMyResults.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial Black, 14.25pt, style=Bold</value>
+  </data>
+  <data name="buttonMyResults.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 200</value>
+  </data>
+  <data name="buttonMyResults.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>15, 15, 15, 15</value>
+  </data>
+  <data name="buttonMyResults.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 40</value>
+  </data>
+  <data name="buttonMyResults.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="buttonMyResults.Text" xml:space="preserve">
+    <value>View Data</value>
+  </data>
+  <data name="&gt;&gt;buttonMyResults.Name" xml:space="preserve">
+    <value>buttonMyResults</value>
+  </data>
+  <data name="&gt;&gt;buttonMyResults.Type" xml:space="preserve">
+    <value>IO.View.Button, View, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;buttonMyResults.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;buttonMyResults.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="buttonLogout.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial Black, 14.25pt, style=Bold</value>
+  </data>
+  <data name="buttonLogout.Location" type="System.Drawing.Point, System.Drawing">
+    <value>450, 200</value>
+  </data>
+  <data name="buttonLogout.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>15, 15, 15, 15</value>
+  </data>
+  <data name="buttonLogout.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 40</value>
+  </data>
+  <data name="buttonLogout.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="buttonLogout.Text" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="&gt;&gt;buttonLogout.Name" xml:space="preserve">
+    <value>buttonLogout</value>
+  </data>
+  <data name="&gt;&gt;buttonLogout.Type" xml:space="preserve">
+    <value>IO.View.Button, View, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;buttonLogout.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;buttonLogout.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="buttonSetup.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial Black, 14.25pt, style=Bold</value>
+  </data>
+  <data name="buttonSetup.Location" type="System.Drawing.Point, System.Drawing">
+    <value>450, 130</value>
+  </data>
+  <data name="buttonSetup.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>15, 15, 15, 15</value>
+  </data>
+  <data name="buttonSetup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 40</value>
+  </data>
+  <data name="buttonSetup.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="buttonSetup.Text" xml:space="preserve">
+    <value>System Setup</value>
+  </data>
+  <data name="&gt;&gt;buttonSetup.Name" xml:space="preserve">
+    <value>buttonSetup</value>
+  </data>
+  <data name="&gt;&gt;buttonSetup.Type" xml:space="preserve">
+    <value>IO.View.Button, View, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;buttonSetup.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;buttonSetup.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="buttonExportData.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial Black, 14.25pt, style=Bold</value>
+  </data>
+  <data name="buttonExportData.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 270</value>
+  </data>
+  <data name="buttonExportData.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>15, 15, 15, 15</value>
+  </data>
+  <data name="buttonExportData.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 40</value>
+  </data>
+  <data name="buttonExportData.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="buttonExportData.Text" xml:space="preserve">
+    <value>Export Data</value>
+  </data>
+  <data name="&gt;&gt;buttonExportData.Name" xml:space="preserve">
+    <value>buttonExportData</value>
+  </data>
+  <data name="&gt;&gt;buttonExportData.Type" xml:space="preserve">
+    <value>IO.View.Button, View, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;buttonExportData.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;buttonExportData.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="buttonEject.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial Black, 14.25pt, style=Bold</value>
+  </data>
+  <data name="buttonEject.Location" type="System.Drawing.Point, System.Drawing">
+    <value>450, 270</value>
+  </data>
+  <data name="buttonEject.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>15, 15, 15, 15</value>
+  </data>
+  <data name="buttonEject.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 40</value>
+  </data>
+  <data name="buttonEject.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="buttonEject.Text" xml:space="preserve">
+    <value>Eject Drawer</value>
+  </data>
+  <data name="&gt;&gt;buttonEject.Name" xml:space="preserve">
+    <value>buttonEject</value>
+  </data>
+  <data name="&gt;&gt;buttonEject.Type" xml:space="preserve">
+    <value>IO.View.Button, View, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;buttonEject.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;buttonEject.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>10, 19</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>800, 480</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>MainMenu</value>
+  </data>
+  <data name="&gt;&gt;timerClock.Name" xml:space="preserve">
+    <value>timerClock</value>
+  </data>
+  <data name="&gt;&gt;timerClock.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;timerWait.Name" xml:space="preserve">
+    <value>timerWait</value>
+  </data>
+  <data name="&gt;&gt;timerWait.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>MainMenuAdmin</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>IO.View.Form, View, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+</root>

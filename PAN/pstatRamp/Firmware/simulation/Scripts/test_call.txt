@@ -1,0 +1,8 @@
+map l1 clamp
+map l2 elute
+
+call dummy1.txt
+
+map l3 lyse
+map l4 wash
+map l5 mechanical_valve

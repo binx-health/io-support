@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <serialNumber>XXX</serialNumber>
+  <developerPort>443</developerPort>
+  <printerPort>LPT1</printerPort>
+  <warningPcrCycles>200000</warningPcrCycles>
+  <warningPump1Time>1080000</warningPump1Time>
+  <warningPump2Time>1080000</warningPump2Time>
+</configuration>

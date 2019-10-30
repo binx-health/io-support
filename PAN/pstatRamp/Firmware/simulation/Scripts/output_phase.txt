@@ -1,0 +1,3 @@
+*T=10000, startup
+*T=10000, testing
+*T=10000, voltammetry

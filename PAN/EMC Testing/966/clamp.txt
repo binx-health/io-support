@@ -1,0 +1,22 @@
+﻿#Approvals:
+
+#Author:
+
+#Reviewer:
+#------------------------
+#Atlas Genetics 2013
+#io core script 'Clamp.txt' PAN-D-107
+#used to close the clamp
+#------------------------
+
+#revision history
+#1.0 20 Jan 2015 based on Clamp.txt 3.6 to be distributed with PAN-D-050 and PAN-D-051 revision 4.0 PAN-CM-0214 
+
+
+# Start from the raised position
+# Clamp the cartridge, slowing as reaches closure
+stepper l1 450 -550 ackVar
+wait ackVar 60
+stepper l1 250 -350 ackVar
+wait ackVar 60
+#testing

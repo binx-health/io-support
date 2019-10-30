@@ -1,0 +1,10 @@
+# Prime the reservoirs
+
+res res1 hold 500 20 res1ok
+
+wait res1ok 3
+
+if res1ok
+else
+  throw Error "Reservoirs failed to prime"
+endif

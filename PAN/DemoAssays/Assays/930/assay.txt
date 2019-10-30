@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<assay>
+  <code>930</code>
+  <version>5</version>
+  <name>CTNG</name>
+  <shortName>CTNG</shortName>
+  <target>
+    <targetName>CT</targetName>
+    <targetType>STD</targetType>
+    <peakName>CT</peakName>
+    <control>CTIC</control>
+  </target>
+  <target>
+    <targetName>NG</targetName>
+    <targetType>STD</targetType>
+    <peakName>NG</peakName>
+    <control>NGIC</control>
+  </target>
+  <disease>
+    <diseaseName>CT</diseaseName>
+    <loinc>47121-6</loinc>
+    <target>CT</target>
+    <detectionCriteria>CT</detectionCriteria>
+  </disease>
+  <disease>
+    <diseaseName>NG</diseaseName>
+    <loinc>47111-7</loinc>
+    <target>NG</target>
+    <detectionCriteria>NG</detectionCriteria>
+  </disease>
+  <flatLineInvalidatesAssay>False</flatLineInvalidatesAssay>
+  <diseasesIndependentlyValidated>False</diseasesIndependentlyValidated>
+  <script>CTNG_DemoMain</script>
+  <estimatedDuration>20</estimatedDuration>
+</assay>

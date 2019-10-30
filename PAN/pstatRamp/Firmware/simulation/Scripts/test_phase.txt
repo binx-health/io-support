@@ -1,0 +1,7 @@
+phase startup
+phase testing
+delay 10
+phase testing
+phase testing
+phase testing
+phase voltammetry

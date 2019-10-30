@@ -1,0 +1,3 @@
+res res1 hold 9 10 1
+#call testCall10.txt
+res res2 dump

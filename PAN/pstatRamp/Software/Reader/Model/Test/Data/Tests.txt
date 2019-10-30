@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-16"?>
+<Tests xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ITest xsi:type="Test">
+    <Result xsi:type="TestResult">
+      <SampleId>1</SampleId>
+      <QcTest>false</QcTest>
+      <StartDateTime>2013-02-01 11:12:10</StartDateTime>
+      <EndDateTime>2013-02-01 11:12:10</EndDateTime>
+      <Assay xsi:type="Assay">
+        <Name>Chlamydia</Name>
+        <ShortName>CT</ShortName>
+      </Assay>
+      <CartridgeData>1101101011</CartridgeData>
+      <CalibrationOutsideTolerance>true</CalibrationOutsideTolerance>
+      <Result>Positive</Result>
+    </Result>
+    <Data xsi:type="TestData">
+      <Log>etc.</Log>
+      <Readings>2</Readings>
+      <StartPotential>99.98</StartPotential>
+      <IncrementalPotential>0.3</IncrementalPotential>
+      <Cell1Values>
+        <double>0.1</double>
+        <double>0.2</double>
+      </Cell1Values>
+      <Cell2Values>
+        <double>0.1</double>
+        <double>0.2</double>
+      </Cell2Values>
+      <Cell3Values>
+        <double>0.1</double>
+        <double>0.2</double>
+      </Cell3Values>
+      <Cell4Values>
+        <double>0.1</double>
+        <double>0.2</double>
+      </Cell4Values>
+      <AnalysisType>Default</AnalysisType>
+    </Data>
+    <Phase>Idle</Phase>
+  </ITest>
+</Tests>

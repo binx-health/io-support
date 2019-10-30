@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<assay>
+  <code>967</code>
+  <version>1</version>
+  <name>Empty</name>
+  <shortName>Empty</shortName>
+  <flatLineInvalidatesAssay>False</flatLineInvalidatesAssay>
+  <diseasesIndependentlyValidated>False</diseasesIndependentlyValidated>
+  <script>Main</script>
+  <estimatedDuration>0</estimatedDuration>
+</assay>

@@ -1,0 +1,895 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7A9D9E9F-C077-456D-A537-9DC054A59DD5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IO.View</RootNamespace>
+    <AssemblyName>View</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ArrowType.cs" />
+    <Compile Include="Auxilliary.cs" />
+    <Compile Include="Background.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Background.Designer.cs">
+      <DependentUpon>Background.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Button.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Button.Designer.cs">
+      <DependentUpon>Button.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CheckBox.Designer.cs">
+      <DependentUpon>CheckBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\AddNewAssay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\AddNewAssay.Designer.cs">
+      <DependentUpon>AddNewAssay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\AssaySettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\AssaySettings.Designer.cs">
+      <DependentUpon>AssaySettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\CloseDrawer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\CloseDrawer.Designer.cs">
+      <DependentUpon>CloseDrawer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\Configuration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\Configuration.Designer.cs">
+      <DependentUpon>Configuration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\ConfirmSample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\ConfirmSample.Designer.cs">
+      <DependentUpon>ConfirmSample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\CartridgeError.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\CartridgeError.Designer.cs">
+      <DependentUpon>CartridgeError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\AllResults.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\AllResults.Designer.cs">
+      <DependentUpon>AllResults.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\ContinueBack.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\ContinueBack.Designer.cs">
+      <DependentUpon>ContinueBack.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\AssayUpdateFailed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\AssayUpdateFailed.Designer.cs">
+      <DependentUpon>AssayUpdateFailed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\EmptyDrawer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\EmptyDrawer.Designer.cs">
+      <DependentUpon>EmptyDrawer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\Help.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\Help.Designer.cs">
+      <DependentUpon>Help.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\UnexpectedShutdown.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\UnexpectedShutdown.Designer.cs">
+      <DependentUpon>UnexpectedShutdown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\PrintOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\PrintOptions.Designer.cs">
+      <DependentUpon>PrintOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\QcTestLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\QcTestLogin.Designer.cs">
+      <DependentUpon>QcTestLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\QcTestDismissal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\QcTestDismissal.Designer.cs">
+      <DependentUpon>QcTestDismissal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\QcTestDue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\QcTestDue.Designer.cs">
+      <DependentUpon>QcTestDue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\TimeoutSpin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\TimeoutSpin.Designer.cs">
+      <DependentUpon>TimeoutSpin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\InvaildLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\InvaildLogin.Designer.cs">
+      <DependentUpon>InvaildLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\QuarantineLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\QuarantineLogin.Designer.cs">
+      <DependentUpon>QuarantineLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\ReaderQuarantine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\ReaderQuarantine.Designer.cs">
+      <DependentUpon>ReaderQuarantine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\QcTestSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\QcTestSetup.Designer.cs">
+      <DependentUpon>QcTestSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\Export.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\Export.Designer.cs">
+      <DependentUpon>Export.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\NoNewAssays.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\NoNewAssays.Designer.cs">
+      <DependentUpon>NoNewAssays.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\ServerSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\ServerSettings.Designer.cs">
+      <DependentUpon>ServerSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\ExpiredCartridge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\ExpiredCartridge.Designer.cs">
+      <DependentUpon>ExpiredCartridge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\Message.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\Message.Designer.cs">
+      <DependentUpon>Message.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\PatientInformationEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\PatientInformationEdit.Designer.cs">
+      <DependentUpon>PatientInformationEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\UpdatePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\UpdatePassword.Designer.cs">
+      <DependentUpon>UpdatePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\PasswordExpired.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\PasswordExpired.Designer.cs">
+      <DependentUpon>PasswordExpired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\UpdateAssay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\UpdateAssay.Designer.cs">
+      <DependentUpon>UpdateAssay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\SearchedResults.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\SearchedResults.Designer.cs">
+      <DependentUpon>SearchedResults.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\SearchResults.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\SearchResults.Designer.cs">
+      <DependentUpon>SearchResults.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\Keypad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\Keypad.Designer.cs">
+      <DependentUpon>Keypad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\Fault.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\Fault.Designer.cs">
+      <DependentUpon>Fault.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\Results.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\Results.Designer.cs">
+      <DependentUpon>Results.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\DataPolicy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\DataPolicy.Designer.cs">
+      <DependentUpon>DataPolicy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\Date.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\Date.Designer.cs">
+      <DependentUpon>Date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\FieldPolicy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\FieldPolicy.Designer.cs">
+      <DependentUpon>FieldPolicy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\SelectNewAssay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\SelectNewAssay.Designer.cs">
+      <DependentUpon>SelectNewAssay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\DownloadAssay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\DownloadAssay.Designer.cs">
+      <DependentUpon>DownloadAssay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\IncorrectCartridge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\IncorrectCartridge.Designer.cs">
+      <DependentUpon>IncorrectCartridge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\LocalUsbAssay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\LocalUsbAssay.Designer.cs">
+      <DependentUpon>LocalUsbAssay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\TestResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\TestResult.Designer.cs">
+      <DependentUpon>TestResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\LoadCartridge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\LoadCartridge.Designer.cs">
+      <DependentUpon>LoadCartridge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\DateAndTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\DateAndTime.Designer.cs">
+      <DependentUpon>DateAndTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\EditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\EditUser.Designer.cs">
+      <DependentUpon>EditUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\Language.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\Language.Designer.cs">
+      <DependentUpon>Language.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\InstrumentName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\InstrumentName.Designer.cs">
+      <DependentUpon>InstrumentName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\LoadSample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\LoadSample.Designer.cs">
+      <DependentUpon>LoadSample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\PasswordRules.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\PasswordRules.Designer.cs">
+      <DependentUpon>PasswordRules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\PatientInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\PatientInformation.Designer.cs">
+      <DependentUpon>PatientInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\ReviewTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\ReviewTest.Designer.cs">
+      <DependentUpon>ReviewTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\SampleId.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\SampleId.Designer.cs">
+      <DependentUpon>SampleId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\Setup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\Setup.Designer.cs">
+      <DependentUpon>Setup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\MainMenuAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\MainMenuAdmin.Designer.cs">
+      <DependentUpon>MainMenuAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\Start.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\Start.Designer.cs">
+      <DependentUpon>Start.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\TestCancel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\TestCancel.Designer.cs">
+      <DependentUpon>TestCancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\TestComplete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\TestComplete.Designer.cs">
+      <DependentUpon>TestComplete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\TestRunning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\TestRunning.Designer.cs">
+      <DependentUpon>TestRunning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\Timeout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\Timeout.Designer.cs">
+      <DependentUpon>Timeout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\UserManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\UserManagement.Designer.cs">
+      <DependentUpon>UserManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\Users.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\Users.Designer.cs">
+      <DependentUpon>Users.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\YesNo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\YesNo.Designer.cs">
+      <DependentUpon>YesNo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ComboBox.Designer.cs">
+      <DependentUpon>ComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sorter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Sorter.Designer.cs">
+      <DependentUpon>Sorter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Illustration.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Illustration.Designer.cs">
+      <DependentUpon>Illustration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Radio.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Radio.Designer.cs">
+      <DependentUpon>Radio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScrollBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ScrollBar.Designer.cs">
+      <DependentUpon>ScrollBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ListBox.Designer.cs">
+      <DependentUpon>ListBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Spinner.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Spinner.Designer.cs">
+      <DependentUpon>Spinner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Table.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Table.Designer.cs">
+      <DependentUpon>Table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Title.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Title.Designer.cs">
+      <DependentUpon>Title.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panel.Designer.cs">
+      <DependentUpon>Panel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form.Designer.cs">
+      <DependentUpon>Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\Keyboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\Keyboard.Designer.cs">
+      <DependentUpon>Keyboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\Splash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\Splash.Designer.cs">
+      <DependentUpon>Splash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Key.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Key.Designer.cs">
+      <DependentUpon>Key.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="TextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TextBox.Designer.cs">
+      <DependentUpon>TextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Background.resx">
+      <DependentUpon>Background.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\AddNewAssay.resx">
+      <DependentUpon>AddNewAssay.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\AssaySettings.resx">
+      <DependentUpon>AssaySettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\CloseDrawer.resx">
+      <DependentUpon>CloseDrawer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\Configuration.resx">
+      <DependentUpon>Configuration.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\ConfirmSample.resx">
+      <DependentUpon>ConfirmSample.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\CartridgeError.resx">
+      <DependentUpon>CartridgeError.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\AllResults.resx">
+      <DependentUpon>AllResults.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\ContinueBack.resx">
+      <DependentUpon>ContinueBack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\AssayUpdateFailed.resx">
+      <DependentUpon>AssayUpdateFailed.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\EmptyDrawer.resx">
+      <DependentUpon>EmptyDrawer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\Help.resx">
+      <DependentUpon>Help.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\QcTestLogin.resx">
+      <DependentUpon>QcTestLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\UnexpectedShutdown.resx">
+      <DependentUpon>UnexpectedShutdown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\PrintOptions.resx">
+      <DependentUpon>PrintOptions.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\QcTestDismissal.resx">
+      <DependentUpon>QcTestDismissal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\QcTestDue.resx">
+      <DependentUpon>QcTestDue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\TimeoutSpin.resx">
+      <DependentUpon>TimeoutSpin.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\InvaildLogin.resx">
+      <DependentUpon>InvaildLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\ReaderQuarantine.resx">
+      <DependentUpon>ReaderQuarantine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\QcTestSetup.resx">
+      <DependentUpon>QcTestSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\Export.resx">
+      <DependentUpon>Export.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\NoNewAssays.resx">
+      <DependentUpon>NoNewAssays.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\PatientInformationEdit.resx">
+      <DependentUpon>PatientInformationEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\ServerSettings.resx">
+      <DependentUpon>ServerSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\ExpiredCartridge.resx">
+      <DependentUpon>ExpiredCartridge.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\Message.resx">
+      <DependentUpon>Message.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\UpdatePassword.resx">
+      <DependentUpon>UpdatePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\PasswordExpired.resx">
+      <DependentUpon>PasswordExpired.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\UpdateAssay.resx">
+      <DependentUpon>UpdateAssay.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\SearchedResults.resx">
+      <DependentUpon>SearchedResults.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\SearchResults.resx">
+      <DependentUpon>SearchResults.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\Keypad.resx">
+      <DependentUpon>Keypad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\Fault.resx">
+      <DependentUpon>Fault.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\Results.resx">
+      <DependentUpon>Results.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\DataPolicy.resx">
+      <DependentUpon>DataPolicy.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\Date.resx">
+      <DependentUpon>Date.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\FieldPolicy.resx">
+      <DependentUpon>FieldPolicy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\SelectNewAssay.resx">
+      <DependentUpon>SelectNewAssay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\DownloadAssay.resx">
+      <DependentUpon>DownloadAssay.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\IncorrectCartridge.resx">
+      <DependentUpon>IncorrectCartridge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\LocalUsbAssay.resx">
+      <DependentUpon>LocalUsbAssay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\TestResult.resx">
+      <DependentUpon>TestResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\LoadCartridge.resx">
+      <DependentUpon>LoadCartridge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\DateAndTime.resx">
+      <DependentUpon>DateAndTime.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\EditUser.resx">
+      <DependentUpon>EditUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\Language.resx">
+      <DependentUpon>Language.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\InstrumentName.resx">
+      <DependentUpon>InstrumentName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\LoadSample.resx">
+      <DependentUpon>LoadSample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\PasswordRules.resx">
+      <DependentUpon>PasswordRules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\PatientInformation.resx">
+      <DependentUpon>PatientInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\ReviewTest.resx">
+      <DependentUpon>ReviewTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\SampleId.resx">
+      <DependentUpon>SampleId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\Setup.resx">
+      <DependentUpon>Setup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\MainMenuAdmin.resx">
+      <DependentUpon>MainMenuAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\Start.resx">
+      <DependentUpon>Start.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\TestCancel.resx">
+      <DependentUpon>TestCancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\TestComplete.resx">
+      <DependentUpon>TestComplete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\TestRunning.resx">
+      <DependentUpon>TestRunning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\Timeout.resx">
+      <DependentUpon>Timeout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\UserManagement.resx">
+      <DependentUpon>UserManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\Users.resx">
+      <DependentUpon>Users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\YesNo.resx">
+      <DependentUpon>YesNo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form.resx">
+      <DependentUpon>Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\Keyboard.resx">
+      <DependentUpon>Keyboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\Splash.resx">
+      <DependentUpon>Splash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.de.resx" />
+    <EmbeddedResource Include="Spinner.resx">
+      <DependentUpon>Spinner.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\Interfaces\Interfaces.csproj">
+      <Project>{478CF0D4-2D8E-4E4B-B3BF-1F5CD249E563}</Project>
+      <Name>Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\MessageQueue\MessageQueue.csproj">
+      <Project>{51B187CB-4E82-4E25-AAF0-929BEFB7F91F}</Project>
+      <Name>MessageQueue</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tick.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Home_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Home_icon_selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login_icon_selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Help_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Help_icon_selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Back_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Atlas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Confirm_sample.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\USB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Load_cartridge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Load_sample.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Barcode_scan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\io_processing 2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\io_processing.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Update_in_progress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Instrument_drawer_open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Blank_Background.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

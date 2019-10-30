@@ -1,0 +1,51 @@
+﻿#Main
+#-------------Revision-History---------------
+#this text is ignored -  see RRS895
+#--------------------------------------------
+
+#loop in background stepper 2 wiggles, mech valve long stroke  RRS897.1
+begin atomic 5 done
+set Motor.Steppers.Pwm 100    
+  stepper l2 500 60 step
+	delay 100
+  stepper l2 500 -60 stepwash
+	delay 100
+end
+
+stepper l5 400 800
+delay 200
+stepper l5 400 -800
+
+buzzer 1 2 1
+delay 3000
+
+#repeat but with non background loop RRS897.2
+begin nonatomic 5 done
+set Motor.Steppers.Pwm 100    
+  stepper l2 500 60 step
+	delay 100
+  stepper l2 500 -60 stepwash
+	delay 100
+end
+
+res res2 hold 900 1100 2 flag 
+wait flag 10
+
+#check for pressures
+if flag
+  buzzer 1 2 1 
+else 
+	call error_30010 
+endif
+
+valve v10 on
+delay 20
+res res3 hold 900 1100 1 fail
+wait fail 1
+res res3 dump
+
+if fail
+	buzzer 1 2 1
+else 
+	call error_30010 
+endif

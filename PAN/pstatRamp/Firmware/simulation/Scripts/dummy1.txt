@@ -1,0 +1,3 @@
+#---------------------------------------------
+# dummy script, just some delays here for testing
+voltammetry 0 50 3 700 40 100 ackVar

@@ -1,0 +1,265 @@
+﻿# Main
+# =============================================================================
+# 21011-4502 EOL Test Script - Pneumatic Test
+# Version 4.0
+# =============================================================================
+
+# Clamp up
+stepper l1 300 -1350 ackVar
+wait ackVar 60
+
+# map valves to friendly names
+map v1 bellows
+map v2 pump_v1_pcr
+map v3 pump_v2
+map v4 wash_inlet
+map v5 elute_inlet
+map v6 elute_enable
+map v7 waste_enable
+map v8 airdry_enable
+map v9 wash_airdry
+map v10 elute_airdry
+map v16 digital_enable
+
+# dump reservoirs
+res res1 dump
+res res2 dump
+res res3 dump
+delay 10
+
+# switch vavle bellows to high pressure
+valve v12 on
+valve bellows on
+#momentarily hold reservoir for triggering data logger
+res res2 hold 1000 1100 5
+delay 200
+res res2 dump
+delay 200
+
+#Charge up reservoirs again for test
+res res1 hold 500 560 5
+res res2 hold 1000 1010 2
+
+# set regulator valve to some value other than zero to prevent it hunting around with no pressure in reservoir
+dpr dpr1 on 10 0
+
+# low pressure leak test
+valve v12 on
+valve bellows on
+valve pump_v1_pcr on
+valve pump_v2 on
+valve wash_inlet on
+valve elute_inlet on
+valve elute_enable on
+valve waste_enable on
+valve airdry_enable on
+delay 15000
+
+
+# vacuum pressure leak test
+valve bellows off
+valve pump_v1_pcr off
+valve pump_v2 off
+valve wash_inlet off
+valve elute_inlet off
+valve elute_enable off
+valve waste_enable off
+valve airdry_enable off
+delay 15000
+res res1 dump
+res res2 dump
+delay 100
+# end of pressure leak tests
+
+#Charge up reservoirs
+res res1 hold 500 560 5
+res res2 hold 1000 1010 2
+delay 300
+
+#ripple output
+valve bellows on
+valve v12 on
+valve digital_enable on
+delay 100
+valve pump_v1_pcr on
+delay 20
+valve pump_v1_pcr off
+delay 60
+valve pump_v2 on
+delay 20
+valve pump_v2 off
+delay 60
+valve wash_inlet on
+delay 20
+valve wash_inlet off
+delay 60
+valve elute_inlet on
+delay 20
+valve elute_inlet off
+delay 60
+valve elute_enable on
+delay 20
+valve elute_enable off
+delay 60
+valve waste_enable on
+delay 20
+valve waste_enable off
+delay 60
+delay 100
+valve pump_v1_pcr on
+delay 60
+valve pump_v2 on
+delay 60
+valve wash_inlet on
+delay 60
+valve elute_inlet on
+delay 60
+valve elute_enable on
+delay 60
+valve waste_enable on
+delay 60
+delay 100
+valve pump_v1_pcr off
+delay 20
+valve pump_v1_pcr on
+delay 60
+valve pump_v2 off
+delay 20
+valve pump_v2 on
+delay 60
+valve wash_inlet off
+delay 20
+valve wash_inlet on
+delay 60
+valve elute_inlet off
+delay 20
+valve elute_inlet on
+delay 60
+valve elute_enable off
+delay 20
+valve elute_enable on
+delay 60
+valve waste_enable off
+delay 20
+valve waste_enable on
+delay 60
+
+res res1 dump
+res res2 dump
+# end of ripple output
+buzzer 1 100 1
+
+# test air dry ports
+regvalve 0
+set Pump.Pressure.Pwm 60
+res res3 hold 1500 1600 3
+valve wash_airdry on
+valve elute_airdry off
+delay 3000
+buzzer 1 50 2
+valve wash_airdry off
+delay 600
+buzzer 1 100 1
+valve elute_airdry on
+delay 3000
+valve wash_airdry off
+valve elute_airdry off
+buzzer 1 50 2
+
+#test regulator valve
+valve digital_enable on
+#show linearity
+regvalve 0
+delay 200
+regpressure 150	# 150 mbar pressure
+delay 1000      # delay 10 seconds
+regpressure 400   # 400 mbar pressure
+delay 1000
+regvalve 0
+delay 500
+buzzer 1 40 1
+valve digital_enable off
+res res3 dump
+
+# set to some value to prevent reg valve hunting for 0
+dpr dpr1 on 10 0
+
+#### pipe connection test
+# Connect valves to vacuum
+valve v12 on
+valve bellows off
+valve pump_v1_pcr off
+valve pump_v2 off
+valve wash_inlet off
+valve elute_inlet off
+valve elute_enable off
+valve waste_enable off
+valve airdry_enable off
+
+#Charge up reservoirs again for test
+res res1 dump
+res res2 hold 1000 1010 2
+res res3 hold 1500 1600 3
+delay 200
+
+# Connect valves to vacuum
+valve v12 on
+valve bellows off
+valve pump_v1_pcr off
+valve pump_v2 off
+valve wash_inlet off
+valve elute_inlet off
+valve elute_enable off
+valve waste_enable off
+valve airdry_enable off
+delay 100
+
+#connect to high pressure in turn
+valve bellows on
+delay 300
+valve bellows off
+delay 100
+valve pump_v1_pcr on
+delay 300
+valve pump_v1_pcr off
+delay 100
+valve pump_v2 on
+delay 300
+valve pump_v2 off
+delay 100
+valve wash_inlet on
+delay 300
+valve wash_inlet off
+delay 100
+valve wash_airdry on
+delay 300
+valve wash_airdry off
+delay 100
+valve airdry_enable  on
+delay 300
+valve airdry_enable  off
+delay 100
+valve elute_airdry on
+delay 300
+valve elute_airdry off
+delay 100
+valve elute_inlet on
+delay 300
+valve elute_inlet off
+delay 100
+valve elute_enable on
+delay 300
+valve elute_enable off
+delay 100
+valve waste_enable on
+delay 300
+valve waste_enable off
+delay 100
+
+res res1 dump
+res res2 dump
+res res3 dump
+
+# Clamp down
+stepper l1 500 1350 ackVar
+wait ackVar 60

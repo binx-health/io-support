@@ -1,0 +1,6 @@
+*H=res1,2
+*L=res1,2,500,200
+*T=30001,2,test_error.txt
+*H=therm1,0
+*H=therm2,0
+*H=therm3,0

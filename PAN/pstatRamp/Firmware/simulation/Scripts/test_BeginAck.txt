@@ -1,0 +1,6 @@
+begin atomic 6 waitEndVar  
+  res res1 hold 200 300 20 testVar1
+  wait testVar1 1
+end
+wait waitEndVar 3
+res res3 dump

@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{478CF0D4-2D8E-4E4B-B3BF-1F5CD249E563}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IO</RootNamespace>
+    <AssemblyName>Interfaces</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Analysis\Analysis.cs" />
+    <Compile Include="Analysis\AnalysisData.cs" />
+    <Compile Include="Analysis\AnalysisResult.cs" />
+    <Compile Include="Analysis\PeakOutcome.cs" />
+    <Compile Include="Analysis\PeakParameters.cs" />
+    <Compile Include="Analysis\PeakData.cs" />
+    <Compile Include="Analysis\PeakType.cs" />
+    <Compile Include="Comms\Firmware\Manager.cs" />
+    <Compile Include="Comms\Network\Client.cs" />
+    <Compile Include="Comms\Network\Manager.cs" />
+    <Compile Include="Comms\Server\Client.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Controller\Controller.cs" />
+    <Compile Include="FileSystem\SimpleFileSystem.cs" />
+    <Compile Include="FileSystem\FtpFileSystem.cs" />
+    <Compile Include="LastError.cs" />
+    <Compile Include="Model\Auilliary.cs" />
+    <Compile Include="Model\Serializable\Configuration.cs" />
+    <Compile Include="Model\Serializable\AudtiLog.cs" />
+    <Compile Include="Model\Serializable\DataPolicy.cs" />
+    <Compile Include="Model\Serializable\Field.cs" />
+    <Compile Include="Model\Serializable\FieldPolicy.cs" />
+    <Compile Include="Model\Serializable\FieldType.cs" />
+    <Compile Include="Model\Serializable\PasswordRules.cs" />
+    <Compile Include="Model\Serializable\QcTestFrequency.cs" />
+    <Compile Include="Model\Serializable\QuarantineState.cs" />
+    <Compile Include="Model\Serializable\Results.cs" />
+    <Compile Include="Model\Serializable\State.cs" />
+    <Compile Include="Model\Serializable\Test.cs" />
+    <Compile Include="Model\Serializable\TestData.cs" />
+    <Compile Include="Model\Serializable\TestOutcome.cs" />
+    <Compile Include="Model\Serializable\TestResult.cs" />
+    <Compile Include="Model\Serializable\Tests.cs" />
+    <Compile Include="Model\Serializable\User.cs" />
+    <Compile Include="Model\Serializable\Users.cs" />
+    <Compile Include="Model\Volatile\DeviceValues.cs" />
+    <Compile Include="Scripting\Assay.cs" />
+    <Compile Include="Model\Serializable\UserType.cs" />
+    <Compile Include="Model\Volatile\Session.cs" />
+    <Compile Include="Model\Volatile\Sessions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scripting\Assays.cs" />
+    <Compile Include="Scripting\Auilliary.cs" />
+    <Compile Include="Scripting\Disease.cs" />
+    <Compile Include="Scripting\Metrics.cs" />
+    <Compile Include="Scripting\DefaultMetrics.cs" />
+    <Compile Include="Scripting\Script.cs" />
+    <Compile Include="Scripting\ScriptError.cs" />
+    <Compile Include="Scripting\Scripts.cs" />
+    <Compile Include="Scripting\ScriptVariable.cs" />
+    <Compile Include="Scripting\ScriptVariableType.cs" />
+    <Compile Include="FileSystem\LocalFileSystem.cs" />
+    <Compile Include="View\CommandMessage.cs" />
+    <Compile Include="View\Form.cs" />
+    <Compile Include="View\FormCommand.cs" />
+    <Compile Include="View\MenuItemMessage.cs" />
+    <Compile Include="View\Message.cs" />
+    <Compile Include="View\ViewManager.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

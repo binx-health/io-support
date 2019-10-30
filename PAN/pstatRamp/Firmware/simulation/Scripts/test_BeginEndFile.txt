@@ -1,0 +1,4 @@
+begin atomic 6  
+  res res1 hold 200 300 20 testVar1
+  wait testVar1 1
+end

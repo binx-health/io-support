@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-16"?>
+<Assays xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <IAssay xsi:type="Assay">
+    <Loaded>false</Loaded>
+    <Name>C.Trachomatis</Name>
+    <ShortName>Ct</ShortName>
+    <Script>CtMain</Script>
+    <Metrics>Ct</Metrics>
+    <EstimatedDuration>2100</EstimatedDuration>
+  </IAssay>
+</Assays>

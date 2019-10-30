@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+  <user>
+    <id>{7d21f6c6-a052-4036-a57e-94fd6002709e}</id>
+    <userType>Administrator</userType>
+    <name>admin</name>
+    <salt>bGD24nqoTUX+6j1EXCK+bA==</salt>
+    <passwordHash>XurMZbVtfumF4P1Ncc9+U4BO7Nw=</passwordHash>
+    <passwordDate>2017-09-08 10:04:30</passwordDate>
+  </user>
+</users>

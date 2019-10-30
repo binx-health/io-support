@@ -1,0 +1,47 @@
+﻿#---------------------------------------------
+#Main
+#093-EXP-MOB-AB
+#Antony Brown 02 Aug 2019
+#copyright Atlas Genetics Ltd 2019
+
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - new script to open the drawer for barcode reading, this is run from Developer. 
+#version 2.0 - increased drawer closing count from 100 to 500 times. allowed 10 extra seconds for plunger starting sequence. 
+#---------------------------------------------
+#run drawer open command 100 times to test barcode reader 
+
+#start with preload
+call Preload
+
+
+begin atomic 500
+solenoid S1 on
+delay 500
+end
+
+delay 251000
+#setup peak search parameters and call voltammetry
+#peak algorithm "type"  rawnoise permissiblenoise polyorder targetnoise
+peak algorithm "MultiPeak1Analysis"  1000 1000 6 49 
+
+#peak define  "name" outcome ch vstart vend vexp vtol thresh maxnoise prop widthmax widthmin propnoise
+
+peak define "CTIC" Positive 1 110 310 200 32 90 Infinity 25 60 160 90 4
+peak define "CT" Positive 1 295 510 390 60 115 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 1 520 620                            #this ignores the last part of the scan
+
+peak define "TVIC" Positive 2 110 310 200 32 90 Infinity 25 60 160 90 4
+peak define "TV" Positive 2 295 510 390 60 60 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 2 520 620                            #this ignores the last part of the scan
+
+peak define "MGIC" Positive 3 110 310 200 32 90 Infinity 25 60 160 90 4
+peak define "MG" Positive 3 295 510 390 60 40 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 3 520 620                            #this ignores the last part of the scan
+
+peak define "NG2" Positive 4 110 310 200 32 45 Infinity 25 60 160 90 4
+peak define "NG1" Positive 4 295 510 390 60 50 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 4 520 620                            #this ignores the last part of the scan
+ 
+call NEA-D-007                     #MSTI Voltammetry NEA-D-007 Version 1.0

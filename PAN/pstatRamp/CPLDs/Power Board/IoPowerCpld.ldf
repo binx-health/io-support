@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BaliProject version="2.0" title="IoPowerCpld" device="LCMXO2-1200HC-4TG100C" synthesis="synplify" default_implementation="IoPowerCpld">
+    <Options/>
+    <Implementation title="IoPowerCpld" dir="IoPowerCpld" description="IoPowerCpld" default_strategy="Strategy1">
+        <Options def_top="IoPowerBoardController"/>
+        <Source name="IoPowerBoardController.vhd" type="VHDL" type_short="VHDL">
+            <Options top_module="IoPowerBoardController"/>
+        </Source>
+        <Source name="IoPowerCpld.lpf" type="Logic Preference" type_short="LPF">
+            <Options/>
+        </Source>
+        <Source name="IoPowerCpld/IoPowerCpld.xcf" type="Programming Project File" type_short="Programming">
+            <Options/>
+        </Source>
+    </Implementation>
+    <Strategy name="Strategy1" file="IoPowerCpld1.sty"/>
+</BaliProject>

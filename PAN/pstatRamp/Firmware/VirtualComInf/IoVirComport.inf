@@ -1,0 +1,69 @@
+[Version]
+Signature="$Windows NT$"
+Class=Ports
+ClassGUID={4d36e978-e325-11ce-bfc1-08002be10318}
+Provider=%TTP%
+DriverVer=01/15/2013,1.0.0
+CatalogFile=IoVirComport.cat
+
+[SourceDisksFiles]
+
+[SourceDisksNames]
+
+[Manufacturer]
+%TTP%=TTP_System, NTx86, NTamd64
+
+[TTP_System]
+%TTP_CDC&PID_001B%=TtpVirCOM,USB\VID_127B&PID_001B
+
+[TTP_System.NTx86]
+%TTP_CDC&PID_001B%=TtpVirCOM,USB\VID_127B&PID_001B 
+
+[TTP_System.NTamd64]
+%TTP_CDC&PID_001B%=TtpVirCOM,USB\VID_127B&PID_001B 
+
+;**************************************************
+;*   Windows NT family                            *
+;**************************************************
+[TtpVirCOM.NT]
+include=mdmcpq.inf
+CopyFiles=FakeModemCopyFileSection
+AddReg=TtpVirCOM.NT.AddReg
+
+[TtpVirCOM.NT.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,usbser.sys
+HKR,,EnumPropPages32,,"MsPorts.dll,SerialPortPropPageProvider"
+
+[TtpVirCOM.NTx86]
+include=mdmcpq.inf
+CopyFiles=FakeModemCopyFileSection
+AddReg=TtpVirCOM.NT.AddReg
+
+[TtpVirCOM.NTx86.Services]
+AddService=usbser, 0x00000002,TtpVirCOMService_Inst
+
+[TtpVirCOM.NTamd64]
+include=mdmcpq.inf
+CopyFiles=FakeModemCopyFileSection
+AddReg=TtpVirCOM.NT.AddReg
+
+[TtpVirCOM.NTamd64.Services]
+AddService=usbser, 0x00000002,TtpVirCOMService_Inst
+
+
+[TtpVirCOMService_Inst]
+DisplayName=%TtpVirCOM.SvcDesc%
+ServiceType=1
+StartType=3
+ErrorControl=1
+ServiceBinary=%12%\usbser.sys
+LoadOrderGroup=Base
+
+;**************************************************
+;* Strings                                        *
+;**************************************************
+[Strings]
+TTP="TTP"
+TTP_CDC&PID_001B="IO USB Serial Port"
+TtpVirCOM.SvcDesc="IO USB COM port"

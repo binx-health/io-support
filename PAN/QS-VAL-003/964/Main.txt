@@ -1,0 +1,293 @@
+﻿#---------------------------------------------
+#Main
+#New script for reader QS-VAL-003
+#Antony Brown 08 Aug 2018
+#copyright Atlas Genetics Ltd 2018
+
+#-------------Revision-History---------------
+#version 0.1 - New script MOB-CM-0869
+#--------------------------------------------
+
+#-------------Description--------------------
+#script to check the following functions;
+#  pneumatic valves
+#  pumps
+#  reservoir sensors
+#  peltier function
+#  linear actuator function
+#  dpr function
+
+# pstat, drawer solenoid and isolation valve checked as part core scripts, Preload and unload. 
+
+
+#--------------------------------------------
+#exercise all valves work and chack all reservoirs charge
+#enguage DPR at 10% and 50%
+begin nonatomic 10
+
+  valve v13 on #Low_High_Pressure_Select on
+  valve v1 on  #bellows on
+  valve v2 on  #pump_V1_pcr on
+  valve v3 on  #pump_V2 on
+  valve v4 on  #V3_wash_inlet on
+  valve v5 on  #V4_elute_inlet on
+  valve v6 on  #V5_elute_enable on
+  valve v7 on  #v6_waste_enable on
+  valve v8 on
+  valve v9 on  #wash_air_dry on
+  valve v10 on #elute_air_dry on
+  valve v14 on #low_pressure_dump on
+  valve v15 on #high_pressure_dump on 
+  valve v16 on #digital_enable on
+  valve v11 on #vacuum_dump on
+  valve v17 on
+  dpr dpr1 on 25 0
+
+  delay 50
+
+  valve v12 off #vacuum_enable off
+  valve v13 off #Low_High_Pressure_Select off
+  valve v1 off  #bellows off
+  valve v2 off  #pump_V1_pcr off
+  valve v3 off  #pump_V2 off
+  valve v4 off  #V3_wash_inlet off
+  valve v5 off  #V4_elute_inlet off
+  valve v6 off  #V5_elute_enable off
+  valve v7 off  #v6_waste_enable off
+  valve v8 off  #air_dry_enable off
+  valve v9 off  #wash_air_dry off
+  valve v10 off #elute_air_dry off
+  valve v14 off #low_pressure_dump off
+  valve v15 off #high_pressure_dump off 
+  valve v16 off #digital_enable off
+  valve v11 off #vacuum_dump off
+  valve v17 off #digital_outlet atmospheric off
+  dpr dpr1 off
+
+  #----------------------------------------------
+  #set up reservoirs
+  valve v13 on    #high low pressure select
+
+  res res1 hold 500 700 3 vac
+  res res2 hold 900 1100 3 pos1
+  res res3 hold 900 1100 3 pos2
+
+  delay 300
+
+  wait vac 5
+    if vac
+      #do nothing
+    else
+      call error_30011
+    endif
+
+  wait pos1 5
+    if vac
+      #do nothing
+    else
+      call error_30010
+    endif
+
+  wait pos2 5
+    if vac
+      #do nothing
+    else
+      call error_30014
+    endif
+ 
+  #-------------------------------------------
+  #dpr check
+  valve v16 on 
+  dpr dpr1 on 10
+  delay 100
+  dpr dpr1 on 50 
+  delay 100
+  dpr dpr1 off
+  delay 100
+  valve v16 off
+
+  #-------------------------------------------
+
+  res res1 dump
+  res res2 dump
+  res res3 dump
+  valve v13 off
+
+end
+
+#-------------------------------------------
+#check all peltier
+
+#set peltier PIDs
+set Peltier.Lysis.Kp 500000
+set Peltier.Lysis.Ki 500
+set Peltier.Lysis.Kd 0
+set Peltier.Lysis.TargetOffset 5
+
+set Peltier.Pcr.Kp 600000
+set Peltier.Pcr.Ki 10
+set Peltier.Pcr.Kd 12000000
+set Peltier.Pcr.Imax 120000
+
+set Peltier.Detection.Kp 255000
+set Peltier.Detection.Ki 16
+set Peltier.Detection.Kd  100000
+
+#-----------prewarm and cycle PCR petlier-----------
+
+therm therm2 on 90 t290
+wait t290 30
+
+#cycle PCR peltier in the background
+begin atomic 4 all_done  
+
+  #anneal
+  #use accuracy-optimised parameters to return at 50% power.
+  set Peltier.Pcr.Kp 400000
+  set Peltier.Pcr.Ki 0
+  set Peltier.Pcr.Kd 8000000
+  set Peltier.Pcr.Imax 50
+  set Peltier.Pcr.PwmMax 50
+  therm therm2 on 65 anneal
+  wait anneal 15
+    if anneal
+       #do nothing
+    else
+       call error_30018
+    endif
+  delay 715
+
+  #extend                 
+  #using re-optimised values to accurately edge up.
+  set Peltier.Pcr.Kp 600000
+  set Peltier.Pcr.Ki 50
+  set Peltier.Pcr.Kd 10000000
+  set Peltier.Pcr.Imax 120
+  set Peltier.Pcr.PwmMax 50
+  therm therm2 on 65.8 adjust          
+  delay 200
+  therm therm2 on 66.8 phase3
+  delay 200
+  therm therm2 on 67.8 phase4
+  delay 100
+  therm therm2 on 69.0 phase5
+  delay 100
+  therm therm2 on 70.2 phase6
+  delay 200
+
+  #denature using original setting
+  set Peltier.Pcr.Kp 600000
+  set Peltier.Pcr.Ki 10
+  set Peltier.Pcr.Kd 12000000
+  set Peltier.Pcr.Imax 120000
+  set Peltier.Pcr.PwmMax 50
+  therm therm2 on 98 phase1
+  wait phase1 6
+  delay 230
+  if phase1
+    #do nothing
+  else
+    call error_30015
+  endif
+
+end
+
+#-------------------------------------
+#cycle other peltier whilst PCR check is happening. 
+
+begin nonatomic 3
+  therm therm1 on 50 t150
+  therm therm3 on 50 t350
+  
+  delay 1000
+
+  wait t150 30
+    if t150
+      #do nothing
+    else
+      call error_30013
+    endif
+
+  wait t350 30
+    if t350
+      #do nothing
+    else
+      call error_30016
+    endif
+
+  therm therm1 on 30 t120
+  therm therm3 on 20 t320
+
+  delay 1000
+
+  wait t120 30
+    if t120
+      #do nothing
+    else
+      call error_30013
+    endif
+
+  wait t320 30
+    if t320
+      #do nothing
+    else
+      call error_30016
+    endif
+
+end
+
+#----------------------------------------------
+#check all acutaors
+
+set Motor.Steppers.Pwm 100    #high force movements
+begin atomic 1 done
+
+  stepper l2 500 800 
+  stepper l4 500 800 
+  stepper l3 500 800
+  stepper l5 500 800
+
+  delay 300
+
+  stepper l2 500 -850 
+  stepper l4 500 -850 
+  stepper l3 500 -850
+  stepper l5 500 -850
+
+end
+
+# move steppers from stops
+stepper l3 400 20
+stepper l5 500 20
+stepper l2 500 20
+stepper l4 500 20 
+
+set Motor.Steppers.Pwm 70    #standard force movements
+
+
+#-------------------------------------------------------
+#give the machine some peak conditions so it doesnt error
+#setup peak search parameters and call voltammetry
+#peak algorithm "type"  rawnoise permissible noise polyorder targetnoise
+peak algorithm "MultiPeak1Analysis"  1000 1000 6 49 
+
+#peak define  "name" outcome ch vstart vend vexp vtol thresh maxnoise prop widthmax widthmin propnoise
+
+peak define "CTIC" Positive 1 110 310 200 32 90 Infinity 25 60 160 90 4
+peak define "CT" Positive 1 295 510 390 60 115 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 1 520 620                            #this ignores the last part of the scan
+
+peak define "NG1IC" Positive 3 110 310 200 32 90 Infinity 25 60 160 90 4
+peak define "NG1" Positive 3 295 510 390 60 50 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 3 520 620                            #this ignores the last part of the scan
+
+peak define "NG2IC" Positive 4 110 310 200 32 60 Infinity 25 60 160 90 4
+peak define "NG2" Positive 4 295 510 390 60 45 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 4 520 620       
+
+#-------------------------------------------------------
+
+#run test voltammetry
+
+
+voltammetry differential 0 50 3 600 40 60 

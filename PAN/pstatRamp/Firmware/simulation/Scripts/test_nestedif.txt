@@ -1,0 +1,44 @@
+res res3 hold 3 4 3 flagset1
+res res3 hold 3 4 3 flagset2
+res res3 hold 3 4 3 flagset3
+res res3 hold 3 4 3 flagset4
+res res3 hold 3 4 3 flagset5
+res res3 hold 3 4 3 flagset6
+res res3 hold 3 4 3 flagset7
+res res3 hold 3 4 3 flagset8
+res res3 hold 3 4 3 flagset9
+res res3 hold 3 4 3 flagset10
+if flagset1
+	res res1 hold 1 2 1
+	if flagset2
+		res res1 hold 2 3 1
+		if flagset3
+			res res1 hold 3 4 1
+			if flagset4
+				res res1 hold 4 5 1
+			else
+				if flagset5 
+					res res1 hold 5 6 1
+					if flagset6
+						res res1 hold 6 7 1
+						if flagset7
+							res res1 hold 7 8 1
+							if flagset8
+								res res1 hold 8 9 1
+								if flagset9
+									res res1 hold 9 10 1
+									if flagset10
+										res res1 hold 10 11 1
+									endif
+								endif
+							endif
+						endif
+					endif
+				endif
+			endif
+		endif
+	endif
+else
+	res res2 hold 1 2 1	
+endif
+res res3 hold 1 2 1

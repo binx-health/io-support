@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BaliProject version="2.0" title="IoThermalCpld" device="LCMXO2-1200HC-4TG100C" synthesis="synplify" default_implementation="IoThermalCpld">
+    <Options/>
+    <Implementation title="IoThermalCpld" dir="IoThermalCpld" description="IoThermalCpld" default_strategy="Strategy1">
+        <Options def_top="IoThermalBoardController"/>
+        <Source name="IoThermalBoardController.vhd" type="VHDL" type_short="VHDL">
+            <Options top_module="IoThermalBoardController"/>
+        </Source>
+        <Source name="IoThermalCpld.lpf" type="Logic Preference" type_short="LPF">
+            <Options/>
+        </Source>
+        <Source name="IoThermalCpld/IoThermalCpld.xcf" type="Programming Project File" type_short="Programming">
+            <Options/>
+        </Source>
+    </Implementation>
+    <Strategy name="Strategy1" file="IoThermalCpld1.sty"/>
+</BaliProject>
