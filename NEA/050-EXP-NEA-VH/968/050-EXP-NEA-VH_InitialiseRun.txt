@@ -1,0 +1,180 @@
+﻿#---------------------------------------------
+#050-EXP-NEAH-VH_InitialiseRun
+#MOB-D-025 NAT_CTNG_Initialise_Run
+#Antony Brown 15 MAY 2019
+#copyright Atlas Genetics Ltd 2019
+#---------------------------------------------
+
+#-------------Revision-History---------------
+#version 1.0 - Based on MOB-D-025 V3.0
+#            - increased lysis temp to 50C
+#--------------------------------------------
+
+
+#Set Pstat to internal circuit
+pstat 0 internal
+
+begin atomic 1 done
+set Motor.Steppers.Pwm 100    #high force movements
+  stepper l2 500 60 step
+  stepper l4 500 60 stepwash
+  wait step 1
+  wait stepwash 1
+  stepper l2 500 -50 step2
+  stepper l4 500 -50 stepwash2 
+  wait step2 1
+  wait stepwash2 1
+  stepper l2 500 60 step
+  stepper l4 500 60 stepwash
+  wait step 1
+  wait stepwash 1
+  stepper l2 500 -50 step2
+  stepper l4 500 -50 stepwash2 
+  wait step2 1
+  wait stepwash2 1
+  stepper l2 500 60 step
+  stepper l4 500 60 stepwash
+  wait step 1
+  wait stepwash 1
+  stepper l2 500 -50 step2
+  stepper l4 500 -50 stepwash2 
+  wait step2 1
+  wait stepwash2 1
+
+set Motor.Steppers.Pwm 70    #standard force movements
+
+
+stepper l2 500 -70 done
+stepper l4 500 -70 done2      
+wait done 5
+wait done2 5
+stepper l2 500 20 done        # reset to initial position 
+stepper l4 500 20 done2
+wait done 5
+wait done2 5
+
+end
+
+res res1 dump
+res res2 dump
+res res3 dump
+
+#set dpr off so that new one does not buzz whilst res 3 is empty 
+dpr dpr1 off
+	
+solenoid m1 on #isolation_release on 		# isolation solenoid should be powered up indefinitely
+solenoid s1 off #drawer_catch off   		# drawer_catch should be left off normally
+
+#pressure valves are rippled on-and-off 
+valve v12 on #vacuum_enable on
+valve v13 on #Low_High_Pressure_Select on
+valve v1 on  #bellows on
+valve v2 on  #pump_V1_pcr on
+valve v3 on  #pump_V2 on
+valve v4 on  #V3_wash_inlet on
+valve v5 on  #V4_elute_inlet on
+valve v6 on  #V5_elute_enable on
+valve v7 on  #v6_waste_enable on
+valve v8 on
+valve v9 on  #wash_air_dry on
+valve v10 on #elute_air_dry on
+valve v14 on #low_pressure_dump on
+valve v15 on #high_pressure_dump on 
+valve v16 on #digital_enable on
+valve v11 on #vacuum_dump on
+valve v17 on
+
+delay 10
+
+valve v12 off #vacuum_enable off
+valve v13 off #Low_High_Pressure_Select off
+valve v1 off  #bellows off
+valve v2 off  #pump_V1_pcr off
+valve v3 off  #pump_V2 off
+valve v4 off  #V3_wash_inlet off
+valve v5 off  #V4_elute_inlet off
+valve v6 off  #V5_elute_enable off
+valve v7 off  #v6_waste_enable off
+valve v8 off  #air_dry_enable off
+valve v9 off  #wash_air_dry off
+valve v10 off #elute_air_dry off
+valve v14 off #low_pressure_dump off
+valve v15 off #high_pressure_dump off 
+valve v16 off #digital_enable off
+valve v11 off #vacuum_dump off
+valve v17 off #digital_outlet atmospheric off
+
+#open manifold with no pressure in reservoirs
+valve v13 on
+valve v12 on
+delay 50
+
+#charge positive hard 
+res res2 hold 900 1100 2 initpswID 
+
+#set up valve conditions to suck in fluid forming a meniscus in sample well inlet
+valve v2 on
+delay 50
+valve v1 on
+delay 100
+#allow bellows to close fully before closing v3
+valve v3 on
+valve v4 on
+valve v5 on
+valve v6 on
+valve v7 on
+valve v8 on
+delay 20
+
+#charge res3 atomicly to stop original DPR form buzzing
+begin atomic 1
+res res3 hold 700 900 3 res2800
+delay 300
+wait res2800 5
+end
+
+#turn on Sample well peltier to get to temp before mix
+set Peltier.Lysis.Kp 500000
+set Peltier.Lysis.Ki 500
+set Peltier.Lysis.Kd 0
+set Peltier.Lysis.TargetOffset 5
+
+#Turn on sample well heater
+therm therm1 on 50 heatsample
+
+#Charge vacuum logic pressure for a softer mixing process
+res res1 hold 500 700 2 initvswID
+wait initpswID 10
+wait initvswID 10
+
+#check for pressures
+if initpswID
+#do nothing
+else 
+call error_30010 
+endif
+if initvswID
+#do nothing
+else 
+call error_30011
+endif
+
+#remove meniscus from sample well inlet with bellows 
+valve v1 off
+delay 50
+valve v2 off
+delay 2000
+
+#Rattle bellows to remove any remaining meniscus
+begin nonatomic 2 done
+valve v1 on
+delay 40
+valve v1 off
+delay 100
+end
+
+#relax reservoir to allow to recharge to gentle pressure for mix.
+res res2 dump
+delay 100
+res res2 hold 400 550 2 initpswID
+wait initpswID 10

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<assay>
+  <code>964</code>
+  <version>1</version>
+  <name>ExtOnly_Elution_blow</name>
+  <shortName>MOB-EP-688_1AirDry_1Dwell</shortName>
+  <flatLineInvalidatesAssay>False</flatLineInvalidatesAssay>
+  <diseasesIndependentlyValidated>False</diseasesIndependentlyValidated>
+  <script>Main</script>
+  <estimatedDuration>0</estimatedDuration>
+</assay>

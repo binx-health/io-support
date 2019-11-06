@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assayRunResult>
+  <expectedLogList0>SavitskyGolay(17, 2)</expectedLogList0>
+  <expectedLogList0>Variance for raw data is 0.0222239959042357</expectedLogList0>
+  <expectedLogList0>CurveFit(6)</expectedLogList0>
+  <expectedLogList0>CurveFit(6)</expectedLogList0>
+  <expectedLogList0>CurveFit(6)</expectedLogList0>
+  <expectedLogList0>CurveFit(6)</expectedLogList0>
+  <expectedLogList0>CurveFit(6)</expectedLogList0>
+  <expectedLogList0>CurveFit(6)</expectedLogList0>
+  <expectedLogList0>Variance for polynomial is 1.35093826549742</expectedLogList0>
+  <expectedLogList0>FitGaussianForPeak(...)</expectedLogList0>
+  <expectedLogList0>Variance is 0.0199555258078527 after iteration 1</expectedLogList0>
+  <expectedLogList0>Variance is 0.0184755534730349 after iteration 2</expectedLogList0>
+  <expectedLogList0>Variance is 0.0182587444851014 after iteration 3</expectedLogList0>
+  <expectedLogList0>Variance is 0.0181723067857634 after iteration 4</expectedLogList0>
+  <expectedLogList0>Variance is 0.0181723067857634 after iteration 5</expectedLogList0>
+  <expectedLogList0>Variance is 0.0181723067857634 after iteration 6</expectedLogList0>
+  <expectedLogList0>Variance is 0.0181723067857634 after iteration 7</expectedLogList0>
+  <expectedLogList0>Variance is 0.0181723067857634 after iteration 8</expectedLogList0>
+  <expectedLogList0>Variance is 0.0181723067857634 after iteration 9</expectedLogList0>
+  <expectedLogList0>Variance is 0.0181723067857634 after iteration 10</expectedLogList0>
+  <expectedLogList0>Variance is 0.0181723067857634 after iteration 11</expectedLogList0>
+  <expectedLogList0>Algorithm converged after 12 iterations with variance of 0.0181723067857634</expectedLogList0>
+  <expectedLogList0>Variance for peak CTIC is 0.0181723067857634</expectedLogList0>
+  <expectedLogList0>Peak CTIC is negative (89.3568881313676)</expectedLogList0>
+  <expectedLogList0>FitGaussianForPeak(...)</expectedLogList0>
+  <expectedLogList0>Variance for peak CT is 0.376620138700536</expectedLogList0>
+  <expectedLogList0>Peak CT is negative (0)</expectedLogList0>
+  <expectedLogList2>SavitskyGolay(17, 2)</expectedLogList2>
+  <expectedLogList2>Variance for raw data is 0.0222239959042357</expectedLogList2>
+  <expectedLogList2>CurveFit(6)</expectedLogList2>
+  <expectedLogList2>CurveFit(6)</expectedLogList2>
+  <expectedLogList2>CurveFit(6)</expectedLogList2>
+  <expectedLogList2>CurveFit(6)</expectedLogList2>
+  <expectedLogList2>CurveFit(6)</expectedLogList2>
+  <expectedLogList2>CurveFit(6)</expectedLogList2>
+  <expectedLogList2>Variance for polynomial is 1.35093826549742</expectedLogList2>
+  <expectedLogList2>FitGaussianForPeak(...)</expectedLogList2>
+  <expectedLogList2>Variance is 0.0199555258078527 after iteration 1</expectedLogList2>
+  <expectedLogList2>Variance is 0.0184755534730349 after iteration 2</expectedLogList2>
+  <expectedLogList2>Variance is 0.0182587444851014 after iteration 3</expectedLogList2>
+  <expectedLogList2>Variance is 0.0181723067857634 after iteration 4</expectedLogList2>
+  <expectedLogList2>Variance is 0.0181723067857634 after iteration 5</expectedLogList2>
+  <expectedLogList2>Variance is 0.0181723067857634 after iteration 6</expectedLogList2>
+  <expectedLogList2>Variance is 0.0181723067857634 after iteration 7</expectedLogList2>
+  <expectedLogList2>Variance is 0.0181723067857634 after iteration 8</expectedLogList2>
+  <expectedLogList2>Variance is 0.0181723067857634 after iteration 9</expectedLogList2>
+  <expectedLogList2>Variance is 0.0181723067857634 after iteration 10</expectedLogList2>
+  <expectedLogList2>Variance is 0.0181723067857634 after iteration 11</expectedLogList2>
+  <expectedLogList2>Algorithm converged after 12 iterations with variance of 0.0181723067857634</expectedLogList2>
+  <expectedLogList2>Variance for peak NG1IC is 0.0181723067857634</expectedLogList2>
+  <expectedLogList2>Peak NG1IC is negative (89.3568881313676)</expectedLogList2>
+  <expectedLogList2>FitGaussianForPeak(...)</expectedLogList2>
+  <expectedLogList2>Variance for peak NG1 is 0.376620138700536</expectedLogList2>
+  <expectedLogList2>Peak NG1 is negative (0)</expectedLogList2>
+  <expectedLogList3>SavitskyGolay(17, 2)</expectedLogList3>
+  <expectedLogList3>Variance for raw data is 0.0147566976217867</expectedLogList3>
+  <expectedLogList3>CurveFit(6)</expectedLogList3>
+  <expectedLogList3>CurveFit(6)</expectedLogList3>
+  <expectedLogList3>CurveFit(6)</expectedLogList3>
+  <expectedLogList3>CurveFit(6)</expectedLogList3>
+  <expectedLogList3>CurveFit(6)</expectedLogList3>
+  <expectedLogList3>CurveFit(6)</expectedLogList3>
+  <expectedLogList3>Variance for polynomial is 1.47920909016658</expectedLogList3>
+  <expectedLogList3>FitGaussianForPeak(...)</expectedLogList3>
+  <expectedLogList3>Variance is 0.0152007282902111 after iteration 1</expectedLogList3>
+  <expectedLogList3>Variance is 0.0144976862297243 after iteration 2</expectedLogList3>
+  <expectedLogList3>Variance is 0.0143875296879184 after iteration 3</expectedLogList3>
+  <expectedLogList3>Variance is 0.0143387147686953 after iteration 4</expectedLogList3>
+  <expectedLogList3>Variance is 0.0143387147686953 after iteration 5</expectedLogList3>
+  <expectedLogList3>Variance is 0.0143387147686953 after iteration 6</expectedLogList3>
+  <expectedLogList3>Variance is 0.0143387147686953 after iteration 7</expectedLogList3>
+  <expectedLogList3>Variance is 0.0143387147686953 after iteration 8</expectedLogList3>
+  <expectedLogList3>Variance is 0.0143387147686953 after iteration 9</expectedLogList3>
+  <expectedLogList3>Variance is 0.0143387147686953 after iteration 10</expectedLogList3>
+  <expectedLogList3>Variance is 0.0143387147686953 after iteration 11</expectedLogList3>
+  <expectedLogList3>Algorithm converged after 12 iterations with variance of 0.0143387147686953</expectedLogList3>
+  <expectedLogList3>Variance for peak NG2IC is 0.0143387147686953</expectedLogList3>
+  <expectedLogList3>Peak NG2IC is negative (59.7754678991609)</expectedLogList3>
+  <expectedLogList3>FitGaussianForPeak(...)</expectedLogList3>
+  <expectedLogList3>Variance for peak NG2 is 0.389513298950662</expectedLogList3>
+  <expectedLogList3>Peak NG2 is negative (0)</expectedLogList3>
+  <ctResult>Invalid</ctResult>
+  <ngResult>Invalid</ngResult>
+</assayRunResult>

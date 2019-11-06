@@ -1,0 +1,75 @@
+﻿#---------------------------------------------
+#974_fill_PCR
+#copied from MOB-D-013 v5.0
+#Antony Brown 11 MAY 2017
+#copyright Atlas Genetics Ltd 2017
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - copied from MOB-D-013 V4.0
+#version 2.0 - copied from MOB-D-013 V5.0
+#---------------------------------------------
+
+
+
+#Set start conditions
+valve v1 off
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 on
+valve v6 on
+valve v7 on
+valve v8 on
+valve v16 on
+
+#Set DPR to on and fill to 17% atmospheric
+dpr dpr1 on 17 300
+delay 330
+
+#18 sec loop for fluxing everywhere with PCR valves while slow fill proceeds. Assume flutter equivalent to +2/-0% (4ul swept volume)
+begin atomic 30 done                          
+valve v2 on
+delay 30
+valve v2 off
+delay 30
+end
+#no acknowledgement made of complete, so this will run in the background.
+
+dpr dpr1 on 20 400             
+delay 400 
+
+#fill to second reagent and back up 7% in 6 seconds 3 cycles 18 seconds
+begin nonatomic 3
+dpr dpr1 on 30 300     
+delay 300                                                                        
+dpr dpr1 on 23 300               
+delay 300 
+end
+
+#fill PCR chambers and finish sequence
+dpr dpr1 on 34 200
+delay 300
+valve v2 on
+delay 30
+
+
+set Motor.Steppers.Pwm 100   #allow 100% current just for this move.
+
+#Shut down DPR valve 
+valve v16 off
+dpr dpr1 off
+delay 20
+
+#Lift mechanical valve for PCR
+stepper l5 350 -900 liftMV
+delay 250
+wait liftMV 5
+
+stepper l5 350 20            # move mechnical valve off its stop
+set Motor.Steppers.Pwm 70   

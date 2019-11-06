@@ -1,0 +1,81 @@
+﻿#---------------------------------------------
+#MOB-EP-627_double_wash
+#Based on MOB-D-029 V2.0
+#Antony Brown 22 MAR 2018
+#copyright Atlas Genetics Ltd 2018
+#---------------------------------------------
+
+#-------------Revision-History---------------
+#version 1.0 - copied form MOB-D-029 V2.0 and then heavily modified. 
+#            - split wash dispence into two sections. 
+#                  first is 8 cycles of 36 steps at 50steps per second (highest torque)
+#                  Back off wash actuator to releave pressure. 
+#                  Dwell wash on CC for 10 seconds
+#                  air purge for 30s forward from the eluate enable valve to clear capture column and protect open wash blister. wash should remain in behaind open protection valve. 
+#                  re-enguage wash actuator
+#                  Dispense rest of wash 6 cycles for 40 steps at 100s/s. 
+#                  finish script as MOB-D-029 V2.0 - stepper down. 
+#--------------------------------------------
+
+
+#set start conditions to check manifold protection
+valve v1 off
+valve v2 on
+valve v3 on
+valve v4 off
+valve v5 on
+valve v6 on 
+valve v7 off
+valve v8 on
+delay 50
+
+#crush blister slow
+stepper l4 250 230 washreach1
+wait washreach1 15
+delay 10
+
+#begin repeatedly crushing slightly then releasing back pressure until a displacment on 480 steps is reached
+begin nonatomic 8		
+  stepper l4 50 36 washsquash
+  wait washsquash 3
+  delay 140
+end
+
+
+# retract wash actuator slightly to relieve pressure from blister
+stepper l4 250 -230 ack
+delay 100
+valve v4 on
+
+#dwell on capture column
+delay 1000
+
+#purge first wash dispense through capture column for 30 seconds to semi dry
+valve v10 on
+valve v8 off
+valve v5 off
+delay 3000
+
+#Shutdown airline
+valve v10 off 
+delay 20
+valve v8 on
+delay 20
+valve v5 on
+
+#Continue with wash dispense
+#open wash inlet
+valve v4 off
+    #re-engage actuator
+    stepper l4 250 200 ack
+    delay 100
+    
+    #Dispense remaining wash
+    begin nonatomic 6		
+      stepper l4 100 40 washsquash
+      wait washsquash 3
+      delay 140
+    end
+valve v4 on
+
+#leave stepper down to stop blister inflating during air purges

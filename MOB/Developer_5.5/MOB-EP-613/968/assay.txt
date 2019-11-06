@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<assay>
+  <code>968</code>
+  <version>3</version>
+  <name>MOB-EP-609_10_32_PCR3</name>
+  <shortName>MOB-EP-609_10_32_PCR3</shortName>
+  <flatLineInvalidatesAssay>False</flatLineInvalidatesAssay>
+  <diseasesIndependentlyValidated>False</diseasesIndependentlyValidated>
+  <script>MOB-EP-609_end_to_endMain</script>
+  <estimatedDuration>2052</estimatedDuration>
+</assay>

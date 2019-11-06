@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assayRunResult>
+  <expectedLogList0>SavitskyGolay(17, 2)</expectedLogList0>
+  <expectedLogList0>Variance for raw data is 0.0582483651134388</expectedLogList0>
+  <expectedLogList0>CurveFit(6)</expectedLogList0>
+  <expectedLogList0>CurveFit(6)</expectedLogList0>
+  <expectedLogList0>Variance for polynomial is 0</expectedLogList0>
+  <expectedLogList0>FitGaussianForPeak(...)</expectedLogList0>
+  <expectedLogList0>Variance for peak CTIC is 0</expectedLogList0>
+  <expectedLogList0>Peak CTIC is negative (0)</expectedLogList0>
+  <expectedLogList0>FitGaussianForPeak(...)</expectedLogList0>
+  <expectedLogList0>Variance for peak CT is 0</expectedLogList0>
+  <expectedLogList0>Peak CT is negative (0)</expectedLogList0>
+  <expectedLogList2>SavitskyGolay(17, 2)</expectedLogList2>
+  <expectedLogList2>Variance for raw data is 0.0582483651134388</expectedLogList2>
+  <expectedLogList2>CurveFit(6)</expectedLogList2>
+  <expectedLogList2>Variance for polynomial is 9.91625138698835</expectedLogList2>
+  <expectedLogList2>FitGaussianForPeak(...)</expectedLogList2>
+  <expectedLogList2>Variance for peak NG1IC is 0.309672110236906</expectedLogList2>
+  <expectedLogList2>Peak NG1IC is negative (0)</expectedLogList2>
+  <expectedLogList2>FitGaussianForPeak(...)</expectedLogList2>
+  <expectedLogList2>Variance for peak NG1 is 0.20554501152335</expectedLogList2>
+  <expectedLogList2>Peak NG1 is negative (0)</expectedLogList2>
+  <expectedLogList3>SavitskyGolay(17, 2)</expectedLogList3>
+  <expectedLogList3>Variance for raw data is 11.9455377343751</expectedLogList3>
+  <expectedLogList3>CurveFit(6)</expectedLogList3>
+  <expectedLogList3>CurveFit(6)</expectedLogList3>
+  <expectedLogList3>Variance for polynomial is 0</expectedLogList3>
+  <expectedLogList3>FitGaussianForPeak(...)</expectedLogList3>
+  <expectedLogList3>Variance for peak NG2IC is 0</expectedLogList3>
+  <expectedLogList3>Peak NG2IC is negative (0)</expectedLogList3>
+  <expectedLogList3>FitGaussianForPeak(...)</expectedLogList3>
+  <expectedLogList3>Variance for peak NG2 is 4.62392830500859</expectedLogList3>
+  <expectedLogList3>Peak NG2 is negative (0)</expectedLogList3>
+  <ctResult>Invalid</ctResult>
+  <ngResult>Invalid</ngResult>
+</assayRunResult>

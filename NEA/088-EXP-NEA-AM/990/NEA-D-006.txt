@@ -1,0 +1,200 @@
+﻿#---------------------------------------------
+#NAT_CTNG_Progress Indicator
+#NEA-D-006
+#Antony Brown 15 Aug 2017
+#copyright Atlas Genetics Ltd 2019
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History---------------
+#version 1.0 - NEA-CM-0011
+#Version 2.0 - NEA-CM-0015
+#--------------------------------------------
+
+
+begin atomic 1
+
+throw 10002,0
+delay 1963
+throw 10002,1
+delay 1963
+throw 10002,2
+delay 1963
+throw 10002,3
+delay 1963
+throw 10002,4
+delay 1963
+throw 10002,5
+delay 1963
+throw 10002,6
+delay 1963
+throw 10002,7
+delay 1963
+throw 10002,8
+delay 1963
+throw 10002,9
+delay 1963
+throw 10002,10
+delay 1963
+throw 10002,11
+delay 1963
+throw 10002,12
+delay 1963
+throw 10002,13
+delay 1963
+throw 10002,14
+delay 1963
+throw 10002,15
+delay 1963
+throw 10002,16
+delay 1963
+throw 10002,17
+delay 1963
+throw 10002,18
+delay 1963
+throw 10002,19
+delay 1963
+throw 10002,20
+delay 1963
+throw 10002,21
+delay 1963
+throw 10002,22
+delay 1963
+throw 10002,23
+delay 1963
+throw 10002,24
+delay 1963
+throw 10002,25
+delay 1963
+throw 10002,26
+delay 1963
+throw 10002,27
+delay 1963
+throw 10002,28
+delay 1963
+throw 10002,29
+delay 1963
+throw 10002,30
+delay 1963
+throw 10002,31
+delay 1963
+throw 10002,32
+delay 1963
+throw 10002,33
+delay 1963
+throw 10002,34
+delay 1963
+throw 10002,35
+delay 1963
+throw 10002,36
+delay 1963
+throw 10002,37
+delay 1963
+throw 10002,38
+delay 1963
+throw 10002,39
+delay 1963
+throw 10002,40
+delay 1963
+throw 10002,41
+delay 1963
+throw 10002,42
+delay 1963
+throw 10002,43
+delay 1963
+throw 10002,44
+delay 1963
+throw 10002,45
+delay 1963
+throw 10002,46
+delay 1963
+throw 10002,47
+delay 1963
+throw 10002,48
+delay 1963
+throw 10002,49
+delay 1963
+throw 10002,50
+delay 1963
+throw 10002,51
+delay 1963
+throw 10002,52
+delay 1963
+throw 10002,53
+delay 1963
+throw 10002,54
+delay 1963
+throw 10002,55
+delay 1963
+throw 10002,56
+delay 1963
+throw 10002,57
+delay 1963
+throw 10002,58
+delay 1963
+throw 10002,59
+delay 1963
+throw 10002,60
+delay 1963
+throw 10002,61
+delay 1963
+throw 10002,62
+delay 1963
+throw 10002,63
+delay 1963
+throw 10002,64
+delay 1963
+throw 10002,65
+delay 1963
+throw 10002,66
+delay 1963
+throw 10002,67
+delay 1963
+throw 10002,68
+delay 1963
+throw 10002,69
+delay 1963
+throw 10002,70
+delay 1963
+throw 10002,71
+delay 1963
+throw 10002,72
+delay 1963
+throw 10002,73
+delay 1963
+throw 10002,74
+delay 1963
+throw 10002,75
+delay 1963
+throw 10002,76
+delay 1963
+throw 10002,77
+delay 1963
+throw 10002,78
+delay 1963
+throw 10002,79
+delay 1963
+throw 10002,80
+delay 1963
+throw 10002,81
+delay 1963
+throw 10002,82
+delay 1963
+throw 10002,83
+delay 1963
+throw 10002,84
+delay 1963
+throw 10002,85
+delay 1963
+throw 10002,86
+delay 1963
+throw 10002,87
+delay 1963
+throw 10002,88
+
+end
+

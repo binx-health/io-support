@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<assay>
+  <code>972</code>
+  <version>10</version>
+  <name>CTNG_V10_AMP_DET</name>
+  <shortName>CTNG_V10_AMP_DET</shortName>
+  <flatLineInvalidatesAssay>False</flatLineInvalidatesAssay>
+  <diseasesIndependentlyValidated>False</diseasesIndependentlyValidated>
+  <script>CTNG_V10_AMP_DETMain</script>
+  <estimatedDuration>0</estimatedDuration>
+</assay>
