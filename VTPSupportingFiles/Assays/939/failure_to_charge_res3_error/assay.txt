@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<assay>
+  <code>939</code>
+  <version>1</version>
+  <name>Errors</name>
+  <shortName>Errors</shortName>
+  <flatLineInvalidatesAssay>False</flatLineInvalidatesAssay>
+  <diseasesIndependentlyValidated>False</diseasesIndependentlyValidated>
+  <script>Errors</script>
+  <estimatedDuration>10</estimatedDuration>
+</assay>

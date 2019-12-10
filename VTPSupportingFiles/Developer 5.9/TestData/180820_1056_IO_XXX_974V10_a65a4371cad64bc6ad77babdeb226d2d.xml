@@ -1,0 +1,2185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<test>
+  <serialNumber>IO_XXX</serialNumber>
+  <instrumentName>IO_XXX</instrumentName>
+  <readerVersion>5.10.0</readerVersion>
+  <readerIntegrity>Release</readerIntegrity>
+  <firmwareVersion>xxx</firmwareVersion>
+  <biosVersion>VBOX   - 1</biosVersion>
+  <lockingUserID>{7d21f6c6-a052-4036-a57e-94fd6002709e}</lockingUserID>
+  <scannedBarcode>97490000000000000057</scannedBarcode>
+  <assay>
+    <assay>
+      <code>974</code>
+      <version>10</version>
+      <name>CTNG_End_to_End</name>
+      <shortName>CTNG</shortName>
+      <target>
+        <targetName>CT</targetName>
+        <targetType>STD</targetType>
+        <peakName>CT</peakName>
+        <control>CTIC</control>
+      </target>
+      <target>
+        <targetName>NG1</targetName>
+        <targetType>STD</targetType>
+        <peakName>NG1</peakName>
+        <control>NG1IC</control>
+      </target>
+      <target>
+        <targetName>NG2</targetName>
+        <targetType>STD</targetType>
+        <peakName>NG2</peakName>
+        <control>NG2IC</control>
+      </target>
+      <disease>
+        <diseaseName>CT</diseaseName>
+        <loinc>47121-6</loinc>
+        <target>CT</target>
+        <detectionCriteria>CT</detectionCriteria>
+      </disease>
+      <disease>
+        <diseaseName>NG</diseaseName>
+        <loinc>47111-7</loinc>
+        <target>NG1</target>
+        <target>NG2</target>
+        <detectionCriteria>NG1,NG2</detectionCriteria>
+      </disease>
+      <flatLineInvalidatesAssay>False</flatLineInvalidatesAssay>
+      <diseasesIndependentlyValidated>False</diseasesIndependentlyValidated>
+      <script>CTNG_End_to_EndMain</script>
+      <estimatedDuration>1900</estimatedDuration>
+    </assay>
+    <metrics>General.Log.FastReporting 500
+Peltier.Detection.MaxTemp 77
+</metrics>
+    <scripts>
+      <script>
+        <name>974_air_dry</name>
+        <value>
+          <text>#---------------------------------------------
+#974_air_dry
+#copied from MOB-D-021 v6.0
+#Antony Brown 11 May 2017
+#Copyright Atlas Genetics Ltd 2017
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - copied from MOB-D-021 V4.0
+#Version 2.0 - Copied from MOB-D-021 V5.0
+#version 3.0 - Copied from MOB-D-021 V6.0
+#---------------------------------------------
+
+
+
+
+#setup start conditions
+valve v1 off
+valve v3 on
+valve v2 off
+valve v4 on
+valve v5 on
+valve v6 on 
+valve v7 off
+valve v8 on
+valve v16 off
+valve v17 off 
+
+
+#clear wash downstream from blister for 2 seconds to remove excess wash from upstream 
+valve v9 on
+delay 20
+valve v8 off 
+valve v4 off
+delay 200
+valve v8 on
+
+#short pressure release 
+delay 200
+
+# blow again to displace extra wash fluid. 
+valve v8 off
+delay 500
+valve v8 on
+delay 25
+valve v4 on
+delay 25
+valve v9 off
+delay 30
+
+
+#clear wash back to sample well prep for air dry for 0.2s to clear any excess between valves 3 and 4
+valve v3 off
+delay 100       #disapate pressure
+valve v10 on
+delay 30
+valve v8 off
+delay 30
+valve v5 off
+#This is the period that the air flows to sample well
+delay 20
+valve v3 on
+
+#charge res2 higher to maintain valve seal during airdry
+res res2 hold 1200 1350 20 res21200
+wait res21200 5
+if res21200
+#do nothing
+else
+call error_30010
+endif
+
+#airdry set up higher pressure
+res res3 hold 1100 1350 30 res31000
+wait res31000 5
+
+#airdry start
+delay 10000
+
+#start peltier during airdry to preheat back end
+begin atomic 1 preheat
+set Peltier.Pcr.Kp 300000
+set Peltier.Pcr.Ki 10
+set Peltier.Pcr.Kd 0
+set Peltier.Pcr.MinTemp 10
+set Peltier.Pcr.Imax 120000
+
+set Peltier.Detection.Kp 100000
+set Peltier.Detection.Ki 10
+set Peltier.Detection.Kd 0
+
+therm therm3 on 22 cooldc
+therm therm2 on 37 warmstart
+wait cooldc 10
+wait warmstart 10
+end
+
+#finish airdry
+delay 2000
+valve v8 on
+delay 20
+
+begin atomic 1 complete
+#lift lysis stepper motor
+stepper L3 200 -200 lysisretract
+wait lysisretract 5 
+end
+
+#dump res3 after airdry and close air dry line
+res res3 dump
+delay 200
+valve v10 off
+
+
+#stop DPR buzzing during elute phase, favouring the new DPR
+dpr dpr1 off            
+#res3 charge happens in elution dispence phase immediatly after this script
+
+
+#set res 2 to lower valve logic pressure back to normal in due course
+res res2 hold 900 1100 3 
+
+
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>974_air_purge_1</name>
+        <value>
+          <text>#---------------------------------------------
+#974_air_purge_1
+#copied from MOB-D-020 V5.0
+#Antony Brown 11 MAY 2017
+#Copyright Atlas Genetics Ltd 2017
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - copied from MOB-D-020 V3.0
+#version 2.0 - copied from MOB-D-020 V4.0
+#version 3.0 - copied from MOB-D-020 V5.0
+#---------------------------------------------
+
+
+#setup start conditions
+valve v1 off
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 on 
+valve v6 on
+valve v7 off
+valve v8 on
+dpr dpr1 off
+delay 50
+
+
+#check for res 3 charged 
+if res2800
+# do nothing
+else
+call error_30014
+endif
+delay 10
+
+#blow out back for 4.5s
+valve v9 on
+delay 10
+valve v8 off
+valve v4 off
+delay 20
+
+delay 450
+
+#shutdown
+valve v8 on
+delay 10
+valve v9 off
+delay 20
+valve v4 on
+
+#allow pressure to disapate. 
+delay 100
+
+#vent any remaining to sample well
+valve v3 off
+valve v2 off
+delay 30
+valve v3 on
+delay 30 
+valve v4 on  </text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>974_detection_incubation</name>
+        <value>
+          <text>
+#---------------------------------------------
+#974_detection_incubation
+#copied from MOB-D-015 v3.0
+#Antony Brown 11 Jan 2017
+#copyright Atlas Genetics Ltd 2017
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+
+#-------------Revision-History----------------
+#Version 1.0 - copied from MOB-D-015 V3.0
+#---------------------------------------------
+
+
+
+begin atomic 1
+throw 10002,89
+delay 1820
+throw 10002,90
+delay 1820
+throw 10002,91
+delay 1820
+throw 10002,92
+delay 1820
+throw 10002,93
+delay 1820
+throw 10002,94
+delay 1820
+throw 10002,95
+delay 1820
+throw 10002,96
+delay 1820
+throw 10002,97
+delay 1820
+throw 10002,98
+
+end
+
+#set incubation temperature
+therm therm3 on 37 INCDT        
+
+set peltier.pcr.ki 20
+therm therm2 on 37 INCPCR
+wait INCPCR 30
+wait INCDT 30
+
+if INCDT
+#do nothing
+else
+call error_30016
+endif
+
+if INCPCR
+#do nothing
+else
+call error_30015
+endif
+
+set peltier.pcr.ki 6
+
+#delay for incubation before read
+delay 16500
+
+
+
+#start prescan
+begin atomic 1
+pstat 210 external
+voltammetry differential 0 50 10 600 40 60             #Full prescan  
+end
+
+#delay to finish 3 min incubation time
+delay 1500
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>974_elution_release</name>
+        <value>
+          <text>
+#---------------------------------------------
+#974_elution_release
+#copied from MOB-D-012 v2.0
+#Antony Brown 11 Jan 2017
+#copyright Atlas Genetics Ltd 2017
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - Copied from MOB-D-012 V2.0
+#---------------------------------------------
+
+#set start conditions to check manifold protection
+valve v1 off
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 off
+valve v6 off
+valve v7 on
+valve v8 on
+valve v16 off                                           #set valve v16 to vent elution well
+valve v17 on
+
+begin atomic 1
+#Charge Reservoir
+dpr dpr1 off 
+delay 50
+res res3 hold 700 900 3 initregID
+wait initregID 5
+if initregID
+#do nothing
+else
+call error_30014
+endif
+end
+
+#engage menchanical valve
+stepper l5 500 600 mechvengage
+wait mechvengage 15
+delay 125
+
+
+#reach blister elution
+stepper L2 500 200 elutionreach1
+wait elutionreach1 15
+
+begin atomic 1
+#check peltier is preheated
+
+#PCR check
+if warmstart
+#do nothing
+else
+call error_30015
+endif
+end
+
+begin nonatomic  10					#begin repeatedly crushing slightly then releasing back pressure until a displacment on 350steps is reached
+stepper L2 50 50 elutionsquash
+wait elutionsquash 3
+delay 200                                         
+end
+
+valve v6 on
+
+delay 100
+
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>974_fill_PCR</name>
+        <value>
+          <text>#---------------------------------------------
+#974_fill_PCR
+#copied from MOB-D-013 v5.0
+#Antony Brown 11 MAY 2017
+#copyright Atlas Genetics Ltd 2017
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - copied from MOB-D-013 V4.0
+#version 2.0 - copied from MOB-D-013 V5.0
+#---------------------------------------------
+
+
+
+#Set start conditions
+valve v1 off
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 on
+valve v6 on
+valve v7 on
+valve v8 on
+valve v16 on
+
+#Set DPR to on and fill to 17% atmospheric
+dpr dpr1 on 17 300
+delay 330
+
+#18 sec loop for fluxing everywhere with PCR valves while slow fill proceeds. Assume flutter equivalent to +2/-0% (4ul swept volume)
+begin atomic 30 done                          
+valve v2 on
+delay 30
+valve v2 off
+delay 30
+end
+#no acknowledgement made of complete, so this will run in the background.
+
+dpr dpr1 on 20 400             
+delay 400 
+
+#fill to second reagent and back up 7% in 6 seconds 3 cycles 18 seconds
+begin nonatomic 3
+dpr dpr1 on 30 300     
+delay 300                                                                        
+dpr dpr1 on 23 300               
+delay 300 
+end
+
+#fill PCR chambers and finish sequence
+dpr dpr1 on 34 200
+delay 300
+valve v2 on
+delay 30
+
+
+set Motor.Steppers.Pwm 100   #allow 100% current just for this move.
+
+#Shut down DPR valve 
+valve v16 off
+dpr dpr1 off
+delay 20
+
+#Lift mechanical valve for PCR
+stepper l5 350 -900 liftMV
+delay 250
+wait liftMV 5
+
+stepper l5 350 20            # move mechnical valve off its stop
+set Motor.Steppers.Pwm 70   
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>974_homogenise</name>
+        <value>
+          <text>#---------------------------------------------
+#974_homogenise
+#copied from MOB-D-023 V3.0
+#Antony Brown 11 MAY 2017
+#Copyright Atlas Genetics Ltd 2017
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - copied from MOB-D-023 V2.0
+#version 2.0 - Copied from MOB-D-023 V3.0
+#---------------------------------------------
+
+begin atomic 1
+
+#lift elution blister actuator
+stepper l2 500 -600 elutionlift
+wait elutionlift 5               
+
+#retract wash stepper
+stepper L4 200 -550 washretract
+wait washretract 15
+
+#back off actuator from stop
+stepper l2 500 20 backoff
+stepper l4 500 20 backoffw
+wait backoff 2
+wait backoffw 2
+
+end
+
+#set start conditions
+valve v1 off
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 on
+valve v6 on
+valve v7 off
+valve v8 on
+valve v17 on
+delay 10
+
+
+#open to DPR
+dpr dpr1 on 5 0
+delay 30
+valve v16 on
+delay 20
+
+#cycle between 1-5% atmospheric
+begin nonatomic 30 done
+	valve v16 on
+	delay 20
+	valve v16 off
+	delay 20
+end
+wait done 30
+dpr dpr1 on 2 0
+
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>974_initialise_run</name>
+        <value>
+          <text>#---------------------------------------------
+#974_initialise_run
+#copied from MOB-D-025 V3.0
+#Antony Brown 11 MAY 2017
+#copyright Atlas Genetics Ltd 2017
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History---------------
+#version 1.0 - Copied from MOB-D-025 V2.0
+#version 2.0 - Copied from MOB-D-025 V3.0
+#--------------------------------------------
+
+
+#Set Pstat to internal circuit
+pstat 0 internal
+
+begin atomic 1 done
+set Motor.Steppers.Pwm 100    #high force movements
+  stepper l2 500 60 step
+  stepper l4 500 60 stepwash
+  wait step 1
+  wait stepwash 1
+  stepper l2 500 -50 step2
+  stepper l4 500 -50 stepwash2 
+  wait step2 1
+  wait stepwash2 1
+  stepper l2 500 60 step
+  stepper l4 500 60 stepwash
+  wait step 1
+  wait stepwash 1
+  stepper l2 500 -50 step2
+  stepper l4 500 -50 stepwash2 
+  wait step2 1
+  wait stepwash2 1
+  stepper l2 500 60 step
+  stepper l4 500 60 stepwash
+  wait step 1
+  wait stepwash 1
+  stepper l2 500 -50 step2
+  stepper l4 500 -50 stepwash2 
+  wait step2 1
+  wait stepwash2 1
+
+set Motor.Steppers.Pwm 70    #standard force movements
+
+
+stepper l2 500 -70 done
+stepper l4 500 -70 done2      
+wait done 5
+wait done2 5
+stepper l2 500 20 done        # reset to initial position 
+stepper l4 500 20 done2
+wait done 5
+wait done2 5
+
+end
+
+res res1 dump
+res res2 dump
+res res3 dump
+
+#set dpr off so that new one does not buzz whilst res 3 is empty 
+dpr dpr1 off
+	
+solenoid m1 on #isolation_release on 		# isolation solenoid should be powered up indefinitely
+solenoid s1 off #drawer_catch off   		# drawer_catch should be left off normally
+
+#pressure valves are rippled on-and-off 
+valve v12 on #vacuum_enable on
+valve v13 on #Low_High_Pressure_Select on
+valve v1 on  #bellows on
+valve v2 on  #pump_V1_pcr on
+valve v3 on  #pump_V2 on
+valve v4 on  #V3_wash_inlet on
+valve v5 on  #V4_elute_inlet on
+valve v6 on  #V5_elute_enable on
+valve v7 on  #v6_waste_enable on
+valve v8 on
+valve v9 on  #wash_air_dry on
+valve v10 on #elute_air_dry on
+valve v14 on #low_pressure_dump on
+valve v15 on #high_pressure_dump on 
+valve v16 on #digital_enable on
+valve v11 on #vacuum_dump on
+valve v17 on
+
+delay 10
+
+valve v12 off #vacuum_enable off
+valve v13 off #Low_High_Pressure_Select off
+valve v1 off  #bellows off
+valve v2 off  #pump_V1_pcr off
+valve v3 off  #pump_V2 off
+valve v4 off  #V3_wash_inlet off
+valve v5 off  #V4_elute_inlet off
+valve v6 off  #V5_elute_enable off
+valve v7 off  #v6_waste_enable off
+valve v8 off  #air_dry_enable off
+valve v9 off  #wash_air_dry off
+valve v10 off #elute_air_dry off
+valve v14 off #low_pressure_dump off
+valve v15 off #high_pressure_dump off 
+valve v16 off #digital_enable off
+valve v11 off #vacuum_dump off
+valve v17 off #digital_outlet atmospheric off
+
+#open manifold with no pressure in reservoirs
+valve v13 on
+valve v12 on
+delay 50
+
+#charge positive hard 
+res res2 hold 900 1100 2 initpswID 
+
+#set up valve conditions to suck in fluid forming a meniscus in sample well inlet
+valve v2 on
+delay 50
+valve v1 on
+delay 100
+#allow bellows to close fully before closing v3
+valve v3 on
+valve v4 on
+valve v5 on
+valve v6 on
+valve v7 on
+valve v8 on
+delay 20
+
+#charge res3 atomicly to stop original DPR form buzzing
+begin atomic 1
+res res3 hold 700 900 3 res2800
+delay 300
+wait res2800 5
+end
+
+#turn on Sample well peltier to get to temp before mix
+set Peltier.Lysis.Kp 500000
+set Peltier.Lysis.Ki 500
+set Peltier.Lysis.Kd 0
+set Peltier.Lysis.TargetOffset 5
+
+#Turn on sample well heater
+therm therm1 on 37 heatsample
+
+#Charge vacuum logic pressure for a softer mixing process
+res res1 hold 500 700 2 initvswID
+wait initpswID 10
+wait initvswID 10
+
+#check for pressures
+if initpswID
+#do nothing
+else 
+call error_30010 
+endif
+if initvswID
+#do nothing
+else 
+call error_30011
+endif
+
+#remove meniscus from sample well inlet with bellows 
+valve v1 off
+delay 50
+valve v2 off
+delay 2000
+
+#Rattle bellows to remove any remaining meniscus
+begin nonatomic 2 done
+valve v1 on
+delay 40
+valve v1 off
+delay 100
+end
+
+#relax reservoir to allow to recharge to gentle pressure for mix.
+res res2 dump
+delay 100
+res res2 hold 400 550 2 initpswID
+wait initpswID 10
+
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>974_load_detection</name>
+        <value>
+          <text>#---------------------------------------------
+#974_load_detection
+#copied from MOB-D-022 v2.0
+#Antony Brown 11 Jan 2017
+#Copyright Atlas Genetics Ltd 2017
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - Copied from MOB-D-022 V2.0
+#---------------------------------------------
+
+
+#set starting valve conditions
+valve v1 off
+valve v2 on
+valve v3 on
+valve v4 on
+valve v5 on
+valve v6 on
+valve v7 on
+valve v8 on
+valve v16 off
+valve v17 on
+delay 10
+
+#Set Pstat to internal circuit
+pstat 0 internal
+
+#Engage mechanical valve 
+stepper l5 200 300   # slow down mech valve to top of tpe
+delay 200
+stepper l5 50 310 mechengage
+wait mechengage 5
+delay 500
+
+#set up DPR
+dpr dpr1 on 2 0
+valve v16 on
+delay 10
+
+#set up fill Detection chambers
+valve v2 off
+delay 10
+
+begin atomic 8
+valve v2 on
+delay 50
+valve v2 off
+delay 50
+end
+
+#Fill
+dpr dpr1 on 28 900
+delay 950
+valve v2 on
+delay 50
+
+#keep dpr on during reach and prtect instrument
+valve v17 off         # protect instrument from potential back wash
+
+
+
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>974_lysis_release</name>
+        <value>
+          <text>#---------------------------------------------
+#974_lysis_release
+#copied from MOB-D-026 V1.0
+#Antony Brown 11 Jan 2017
+#copyright Atlas Genetics Ltd 2017
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History---------------
+#version 1.0 - copied from MOB-D-026 V1.0
+#--------------------------------------------
+
+
+#set start conditions to check manifold protection
+valve v1 off
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 on
+valve v6 on
+valve v7 on
+valve v8 on
+
+
+#Reach blister
+stepper l3 500 250 lysisreach1
+wait lysisreach1 3
+
+
+#crush blister slow and totally
+stepper l3 100 340 lysissquash
+
+delay 370
+
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>974_mix</name>
+        <value>
+          <text>#---------------------------------------------
+#974_mix
+#Copied from MOB-D-027 v3.0
+#Antony Brown 11 Jan 2017
+#copyright Atlas Genetics Ltd 2017
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History---------------
+#version 1.0 - Copied from MOB-D-027 v3.0 
+#--------------------------------------------
+
+
+wait heatsample 30                 # only needs this long if it starts from warm. 
+if heatsample
+#do nothing
+else
+call error_30013
+endif
+
+#set PID for sample well heater to stop control loop ringing
+therm therm1 off
+set Peltier.Lysis.Kp 350000
+set Peltier.Lysis.Ki 15
+therm therm1 on 37 ackvar
+
+#Set up the fluidic path
+valve v1 off
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 on 
+valve v6 on
+valve v7 on
+valve v8 on
+
+begin atomic 1
+#back off lysis actuator to protect manifold from leaking.
+stepper l3 500 -400 lysisretract
+wait lysisretract 5
+end
+
+
+#mix fluid                    # v1 bellows off and on in that order to keep as much sample as possible over heater
+begin nonatomic 11 ACK        # 11 cycles as first on is a false pump
+valve v1 off
+delay 100
+valve v1 on
+delay 100
+#back gulp 2.8seconds
+valve v2 on
+delay 30
+valve v3 off
+delay 30
+valve v1 off
+delay 100
+valve v3 on
+delay 30
+valve v2 off
+delay 30
+valve v1 on
+delay 60
+#extra delay to evenly space 11 pumps over 1 min (cycle time = 4.8s)
+delay 65
+end
+wait ACK 25
+
+#turn off sample well heater
+therm therm1 off 
+
+
+#return positive logic to normal operational pressure
+res res2 hold 1100 1250 2 initpswID
+wait initpswID 10
+if initpswID
+                                 # leave blank to leave visual marker in script. 
+else 
+call error_30010 
+endif
+
+
+
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>974_PCR</name>
+        <value>
+          <text>
+#---------------------------------------------
+#974_PCR
+#Copied from MOB-D-014 V4.0
+#Antony Brown 11 Jan 2017
+#copyright Atlas Genetics Ltd 2017
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+
+#-------------Revision-History----------------
+#Version 1.0 - Copied from MOB-D-014 V4.0
+#---------------------------------------------
+
+
+#Set up PCR peltier PID
+set Peltier.Pcr.Kp 600000
+set Peltier.Pcr.Ki 10
+set Peltier.Pcr.Kd 12000000
+set Peltier.Pcr.Imax 120000
+
+
+
+begin atomic 39 all_done     #39 cycles starting from annealing to add in commands to run parrallel to save time in assay
+
+#anneal
+#use accuracy-optimised parameters to return at 50% power.
+set Peltier.Pcr.Kp 400000
+set Peltier.Pcr.Ki 0
+set Peltier.Pcr.Kd 8000000
+set Peltier.Pcr.Imax 50
+set Peltier.Pcr.PwmMax 50
+therm therm2 on 65 anneal
+wait anneal 15
+       if anneal
+       #do nothing
+       else
+       call error_30018
+       endif
+delay 715
+
+#extend                 
+#using re-optimised values to accurately edge up.
+set Peltier.Pcr.Kp 600000
+set Peltier.Pcr.Ki 50
+set Peltier.Pcr.Kd 10000000
+set Peltier.Pcr.Imax 120
+set Peltier.Pcr.PwmMax 50
+therm therm2 on 65.8 adjust          
+delay 200
+therm therm2 on 66.8 phase3
+delay 200
+therm therm2 on 67.8 phase4
+delay 100
+therm therm2 on 69.0 phase5
+delay 100
+therm therm2 on 70.2 phase6
+delay 200
+
+#denature using original setting
+set Peltier.Pcr.Kp 600000
+set Peltier.Pcr.Ki 10
+set Peltier.Pcr.Kd 12000000
+set Peltier.Pcr.Imax 120000
+set Peltier.Pcr.PwmMax 50
+therm therm2 on 98 phase1
+wait phase1 6
+delay 230
+end
+wait all_done 1200
+
+
+#final anneal at end of 39 cycles           # to make up to 40 cycles and to preheat detection peltier. 
+
+#use accuracy-optimised parameters to return at 50% power.
+set Peltier.Pcr.Kp 400000
+set Peltier.Pcr.Ki 0
+set Peltier.Pcr.Kd 8000000
+set Peltier.Pcr.Imax 50
+set Peltier.Pcr.PwmMax 50
+therm therm2 on 65 anneal
+wait anneal 15
+       if anneal
+       #do nothing
+       else
+       call error_30018
+       endif
+delay 715
+
+#--------------------------------------------
+# preheat Detection peltier
+#using accuracy amended parameters 
+begin atomic 1
+set Peltier.Detection.Kp 255000
+set Peltier.Detection.Ki 16
+set Peltier.Detection.Kd  100000
+
+therm therm3 on 42 preheatdetection
+delay 1000                    # to equalise temperature
+wait preheatdetection 15
+if  preheatdetection
+#do nothing
+else
+call error_30016
+endif
+end
+#-------------------------------------------
+
+#extend                 
+#using re-optimised values to accurately edge up.
+set Peltier.Pcr.Kp 600000
+set Peltier.Pcr.Ki 50
+set Peltier.Pcr.Kd 10000000
+set Peltier.Pcr.Imax 120
+set Peltier.Pcr.PwmMax 50
+therm therm2 on 65.8 adjust
+delay 200
+therm therm2 on 66.8 phase3
+delay 200
+therm therm2 on 67.8 phase4
+delay 100
+therm therm2 on 69.0 phase5
+delay 100
+therm therm2 on 70.2 phase6 
+delay 200
+
+
+#equalise temperature through cartridge use anneal PIDs
+set Peltier.Pcr.Kp 300000
+set Peltier.Pcr.Ki 5
+set Peltier.Pcr.Kd 0
+set Peltier.Pcr.Imax 120000
+set Peltier.Pcr.PwmMax 50
+
+therm therm2 on 42 PCR42
+wait PCR42 12
+if PCR42
+#do nothing
+else
+call error_30015
+endif
+                  
+
+                  
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>974_progress_indicator</name>
+        <value>
+          <text>#---------------------------------------------
+#974_progress_indicator
+#copied form MOB-D-024 V2.0
+#Antony Brown 11 Jan 2017
+#copyright Atlas Genetics Ltd 2017
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History---------------
+#version 1.0 - Copied from MOB-D-024 V2.0
+#--------------------------------------------
+
+
+begin atomic 1
+
+throw 10002,0
+delay 1900
+throw 10002,1
+delay 1900
+throw 10002,2
+delay 1900
+throw 10002,3
+delay 1900
+throw 10002,4
+delay 1900
+throw 10002,5
+delay 1900
+throw 10002,6
+delay 1900
+throw 10002,7
+delay 1900
+throw 10002,8
+delay 1900
+throw 10002,9
+delay 1900
+throw 10002,10
+delay 1900
+throw 10002,11
+delay 1900
+throw 10002,12
+delay 1900
+throw 10002,13
+delay 1900
+throw 10002,14
+delay 1900
+throw 10002,15
+delay 1900
+throw 10002,16
+delay 1900
+throw 10002,17
+delay 1900
+throw 10002,18
+delay 1900
+throw 10002,19
+delay 1900
+throw 10002,20
+delay 1900
+throw 10002,21
+delay 1900
+throw 10002,22
+delay 1900
+throw 10002,23
+delay 1900
+throw 10002,24
+delay 1900
+throw 10002,25
+delay 1900
+throw 10002,26
+delay 1900
+throw 10002,27
+delay 1900
+throw 10002,28
+delay 1900
+throw 10002,29
+delay 1900
+throw 10002,30
+delay 1900
+throw 10002,31
+delay 1900
+throw 10002,32
+delay 1900
+throw 10002,33
+delay 1900
+throw 10002,34
+delay 1900
+throw 10002,35
+delay 1900
+throw 10002,36
+delay 1900
+throw 10002,37
+delay 1900
+throw 10002,38
+delay 1900
+throw 10002,39
+delay 1900
+throw 10002,40
+delay 1900
+throw 10002,41
+delay 1900
+throw 10002,42
+delay 1900
+throw 10002,43
+delay 1900
+throw 10002,44
+delay 1900
+throw 10002,45
+delay 1900
+throw 10002,46
+delay 1900
+throw 10002,47
+delay 1900
+throw 10002,48
+delay 1900
+throw 10002,49
+delay 1900
+throw 10002,50
+delay 1900
+throw 10002,51
+delay 1900
+throw 10002,52
+delay 1900
+throw 10002,53
+delay 1900
+throw 10002,54
+delay 1900
+throw 10002,55
+delay 1900
+throw 10002,56
+delay 1900
+throw 10002,57
+delay 1900
+throw 10002,58
+delay 1900
+throw 10002,59
+delay 1900
+throw 10002,60
+delay 1900
+throw 10002,61
+delay 1900
+throw 10002,62
+delay 1900
+throw 10002,63
+delay 1900
+throw 10002,64
+delay 1900
+throw 10002,65
+delay 1900
+throw 10002,66
+delay 1900
+throw 10002,67
+delay 1900
+throw 10002,68
+delay 1900
+throw 10002,69
+delay 1900
+throw 10002,70
+delay 1900
+throw 10002,71
+delay 1900
+throw 10002,72
+delay 1900
+throw 10002,73
+delay 1900
+throw 10002,74
+delay 1900
+throw 10002,75
+delay 1900
+throw 10002,76
+delay 1900
+throw 10002,77
+delay 1900
+throw 10002,78
+delay 1900
+throw 10002,79
+delay 1900
+throw 10002,80
+delay 1900
+throw 10002,81
+delay 1900
+throw 10002,82
+delay 1900
+throw 10002,83
+delay 1900
+throw 10002,84
+delay 1900
+throw 10002,85
+delay 1900
+throw 10002,86
+delay 1900
+throw 10002,87
+#delay 1900
+#throw 10002,88
+
+end
+
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>974_pump</name>
+        <value>
+          <text>#---------------------------------------------
+#974_Pump
+#copied from MOB-D-028 V2.0
+#Antony Brown 11 Jan 2017
+#copyright Atlas Genetics Ltd 2017
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History---------------
+#version 1.0 - copied from MOB-D-028 V2.0
+#--------------------------------------------
+
+#Prime_to_pump_to_waste:  sets up the fluidic path
+valve v1 on
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 on 
+valve v6 on
+valve v7 off
+valve v8 on
+
+#pumps fluid
+begin nonatomic 12 pumped
+	 valve v3 on
+	 delay 5			
+	 valve v2 off
+	 delay 5	
+	 valve v1 off
+	 delay 100
+	 valve v2 on
+	 delay 5
+	 valve v3 off
+	 delay 5
+	 valve v1 on
+	 delay 200
+valve v1 off
+delay 30
+valve v1 on
+delay 200
+end
+wait pumped 25
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>974_UNG_step</name>
+        <value>
+          <text>
+#---------------------------------------------
+#974_UNG_Step
+#Copied form PAN-D-078 3.0
+#Antony Brown 11 Jan 2017
+#Copyright Atlas Genetics Ltd 2017
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - Copied form PAN-D-078 3.0
+#---------------------------------------------
+
+
+set Peltier.Pcr.Kp 300000
+set Peltier.Pcr.Ki 5
+set Peltier.Pcr.Kd 0
+set Peltier.Pcr.Imax 120000
+
+
+therm therm2 on 37 incubate   #2 minute UNG activation
+wait incubate 9
+delay 9120           
+
+                  
+therm therm2 on 94 denat      
+wait denat 15
+if denat
+#do nothing
+else
+call error_30015
+endif
+
+delay 18000
+
+#--------------------------------------------
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>974_voltammetry</name>
+        <value>
+          <text>#---------------------------------------------
+#974_volatmmetry
+#copied from MOB-D-016 v3.0
+#Antony Brown 11 Jan 2017
+#Copyright Atlas Genetics Ltd 2017
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - copied from MOB-D-016 v3.0
+#---------------------------------------------
+
+
+#syntax is start voltage mV, pulse amplitude mV, sweep increment mV, end voltage mV, pulse time ms, base time ms
+
+throw 10002,99
+
+#Data Scan
+voltammetry differential 0 50 3 600 40 60 
+delay 2200
+
+throw 10002,100
+#End process sequence - release pressure from bellows to waste
+begin atomic 1
+#set starting valve conditions so flow through to waste
+valve v2 on
+valve v3 off
+valve v4 on
+valve v5 on
+valve v6 on
+valve v7 off
+valve v8 on
+
+delay 30
+valve v1 on
+
+
+end
+
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>974_wash_release</name>
+        <value>
+          <text>#---------------------------------------------
+#974_wash_release
+#copied from MOB-D-029 V2.0
+#Antony Brown 11 Jan 2017
+#copyright Atlas Genetics Ltd 2017
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History---------------
+#version 1.0 - copied from MOB-D-029 V2.0
+#--------------------------------------------
+
+
+#set start conditions to check manifold protection
+valve v1 off
+valve v2 on
+valve v3 on
+valve v4 off
+valve v5 on
+valve v6 on 
+valve v7 off
+valve v8 on
+delay 50
+
+#crush blister slow
+stepper l4 250 230 washreach1
+wait washreach1 15
+delay 10
+
+#begin repeatedly crushing slightly then releasing back pressure until a displacment on 480 steps is reached
+begin nonatomic 12		
+stepper l4 100 40 washsquash
+wait washsquash 3
+delay 140
+end
+
+#leave stepper down to stop blister inflating during air purges
+
+
+
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>CTNG_End_to_EndMain</name>
+        <value>
+          <text>#---------------------------------------------
+#CTNG_End_to_EndMain
+#copied from MOB-D-017 V10.0
+#Antony Brown 11 May 2017
+#copyright Atlas Genetics Ltd 2017
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - MOB-CM-0024
+#Version 2.0 - MOB-CM-0041 
+#Version 3.0 - MOB-CM-0055
+#Version 4.0 - MOB-CM-0061
+#Version 5.0 - MOB-CM-0066
+#Version 6.0 - MOB-CM-0088 
+#Version 7.0 - MOB-CM-0091
+#version 8.0 - MOB-CM-0108
+#version 9.0 - MOB-CM-0113
+#version 10.0 - MOB-CM-0125
+#---------------------------------------------
+
+
+call 974_progress_indicator          #Progress Indicator MOB-D-024 Version 2.0
+
+call 974_initialise_run              #Initialise Run MOB-D-025 Version 3.0
+
+#Sample extract 
+call 974_lysis_release               #Lysis Release MOB-D-026 version 1.0
+call 974_mix                         #Mix MOB-D-027 version 3.0
+call 974_pump                        #Pump MOB-D-028 version 2.0
+call 974_air_purge_1                 #Air_purge_1 MOB-D-020 version 5.0
+call 974_wash_release                #Wash Release MOB-D-029 version 2.0
+call 974_air_dry                     #Air_dry MOB-D-021 version 6.0
+call 974_elution_release             #Elution release MOB-D-012 Version 2.0
+
+#pcr and detection
+call 974_homogenise                  #Homogenise MOB-D-023 version 3.0
+call 974_fill_PCR                    #Fill PCR Chambers MOB-D-013 version 5.0
+call 974_UNG_step                    #UNG Step PAN-D-078 version 3.0
+call 974_PCR                         #Rapid PCR MOB-D-014 version 4.0
+call 974_load_detection              #Fill Detection Chambers MOB-D-022 version 2.0
+call 974_detection_incubation        #Detection Incubation MOB-D-015 version 3.0
+
+
+#setup peak search parameters and call voltammetry
+#peak algorithm "type"  rawnoise permissiblenoise polyorder targetnoise
+peak algorithm "MultiPeak1Analysis"  1000 1000 6 49 
+
+#peak define  "name" outcome ch vstart vend vexp vtol thresh maxnoise prop widthmax widthmin propnoise
+
+peak define "CTIC" Positive 1 110 310 200 32 90 Infinity 25 60 160 90 4
+peak define "CT" Positive 1 295 510 390 60 115 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 1 520 620                            #this ignores the last part of the scan
+
+peak define "NG1IC" Positive 3 110 310 200 32 90 Infinity 25 60 160 90 4
+peak define "NG1" Positive 3 295 510 390 60 50 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 3 520 620                            #this ignores the last part of the scan
+
+peak define "NG2IC" Positive 4 110 310 200 32 60 Infinity 25 60 160 90 4
+peak define "NG2" Positive 4 295 510 390 60 45 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 4 520 620                            #this ignores the last part of the scan
+
+call 974_voltammetry    #Mob-D-016 Version 3.0  voltammetry
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>error_30010</name>
+        <value>
+          <text>#---------------------------------------------
+#beta script error_30010
+#Based on: PAN-D-088 V1.0
+#Date originated: 06 May 2014
+#Author: Antony Brown
+#
+#Initialed to confirm this is a direct copy of the scipt listed above
+#
+#
+#
+#Copyright Atlas Genetics Ltd 2014
+#---------------------------------------------
+
+
+#-------------revision history----------------
+#1.0 30072014 AB - Copied from PAN-D-088 Version 1.0
+
+
+buzzer 1 30 2
+throw 30010                 # failure to charge positive logic reservoir
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>error_30011</name>
+        <value>
+          <text>#---------------------------------------------
+#beta script error_30011
+#Based on: PAN-D-089 V1.0
+#Date originated: 06 May 2014
+#Author: Antony Brown
+#
+#Initialed to confirm this is a direct copy of the scipt listed above
+#
+#
+#
+#Copyright Atlas Genetics Ltd 2014
+#---------------------------------------------
+
+
+#-------------revision history----------------
+#1.0 30072014 AB - Copied from PAN-D-089 Version 1.0
+
+
+buzzer 1 30 2
+throw 30011           #failure to charge vacuum reservoir
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>error_30013</name>
+        <value>
+          <text>#---------------------------------------------
+#beta script error_30013
+#Based on: PAN-D-090 V1.0
+#Date originated: 06 May 2014
+#Author: Antony Brown
+#
+#Initialed to confirm this is a direct copy of the scipt listed above
+#
+#
+#
+#Copyright Atlas Genetics Ltd 2014
+#---------------------------------------------
+
+
+#-------------revision history----------------
+#1.0 30072014 AB - Copied from PAN-D-090 Version 1.0
+
+
+buzzer 1 30 2
+throw 30013       #failure to turn on sample well heater
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>error_30014</name>
+        <value>
+          <text>#---------------------------------------------
+#beta script error_30014
+#Based on: PAN-D-091 V1.0
+#Date originated: 06 May 2014
+#Author: Antony Brown
+#
+#Initialed to confirm this is a direct copy of the scipt listed above
+#
+#
+#
+#Copyright Atlas Genetics Ltd 2014
+#---------------------------------------------
+
+
+#-------------revision history----------------
+#1.0 30072014 AB - Copied from PAN-D-091 Version 1.0
+
+
+buzzer 1 30 2
+throw 30014       #failure to charge res3</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>error_30015</name>
+        <value>
+          <text>#---------------------------------------------
+#error_30015
+#Based on: PAN-D-092 V2.0
+#Date originated: 11 May 2017
+#Author: Antony Brown
+#
+#Initialed to confirm this is a direct copy of the scipt listed above
+#
+#
+#
+#Copyright Atlas Genetics Ltd 2017
+#---------------------------------------------
+
+
+#-------------revision history----------------
+#Version 1.0 - Copied from PAN-D-092 V1.0
+#version 2.0 - Copied from PAN-D-092 V2.0
+#---------------------------------------------
+
+dpr dpr1 off
+buzzer 1 30 2
+throw 30015       #therm2 timeout</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>error_30016</name>
+        <value>
+          <text>#---------------------------------------------
+#error_30016
+#Based on: PAN-D-093 V2.0
+#Date originated: 11 May 2017
+#Author: Antony Brown
+#
+#Initialed to confirm this is a direct copy of the scipt listed above
+#
+#
+#
+#Copyright Atlas Genetics Ltd 2017
+#---------------------------------------------
+
+
+#-------------revision history----------------
+#Version 1.0 - Copied from PAN-D-093 V1.0
+#Version 2.0 - copied from PAN-D-093 V2.0
+#---------------------------------------------
+
+dpr dpr1 off 
+buzzer 1 30 2
+throw 30016       #therm3 timeout</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>error_30018</name>
+        <value>
+          <text>#---------------------------------------------
+#beta script error_30018
+#Based on: PAN-D-094 V2.0
+#Date originated: 20 May 2014
+#Author: Antony Brown
+#
+#Initialed to confirm this is a direct copy of the scipt listed above
+#
+#
+#
+#Copyright Atlas Genetics Ltd 2014
+#---------------------------------------------
+
+
+#-------------revision history----------------
+#2.0 14102014 AB: Copied from PAN-D-094 Version 2.0
+
+
+buzzer 1 30 2
+throw 30018       #therm2 timeout failed to reach Anneal temp</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+    </scripts>
+    <signature>fIUqa8xiQRhZbyphE2WTUe6qezIOYxdAneUDFWw50aDb+iNWPqpfLV2jVa3QjjWp69F5UYpgG7VMZKLC/SiXvkG/W5uoo2d3RBGJR5A38NnJOOOwaguTfDW43grEq3imbKJpVVF0rh7ADKyXPkKLNoodeDGbunIlfOMpsuW6ELuNIUmwE1funpCyzd9XCoxOjGCXj+z524DMu6jw3JnbOK2TUU4Hp6pOuKAv3nZxsqTxEpczwny4D0VwsO2sgZN4c1PfP1U/5dc5ASCOYLT3QseKiUXEg45swmh/hO2vnJSHl1j7RkANyfjBfPcaIrTuT31/Cz4gu8zqV10m7Ei+NJdZ+pO7R5KYE3yS//G3Z86ZEwtFPEqE6BHwJh40ocqf/32UonI7B+o1/KVsH56mipfhQytsFkEhl3icCDwCU7V6dd0KjNEwl0NQnPx+Ge5G1lfQchF731e8vEzdsa5QPSDX0rJdYufbIorf+rkadq5+Dg5aXbLQiJHXhJOIFibzsC3QUuoy8QN3c33sMNBdniLTjAUuia7zPNcSwJ1Cyoa6awgrAFPBN2AapnbYM0WkAh33kkjUUvlqq9HxDO8a4PlTHNhHK5DPbErym+Kny16SKLZJwqCHB613Z59e7DRLX1cOWgjHn8Q3ZkprOff4CtiVvz5LRjkD4LDVd6fD4UA=</signature>
+    <installedDateTime>2018-08-20 10:41:25</installedDateTime>
+  </assay>
+  <percentComplete>0</percentComplete>
+  <result>
+    <identity>{b0687d8e-b340-42c5-9bd7-e50277340048}</identity>
+    <sampleId>a65a4371cad64bc6ad77babdeb226d2d</sampleId>
+    <instrumentName>IO_XXX</instrumentName>
+    <instrumentSerialNumber>IO_XXX</instrumentSerialNumber>
+    <patientInformation>
+      <name>PatientId</name>
+      <value>a65a4371cad64bc6ad77babdeb226d2d</value>
+      <fieldType>Text</fieldType>
+    </patientInformation>
+    <user>admin</user>
+    <qcTest>False</qcTest>
+    <startDateTime>2018-08-20 10:56:56</startDateTime>
+    <endDateTime>2018-08-20 10:57:13</endDateTime>
+    <assayName>CTNG_End_to_End</assayName>
+    <assayShortName>CTNG</assayShortName>
+    <assayVersion>10</assayVersion>
+    <assaySignature>fIUqa8xiQRhZbyphE2WTUe6qezIOYxdAneUDFWw50aDb+iNWPqpfLV2jVa3QjjWp69F5UYpgG7VMZKLC/SiXvkG/W5uoo2d3RBGJR5A38NnJOOOwaguTfDW43grEq3imbKJpVVF0rh7ADKyXPkKLNoodeDGbunIlfOMpsuW6ELuNIUmwE1funpCyzd9XCoxOjGCXj+z524DMu6jw3JnbOK2TUU4Hp6pOuKAv3nZxsqTxEpczwny4D0VwsO2sgZN4c1PfP1U/5dc5ASCOYLT3QseKiUXEg45swmh/hO2vnJSHl1j7RkANyfjBfPcaIrTuT31/Cz4gu8zqV10m7Ei+NJdZ+pO7R5KYE3yS//G3Z86ZEwtFPEqE6BHwJh40ocqf/32UonI7B+o1/KVsH56mipfhQytsFkEhl3icCDwCU7V6dd0KjNEwl0NQnPx+Ge5G1lfQchF731e8vEzdsa5QPSDX0rJdYufbIorf+rkadq5+Dg5aXbLQiJHXhJOIFibzsC3QUuoy8QN3c33sMNBdniLTjAUuia7zPNcSwJ1Cyoa6awgrAFPBN2AapnbYM0WkAh33kkjUUvlqq9HxDO8a4PlTHNhHK5DPbErym+Kny16SKLZJwqCHB613Z59e7DRLX1cOWgjHn8Q3ZkprOff4CtiVvz5LRjkD4LDVd6fD4UA=</assaySignature>
+    <cartridgeData>97490000000000000057</cartridgeData>
+    <qcTestDue>False</qcTestDue>
+    <outcome>Valid</outcome>
+    <falsePeak>CT</falsePeak>
+    <falsePeak>NG</falsePeak>
+    <testFileIndex>-1</testFileIndex>
+  </result>
+  <data>
+    <log>10:57:04.71 Script 'CTNG_End_to_EndMain' executed
+10:57:04.73 Phase changed to 'Testing.Main'
+10:57:04.73 Script 'Clamp' finished
+10:57:08.91 Firmware potentiostat data: 0,10,322,322,322,322,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,325,325,325,325,329,329,329,329,337,337,337,337,353,353,353,353,379,379,379,379,421,421,421,421,485,485,485,485,576,576,576,576,697,697,697,697,848,848,848,848,1021,1021,1021,1021,1204,1204,1204,1204,1380,1380,1380,1380,1529,1529,1529,1529,1629,1629,1629,1629,1668,1668,1668,1668,1642,1642,1642,1642,1552,1552,1552,1552,1416,1416,1416,1416,1252,1252,1252,1252,1080,1080,1080,1080,918,918,918,918,778,778,778,778,667,667,667,667,586,586,586,586,531,531,531,531,498,498,498,498,480,480,480,480,474,474,474,474,474,474,474,474,479,479,479,479,486,486,486,486,496,496,496,496,507,507,507,507,519,519,519,519,533,533,533,533,549,549,549,549,567,567,567,567,588,588,588,588,613,613,613,613,642,642,642,642,676,676,676,676,715,715,715,715,760,760,760,760,814,814,814,814,876,876,876,876,948,948,948,948,1031,1031,1031,1031,1127,1127,1127,1127,1237,1237,1237,1237,1364,1364,1364,1364,1508,1508,1508,1508,1672,1672,1672,1672,1858,1858,1858,1858,2069,2069,2069,2069
+10:57:08.96 Peak data received: algorithm "MultiPeak1Analysis" 1000 1000 6 49
+10:57:09.04 Peak data received: define "CTIC" Positive 1 110 310 200 32 90 Infinity 25 60 160 90 4
+10:57:09.11 Peak data received: define "CT" Positive 1 295 510 390 60 115 Infinity 25 60 160 90 4
+10:57:09.15 Peak data received: define "clearend" Ignore 1 520 620
+10:57:09.23 Peak data received: define "NG1IC" Positive 3 110 310 200 32 90 Infinity 25 60 160 90 4
+10:57:09.30 Peak data received: define "NG1" Positive 3 295 510 390 60 50 Infinity 25 60 160 90 4
+10:57:09.34 Peak data received: define "clearend" Ignore 3 520 620
+10:57:09.41 Peak data received: define "NG2IC" Positive 4 110 310 200 32 60 Infinity 25 60 160 90 4
+10:57:09.49 Peak data received: define "NG2" Positive 4 295 510 390 60 45 Infinity 25 60 160 90 4
+10:57:09.54 Peak data received: define "clearend" Ignore 4 520 620
+10:57:13.05 Firmware potentiostat data: 0,3,322,322,322,322,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,323,324,324,324,324,324,324,324,324,325,325,325,325,325,325,325,325,326,326,326,326,328,328,328,328,329,329,329,329,331,331,331,331,333,333,333,333,336,336,336,336,340,340,340,340,344,344,344,344,349,349,349,349,355,355,355,355,361,361,361,361,369,369,369,369,379,379,379,379,389,389,389,389,402,402,402,402,416,416,416,416,432,432,432,432,450,450,450,450,470,470,470,470,493,493,493,493,518,518,518,518,546,546,546,546,576,576,576,576,609,609,609,609,645,645,645,645,683,683,683,683,725,725,725,725,769,769,769,769,815,815,815,815,864,864,864,864,914,914,914,914,967,967,967,967,1021,1021,1021,1021,1075,1075,1075,1075,1131,1131,1131,1131,1186,1186,1186,1186,1241,1241,1241,1241,1295,1295,1295,1295,1347,1347,1347,1347,1397,1397,1397,1397,1444,1444,1444,1444,1488,1488,1488,1488,1529,1529,1529,1529,1565,1565,1565,1565,1596,1596,1596,1596,1622,1622,1622,1622,1642,1642,1642,1642,1657,1657,1657,1657,1666,1666,1666,1666,1669,1669,1669,1669,1666,1666,1666,1666,1657,1657,1657,1657,1642,1642,1642,1642,1621,1621,1621,1621,1595,1595,1595,1595,1564,1564,1564,1564,1529,1529,1529,1529,1490,1490,1490,1490,1447,1447,1447,1447,1401,1401,1401,1401,1353,1353,1353,1353,1303,1303,1303,1303,1252,1252,1252,1252,1200,1200,1200,1200,1149,1149,1149,1149,1097,1097,1097,1097,1046,1046,1046,1046,997,997,997,997,949,949,949,949,902,902,902,902,859,859,859,859,817,817,817,817,778,778,778,778,741,741,741,741,708,708,708,708,677,677,677,677,648,648,648,648,623,623,623,623,600,600,600,600,579,579,579,579,561,561,561,561,545,545,545,545,531,531,531,531,519,519,519,519,509,509,509,509,500,500,500,500,493,493,493,493,487,487,487,487,483,483,483,483,479,479,479,479,477,477,477,477,475,475,475,475,474,474,474,474,473,473,473,473,473,473,473,473,474,474,474,474,475,475,475,475,476,476,476,476,478,478,478,478,480,480,480,480,482,482,482,482,484,484,484,484,486,486,486,486,489,489,489,489,492,492,492,492,495,495,495,495,498,498,498,498,501,501,501,501,504,504,504,504,508,508,508,508,511,511,511,511,515,515,515,515,519,519,519,519,523,523,523,523,527,527,527,527,532,532,532,532,536,536,536,536,541,541,541,541,546,546,546,546,551,551,551,551,556,556,556,556,562,562,562,562,567,567,567,567,573,573,573,573,580,580,580,580,586,586,586,586,593,593,593,593,600,600,600,600,608,608,608,608,616,616,616,616,624,624,624,624,633,633,633,633,642,642,642,642,651,651,651,651,661,661,661,661,672,672,672,672,683,683,683,683,694,694,694,694,706,706,706,706,719,719,719,719,732,732,732,732,746,746,746,746,760,760,760,760,776,776,776,776,791,791,791,791,808,808,808,808,825,825,825,825,844,844,844,844,863,863,863,863,883,883,883,883,903,903,903,903,925,925,925,925,948,948,948,948,971,971,971,971,996,996,996,996,1022,1022,1022,1022,1049,1049,1049,1049,1077,1077,1077,1077,1107,1107,1107,1107,1137,1137,1137,1137,1169,1169,1169,1169,1202,1202,1202,1202,1237,1237,1237,1237,1273,1273,1273,1273,1311,1311,1311,1311,1350,1350,1350,1350,1391,1391,1391,1391,1433,1433,1433,1433,1477,1477,1477,1477,1523,1523,1523,1523,1571,1571,1571,1571,1620,1620,1620,1620,1672,1672,1672,1672,1725,1725,1725,1725,1781,1781,1781,1781,1838,1838,1838,1838,1898,1898,1898,1898,1960,1960,1960,1960,2025,2025,2025,2025,2091,2091,2091,2091,2161,2161,2161,2161,2232,2232,2232,2232
+10:57:13.08 Analysing potentiostat(s) 1, 3, 4
+10:57:13.38 Script 'CTNG_End_to_EndMain' finished
+10:57:13.42 Analysis starting for potentiostat 1
+10:57:13.42 SavitskyGolay(17, 2)
+10:57:13.42 Variance for raw data is 0.0423365903032859
+10:57:13.42 CurveFit(6)
+10:57:13.42 CurveFit(6)
+10:57:13.43 CurveFit(6)
+10:57:13.43 CurveFit(6)
+10:57:13.43 CurveFit(6)
+10:57:13.43 CurveFit(6)
+10:57:13.43 Variance for polynomial is 17.8474132002752
+10:57:13.43 FitGaussianForPeak(...)
+10:57:13.43 Variance is 1.07621573499025 after iteration 1
+10:57:13.43 Variance is 1.04691633892915 after iteration 2
+10:57:13.43 Variance is 1.04283019803562 after iteration 3
+10:57:13.43 Variance is 1.04283019803562 after iteration 4
+10:57:13.43 Variance is 1.04283019803562 after iteration 5
+10:57:13.43 Variance is 1.04283019803562 after iteration 6
+10:57:13.43 Variance is 1.04283019803562 after iteration 7
+10:57:13.43 Variance is 1.04283019803562 after iteration 8
+10:57:13.44 Variance is 1.04283019803562 after iteration 9
+10:57:13.44 Variance is 1.04283019803562 after iteration 10
+10:57:13.44 Variance is 1.04283019803562 after iteration 11
+10:57:13.44 Algorithm converged after 12 iterations with variance of 1.04283019803562
+10:57:13.44 Variance for peak CTIC is 1.04283019803562
+10:57:13.44 Peak position for peak CTIC is 199.625
+10:57:13.44 Peak width for peak CTIC of 160.625 is higher than the maximum of 160, peak is negative
+10:57:13.44 FitGaussianForPeak(...)
+10:57:13.44 Variance is 20.5077817780965 after iteration 1
+10:57:13.44 Variance is 4.52236936541733 after iteration 2
+10:57:13.44 Variance is 0.887275930874642 after iteration 3
+10:57:13.44 Variance is 0.670950310963216 after iteration 4
+10:57:13.44 Variance is 0.670848706941218 after iteration 5
+10:57:13.44 Variance is 0.661004310395743 after iteration 6
+10:57:13.44 Variance is 0.661004310395743 after iteration 7
+10:57:13.44 Variance is 0.661004310395743 after iteration 8
+10:57:13.44 Variance is 0.661004310395743 after iteration 9
+10:57:13.44 Variance is 0.661004310395743 after iteration 10
+10:57:13.45 Variance is 0.661004310395743 after iteration 11
+10:57:13.45 Algorithm converged after 12 iterations with variance of 0.661004310395743
+10:57:13.45 Variance for peak CT is 0.661004310395743
+10:57:13.45 Peak CT is negative (60.294657387294)
+10:57:13.45 Analysis done for potentiostat 1
+10:57:13.45 
+10:57:13.45 Analysis starting for potentiostat 3
+10:57:13.45 SavitskyGolay(17, 2)
+10:57:13.45 Variance for raw data is 0.0423365903032859
+10:57:13.45 CurveFit(6)
+10:57:13.45 CurveFit(6)
+10:57:13.46 CurveFit(6)
+10:57:13.46 CurveFit(6)
+10:57:13.46 CurveFit(6)
+10:57:13.46 CurveFit(6)
+10:57:13.46 Variance for polynomial is 17.8474132002752
+10:57:13.46 FitGaussianForPeak(...)
+10:57:13.46 Variance is 1.07621573499025 after iteration 1
+10:57:13.46 Variance is 1.04691633892915 after iteration 2
+10:57:13.46 Variance is 1.04283019803562 after iteration 3
+10:57:13.46 Variance is 1.04283019803562 after iteration 4
+10:57:13.46 Variance is 1.04283019803562 after iteration 5
+10:57:13.46 Variance is 1.04283019803562 after iteration 6
+10:57:13.46 Variance is 1.04283019803562 after iteration 7
+10:57:13.46 Variance is 1.04283019803562 after iteration 8
+10:57:13.46 Variance is 1.04283019803562 after iteration 9
+10:57:13.46 Variance is 1.04283019803562 after iteration 10
+10:57:13.46 Variance is 1.04283019803562 after iteration 11
+10:57:13.46 Algorithm converged after 12 iterations with variance of 1.04283019803562
+10:57:13.46 Variance for peak NG1IC is 1.04283019803562
+10:57:13.46 Peak position for peak NG1IC is 199.625
+10:57:13.47 Peak width for peak NG1IC of 160.625 is higher than the maximum of 160, peak is negative
+10:57:13.47 FitGaussianForPeak(...)
+10:57:13.47 Variance is 20.5077817780965 after iteration 1
+10:57:13.47 Variance is 4.52236936541733 after iteration 2
+10:57:13.47 Variance is 0.887275930874642 after iteration 3
+10:57:13.47 Variance is 0.670950310963216 after iteration 4
+10:57:13.47 Variance is 0.670848706941218 after iteration 5
+10:57:13.47 Variance is 0.661004310395743 after iteration 6
+10:57:13.47 Variance is 0.661004310395743 after iteration 7
+10:57:13.47 Variance is 0.661004310395743 after iteration 8
+10:57:13.47 Variance is 0.661004310395743 after iteration 9
+10:57:13.47 Variance is 0.661004310395743 after iteration 10
+10:57:13.47 Variance is 0.661004310395743 after iteration 11
+10:57:13.47 Algorithm converged after 12 iterations with variance of 0.661004310395743
+10:57:13.47 Variance for peak NG1 is 0.661004310395743
+10:57:13.47 Peak position for peak NG1 is 423.875
+10:57:13.47 Peak width for peak NG1 of 206.375 is higher than the maximum of 160, peak is negative
+10:57:13.47 Analysis done for potentiostat 3
+10:57:13.47 
+10:57:13.47 Analysis starting for potentiostat 4
+10:57:13.47 SavitskyGolay(17, 2)
+10:57:13.48 Variance for raw data is 0.0423365903032859
+10:57:13.48 CurveFit(6)
+10:57:13.48 CurveFit(6)
+10:57:13.48 CurveFit(6)
+10:57:13.48 CurveFit(6)
+10:57:13.48 CurveFit(6)
+10:57:13.48 CurveFit(6)
+10:57:13.48 Variance for polynomial is 17.8474132002752
+10:57:13.48 FitGaussianForPeak(...)
+10:57:13.48 Variance is 1.07621573499025 after iteration 1
+10:57:13.48 Variance is 1.04691633892915 after iteration 2
+10:57:13.48 Variance is 1.04283019803562 after iteration 3
+10:57:13.48 Variance is 1.04283019803562 after iteration 4
+10:57:13.48 Variance is 1.04283019803562 after iteration 5
+10:57:13.48 Variance is 1.04283019803562 after iteration 6
+10:57:13.48 Variance is 1.04283019803562 after iteration 7
+10:57:13.48 Variance is 1.04283019803562 after iteration 8
+10:57:13.48 Variance is 1.04283019803562 after iteration 9
+10:57:13.49 Variance is 1.04283019803562 after iteration 10
+10:57:13.49 Variance is 1.04283019803562 after iteration 11
+10:57:13.49 Algorithm converged after 12 iterations with variance of 1.04283019803562
+10:57:13.49 Variance for peak NG2IC is 1.04283019803562
+10:57:13.49 Peak position for peak NG2IC is 199.625
+10:57:13.49 Peak width for peak NG2IC of 160.625 is higher than the maximum of 160, peak is negative
+10:57:13.49 FitGaussianForPeak(...)
+10:57:13.49 Variance is 20.5077817780965 after iteration 1
+10:57:13.49 Variance is 4.52236936541733 after iteration 2
+10:57:13.49 Variance is 0.887275930874642 after iteration 3
+10:57:13.49 Variance is 0.670950310963216 after iteration 4
+10:57:13.49 Variance is 0.670848706941218 after iteration 5
+10:57:13.49 Variance is 0.661004310395743 after iteration 6
+10:57:13.49 Variance is 0.661004310395743 after iteration 7
+10:57:13.49 Variance is 0.661004310395743 after iteration 8
+10:57:13.49 Variance is 0.661004310395743 after iteration 9
+10:57:13.49 Variance is 0.661004310395743 after iteration 10
+10:57:13.49 Variance is 0.661004310395743 after iteration 11
+10:57:13.50 Algorithm converged after 12 iterations with variance of 0.661004310395743
+10:57:13.50 Variance for peak NG2 is 0.661004310395743
+10:57:13.50 Peak position for peak NG2 is 423.875
+10:57:13.51 Peak width for peak NG2 of 206.375 is higher than the maximum of 160, peak is negative
+10:57:13.51 Analysis done for potentiostat 4
+10:57:13.51 
+10:57:13.51 Peak outcome for CTIC is Negative, peak height is 405.6nA
+10:57:13.51 Peak outcome for CT is Negative, peak height is 60.3nA
+10:57:13.51 Peak outcome for clearend is Ignore
+10:57:13.51 Peak outcome for NG1IC is Negative, peak height is 405.6nA
+10:57:13.51 Peak outcome for NG1 is Negative, peak height is 60.3nA
+10:57:13.51 Peak outcome for clearend is Ignore
+10:57:13.51 Peak outcome for NG2IC is Negative, peak height is 405.6nA
+10:57:13.51 Peak outcome for NG2 is Negative, peak height is 60.3nA
+10:57:13.51 Peak outcome for clearend is Ignore
+10:57:13.51 Control CTIC for target CT is not positive
+10:57:13.51 Controls CTIC are not all positive for STD target CT
+10:57:13.52 Control NG1IC for target NG1 is not positive
+10:57:13.52 Controls NG1IC are not all positive for STD target NG1
+10:57:13.52 Control NG2IC for target NG2 is not positive
+10:57:13.52 Controls NG2IC are not all positive for STD target NG2
+10:57:13.52 Diseases are not independently validated and some targets are invalid
+10:57:13.52 Scanned barcode: 97490000000000000057
+10:57:13.52 Assay code: 974
+10:57:13.52 Assay version: 10
+10:57:13.52 Assay signature: fIUqa8xiQRhZbyphE2WTUe6qezIOYxdAneUDFWw50aDb+iNWPqpfLV2jVa3QjjWp69F5UYpgG7VMZKLC/SiXvkG/W5uoo2d3RBGJR5A38NnJOOOwaguTfDW43grEq3imbKJpVVF0rh7ADKyXPkKLNoodeDGbunIlfOMpsuW6ELuNIUmwE1funpCyzd9XCoxOjGCXj+z524DMu6jw3JnbOK2TUU4Hp6pOuKAv3nZxsqTxEpczwny4D0VwsO2sgZN4c1PfP1U/5dc5ASCOYLT3QseKiUXEg45swmh/hO2vnJSHl1j7RkANyfjBfPcaIrTuT31/Cz4gu8zqV10m7Ei+NJdZ+pO7R5KYE3yS//G3Z86ZEwtFPEqE6BHwJh40ocqf/32UonI7B+o1/KVsH56mipfhQytsFkEhl3icCDwCU7V6dd0KjNEwl0NQnPx+Ge5G1lfQchF731e8vEzdsa5QPSDX0rJdYufbIorf+rkadq5+Dg5aXbLQiJHXhJOIFibzsC3QUuoy8QN3c33sMNBdniLTjAUuia7zPNcSwJ1Cyoa6awgrAFPBN2AapnbYM0WkAh33kkjUUvlqq9HxDO8a4PlTHNhHK5DPbErym+Kny16SKLZJwqCHB613Z59e7DRLX1cOWgjHn8Q3ZkprOff4CtiVvz5LRjkD4LDVd6fD4UA=
+10:57:13.52 Serial number: IO_XXX
+10:57:13.52 Reader name: IO_XXX
+10:57:13.52 Specimen ID: a65a4371cad64bc6ad77babdeb226d2d
+10:57:13.52 User: admin
+10:57:13.85 Script 'Unclamp' executed
+10:57:13.85 Phase changed to 'Testing.Unclamping'
+</log>
+    <startPotential>0</startPotential>
+    <incrementalPotential>3</incrementalPotential>
+    <cellValues0>122.833251953125,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.59619140625,123.59619140625,123.9776611328125,123.9776611328125,124.359130859375,125.1220703125,125.5035400390625,126.2664794921875,127.0294189453125,128.173828125,129.69970703125,131.2255859375,133.1329345703125,135.4217529296875,137.7105712890625,140.7623291015625,144.5770263671875,148.3917236328125,153.350830078125,158.69140625,164.794921875,171.661376953125,179.290771484375,188.0645751953125,197.601318359375,208.282470703125,219.7265625,232.3150634765625,246.0479736328125,260.5438232421875,276.5655517578125,293.3502197265625,310.8978271484375,329.58984375,348.663330078125,368.8812255859375,389.4805908203125,410.0799560546875,431.4422607421875,452.423095703125,473.4039306640625,494.0032958984375,513.8397216796875,532.9132080078125,550.84228515625,567.626953125,583.2672119140625,597.0001220703125,608.82568359375,618.743896484375,626.373291015625,632.0953369140625,635.528564453125,636.6729736328125,635.528564453125,632.0953369140625,626.373291015625,618.3624267578125,608.4442138671875,596.61865234375,583.2672119140625,568.389892578125,551.9866943359375,534.4390869140625,516.1285400390625,497.0550537109375,477.60009765625,457.763671875,438.3087158203125,418.4722900390625,399.017333984375,380.3253173828125,362.0147705078125,344.085693359375,327.6824951171875,311.6607666015625,296.783447265625,282.6690673828125,270.08056640625,258.2550048828125,247.1923828125,237.6556396484375,228.8818359375,220.8709716796875,214.0045166015625,207.9010009765625,202.5604248046875,197.9827880859375,194.1680908203125,190.73486328125,188.0645751953125,185.7757568359375,184.2498779296875,182.7239990234375,181.9610595703125,181.1981201171875,180.816650390625,180.4351806640625,180.4351806640625,180.816650390625,181.1981201171875,181.57958984375,182.342529296875,183.10546875,183.868408203125,184.63134765625,185.394287109375,186.5386962890625,187.68310546875,188.8275146484375,189.971923828125,191.1163330078125,192.2607421875,193.78662109375,194.9310302734375,196.4569091796875,197.9827880859375,199.5086669921875,201.0345458984375,202.94189453125,204.4677734375,206.3751220703125,208.282470703125,210.1898193359375,212.09716796875,214.385986328125,216.2933349609375,218.5821533203125,221.25244140625,223.541259765625,226.2115478515625,228.8818359375,231.93359375,234.9853515625,238.037109375,241.4703369140625,244.903564453125,248.3367919921875,252.1514892578125,256.34765625,260.5438232421875,264.739990234375,269.317626953125,274.2767333984375,279.23583984375,284.576416015625,289.9169921875,296.0205078125,301.7425537109375,308.2275390625,314.7125244140625,321.96044921875,329.2083740234375,336.8377685546875,344.4671630859375,352.8594970703125,361.63330078125,370.4071044921875,379.94384765625,389.862060546875,400.1617431640625,410.8428955078125,422.2869873046875,433.7310791015625,445.9381103515625,458.526611328125,471.8780517578125,485.6109619140625,500.1068115234375,514.984130859375,530.6243896484375,546.6461181640625,563.4307861328125,580.9783935546875,599.2889404296875,617.98095703125,637.8173828125,658.0352783203125,679.3975830078125,701.141357421875,724.029541015625,747.6806640625,772.4761962890625,797.6531982421875,824.3560791015625,851.4404296875</cellValues0>
+    <cellValues1>122.833251953125,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.59619140625,123.59619140625,123.9776611328125,123.9776611328125,124.359130859375,125.1220703125,125.5035400390625,126.2664794921875,127.0294189453125,128.173828125,129.69970703125,131.2255859375,133.1329345703125,135.4217529296875,137.7105712890625,140.7623291015625,144.5770263671875,148.3917236328125,153.350830078125,158.69140625,164.794921875,171.661376953125,179.290771484375,188.0645751953125,197.601318359375,208.282470703125,219.7265625,232.3150634765625,246.0479736328125,260.5438232421875,276.5655517578125,293.3502197265625,310.8978271484375,329.58984375,348.663330078125,368.8812255859375,389.4805908203125,410.0799560546875,431.4422607421875,452.423095703125,473.4039306640625,494.0032958984375,513.8397216796875,532.9132080078125,550.84228515625,567.626953125,583.2672119140625,597.0001220703125,608.82568359375,618.743896484375,626.373291015625,632.0953369140625,635.528564453125,636.6729736328125,635.528564453125,632.0953369140625,626.373291015625,618.3624267578125,608.4442138671875,596.61865234375,583.2672119140625,568.389892578125,551.9866943359375,534.4390869140625,516.1285400390625,497.0550537109375,477.60009765625,457.763671875,438.3087158203125,418.4722900390625,399.017333984375,380.3253173828125,362.0147705078125,344.085693359375,327.6824951171875,311.6607666015625,296.783447265625,282.6690673828125,270.08056640625,258.2550048828125,247.1923828125,237.6556396484375,228.8818359375,220.8709716796875,214.0045166015625,207.9010009765625,202.5604248046875,197.9827880859375,194.1680908203125,190.73486328125,188.0645751953125,185.7757568359375,184.2498779296875,182.7239990234375,181.9610595703125,181.1981201171875,180.816650390625,180.4351806640625,180.4351806640625,180.816650390625,181.1981201171875,181.57958984375,182.342529296875,183.10546875,183.868408203125,184.63134765625,185.394287109375,186.5386962890625,187.68310546875,188.8275146484375,189.971923828125,191.1163330078125,192.2607421875,193.78662109375,194.9310302734375,196.4569091796875,197.9827880859375,199.5086669921875,201.0345458984375,202.94189453125,204.4677734375,206.3751220703125,208.282470703125,210.1898193359375,212.09716796875,214.385986328125,216.2933349609375,218.5821533203125,221.25244140625,223.541259765625,226.2115478515625,228.8818359375,231.93359375,234.9853515625,238.037109375,241.4703369140625,244.903564453125,248.3367919921875,252.1514892578125,256.34765625,260.5438232421875,264.739990234375,269.317626953125,274.2767333984375,279.23583984375,284.576416015625,289.9169921875,296.0205078125,301.7425537109375,308.2275390625,314.7125244140625,321.96044921875,329.2083740234375,336.8377685546875,344.4671630859375,352.8594970703125,361.63330078125,370.4071044921875,379.94384765625,389.862060546875,400.1617431640625,410.8428955078125,422.2869873046875,433.7310791015625,445.9381103515625,458.526611328125,471.8780517578125,485.6109619140625,500.1068115234375,514.984130859375,530.6243896484375,546.6461181640625,563.4307861328125,580.9783935546875,599.2889404296875,617.98095703125,637.8173828125,658.0352783203125,679.3975830078125,701.141357421875,724.029541015625,747.6806640625,772.4761962890625,797.6531982421875,824.3560791015625,851.4404296875</cellValues1>
+    <cellValues2>122.833251953125,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.59619140625,123.59619140625,123.9776611328125,123.9776611328125,124.359130859375,125.1220703125,125.5035400390625,126.2664794921875,127.0294189453125,128.173828125,129.69970703125,131.2255859375,133.1329345703125,135.4217529296875,137.7105712890625,140.7623291015625,144.5770263671875,148.3917236328125,153.350830078125,158.69140625,164.794921875,171.661376953125,179.290771484375,188.0645751953125,197.601318359375,208.282470703125,219.7265625,232.3150634765625,246.0479736328125,260.5438232421875,276.5655517578125,293.3502197265625,310.8978271484375,329.58984375,348.663330078125,368.8812255859375,389.4805908203125,410.0799560546875,431.4422607421875,452.423095703125,473.4039306640625,494.0032958984375,513.8397216796875,532.9132080078125,550.84228515625,567.626953125,583.2672119140625,597.0001220703125,608.82568359375,618.743896484375,626.373291015625,632.0953369140625,635.528564453125,636.6729736328125,635.528564453125,632.0953369140625,626.373291015625,618.3624267578125,608.4442138671875,596.61865234375,583.2672119140625,568.389892578125,551.9866943359375,534.4390869140625,516.1285400390625,497.0550537109375,477.60009765625,457.763671875,438.3087158203125,418.4722900390625,399.017333984375,380.3253173828125,362.0147705078125,344.085693359375,327.6824951171875,311.6607666015625,296.783447265625,282.6690673828125,270.08056640625,258.2550048828125,247.1923828125,237.6556396484375,228.8818359375,220.8709716796875,214.0045166015625,207.9010009765625,202.5604248046875,197.9827880859375,194.1680908203125,190.73486328125,188.0645751953125,185.7757568359375,184.2498779296875,182.7239990234375,181.9610595703125,181.1981201171875,180.816650390625,180.4351806640625,180.4351806640625,180.816650390625,181.1981201171875,181.57958984375,182.342529296875,183.10546875,183.868408203125,184.63134765625,185.394287109375,186.5386962890625,187.68310546875,188.8275146484375,189.971923828125,191.1163330078125,192.2607421875,193.78662109375,194.9310302734375,196.4569091796875,197.9827880859375,199.5086669921875,201.0345458984375,202.94189453125,204.4677734375,206.3751220703125,208.282470703125,210.1898193359375,212.09716796875,214.385986328125,216.2933349609375,218.5821533203125,221.25244140625,223.541259765625,226.2115478515625,228.8818359375,231.93359375,234.9853515625,238.037109375,241.4703369140625,244.903564453125,248.3367919921875,252.1514892578125,256.34765625,260.5438232421875,264.739990234375,269.317626953125,274.2767333984375,279.23583984375,284.576416015625,289.9169921875,296.0205078125,301.7425537109375,308.2275390625,314.7125244140625,321.96044921875,329.2083740234375,336.8377685546875,344.4671630859375,352.8594970703125,361.63330078125,370.4071044921875,379.94384765625,389.862060546875,400.1617431640625,410.8428955078125,422.2869873046875,433.7310791015625,445.9381103515625,458.526611328125,471.8780517578125,485.6109619140625,500.1068115234375,514.984130859375,530.6243896484375,546.6461181640625,563.4307861328125,580.9783935546875,599.2889404296875,617.98095703125,637.8173828125,658.0352783203125,679.3975830078125,701.141357421875,724.029541015625,747.6806640625,772.4761962890625,797.6531982421875,824.3560791015625,851.4404296875</cellValues2>
+    <cellValues3>122.833251953125,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.2147216796875,123.59619140625,123.59619140625,123.9776611328125,123.9776611328125,124.359130859375,125.1220703125,125.5035400390625,126.2664794921875,127.0294189453125,128.173828125,129.69970703125,131.2255859375,133.1329345703125,135.4217529296875,137.7105712890625,140.7623291015625,144.5770263671875,148.3917236328125,153.350830078125,158.69140625,164.794921875,171.661376953125,179.290771484375,188.0645751953125,197.601318359375,208.282470703125,219.7265625,232.3150634765625,246.0479736328125,260.5438232421875,276.5655517578125,293.3502197265625,310.8978271484375,329.58984375,348.663330078125,368.8812255859375,389.4805908203125,410.0799560546875,431.4422607421875,452.423095703125,473.4039306640625,494.0032958984375,513.8397216796875,532.9132080078125,550.84228515625,567.626953125,583.2672119140625,597.0001220703125,608.82568359375,618.743896484375,626.373291015625,632.0953369140625,635.528564453125,636.6729736328125,635.528564453125,632.0953369140625,626.373291015625,618.3624267578125,608.4442138671875,596.61865234375,583.2672119140625,568.389892578125,551.9866943359375,534.4390869140625,516.1285400390625,497.0550537109375,477.60009765625,457.763671875,438.3087158203125,418.4722900390625,399.017333984375,380.3253173828125,362.0147705078125,344.085693359375,327.6824951171875,311.6607666015625,296.783447265625,282.6690673828125,270.08056640625,258.2550048828125,247.1923828125,237.6556396484375,228.8818359375,220.8709716796875,214.0045166015625,207.9010009765625,202.5604248046875,197.9827880859375,194.1680908203125,190.73486328125,188.0645751953125,185.7757568359375,184.2498779296875,182.7239990234375,181.9610595703125,181.1981201171875,180.816650390625,180.4351806640625,180.4351806640625,180.816650390625,181.1981201171875,181.57958984375,182.342529296875,183.10546875,183.868408203125,184.63134765625,185.394287109375,186.5386962890625,187.68310546875,188.8275146484375,189.971923828125,191.1163330078125,192.2607421875,193.78662109375,194.9310302734375,196.4569091796875,197.9827880859375,199.5086669921875,201.0345458984375,202.94189453125,204.4677734375,206.3751220703125,208.282470703125,210.1898193359375,212.09716796875,214.385986328125,216.2933349609375,218.5821533203125,221.25244140625,223.541259765625,226.2115478515625,228.8818359375,231.93359375,234.9853515625,238.037109375,241.4703369140625,244.903564453125,248.3367919921875,252.1514892578125,256.34765625,260.5438232421875,264.739990234375,269.317626953125,274.2767333984375,279.23583984375,284.576416015625,289.9169921875,296.0205078125,301.7425537109375,308.2275390625,314.7125244140625,321.96044921875,329.2083740234375,336.8377685546875,344.4671630859375,352.8594970703125,361.63330078125,370.4071044921875,379.94384765625,389.862060546875,400.1617431640625,410.8428955078125,422.2869873046875,433.7310791015625,445.9381103515625,458.526611328125,471.8780517578125,485.6109619140625,500.1068115234375,514.984130859375,530.6243896484375,546.6461181640625,563.4307861328125,580.9783935546875,599.2889404296875,617.98095703125,637.8173828125,658.0352783203125,679.3975830078125,701.141357421875,724.029541015625,747.6806640625,772.4761962890625,797.6531982421875,824.3560791015625,851.4404296875</cellValues3>
+    <analysisType>MultiPeak1Analysis</analysisType>
+    <peak>
+      <type>Positive</type>
+      <name>CTIC</name>
+      <potentiostat>1</potentiostat>
+      <minPotential>110</minPotential>
+      <maxPotential>310</maxPotential>
+      <mean>200</mean>
+      <tolerance>32</tolerance>
+      <lowerLimit>90</lowerLimit>
+      <upperLimit>Infinity</upperLimit>
+      <maxVarianceForCurveFit>25</maxVarianceForCurveFit>
+      <topFractionForCurveFit>0.59999999999999998</topFractionForCurveFit>
+      <maxSdAsFractionOfHeight>0.040000000000000001</maxSdAsFractionOfHeight>
+      <maxWidth>160</maxWidth>
+      <minWidth>90</minWidth>
+    </peak>
+    <peak>
+      <type>Positive</type>
+      <name>CT</name>
+      <potentiostat>1</potentiostat>
+      <minPotential>295</minPotential>
+      <maxPotential>510</maxPotential>
+      <mean>390</mean>
+      <tolerance>60</tolerance>
+      <lowerLimit>115</lowerLimit>
+      <upperLimit>Infinity</upperLimit>
+      <maxVarianceForCurveFit>25</maxVarianceForCurveFit>
+      <topFractionForCurveFit>0.59999999999999998</topFractionForCurveFit>
+      <maxSdAsFractionOfHeight>0.040000000000000001</maxSdAsFractionOfHeight>
+      <maxWidth>160</maxWidth>
+      <minWidth>90</minWidth>
+    </peak>
+    <peak>
+      <type>Ignore</type>
+      <name>clearend</name>
+      <potentiostat>1</potentiostat>
+      <minPotential>520</minPotential>
+      <maxPotential>620</maxPotential>
+      <mean>0</mean>
+      <tolerance>0</tolerance>
+      <lowerLimit>0</lowerLimit>
+      <upperLimit>0</upperLimit>
+      <maxVarianceForCurveFit>0</maxVarianceForCurveFit>
+      <topFractionForCurveFit>0</topFractionForCurveFit>
+      <maxSdAsFractionOfHeight>0</maxSdAsFractionOfHeight>
+      <maxWidth>0</maxWidth>
+      <minWidth>0</minWidth>
+    </peak>
+    <peak>
+      <type>Positive</type>
+      <name>NG1IC</name>
+      <potentiostat>3</potentiostat>
+      <minPotential>110</minPotential>
+      <maxPotential>310</maxPotential>
+      <mean>200</mean>
+      <tolerance>32</tolerance>
+      <lowerLimit>90</lowerLimit>
+      <upperLimit>Infinity</upperLimit>
+      <maxVarianceForCurveFit>25</maxVarianceForCurveFit>
+      <topFractionForCurveFit>0.59999999999999998</topFractionForCurveFit>
+      <maxSdAsFractionOfHeight>0.040000000000000001</maxSdAsFractionOfHeight>
+      <maxWidth>160</maxWidth>
+      <minWidth>90</minWidth>
+    </peak>
+    <peak>
+      <type>Positive</type>
+      <name>NG1</name>
+      <potentiostat>3</potentiostat>
+      <minPotential>295</minPotential>
+      <maxPotential>510</maxPotential>
+      <mean>390</mean>
+      <tolerance>60</tolerance>
+      <lowerLimit>50</lowerLimit>
+      <upperLimit>Infinity</upperLimit>
+      <maxVarianceForCurveFit>25</maxVarianceForCurveFit>
+      <topFractionForCurveFit>0.59999999999999998</topFractionForCurveFit>
+      <maxSdAsFractionOfHeight>0.040000000000000001</maxSdAsFractionOfHeight>
+      <maxWidth>160</maxWidth>
+      <minWidth>90</minWidth>
+    </peak>
+    <peak>
+      <type>Ignore</type>
+      <name>clearend</name>
+      <potentiostat>3</potentiostat>
+      <minPotential>520</minPotential>
+      <maxPotential>620</maxPotential>
+      <mean>0</mean>
+      <tolerance>0</tolerance>
+      <lowerLimit>0</lowerLimit>
+      <upperLimit>0</upperLimit>
+      <maxVarianceForCurveFit>0</maxVarianceForCurveFit>
+      <topFractionForCurveFit>0</topFractionForCurveFit>
+      <maxSdAsFractionOfHeight>0</maxSdAsFractionOfHeight>
+      <maxWidth>0</maxWidth>
+      <minWidth>0</minWidth>
+    </peak>
+    <peak>
+      <type>Positive</type>
+      <name>NG2IC</name>
+      <potentiostat>4</potentiostat>
+      <minPotential>110</minPotential>
+      <maxPotential>310</maxPotential>
+      <mean>200</mean>
+      <tolerance>32</tolerance>
+      <lowerLimit>60</lowerLimit>
+      <upperLimit>Infinity</upperLimit>
+      <maxVarianceForCurveFit>25</maxVarianceForCurveFit>
+      <topFractionForCurveFit>0.59999999999999998</topFractionForCurveFit>
+      <maxSdAsFractionOfHeight>0.040000000000000001</maxSdAsFractionOfHeight>
+      <maxWidth>160</maxWidth>
+      <minWidth>90</minWidth>
+    </peak>
+    <peak>
+      <type>Positive</type>
+      <name>NG2</name>
+      <potentiostat>4</potentiostat>
+      <minPotential>295</minPotential>
+      <maxPotential>510</maxPotential>
+      <mean>390</mean>
+      <tolerance>60</tolerance>
+      <lowerLimit>45</lowerLimit>
+      <upperLimit>Infinity</upperLimit>
+      <maxVarianceForCurveFit>25</maxVarianceForCurveFit>
+      <topFractionForCurveFit>0.59999999999999998</topFractionForCurveFit>
+      <maxSdAsFractionOfHeight>0.040000000000000001</maxSdAsFractionOfHeight>
+      <maxWidth>160</maxWidth>
+      <minWidth>90</minWidth>
+    </peak>
+    <peak>
+      <type>Ignore</type>
+      <name>clearend</name>
+      <potentiostat>4</potentiostat>
+      <minPotential>520</minPotential>
+      <maxPotential>620</maxPotential>
+      <mean>0</mean>
+      <tolerance>0</tolerance>
+      <lowerLimit>0</lowerLimit>
+      <upperLimit>0</upperLimit>
+      <maxVarianceForCurveFit>0</maxVarianceForCurveFit>
+      <topFractionForCurveFit>0</topFractionForCurveFit>
+      <maxSdAsFractionOfHeight>0</maxSdAsFractionOfHeight>
+      <maxWidth>0</maxWidth>
+      <minWidth>0</minWidth>
+    </peak>
+    <fastReportingPeriod>0</fastReportingPeriod>
+    <pcrValues isNull="True" />
+  </data>
+</test>

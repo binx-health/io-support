@@ -1,0 +1,55 @@
+﻿#---------------------------------------------
+#042-EXP-NEA-VH_LysisMix
+#based on MOB-D-027 v3.0
+#Antony Brown 30 Apr 2019
+#copyright Atlas Genetics Ltd 2019
+#---------------------------------------------
+
+#-------------Revision-History---------------
+#version 1.0 - 042-EXP-NEA-VH
+#            - removed heating checks as no heat
+#            - 5 mixings with bellows for 5 seconds. 
+#--------------------------------------------
+
+
+#set PID for sample well heater to stop control loop ringing
+therm therm1 off
+set Peltier.Lysis.Kp 350000
+set Peltier.Lysis.Ki 15
+#therm therm1 on 37 ackvar
+
+#Set up the fluidic path
+valve v1 off
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 on 
+valve v6 on
+valve v7 on
+valve v8 on
+
+begin atomic 1
+#back off lysis actuator to protect manifold from leaking.
+stepper l3 500 -400 lysisretract
+wait lysisretract 5
+end
+
+#mix fluid quickly without heat
+begin nonatomic 5
+valve v1 off
+delay 50
+valve v1 on
+delay 50
+end
+
+#return positive logic to normal operational pressure
+res res2 hold 1100 1250 2 initpswID
+wait initpswID 10
+if initpswID
+                                 # leave blank to leave visual marker in script. 
+else 
+call error_30010 
+endif
+
+
+

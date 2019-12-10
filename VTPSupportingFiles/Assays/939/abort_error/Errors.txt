@@ -1,0 +1,33 @@
+﻿# MDNI test assay
+# Test to throw a metric violated error
+
+throw 10002,0
+delay 100 
+throw 10002,10
+delay 100
+throw 10002,20
+delay 100
+throw 10002,30
+delay 100
+throw 10002,40
+delay 100
+
+throw 30004
+
+# 30000 - metric violated error
+# 30001 - script syntax
+# 30002 - drawer not closed
+# 30003 - isolation valve released 
+# 30004 - abort
+
+# 30005 - drawer error 
+# 30006 - CPLD communication error
+# 30007 - isolation valve failed to pick up 
+# 30010 - failure to charge res 2 (negative pressure reservoir) 
+# 30011 - failure to charge vacuum res 1 
+# 30013 - therm 1 timeout
+# 30014 - failure to charge res 3 (positive pressure reservoir) 
+# 30015 - therm 2 timeout
+# 30016 - therm 3 timeout 
+# 30017 - therm 2 failure to reach denature temperature (PCR peltier error) 
+# 30018 - therm 2 failure to reach anneal temperature (PCR peltier error)

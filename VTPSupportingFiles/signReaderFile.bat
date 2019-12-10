@@ -1,0 +1,1 @@
+..\Software\AtlasGenetics.ClassA.IOReader.Publisher\bin\Release\Publish -Reader -File ReaderConfiguration.txt

@@ -1,0 +1,25 @@
+﻿# MDNI test assay
+# test for expired cartridge.
+# Should delay for 10 seconds
+
+throw 10002,0
+delay 100
+throw 10002,10
+delay 100
+throw 10002,20
+delay 100
+throw 10002,30
+delay 100
+throw 10002,40
+delay 100
+throw 10002,50
+delay 100
+throw 10002,60
+delay 100
+throw 10002,70
+delay 100
+throw 10002,80
+delay 100
+throw 10002,90
+delay 100
+throw 10002,100

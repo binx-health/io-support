@@ -1,0 +1,33 @@
+﻿# Should produce a positive CT and positive NG result
+
+peak algorithm "MultiPeak1Analysis" 1000 1000 6 49
+
+peak define "CT" Positive 1 100 310 220 32 30 Infinity 14 60 170 90 1
+peak define "CTIC" Positive 1 295 510 390 60 30 Infinity 1 60 170 90 0
+peak define "Ignore" Ignore 1 520 620
+
+peak define "NGIC" Positive 2 100 310 220 32 30 Infinity 14 60 170 90 1
+peak define "NG" Positive 2 295 510 390 60 30 Infinity 14 60 170 90 1
+peak define "Ignore" Ignore 2 520 620
+
+call CTNG_POSPOS_2
+
+throw 10002,10
+delay 100
+throw 10002,20
+delay 100
+throw 10002,30
+delay 100
+throw 10002,40
+delay 100
+throw 10002,50
+delay 100
+throw 10002,60
+delay 100
+throw 10002,70
+delay 100
+throw 10002,80
+delay 100
+throw 10002,90
+delay 100
+throw 10002,100

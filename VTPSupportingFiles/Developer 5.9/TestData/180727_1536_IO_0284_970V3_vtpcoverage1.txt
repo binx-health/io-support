@@ -1,0 +1,6 @@
+
+
+15:36:09.99 Ambient temperature 24°C
+15:36:09.99 Ambient pressure 1002mb
+15:36:10.65 Fault occurred: Firmware did not acknowledge '*E=Main'
+

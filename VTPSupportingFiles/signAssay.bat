@@ -1,0 +1,1 @@
+..\Software\AtlasGenetics.ClassA.IOReader.Publisher\bin\Release\Publish -Release -Assay assay.txt
