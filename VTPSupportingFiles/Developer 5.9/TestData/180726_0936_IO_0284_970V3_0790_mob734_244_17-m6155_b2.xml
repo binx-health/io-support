@@ -1,0 +1,3418 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<test>
+  <serialNumber>0284</serialNumber>
+  <instrumentName>IO_0284</instrumentName>
+  <readerVersion>5.8.0</readerVersion>
+  <readerIntegrity>Release</readerIntegrity>
+  <firmwareVersion>5.0 build 908-t4-p2</firmwareVersion>
+  <biosVersion>ALASKA - 1072009|BIOS Date: 04/24/13 11:36:35 Ver: 04.06.05|BIOS Date: 04/24/13 11:36:35 Ver: 04.06.05</biosVersion>
+  <lockingUserID>{7d21f6c6-a052-4036-a57e-94fd6002709e}</lockingUserID>
+  <scannedBarcode>97011234567000000789</scannedBarcode>
+  <assay>
+    <assay>
+      <code>970</code>
+      <version>3</version>
+      <name>Candidate_CTNG_Assay(new)</name>
+      <shortName>NEW</shortName>
+      <target>
+        <targetName>CT</targetName>
+        <targetType>STD</targetType>
+        <peakName>CT</peakName>
+        <control>CTIC</control>
+      </target>
+      <target>
+        <targetName>NG1</targetName>
+        <targetType>STD</targetType>
+        <peakName>NG1</peakName>
+        <control>NG1IC</control>
+      </target>
+      <target>
+        <targetName>NG2</targetName>
+        <targetType>STD</targetType>
+        <peakName>NG2</peakName>
+        <control>NG2IC</control>
+      </target>
+      <disease>
+        <diseaseName>CT</diseaseName>
+        <loinc>47212-6</loinc>
+        <target>CT</target>
+        <detectionCriteria>CT</detectionCriteria>
+      </disease>
+      <disease>
+        <diseaseName>NG</diseaseName>
+        <loinc>24111-7</loinc>
+        <target>NG1</target>
+        <target>NG2</target>
+        <detectionCriteria>NG1,NG2</detectionCriteria>
+      </disease>
+      <flatLineInvalidatesAssay>False</flatLineInvalidatesAssay>
+      <diseasesIndependentlyValidated>False</diseasesIndependentlyValidated>
+      <script>Main</script>
+      <estimatedDuration>1968</estimatedDuration>
+    </assay>
+    <metrics>General.Log.FastReporting 500
+Peltier.Detection.MaxTemp 77</metrics>
+    <scripts>
+      <script>
+        <name>error_30010</name>
+        <value>
+          <text>#---------------------------------------------
+#beta script error_30010
+#Based on: PAN-D-088 V1.0
+#Date originated: 06 May 2014
+#Author: Antony Brown
+#
+#Initialed to confirm this is a direct copy of the scipt listed above
+#
+#
+#
+#Copyright Atlas Genetics Ltd 2014
+#---------------------------------------------
+
+
+#-------------revision history----------------
+#1.0 30072014 AB - Copied from PAN-D-088 Version 1.0
+
+
+buzzer 1 30 2
+throw 30010                 # failure to charge positive logic reservoir
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>error_30011</name>
+        <value>
+          <text>#---------------------------------------------
+#beta script error_30011
+#Based on: PAN-D-089 V1.0
+#Date originated: 06 May 2014
+#Author: Antony Brown
+#
+#Initialed to confirm this is a direct copy of the scipt listed above
+#
+#
+#
+#Copyright Atlas Genetics Ltd 2014
+#---------------------------------------------
+
+
+#-------------revision history----------------
+#1.0 30072014 AB - Copied from PAN-D-089 Version 1.0
+
+
+buzzer 1 30 2
+throw 30011           #failure to charge vacuum reservoir
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>error_30013</name>
+        <value>
+          <text>#---------------------------------------------
+#beta script error_30013
+#Based on: PAN-D-090 V1.0
+#Date originated: 06 May 2014
+#Author: Antony Brown
+#
+#Initialed to confirm this is a direct copy of the scipt listed above
+#
+#
+#
+#Copyright Atlas Genetics Ltd 2014
+#---------------------------------------------
+
+
+#-------------revision history----------------
+#1.0 30072014 AB - Copied from PAN-D-090 Version 1.0
+
+
+buzzer 1 30 2
+throw 30013       #failure to turn on sample well heater
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>error_30014</name>
+        <value>
+          <text>#---------------------------------------------
+#beta script error_30014
+#Based on: PAN-D-091 V1.0
+#Date originated: 06 May 2014
+#Author: Antony Brown
+#
+#Initialed to confirm this is a direct copy of the scipt listed above
+#
+#
+#
+#Copyright Atlas Genetics Ltd 2014
+#---------------------------------------------
+
+
+#-------------revision history----------------
+#1.0 30072014 AB - Copied from PAN-D-091 Version 1.0
+
+
+buzzer 1 30 2
+throw 30014       #failure to charge res3</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>error_30015</name>
+        <value>
+          <text>#---------------------------------------------
+#error_30015
+#Based on: PAN-D-092 V2.0
+#Date originated: 11 May 2017
+#Author: Antony Brown
+#
+#Initialed to confirm this is a direct copy of the scipt listed above
+#
+#
+#
+#Copyright Atlas Genetics Ltd 2017
+#---------------------------------------------
+
+
+#-------------revision history----------------
+#Version 1.0 - Copied from PAN-D-092 V1.0
+#version 2.0 - Copied from PAN-D-092 V2.0
+#---------------------------------------------
+
+dpr dpr1 off
+buzzer 1 30 2
+throw 30015       #therm2 timeout</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>error_30016</name>
+        <value>
+          <text>#---------------------------------------------
+#error_30016
+#Based on: PAN-D-093 V2.0
+#Date originated: 11 May 2017
+#Author: Antony Brown
+#
+#Initialed to confirm this is a direct copy of the scipt listed above
+#
+#
+#
+#Copyright Atlas Genetics Ltd 2017
+#---------------------------------------------
+
+
+#-------------revision history----------------
+#Version 1.0 - Copied from PAN-D-093 V1.0
+#Version 2.0 - copied from PAN-D-093 V2.0
+#---------------------------------------------
+
+dpr dpr1 off 
+buzzer 1 30 2
+throw 30016       #therm3 timeout</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>error_30018</name>
+        <value>
+          <text>#---------------------------------------------
+#beta script error_30018
+#Based on: PAN-D-094 V2.0
+#Date originated: 20 May 2014
+#Author: Antony Brown
+#
+#Initialed to confirm this is a direct copy of the scipt listed above
+#
+#
+#
+#Copyright Atlas Genetics Ltd 2014
+#---------------------------------------------
+
+
+#-------------revision history----------------
+#2.0 14102014 AB: Copied from PAN-D-094 Version 2.0
+
+
+buzzer 1 30 2
+throw 30018       #therm2 timeout failed to reach Anneal temp</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>Main</name>
+        <value>
+          <text>#---------------------------------------------
+#Main
+#based on MOB-D-017 V10 
+#Antony Brown 19 April 2018
+#copyright Atlas Genetics Ltd 2018
+
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - Copied from MOB-D-019 V10 
+#            - call MOB-EP-576_PCR_fill V9 AKA DPR PCR fill
+#            - Increase PCR CYles to 42 cycles from MOB-D-014 V4.0
+#Version 2.0 - MOB-CM-0176
+#Version 3.0 - MOB-CM-0183 - CONCH 25
+#---------------------------------------------
+
+
+call MOB-D-024                     #Progress Indicator MOB-D-024 Version 2.0
+
+call MOB-D-025                     #Initialise Run MOB-D-025 Version 3.0
+
+#Sample extract 
+call MOB-D-026                     #Lysis Release MOB-D-026 version 1.0
+call MOB-D-027                     #Mix MOB-D-027 version 3.0
+call MOB-D-028                     #Pump MOB-D-028 version 2.0
+call MOB-D-020                     #Air_purge_1 MOB-D-020 version 5.0
+call MOB-D-029                     #Wash Release MOB-D-029 version 2.0
+call MOB-D-047                     #air_dry_1min_750 MOB-D-047 version 1.0
+call MOB-D-048                     #elution_dispense_1min MOB-D-048 Version 1.0
+
+#pcr and detection
+call MOB-D-023                     #Homogenise MOB-D-023 version 3.0
+call MOB-D-046                     #PCR_DPR_Fill MOB-D-046 v1.0
+call PAN-D-078                     #UNG Step PAN-D-078 version 3.0
+call MOB-D-045                     #42 cycle Rapid PCR MOB-D-045 version 1.0  
+call MOB-D-022                     #Fill Detection Chambers MOB-D-022 version 2.0
+call MOB-D-015                     #Detection Incubation MOB-D-015 version 3.0
+
+
+#setup peak search parameters and call voltammetry
+#peak algorithm "type"  rawnoise permissible noise polyorder targetnoise
+peak algorithm "MultiPeak1Analysis"  1000 1000 6 49 
+
+#peak define  "name" outcome ch vstart vend vexp vtol thresh maxnoise prop widthmax widthmin propnoise
+
+peak define "CTIC" Positive 1 110 310 200 32 90 Infinity 25 60 160 90 4
+peak define "CT" Positive 1 295 510 390 60 115 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 1 520 620                            #this ignores the last part of the scan
+
+peak define "NG1IC" Positive 3 110 310 200 32 90 Infinity 25 60 160 90 4
+peak define "NG1" Positive 3 295 510 390 60 50 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 3 520 620                            #this ignores the last part of the scan
+
+peak define "NG2IC" Positive 4 110 310 200 32 60 Infinity 25 60 160 90 4
+peak define "NG2" Positive 4 295 510 390 60 45 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 4 520 620                            #this ignores the last part of the scan
+
+call MOB-D-016    #Mob-D-016 Version 3.0  voltammetry
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>MOB-D-015</name>
+        <value>
+          <text>
+#---------------------------------------------
+#NAT_CTNG_Detection_Incubation
+#MOB-D-015
+#Antony Brown 19 July 2016
+#copyright Atlas Genetics Ltd 2016
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+
+#-------------Revision-History----------------
+#Version 1.0 - MOB-CM-0024
+#Version 2.0 - MOB-CM-0041
+#version 3.0 - MOB-CM-0055
+#---------------------------------------------
+
+
+
+begin atomic 1
+throw 10002,89
+delay 1820
+throw 10002,90
+delay 1820
+throw 10002,91
+delay 1820
+throw 10002,92
+delay 1820
+throw 10002,93
+delay 1820
+throw 10002,94
+delay 1820
+throw 10002,95
+delay 1820
+throw 10002,96
+delay 1820
+throw 10002,97
+delay 1820
+throw 10002,98
+
+end
+
+#set incubation temperature
+therm therm3 on 37 INCDT        
+
+set peltier.pcr.ki 20
+therm therm2 on 37 INCPCR
+wait INCPCR 30
+wait INCDT 30
+
+if INCDT
+#do nothing
+else
+call error_30016
+endif
+
+if INCPCR
+#do nothing
+else
+call error_30015
+endif
+
+set peltier.pcr.ki 6
+
+#delay for incubation before read
+delay 16500
+
+
+
+#start prescan
+begin atomic 1
+pstat 210 external
+voltammetry differential 0 50 10 600 40 60             #Full prescan  
+end
+
+#delay to finish 3 min incubation time
+delay 1500
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>MOB-D-016</name>
+        <value>
+          <text>#---------------------------------------------
+#NAT_CTNG_Volatmmetry
+#MOB-D-016
+#Antony Brown 05 Oct 2016
+#Copyright Atlas Genetics Ltd 2016
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - MOB-CM-0024
+#version 2.0 - MOB-CM-0055
+#version 3.0 - MOB-CM-0066
+#---------------------------------------------
+
+
+#syntax is start voltage mV, pulse amplitude mV, sweep increment mV, end voltage mV, pulse time ms, base time ms
+
+throw 10002,99
+
+#Data Scan
+voltammetry differential 0 50 3 600 40 60 
+delay 2200
+
+throw 10002,100
+#End process sequence - release pressure from bellows to waste
+begin atomic 1
+#set starting valve conditions so flow through to waste
+valve v2 on
+valve v3 off
+valve v4 on
+valve v5 on
+valve v6 on
+valve v7 off
+valve v8 on
+
+delay 30
+valve v1 on
+
+
+end
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>MOB-D-020</name>
+        <value>
+          <text>#---------------------------------------------
+#NAT_CTNG_air_purge_1
+#Mob-D-020
+#Antony Brown 11 MAY 2017
+#Copyright Atlas Genetics Ltd 2017
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - MOB-CM-0041
+#Version 2.0 - MOB-CM-0055
+#version 3.0 - MOB-CM-0108
+#version 4.0 - MOB-CM-0113
+#version 5.0 - MOB-CM-0125
+#---------------------------------------------
+
+
+#setup start conditions
+valve v1 off
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 on 
+valve v6 on
+valve v7 off
+valve v8 on
+dpr dpr1 off
+delay 50
+
+
+#check for res 3 charged 
+if res2800
+# do nothing
+else
+call error_30014
+endif
+delay 10
+
+#blow out back for 4.5s
+valve v9 on
+delay 10
+valve v8 off
+valve v4 off
+delay 20
+
+delay 450
+
+#shutdown
+valve v8 on
+delay 10
+valve v9 off
+delay 20
+valve v4 on
+
+#allow pressure to disapate. 
+delay 100
+
+#vent any remaining to sample well
+valve v3 off
+valve v2 off
+delay 30
+valve v3 on
+delay 30 
+valve v4 on</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>MOB-D-022</name>
+        <value>
+          <text>#---------------------------------------------
+#NAT_CTNG_fill_detection_chambers
+#MOB-D-022
+#Antony Brown 19 July 2016
+#Copyright Atlas Genetics Ltd 2016
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - MOB-CM-0041
+#version 2.0 - MOB-CM-0055
+#---------------------------------------------
+
+
+#set starting valve conditions
+valve v1 off
+valve v2 on
+valve v3 on
+valve v4 on
+valve v5 on
+valve v6 on
+valve v7 on
+valve v8 on
+valve v16 off
+valve v17 on
+delay 10
+
+#Set Pstat to internal circuit
+pstat 0 internal
+
+#Engage mechanical valve 
+stepper l5 200 300   # slow down mech valve to top of tpe
+delay 200
+stepper l5 50 310 mechengage
+wait mechengage 5
+delay 500
+
+#set up DPR
+dpr dpr1 on 2 0
+valve v16 on
+delay 10
+
+#set up fill Detection chambers
+valve v2 off
+delay 10
+
+begin atomic 8
+valve v2 on
+delay 50
+valve v2 off
+delay 50
+end
+
+#Fill
+dpr dpr1 on 28 900
+delay 950
+valve v2 on
+delay 50
+
+#keep dpr on during reach and prtect instrument
+valve v17 off         # protect instrument from potential back wash
+
+
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>MOB-D-023</name>
+        <value>
+          <text>#---------------------------------------------
+#NAT_CTNG_homogenisation
+#MOB-D-023
+#Antony Brown 11 MAY 2017
+#Copyright Atlas Genetics Ltd 2017
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - MOB-CM-0041
+#Version 2.0 - MOB-CM-0055
+#Version 3.0 - MOB-CM-0125
+#---------------------------------------------
+
+
+begin atomic 1
+
+#lift elution blister actuator
+stepper l2 500 -600 elutionlift
+wait elutionlift 5               
+
+#retract wash stepper
+stepper L4 200 -550 washretract
+wait washretract 15
+
+#back off actuator from stop
+stepper l2 500 20 backoff
+stepper l4 500 20 backoffw
+wait backoff 2
+wait backoffw 2
+
+end
+
+#set start conditions
+valve v1 off
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 on
+valve v6 on
+valve v7 off
+valve v8 on
+valve v17 on
+delay 10
+
+
+#open to DPR
+dpr dpr1 on 5 0
+delay 30
+valve v16 on
+delay 20
+
+#cycle between 1-5% atmospheric
+begin nonatomic 30 done
+	valve v16 on
+	delay 20
+	valve v16 off
+	delay 20
+end
+wait done 30
+dpr dpr1 on 2 0
+
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>MOB-D-024</name>
+        <value>
+          <text>#---------------------------------------------
+#NAT_CTNG_Progress Indicator
+#MOB-D-024
+#Antony Brown 11 Jan 2017
+#copyright Atlas Genetics Ltd 2017
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History---------------
+#version 1.0 - MOB-CM-0055
+#version 2.0 - MOB-CM-0108
+#--------------------------------------------
+
+
+begin atomic 1
+
+throw 10002,0
+delay 1900
+throw 10002,1
+delay 1900
+throw 10002,2
+delay 1900
+throw 10002,3
+delay 1900
+throw 10002,4
+delay 1900
+throw 10002,5
+delay 1900
+throw 10002,6
+delay 1900
+throw 10002,7
+delay 1900
+throw 10002,8
+delay 1900
+throw 10002,9
+delay 1900
+throw 10002,10
+delay 1900
+throw 10002,11
+delay 1900
+throw 10002,12
+delay 1900
+throw 10002,13
+delay 1900
+throw 10002,14
+delay 1900
+throw 10002,15
+delay 1900
+throw 10002,16
+delay 1900
+throw 10002,17
+delay 1900
+throw 10002,18
+delay 1900
+throw 10002,19
+delay 1900
+throw 10002,20
+delay 1900
+throw 10002,21
+delay 1900
+throw 10002,22
+delay 1900
+throw 10002,23
+delay 1900
+throw 10002,24
+delay 1900
+throw 10002,25
+delay 1900
+throw 10002,26
+delay 1900
+throw 10002,27
+delay 1900
+throw 10002,28
+delay 1900
+throw 10002,29
+delay 1900
+throw 10002,30
+delay 1900
+throw 10002,31
+delay 1900
+throw 10002,32
+delay 1900
+throw 10002,33
+delay 1900
+throw 10002,34
+delay 1900
+throw 10002,35
+delay 1900
+throw 10002,36
+delay 1900
+throw 10002,37
+delay 1900
+throw 10002,38
+delay 1900
+throw 10002,39
+delay 1900
+throw 10002,40
+delay 1900
+throw 10002,41
+delay 1900
+throw 10002,42
+delay 1900
+throw 10002,43
+delay 1900
+throw 10002,44
+delay 1900
+throw 10002,45
+delay 1900
+throw 10002,46
+delay 1900
+throw 10002,47
+delay 1900
+throw 10002,48
+delay 1900
+throw 10002,49
+delay 1900
+throw 10002,50
+delay 1900
+throw 10002,51
+delay 1900
+throw 10002,52
+delay 1900
+throw 10002,53
+delay 1900
+throw 10002,54
+delay 1900
+throw 10002,55
+delay 1900
+throw 10002,56
+delay 1900
+throw 10002,57
+delay 1900
+throw 10002,58
+delay 1900
+throw 10002,59
+delay 1900
+throw 10002,60
+delay 1900
+throw 10002,61
+delay 1900
+throw 10002,62
+delay 1900
+throw 10002,63
+delay 1900
+throw 10002,64
+delay 1900
+throw 10002,65
+delay 1900
+throw 10002,66
+delay 1900
+throw 10002,67
+delay 1900
+throw 10002,68
+delay 1900
+throw 10002,69
+delay 1900
+throw 10002,70
+delay 1900
+throw 10002,71
+delay 1900
+throw 10002,72
+delay 1900
+throw 10002,73
+delay 1900
+throw 10002,74
+delay 1900
+throw 10002,75
+delay 1900
+throw 10002,76
+delay 1900
+throw 10002,77
+delay 1900
+throw 10002,78
+delay 1900
+throw 10002,79
+delay 1900
+throw 10002,80
+delay 1900
+throw 10002,81
+delay 1900
+throw 10002,82
+delay 1900
+throw 10002,83
+delay 1900
+throw 10002,84
+delay 1900
+throw 10002,85
+delay 1900
+throw 10002,86
+delay 1900
+throw 10002,87
+#delay 1900
+#throw 10002,88
+
+end
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>MOB-D-025</name>
+        <value>
+          <text>#---------------------------------------------
+#NAT_CTNG_Initialise_Run
+#MOB-D-025
+#Antony Brown 12 MAY 2017
+#copyright Atlas Genetics Ltd 2017
+#---------------------------------------------
+
+#-------------Revision-History---------------
+#version 1.0 - MOB-CM-0055
+#version 2.0 - MOB-CM-0108
+#Version 3.0 - MOB-CM-0125
+#--------------------------------------------
+
+
+#Set Pstat to internal circuit
+pstat 0 internal
+
+begin atomic 1 done
+set Motor.Steppers.Pwm 100    #high force movements
+  stepper l2 500 60 step
+  stepper l4 500 60 stepwash
+  wait step 1
+  wait stepwash 1
+  stepper l2 500 -50 step2
+  stepper l4 500 -50 stepwash2 
+  wait step2 1
+  wait stepwash2 1
+  stepper l2 500 60 step
+  stepper l4 500 60 stepwash
+  wait step 1
+  wait stepwash 1
+  stepper l2 500 -50 step2
+  stepper l4 500 -50 stepwash2 
+  wait step2 1
+  wait stepwash2 1
+  stepper l2 500 60 step
+  stepper l4 500 60 stepwash
+  wait step 1
+  wait stepwash 1
+  stepper l2 500 -50 step2
+  stepper l4 500 -50 stepwash2 
+  wait step2 1
+  wait stepwash2 1
+
+set Motor.Steppers.Pwm 70    #standard force movements
+
+
+stepper l2 500 -70 done
+stepper l4 500 -70 done2      
+wait done 5
+wait done2 5
+stepper l2 500 20 done        # reset to initial position 
+stepper l4 500 20 done2
+wait done 5
+wait done2 5
+
+end
+
+res res1 dump
+res res2 dump
+res res3 dump
+
+#set dpr off so that new one does not buzz whilst res 3 is empty 
+dpr dpr1 off
+	
+solenoid m1 on #isolation_release on 		# isolation solenoid should be powered up indefinitely
+solenoid s1 off #drawer_catch off   		# drawer_catch should be left off normally
+
+#pressure valves are rippled on-and-off 
+valve v12 on #vacuum_enable on
+valve v13 on #Low_High_Pressure_Select on
+valve v1 on  #bellows on
+valve v2 on  #pump_V1_pcr on
+valve v3 on  #pump_V2 on
+valve v4 on  #V3_wash_inlet on
+valve v5 on  #V4_elute_inlet on
+valve v6 on  #V5_elute_enable on
+valve v7 on  #v6_waste_enable on
+valve v8 on
+valve v9 on  #wash_air_dry on
+valve v10 on #elute_air_dry on
+valve v14 on #low_pressure_dump on
+valve v15 on #high_pressure_dump on 
+valve v16 on #digital_enable on
+valve v11 on #vacuum_dump on
+valve v17 on
+
+delay 10
+
+valve v12 off #vacuum_enable off
+valve v13 off #Low_High_Pressure_Select off
+valve v1 off  #bellows off
+valve v2 off  #pump_V1_pcr off
+valve v3 off  #pump_V2 off
+valve v4 off  #V3_wash_inlet off
+valve v5 off  #V4_elute_inlet off
+valve v6 off  #V5_elute_enable off
+valve v7 off  #v6_waste_enable off
+valve v8 off  #air_dry_enable off
+valve v9 off  #wash_air_dry off
+valve v10 off #elute_air_dry off
+valve v14 off #low_pressure_dump off
+valve v15 off #high_pressure_dump off 
+valve v16 off #digital_enable off
+valve v11 off #vacuum_dump off
+valve v17 off #digital_outlet atmospheric off
+
+#open manifold with no pressure in reservoirs
+valve v13 on
+valve v12 on
+delay 50
+
+#charge positive hard 
+res res2 hold 900 1100 2 initpswID 
+
+#set up valve conditions to suck in fluid forming a meniscus in sample well inlet
+valve v2 on
+delay 50
+valve v1 on
+delay 100
+#allow bellows to close fully before closing v3
+valve v3 on
+valve v4 on
+valve v5 on
+valve v6 on
+valve v7 on
+valve v8 on
+delay 20
+
+#charge res3 atomicly to stop original DPR form buzzing
+begin atomic 1
+res res3 hold 700 900 3 res2800
+delay 300
+wait res2800 5
+end
+
+#turn on Sample well peltier to get to temp before mix
+set Peltier.Lysis.Kp 500000
+set Peltier.Lysis.Ki 500
+set Peltier.Lysis.Kd 0
+set Peltier.Lysis.TargetOffset 5
+
+#Turn on sample well heater
+therm therm1 on 37 heatsample
+
+#Charge vacuum logic pressure for a softer mixing process
+res res1 hold 500 700 2 initvswID
+wait initpswID 10
+wait initvswID 10
+
+#check for pressures
+if initpswID
+#do nothing
+else 
+call error_30010 
+endif
+if initvswID
+#do nothing
+else 
+call error_30011
+endif
+
+#remove meniscus from sample well inlet with bellows 
+valve v1 off
+delay 50
+valve v2 off
+delay 2000
+
+#Rattle bellows to remove any remaining meniscus
+begin nonatomic 2 done
+valve v1 on
+delay 40
+valve v1 off
+delay 100
+end
+
+#relax reservoir to allow to recharge to gentle pressure for mix.
+res res2 dump
+delay 100
+res res2 hold 400 550 2 initpswID
+wait initpswID 10</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>MOB-D-026</name>
+        <value>
+          <text>#---------------------------------------------
+#NAT_CTNG_Lysis_Release
+#MOB-D-026
+#Antony Brown 28 July 2016
+#copyright Atlas Genetics Ltd 2016
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History---------------
+#version 1.0 - MOB-CM-0055
+#--------------------------------------------
+
+
+#set start conditions to check manifold protection
+valve v1 off
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 on
+valve v6 on
+valve v7 on
+valve v8 on
+
+
+#Reach blister
+stepper l3 500 250 lysisreach1
+wait lysisreach1 3
+
+
+#crush blister slow and totally
+stepper l3 100 340 lysissquash
+
+delay 370
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>MOB-D-027</name>
+        <value>
+          <text>#---------------------------------------------
+#NAT_CTNG_Mix
+#MOB-D-027
+#Antony Brown 11 Jan 2017
+#copyright Atlas Genetics Ltd 2017
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History---------------
+#version 1.0 - MOB-CM-0055
+#version 2.0 - MOB-CM-0066
+#version 3.0 - MOB-CM-0108 
+#--------------------------------------------
+
+
+wait heatsample 30                 # only needs this long if it starts from warm. 
+if heatsample
+#do nothing
+else
+call error_30013
+endif
+
+#set PID for sample well heater to stop control loop ringing
+therm therm1 off
+set Peltier.Lysis.Kp 350000
+set Peltier.Lysis.Ki 15
+therm therm1 on 37 ackvar
+
+#Set up the fluidic path
+valve v1 off
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 on 
+valve v6 on
+valve v7 on
+valve v8 on
+
+begin atomic 1
+#back off lysis actuator to protect manifold from leaking.
+stepper l3 500 -400 lysisretract
+wait lysisretract 5
+end
+
+
+#mix fluid                    # v1 bellows off and on in that order to keep as much sample as possible over heater
+begin nonatomic 11 ACK        # 11 cycles as first on is a false pump
+valve v1 off
+delay 100
+valve v1 on
+delay 100
+#back gulp 2.8seconds
+valve v2 on
+delay 30
+valve v3 off
+delay 30
+valve v1 off
+delay 100
+valve v3 on
+delay 30
+valve v2 off
+delay 30
+valve v1 on
+delay 60
+#extra delay to evenly space 11 pumps over 1 min (cycle time = 4.8s)
+delay 65
+end
+wait ACK 25
+
+#turn off sample well heater
+therm therm1 off 
+
+
+#return positive logic to normal operational pressure
+res res2 hold 1100 1250 2 initpswID
+wait initpswID 10
+if initpswID
+                                 # leave blank to leave visual marker in script. 
+else 
+call error_30010 
+endif
+
+
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>MOB-D-028</name>
+        <value>
+          <text>#---------------------------------------------
+#NAT_CTNG_Pump
+#MOB-D-028
+#Antony Brown 11 Jan 2017
+#copyright Atlas Genetics Ltd 2017
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History---------------
+#version 1.0 - MOB-CM-0055
+#version 2.0 - MOB-CM-0108
+#--------------------------------------------
+
+#Prime_to_pump_to_waste:  sets up the fluidic path
+valve v1 on
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 on 
+valve v6 on
+valve v7 off
+valve v8 on
+
+#pumps fluid
+begin nonatomic 12 pumped
+	 valve v3 on
+	 delay 5			
+	 valve v2 off
+	 delay 5	
+	 valve v1 off
+	 delay 100
+	 valve v2 on
+	 delay 5
+	 valve v3 off
+	 delay 5
+	 valve v1 on
+	 delay 200
+valve v1 off
+delay 30
+valve v1 on
+delay 200
+end
+wait pumped 25
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>MOB-D-029</name>
+        <value>
+          <text>#---------------------------------------------
+#NAT_CTNG_Wash_Release
+#MOB-D-029
+#Antony Brown 05 Spet 2016
+#copyright Atlas Genetics Ltd 2016
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History---------------
+#version 1.0 - MOB-CM-0055
+#Version 2.0 - MOB-CM-0066
+#--------------------------------------------
+
+
+#set start conditions to check manifold protection
+valve v1 off
+valve v2 on
+valve v3 on
+valve v4 off
+valve v5 on
+valve v6 on 
+valve v7 off
+valve v8 on
+delay 50
+
+#crush blister slow
+stepper l4 250 230 washreach1
+wait washreach1 15
+delay 10
+
+#begin repeatedly crushing slightly then releasing back pressure until a displacment on 480 steps is reached
+begin nonatomic 12		
+stepper l4 100 40 washsquash
+wait washsquash 3
+delay 140
+end
+
+#leave stepper down to stop blister inflating during air purges
+
+
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>MOB-D-045</name>
+        <value>
+          <text>#---------------------------------------------
+#NAT_CTNG_42_Cycle_Rapid PCR
+#MOB-D-045
+#Antony Brown 30 Apr 2018
+#copyright Atlas Genetics Ltd 2018
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#version 1.0 - MOB-CM-0176
+#---------------------------------------------
+
+
+#Set up PCR peltier PID
+set Peltier.Pcr.Kp 600000
+set Peltier.Pcr.Ki 10
+set Peltier.Pcr.Kd 12000000
+set Peltier.Pcr.Imax 120000
+
+
+
+begin atomic 41 all_done     #41 cycles starting from annealing to add in commands to run parrallel to save time in assay
+
+#anneal
+#use accuracy-optimised parameters to return at 50% power.
+set Peltier.Pcr.Kp 400000
+set Peltier.Pcr.Ki 0
+set Peltier.Pcr.Kd 8000000
+set Peltier.Pcr.Imax 50
+set Peltier.Pcr.PwmMax 50
+therm therm2 on 65 anneal
+wait anneal 15
+       if anneal
+       #do nothing
+       else
+       call error_30018
+       endif
+delay 715
+
+#extend                 
+#using re-optimised values to accurately edge up.
+set Peltier.Pcr.Kp 600000
+set Peltier.Pcr.Ki 50
+set Peltier.Pcr.Kd 10000000
+set Peltier.Pcr.Imax 120
+set Peltier.Pcr.PwmMax 50
+therm therm2 on 65.8 adjust          
+delay 200
+therm therm2 on 66.8 phase3
+delay 200
+therm therm2 on 67.8 phase4
+delay 100
+therm therm2 on 69.0 phase5
+delay 100
+therm therm2 on 70.2 phase6
+delay 200
+
+#denature using original setting
+set Peltier.Pcr.Kp 600000
+set Peltier.Pcr.Ki 10
+set Peltier.Pcr.Kd 12000000
+set Peltier.Pcr.Imax 120000
+set Peltier.Pcr.PwmMax 50
+therm therm2 on 98 phase1
+wait phase1 6
+delay 230
+end
+wait all_done 1400
+
+
+#final anneal at end of 41 cycles           # to make up to 42 cycles and to preheat detection peltier. 
+
+#use accuracy-optimised parameters to return at 50% power.
+set Peltier.Pcr.Kp 400000
+set Peltier.Pcr.Ki 0
+set Peltier.Pcr.Kd 8000000
+set Peltier.Pcr.Imax 50
+set Peltier.Pcr.PwmMax 50
+therm therm2 on 65 anneal
+wait anneal 15
+       if anneal
+       #do nothing
+       else
+       call error_30018
+       endif
+delay 715
+
+#--------------------------------------------
+# preheat Detection peltier
+#using accuracy amended parameters 
+begin atomic 1
+set Peltier.Detection.Kp 255000
+set Peltier.Detection.Ki 16
+set Peltier.Detection.Kd  100000
+
+therm therm3 on 42 preheatdetection
+delay 1000                    # to equalise temperature
+wait preheatdetection 15
+if  preheatdetection
+#do nothing
+else
+call error_30016
+endif
+end
+#-------------------------------------------
+
+#extend                 
+#using re-optimised values to accurately edge up.
+set Peltier.Pcr.Kp 600000
+set Peltier.Pcr.Ki 50
+set Peltier.Pcr.Kd 10000000
+set Peltier.Pcr.Imax 120
+set Peltier.Pcr.PwmMax 50
+therm therm2 on 65.8 adjust
+delay 200
+therm therm2 on 66.8 phase3
+delay 200
+therm therm2 on 67.8 phase4
+delay 100
+therm therm2 on 69.0 phase5
+delay 100
+therm therm2 on 70.2 phase6 
+delay 200
+
+
+#equalise temperature through cartridge use anneal PIDs
+set Peltier.Pcr.Kp 300000
+set Peltier.Pcr.Ki 5
+set Peltier.Pcr.Kd 0
+set Peltier.Pcr.Imax 120000
+set Peltier.Pcr.PwmMax 50
+
+therm therm2 on 42 PCR42
+wait PCR42 12
+if PCR42
+#do nothing
+else
+call error_30015
+endif
+                  
+
+                  
+
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>MOB-D-046</name>
+        <value>
+          <text>#---------------------------------------------
+#NAT_CTNG_PCR_DPR_fill
+#MOB-D-045
+#Antony Brown 30 Apr 2018
+#copyright Atlas Genetics Ltd 2018
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#version 1.0 - MOB-CM-0176
+#---------------------------------------------
+
+
+#Set start conditions
+valve v1 off
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 on
+valve v6 on
+valve v7 on
+valve v8 on
+valve v16 on
+
+#Set DPR to on and fill to 19% atmospheric and saturate first spot for 10 secs to rehydrate
+dpr dpr1 on 19 300
+delay 1330
+
+# flux 5 times to disturb lifted reagent
+begin nonatomic 5
+dpr dpr1 on 14 5
+delay 50
+dpr dpr1 on 17 5
+delay 50
+end
+
+#Saturate second spot for 10 secs to rehydrate
+dpr dpr1 on 32 30
+delay 1000
+
+# flux 8 times over the 2nd spot
+begin nonatomic 8
+dpr dpr1 on 23 5
+delay 50
+dpr dpr1 on 29 5
+delay 50
+end
+
+#Retract to spread mix across chamber
+dpr dpr1 on 23 200
+delay 500
+
+#fill PCR chambers and finish sequence
+dpr dpr1 on 34 300
+delay 300
+valve v2 on
+delay 30
+
+set Motor.Steppers.Pwm 100   #allow 100% current just for this move.
+
+#Shut down DPR valve 
+valve v16 off
+dpr dpr1 off
+delay 20
+
+#Lift mechanical valve for PCR
+stepper l5 350 -900 liftMV
+delay 250
+wait liftMV 5
+
+stepper l5 350 20            # move mechnical valve off its stop
+set Motor.Steppers.Pwm 70   
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>MOB-D-047</name>
+        <value>
+          <text>#---------------------------------------------
+# NAT_CTNG_air_dry_1min_750
+#MOB-D-047
+#Antony Brown 08 June 2018
+#copyright Atlas Genetics Ltd 2018
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - MOB-CM-0183
+#---------------------------------------------
+
+ 
+#setup start conditions
+valve v1 off
+valve v3 on
+valve v2 off
+valve v4 on
+valve v5 on
+valve v6 on 
+valve v7 off
+valve v8 on
+valve v16 off
+valve v17 off 
+
+
+#clear wash downstream from blister for 2 seconds to remove excess wash from upstream 
+valve v9 on
+delay 20
+valve v8 off 
+valve v4 off
+delay 200
+valve v8 on
+
+#short pressure release 
+delay 200
+
+# blow again to displace extra wash fluid. 
+valve v8 off
+delay 500
+valve v8 on
+delay 25
+valve v4 on
+delay 25
+valve v9 off
+delay 30
+
+
+#clear wash back to sample well prep for air dry for 0.2s to clear any excess between valves 3 and 4
+valve v3 off
+delay 100       #disapate pressure
+valve v10 on
+delay 30
+valve v8 off
+delay 30
+valve v5 off
+#This is the period that the air flows to sample well
+delay 20
+valve v3 on
+
+#charge res2 higher to maintain valve seal during airdry
+res res2 hold 1200 1350 20 res21200
+wait res21200 5
+if res21200
+#do nothing
+else
+call error_30010
+endif
+
+#airdry set up higher pressure
+res res3 hold 700 800 10 res31000
+wait res31000 5
+
+#airdry start
+delay 4000
+
+#start peltier during airdry to preheat back end
+begin atomic 1 preheat
+set Peltier.Pcr.Kp 300000
+set Peltier.Pcr.Ki 10
+set Peltier.Pcr.Kd 0
+set Peltier.Pcr.MinTemp 10
+set Peltier.Pcr.Imax 120000
+
+set Peltier.Detection.Kp 100000
+set Peltier.Detection.Ki 10
+set Peltier.Detection.Kd 0
+
+therm therm3 on 22 cooldc
+therm therm2 on 37 warmstart
+wait cooldc 10
+wait warmstart 10
+end
+
+#finish airdry
+delay 2000
+valve v8 on
+delay 20
+
+begin atomic 1 complete
+#lift lysis stepper motor
+stepper L3 200 -200 lysisretract
+wait lysisretract 5 
+end
+
+#dump res3 after airdry and close air dry line
+res res3 dump
+delay 200
+valve v10 off
+
+
+#stop DPR buzzing during elute phase, favouring the new DPR
+dpr dpr1 off            
+#res3 charge happens in elution dispence phase immediatly after this script
+
+
+#set res 2 to lower valve logic pressure back to normal in due course
+res res2 hold 900 1100 3 
+
+
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>MOB-D-048</name>
+        <value>
+          <text>#---------------------------------------------
+#NAT_CTNG_elution_dispense_1min
+#MOB-D-048
+#Antony Brown 08 June 2018
+#copyright Atlas Genetics Ltd 2018
+#---------------------------------------------
+
+
+#set start conditions to check manifold protection
+valve v1 off
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 off
+valve v6 off
+valve v7 on
+valve v8 on
+valve v16 off                                           #set valve v16 to vent elution well
+valve v17 on
+
+begin atomic 1
+#Charge Reservoir
+dpr dpr1 off 
+delay 50
+res res3 hold 700 900 3 initregID
+wait initregID 5
+if initregID
+#do nothing
+else
+call error_30014
+endif
+end
+
+#engage menchanical valve
+stepper l5 500 600 mechvengage
+wait mechvengage 15
+delay 125
+
+
+#reach blister elution
+stepper L2 500 200 elutionreach1
+wait elutionreach1 15
+
+begin atomic 1
+#check peltier is preheated
+
+#PCR check
+if warmstart
+#do nothing
+else
+call error_30015
+endif
+end
+
+begin nonatomic  2					#2 steps to pop blister and cover column
+stepper L2 50 42 elutionsquash
+wait elutionsquash 3
+delay 200                                         
+end
+
+#delay 1 min
+delay 6000
+
+begin nonatomic  8					#8 slow steps dispence eluate over column and into elution well
+stepper L2 50 50 elutionsquash
+wait elutionsquash 3
+delay 200                                         
+end
+
+#shutdown
+valve v6 on
+delay 100</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>PAN-D-078</name>
+        <value>
+          <text>
+#---------------------------------------------
+#NAT_CT_UNG_Step
+#PAN-D-078
+#Antony Brown 21 Feb 2014
+#Copyright Atlas Genetics Ltd 2014
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - PAN-CM-0128
+#version 2.0 - PAN-CM-0146
+#version 3.0 - PAN-CM-0178
+#---------------------------------------------
+
+
+set Peltier.Pcr.Kp 300000
+set Peltier.Pcr.Ki 5
+set Peltier.Pcr.Kd 0
+set Peltier.Pcr.Imax 120000
+
+
+therm therm2 on 37 incubate   #2 minute UNG activation
+wait incubate 9
+delay 9120           
+
+                  
+therm therm2 on 94 denat      
+wait denat 15
+if denat
+#do nothing
+else
+call error_30015
+endif
+
+delay 18000
+
+#--------------------------------------------
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+    </scripts>
+    <signature>JDUi2KsysJuoMNjGe+dAWPI+rMnRt7nV0xmJLvPde2ymEcmHqv+mQJ0VSBDC8JjAbIbVA33gDvq1KLl85PEOwn7uS3C11z8r3Msl2qzbsg8DIJrFps5JmycYP+zQjRA8m0Yh28XzXSIc2sRa0exSqz1drBqZFr2gc07+Ko4jyGD8sFQHppWIINxeB9UiKIluJZLf8/JcoOsm4DnkJLwmnYD5K/shapGym+CJA+U2SdVC/YyorEWvZKPyyapLsYaKMCORuDKv+BSTCQPDgdiyKvSkb1ANplnmZ0Pq02Wigk/HRcRjNsZ8/G82Bz3clmhi2J69m7vrUaZq7TzbJkaGkYy791ZMmnZ93SFUnK7KerE3JWuF6/JNEtBHRLjKsfVC2BO5VdTfuR5uq2m3QimHqmYD5baRRDcJ7xf+AeODC/gEP2wt+VKbIos7vA1d9n8F3t8QLtx3frD4I8ilOuk6EllekTzDflEqRcFvPNb0/l0tLLJ2WXzssJD8S7PcXib6QADT0CZvqfo6ekeMW6TxpzkM4ttU8pSXtJtY5LMUAUFpbSdTh9m7Qh2aN0qXDkHYjlmPwsJhmqYjh6gisD0ogNbzU1QvGddN+hYWZmKPnaMh4sQ7h3Vx+Aq0xHqsrUWOleVZ/VhMs6jd8iUTjfpQtkMWSgS9B4WsjsCJsLgoZf8=</signature>
+    <installedDateTime>2018-07-24 13:10:05</installedDateTime>
+  </assay>
+  <percentComplete>100</percentComplete>
+  <result>
+    <identity>{f772ae17-f32a-4954-a590-66faf1502128}</identity>
+    <sampleId>0790_mob734_244_17-m6155_b2</sampleId>
+    <instrumentName>IO_0284</instrumentName>
+    <instrumentSerialNumber>0284</instrumentSerialNumber>
+    <patientInformation>
+      <name>PatientId</name>
+      <value>0790_mob734_244_17-m6155_b2</value>
+      <fieldType>Text</fieldType>
+    </patientInformation>
+    <user>admin</user>
+    <qcTest>False</qcTest>
+    <startDateTime>2018-07-26 09:36:31</startDateTime>
+    <endDateTime>2018-07-26 10:08:59</endDateTime>
+    <assayName>Candidate_CTNG_Assay(new)</assayName>
+    <assayShortName>NEW</assayShortName>
+    <assayVersion>3</assayVersion>
+    <assaySignature>JDUi2KsysJuoMNjGe+dAWPI+rMnRt7nV0xmJLvPde2ymEcmHqv+mQJ0VSBDC8JjAbIbVA33gDvq1KLl85PEOwn7uS3C11z8r3Msl2qzbsg8DIJrFps5JmycYP+zQjRA8m0Yh28XzXSIc2sRa0exSqz1drBqZFr2gc07+Ko4jyGD8sFQHppWIINxeB9UiKIluJZLf8/JcoOsm4DnkJLwmnYD5K/shapGym+CJA+U2SdVC/YyorEWvZKPyyapLsYaKMCORuDKv+BSTCQPDgdiyKvSkb1ANplnmZ0Pq02Wigk/HRcRjNsZ8/G82Bz3clmhi2J69m7vrUaZq7TzbJkaGkYy791ZMmnZ93SFUnK7KerE3JWuF6/JNEtBHRLjKsfVC2BO5VdTfuR5uq2m3QimHqmYD5baRRDcJ7xf+AeODC/gEP2wt+VKbIos7vA1d9n8F3t8QLtx3frD4I8ilOuk6EllekTzDflEqRcFvPNb0/l0tLLJ2WXzssJD8S7PcXib6QADT0CZvqfo6ekeMW6TxpzkM4ttU8pSXtJtY5LMUAUFpbSdTh9m7Qh2aN0qXDkHYjlmPwsJhmqYjh6gisD0ogNbzU1QvGddN+hYWZmKPnaMh4sQ7h3Vx+Aq0xHqsrUWOleVZ/VhMs6jd8iUTjfpQtkMWSgS9B4WsjsCJsLgoZf8=</assaySignature>
+    <cartridgeData>97011234567000000789</cartridgeData>
+    <qcTestDue>False</qcTestDue>
+    <outcome>Valid</outcome>
+    <positivePeak>CT</positivePeak>
+    <negativePeak>NG</negativePeak>
+    <testFileIndex>-1</testFileIndex>
+  </result>
+  <data>
+    <log>09:36:31.06 Ambient temperature 30.6°C
+09:36:31.06 Ambient pressure 1007mb
+09:36:31.42 Script 'Main' executed
+09:36:31.42 Phase changed to 'Testing.Main'
+09:36:31.42 Script 'Clamp' finished
+09:36:31.45 Calling MOB-D-024
+09:36:31.45 Firmware throw: 10002,0
+09:36:31.47 Calling MOB-D-025
+09:36:31.47 STEPPER: 1 500 60
+09:36:31.47 STEPPER: 2 500 60
+09:36:31.47 dpr,0,2048,0
+09:36:31.47 SOLENOID 1 1
+09:36:31.47 SOLENOID 0 0
+09:36:31.47 v12,1
+09:36:31.47 v13,1
+09:36:31.47 v1,1
+09:36:31.47 v2,1
+09:36:31.48 v3,1
+09:36:31.48 v4,1
+09:36:31.48 v5,1
+09:36:31.48 v6,1
+09:36:31.48 v7,1
+09:36:31.48 v8,1
+09:36:31.48 v9,1
+09:36:31.48 v10,1
+09:36:31.48 v14,1
+09:36:31.48 v15,1
+09:36:31.48 v16,1
+09:36:31.48 v11,1
+09:36:31.48 v17,1
+09:36:31.58 v12,0
+09:36:31.59 v13,0
+09:36:31.59 v1,0
+09:36:31.59 v2,0
+09:36:31.59 v3,0
+09:36:31.59 v4,0
+09:36:31.59 v5,0
+09:36:31.59 v6,0
+09:36:31.59 v7,0
+09:36:31.59 v8,0
+09:36:31.59 v9,0
+09:36:31.59 v10,0
+09:36:31.59 v14,0
+09:36:31.59 v15,0
+09:36:31.59 v16,0
+09:36:31.59 v11,0
+09:36:31.59 v17,0
+09:36:31.59 v13,1
+09:36:31.59 v12,1
+09:36:31.64 STEPPER: 1 500 -50
+09:36:31.64 STEPPER: 2 500 -50
+09:36:31.80 STEPPER: 1 500 60
+09:36:31.80 STEPPER: 2 500 60
+09:36:31.97 STEPPER: 1 500 -50
+09:36:31.97 STEPPER: 2 500 -50
+09:36:32.09 v2,1
+09:36:32.12 STEPPER: 1 500 60
+09:36:32.12 STEPPER: 2 500 60
+09:36:32.30 STEPPER: 1 500 -50
+09:36:32.30 STEPPER: 2 500 -50
+09:36:32.45 STEPPER: 1 500 -70
+09:36:32.45 STEPPER: 2 500 -70
+09:36:32.59 v1,1
+09:36:32.65 STEPPER: 1 500 20
+09:36:32.65 STEPPER: 2 500 20
+09:36:33.36 Reservoir res2 stable at 900mbar
+09:36:33.59 v3,1
+09:36:33.59 v4,1
+09:36:33.59 v5,1
+09:36:33.59 v6,1
+09:36:33.59 v7,1
+09:36:33.59 v8,1
+09:36:33.79 THERM: 2 1 370
+09:36:34.23 Reservoir res1 stable at 500mbar
+09:36:34.23 v1,0
+09:36:34.28 Reservoir res3 stable at 700mbar
+09:36:34.73 v2,0
+09:36:42.12 Thermal device therm1 stable at 37.0
+09:36:50.45 Firmware throw: 10002,1
+09:36:54.73 v1,1
+09:36:55.13 v1,0
+09:36:56.13 v1,1
+09:36:56.54 v1,0
+09:36:59.13 Reservoir res2 stable at 400mbar
+09:36:59.13 Calling MOB-D-026
+09:36:59.13 v1,0
+09:36:59.13 v2,0
+09:36:59.13 v3,1
+09:36:59.13 v4,1
+09:36:59.13 v5,1
+09:36:59.13 v6,1
+09:36:59.13 v7,1
+09:36:59.13 v8,1
+09:36:59.13 STEPPER: 3 500 250
+09:36:59.72 STEPPER: 3 100 340
+09:37:03.43 Calling MOB-D-027
+09:37:03.43 THERM: 2 0 0
+09:37:03.43 THERM: 2 1 370
+09:37:03.43 v1,0
+09:37:03.45 v2,0
+09:37:03.45 v3,1
+09:37:03.45 v4,1
+09:37:03.45 v5,1
+09:37:03.45 v6,1
+09:37:03.45 v7,1
+09:37:03.45 v8,1
+09:37:03.45 STEPPER: 3 500 -400
+09:37:03.45 v1,0
+09:37:03.45 Thermal device therm1 stable at 37.0
+09:37:04.43 v1,1
+09:37:05.43 v2,1
+09:37:05.74 v3,0
+09:37:06.04 v1,0
+09:37:07.04 v3,1
+09:37:07.35 v2,0
+09:37:07.64 v1,1
+09:37:08.89 v1,0
+09:37:09.45 Firmware throw: 10002,2
+09:37:09.89 v1,1
+09:37:10.89 v2,1
+09:37:11.20 v3,0
+09:37:11.50 v1,0
+09:37:12.50 v3,1
+09:37:12.81 v2,0
+09:37:13.10 v1,1
+09:37:14.35 v1,0
+09:37:15.35 v1,1
+09:37:16.37 v2,1
+09:37:16.66 v3,0
+09:37:16.96 v1,0
+09:37:17.96 v3,1
+09:37:18.27 v2,0
+09:37:18.56 v1,1
+09:37:19.81 v1,0
+09:37:20.81 v1,1
+09:37:21.83 v2,1
+09:37:22.12 v3,0
+09:37:22.42 v1,0
+09:37:23.42 v3,1
+09:37:23.73 v2,0
+09:37:24.02 v1,1
+09:37:25.27 v1,0
+09:37:26.27 v1,1
+09:37:27.29 v2,1
+09:37:27.58 v3,0
+09:37:27.88 v1,0
+09:37:28.46 Firmware throw: 10002,3
+09:37:28.88 v3,1
+09:37:29.19 v2,0
+09:37:29.48 v1,1
+09:37:30.73 v1,0
+09:37:31.73 v1,1
+09:37:32.75 v2,1
+09:37:33.04 v3,0
+09:37:33.34 v1,0
+09:37:34.34 v3,1
+09:37:34.65 v2,0
+09:37:34.94 v1,1
+09:37:36.19 v1,0
+09:37:37.19 v1,1
+09:37:38.21 v2,1
+09:37:38.50 v3,0
+09:37:38.80 v1,0
+09:37:39.80 v3,1
+09:37:40.11 v2,0
+09:37:40.40 v1,1
+09:37:41.65 v1,0
+09:37:42.65 v1,1
+09:37:43.67 v2,1
+09:37:43.96 v3,0
+09:37:44.26 v1,0
+09:37:45.26 v3,1
+09:37:45.57 v2,0
+09:37:45.86 v1,1
+09:37:47.11 v1,0
+09:37:47.46 Firmware throw: 10002,4
+09:37:48.11 v1,1
+09:37:49.11 v2,1
+09:37:49.42 v3,0
+09:37:49.72 v1,0
+09:37:50.72 v3,1
+09:37:51.03 v2,0
+09:37:51.32 v1,1
+09:37:52.57 v1,0
+09:37:53.57 v1,1
+09:37:54.57 v2,1
+09:37:54.88 v3,0
+09:37:55.18 v1,0
+09:37:56.18 v3,1
+09:37:56.49 v2,0
+09:37:56.78 v1,1
+09:37:58.03 v1,0
+09:37:59.03 v1,1
+09:38:00.03 v2,1
+09:38:00.34 v3,0
+09:38:00.64 v1,0
+09:38:01.64 v3,1
+09:38:01.95 v2,0
+09:38:02.24 v1,1
+09:38:03.49 THERM: 2 0 0
+09:38:04.62 Reservoir res2 stable at 1100mbar
+09:38:04.62 Calling MOB-D-028
+09:38:04.63 v1,1
+09:38:04.63 v2,0
+09:38:04.63 v3,1
+09:38:04.63 v4,1
+09:38:04.63 v5,1
+09:38:04.63 v6,1
+09:38:04.63 v7,0
+09:38:04.63 v8,1
+09:38:04.63 v3,1
+09:38:04.68 v2,0
+09:38:04.73 v1,0
+09:38:05.74 v2,1
+09:38:05.79 v3,0
+09:38:05.83 v1,1
+09:38:06.46 Firmware throw: 10002,5
+09:38:07.83 v1,0
+09:38:08.14 v1,1
+09:38:10.14 v3,1
+09:38:10.19 v2,0
+09:38:10.25 v1,0
+09:38:11.25 v2,1
+09:38:11.29 v3,0
+09:38:11.34 v1,1
+09:38:13.35 v1,0
+09:38:13.65 v1,1
+09:38:15.65 v3,1
+09:38:15.69 v2,0
+09:38:15.75 v1,0
+09:38:16.75 v2,1
+09:38:16.80 v3,0
+09:38:16.85 v1,1
+09:38:18.86 v1,0
+09:38:19.16 v1,1
+09:38:21.15 v3,1
+09:38:21.21 v2,0
+09:38:21.26 v1,0
+09:38:22.26 v2,1
+09:38:22.31 v3,0
+09:38:22.37 v1,1
+09:38:24.37 v1,0
+09:38:24.66 v1,1
+09:38:25.46 Firmware throw: 10002,6
+09:38:26.67 v3,1
+09:38:26.72 v2,0
+09:38:26.77 v1,0
+09:38:27.77 v2,1
+09:38:27.83 v3,0
+09:38:27.88 v1,1
+09:38:29.87 v1,0
+09:38:30.17 v1,1
+09:38:32.18 v3,1
+09:38:32.23 v2,0
+09:38:32.27 v1,0
+09:38:33.27 v2,1
+09:38:33.34 v3,0
+09:38:33.38 v1,1
+09:38:35.38 v1,0
+09:38:35.69 v1,1
+09:38:37.69 v3,1
+09:38:37.73 v2,0
+09:38:37.80 v1,0
+09:38:38.80 v2,1
+09:38:38.84 v3,0
+09:38:38.89 v1,1
+09:38:40.90 v1,0
+09:38:41.20 v1,1
+09:38:43.19 v3,1
+09:38:43.24 v2,0
+09:38:43.30 v1,0
+09:38:44.30 v2,1
+09:38:44.35 v3,0
+09:38:44.40 v1,1
+09:38:44.46 Firmware throw: 10002,7
+09:38:46.41 v1,0
+09:38:46.70 v1,1
+09:38:48.70 v3,1
+09:38:48.76 v2,0
+09:38:48.81 v1,0
+09:38:49.81 v2,1
+09:38:49.86 v3,0
+09:38:49.92 v1,1
+09:38:51.92 v1,0
+09:38:52.21 v1,1
+09:38:54.22 v3,1
+09:38:54.27 v2,0
+09:38:54.32 v1,0
+09:38:55.32 v2,1
+09:38:55.38 v3,0
+09:38:55.43 v1,1
+09:38:57.42 v1,0
+09:38:57.73 v1,1
+09:38:59.73 v3,1
+09:38:59.78 v2,0
+09:38:59.82 v1,0
+09:39:00.84 v2,1
+09:39:00.89 v3,0
+09:39:00.93 v1,1
+09:39:02.93 v1,0
+09:39:03.24 v1,1
+09:39:03.46 Firmware throw: 10002,8
+09:39:05.24 v3,1
+09:39:05.28 v2,0
+09:39:05.35 v1,0
+09:39:06.35 v2,1
+09:39:06.39 v3,0
+09:39:06.44 v1,1
+09:39:08.45 v1,0
+09:39:08.75 v1,1
+09:39:10.74 Calling MOB-D-020
+09:39:10.74 v1,0
+09:39:10.74 v2,0
+09:39:10.74 v3,1
+09:39:10.74 v4,1
+09:39:10.74 v5,1
+09:39:10.76 v6,1
+09:39:10.76 v7,0
+09:39:10.76 v8,1
+09:39:10.76 dpr,0,0,0
+09:39:11.35 v9,1
+09:39:11.46 v8,0
+09:39:11.46 v4,0
+09:39:16.16 v8,1
+09:39:16.25 v9,0
+09:39:16.45 v4,1
+09:39:17.47 v3,0
+09:39:17.47 v2,0
+09:39:17.76 v3,1
+09:39:18.06 v4,1
+09:39:18.06 Calling MOB-D-029
+09:39:18.06 v1,0
+09:39:18.06 v2,1
+09:39:18.06 v3,1
+09:39:18.06 v4,0
+09:39:18.08 v5,1
+09:39:18.08 v6,1
+09:39:18.08 v7,0
+09:39:18.08 v8,1
+09:39:18.58 STEPPER: 2 250 230
+09:39:19.70 STEPPER: 2 100 40
+09:39:21.54 STEPPER: 2 100 40
+09:39:22.46 Firmware throw: 10002,9
+09:39:23.37 STEPPER: 2 100 40
+09:39:25.21 STEPPER: 2 100 40
+09:39:27.03 STEPPER: 2 100 40
+09:39:28.87 STEPPER: 2 100 40
+09:39:30.71 STEPPER: 2 100 40
+09:39:32.54 STEPPER: 2 100 40
+09:39:34.38 STEPPER: 2 100 40
+09:39:36.22 STEPPER: 2 100 40
+09:39:38.04 STEPPER: 2 100 40
+09:39:39.89 STEPPER: 2 100 40
+09:39:41.46 Firmware throw: 10002,10
+09:39:41.73 Calling MOB-D-047
+09:39:41.73 v1,0
+09:39:41.73 v3,1
+09:39:41.73 v2,0
+09:39:41.74 v4,1
+09:39:41.74 v5,1
+09:39:41.74 v6,1
+09:39:41.74 v7,0
+09:39:41.74 v8,1
+09:39:41.74 v16,0
+09:39:41.74 v17,0
+09:39:41.74 v9,1
+09:39:41.93 v8,0
+09:39:41.93 v4,0
+09:39:43.93 v8,1
+09:39:45.92 v8,0
+09:39:50.93 v8,1
+09:39:51.18 v4,1
+09:39:51.43 v9,0
+09:39:51.73 v3,0
+09:39:52.74 v10,1
+09:39:53.04 v8,0
+09:39:53.33 v5,0
+09:39:53.54 v3,1
+09:39:53.74 Reservoir res2 stable at 1200mbar
+09:39:53.77 Reservoir res3 stable at 700mbar
+09:40:00.46 Firmware throw: 10002,11
+09:40:19.46 Firmware throw: 10002,12
+09:40:33.77 THERM: 1 1 220
+09:40:33.78 THERM: 0 1 370
+09:40:34.61 Thermal device therm2 stable at 37.0
+09:40:38.46 Firmware throw: 10002,13
+09:40:51.80 Thermal device therm3 stable at 22.0
+09:40:53.78 v8,1
+09:40:53.99 STEPPER: 3 200 -200
+09:40:55.98 v10,0
+09:40:55.98 dpr,0,0,0
+09:40:55.98 Calling MOB-D-048
+09:40:55.98 v1,0
+09:40:55.98 v2,0
+09:40:55.98 v3,1
+09:40:55.98 v4,1
+09:40:55.98 v5,0
+09:40:56.00 v6,0
+09:40:56.00 v7,1
+09:40:56.00 v8,1
+09:40:56.00 v16,0
+09:40:56.00 v17,1
+09:40:56.00 dpr,0,0,0
+09:40:56.00 STEPPER: 4 500 600
+09:40:56.95 Reservoir res3 stable at 700mbar
+09:40:57.46 Firmware throw: 10002,14
+09:40:58.70 STEPPER: 1 500 200
+09:40:59.20 STEPPER: 1 50 42
+09:41:02.08 STEPPER: 1 50 42
+09:41:16.47 Firmware throw: 10002,15
+09:41:35.47 Firmware throw: 10002,16
+09:41:54.47 Firmware throw: 10002,17
+09:42:04.97 STEPPER: 1 50 50
+09:42:08.01 STEPPER: 1 50 50
+09:42:11.05 STEPPER: 1 50 50
+09:42:13.47 Firmware throw: 10002,18
+09:42:14.09 STEPPER: 1 50 50
+09:42:17.13 STEPPER: 1 50 50
+09:42:20.19 STEPPER: 1 50 50
+09:42:23.23 STEPPER: 1 50 50
+09:42:26.28 STEPPER: 1 50 50
+09:42:29.32 v6,1
+09:42:30.32 Calling MOB-D-023
+09:42:30.32 STEPPER: 1 500 -600
+09:42:30.32 v1,0
+09:42:30.32 v2,0
+09:42:30.33 v3,1
+09:42:30.33 v4,1
+09:42:30.33 v5,1
+09:42:30.33 v6,1
+09:42:30.33 v7,0
+09:42:30.33 v8,1
+09:42:30.33 v17,1
+09:42:30.42 dpr,1,5,0
+09:42:30.72 v16,1
+09:42:30.92 v16,1
+09:42:31.13 v16,0
+09:42:31.33 v16,1
+09:42:31.53 v16,0
+09:42:31.74 v16,1
+09:42:31.78 STEPPER: 2 200 -550
+09:42:31.94 v16,0
+09:42:32.14 v16,1
+09:42:32.34 v16,0
+09:42:32.47 Firmware throw: 10002,19
+09:42:32.55 v16,1
+09:42:32.75 v16,0
+09:42:32.94 v16,1
+09:42:33.14 v16,0
+09:42:33.34 v16,1
+09:42:33.54 v16,0
+09:42:33.75 v16,1
+09:42:33.95 v16,0
+09:42:34.15 v16,1
+09:42:34.36 v16,0
+09:42:34.56 v16,1
+09:42:34.67 STEPPER: 1 500 20
+09:42:34.67 STEPPER: 2 500 20
+09:42:34.76 v16,0
+09:42:34.95 v16,1
+09:42:35.15 v16,0
+09:42:35.35 v16,1
+09:42:35.56 v16,0
+09:42:35.76 v16,1
+09:42:35.96 v16,0
+09:42:36.17 v16,1
+09:42:36.37 v16,0
+09:42:36.57 v16,1
+09:42:36.77 v16,0
+09:42:36.96 v16,1
+09:42:37.16 v16,0
+09:42:37.37 v16,1
+09:42:37.57 v16,0
+09:42:37.77 v16,1
+09:42:37.98 v16,0
+09:42:38.18 v16,1
+09:42:38.38 v16,0
+09:42:38.58 v16,1
+09:42:38.79 v16,0
+09:42:38.97 v16,1
+09:42:39.18 v16,0
+09:42:39.38 v16,1
+09:42:39.58 v16,0
+09:42:39.79 v16,1
+09:42:39.99 v16,0
+09:42:40.19 v16,1
+09:42:40.39 v16,0
+09:42:40.60 v16,1
+09:42:40.80 v16,0
+09:42:40.99 v16,1
+09:42:41.19 v16,0
+09:42:41.39 v16,1
+09:42:41.59 v16,0
+09:42:41.80 v16,1
+09:42:42.00 v16,0
+09:42:42.20 v16,1
+09:42:42.41 v16,0
+09:42:42.61 v16,1
+09:42:42.81 v16,0
+09:42:43.00 dpr,1,2,0
+09:42:43.01 Calling MOB-D-046
+09:42:43.01 v1,0
+09:42:43.01 v2,0
+09:42:43.01 v3,1
+09:42:43.01 v4,1
+09:42:43.01 v5,1
+09:42:43.01 v6,1
+09:42:43.01 v7,1
+09:42:43.01 v8,1
+09:42:43.01 v16,1
+09:42:43.01 dpr,1,19,3000
+09:42:51.47 Firmware throw: 10002,20
+09:42:56.31 dpr,1,14,50
+09:42:56.82 dpr,1,17,50
+09:42:57.32 dpr,1,14,50
+09:42:57.82 dpr,1,17,50
+09:42:58.32 dpr,1,14,50
+09:42:58.82 dpr,1,17,50
+09:42:59.32 dpr,1,14,50
+09:42:59.82 dpr,1,17,50
+09:43:00.31 dpr,1,14,50
+09:43:00.83 dpr,1,17,50
+09:43:01.33 dpr,1,32,300
+09:43:10.47 Firmware throw: 10002,21
+09:43:11.33 dpr,1,23,50
+09:43:11.83 dpr,1,29,50
+09:43:12.33 dpr,1,23,50
+09:43:12.83 dpr,1,29,50
+09:43:13.33 dpr,1,23,50
+09:43:13.82 dpr,1,29,50
+09:43:14.34 dpr,1,23,50
+09:43:14.84 dpr,1,29,50
+09:43:15.34 dpr,1,23,50
+09:43:15.84 dpr,1,29,50
+09:43:16.34 dpr,1,23,50
+09:43:16.84 dpr,1,29,50
+09:43:17.33 dpr,1,23,50
+09:43:17.83 dpr,1,29,50
+09:43:18.35 dpr,1,23,50
+09:43:18.85 dpr,1,29,50
+09:43:19.35 dpr,1,23,2000
+09:43:24.34 dpr,1,34,3000
+09:43:27.35 v2,1
+09:43:27.65 v16,0
+09:43:27.65 dpr,0,34,0
+09:43:27.85 STEPPER: 4 350 -900
+09:43:29.47 Firmware throw: 10002,22
+09:43:30.75 STEPPER: 4 350 20
+09:43:30.75 Calling PAN-D-078
+09:43:30.75 THERM: 0 1 370
+09:43:30.77 Thermal device therm2 stable at 37.0
+09:43:48.47 Firmware throw: 10002,23
+09:44:07.47 Firmware throw: 10002,24
+09:44:26.47 Firmware throw: 10002,25
+09:44:45.47 Firmware throw: 10002,26
+09:45:01.96 THERM: 0 1 940
+09:45:04.48 Firmware throw: 10002,27
+09:45:06.99 Thermal device therm2 stable at 94.0
+09:45:23.48 Firmware throw: 10002,28
+09:45:42.48 Firmware throw: 10002,29
+09:46:01.48 Firmware throw: 10002,30
+09:46:20.48 Firmware throw: 10002,31
+09:46:39.48 Firmware throw: 10002,32
+09:46:58.48 Firmware throw: 10002,33
+09:47:17.48 Firmware throw: 10002,34
+09:47:36.48 Firmware throw: 10002,35
+09:47:55.48 Firmware throw: 10002,36
+09:48:07.00 Calling MOB-D-045
+09:48:07.00 THERM: 0 1 650
+09:48:10.47 Thermal device therm2 stable at 65.0
+09:48:14.48 Firmware throw: 10002,37
+09:48:17.62 THERM: 0 1 658
+09:48:17.98 Thermal device therm2 stable at 65.8
+09:48:19.62 THERM: 0 1 668
+09:48:19.96 Thermal device therm2 stable at 66.8
+09:48:21.63 THERM: 0 1 678
+09:48:22.02 Thermal device therm2 stable at 67.8
+09:48:22.63 THERM: 0 1 690
+09:48:23.02 Thermal device therm2 stable at 69.0
+09:48:23.63 THERM: 0 1 702
+09:48:24.03 Thermal device therm2 stable at 70.2
+09:48:25.62 THERM: 0 1 980
+09:48:28.60 Thermal device therm2 stable at 98.0
+09:48:30.89 THERM: 0 1 650
+09:48:33.48 Firmware throw: 10002,38
+09:48:34.76 Thermal device therm2 stable at 65.0
+09:48:41.92 THERM: 0 1 658
+09:48:42.25 Thermal device therm2 stable at 65.8
+09:48:43.92 THERM: 0 1 668
+09:48:44.25 Thermal device therm2 stable at 66.8
+09:48:45.92 THERM: 0 1 678
+09:48:46.29 Thermal device therm2 stable at 67.8
+09:48:46.92 THERM: 0 1 690
+09:48:47.24 Thermal device therm2 stable at 69.0
+09:48:47.93 THERM: 0 1 702
+09:48:48.34 Thermal device therm2 stable at 70.2
+09:48:49.93 THERM: 0 1 980
+09:48:52.49 Firmware throw: 10002,39
+09:48:52.91 Thermal device therm2 stable at 98.0
+09:48:55.20 THERM: 0 1 650
+09:48:59.12 Thermal device therm2 stable at 65.0
+09:49:06.28 THERM: 0 1 658
+09:49:06.29 Thermal device therm2 stable at 65.8
+09:49:08.27 THERM: 0 1 668
+09:49:08.63 Thermal device therm2 stable at 66.8
+09:49:10.27 THERM: 0 1 678
+09:49:10.64 Thermal device therm2 stable at 67.8
+09:49:11.28 THERM: 0 1 690
+09:49:11.49 Firmware throw: 10002,40
+09:49:11.67 Thermal device therm2 stable at 69.0
+09:49:12.28 THERM: 0 1 702
+09:49:12.62 Thermal device therm2 stable at 70.2
+09:49:14.28 THERM: 0 1 980
+09:49:17.18 Thermal device therm2 stable at 98.0
+09:49:19.49 THERM: 0 1 650
+09:49:23.42 Thermal device therm2 stable at 65.0
+09:49:30.49 Firmware throw: 10002,41
+09:49:30.56 THERM: 0 1 658
+09:49:30.81 Thermal device therm2 stable at 65.8
+09:49:32.58 THERM: 0 1 668
+09:49:32.89 Thermal device therm2 stable at 66.8
+09:49:34.57 THERM: 0 1 678
+09:49:34.93 Thermal device therm2 stable at 67.8
+09:49:35.57 THERM: 0 1 690
+09:49:35.78 Thermal device therm2 stable at 69.0
+09:49:36.57 THERM: 0 1 702
+09:49:36.95 Thermal device therm2 stable at 70.2
+09:49:38.57 THERM: 0 1 980
+09:49:41.47 Thermal device therm2 stable at 98.0
+09:49:43.76 THERM: 0 1 650
+09:49:47.79 Thermal device therm2 stable at 65.0
+09:49:49.49 Firmware throw: 10002,42
+09:49:54.95 THERM: 0 1 658
+09:49:55.18 Thermal device therm2 stable at 65.8
+09:49:56.94 THERM: 0 1 668
+09:49:57.26 Thermal device therm2 stable at 66.8
+09:49:58.94 THERM: 0 1 678
+09:49:59.27 Thermal device therm2 stable at 67.8
+09:49:59.94 THERM: 0 1 690
+09:50:00.30 Thermal device therm2 stable at 69.0
+09:50:00.94 THERM: 0 1 702
+09:50:01.25 Thermal device therm2 stable at 70.2
+09:50:02.95 THERM: 0 1 980
+09:50:05.84 Thermal device therm2 stable at 98.0
+09:50:08.13 THERM: 0 1 650
+09:50:08.49 Firmware throw: 10002,43
+09:50:12.12 Thermal device therm2 stable at 65.0
+09:50:19.28 THERM: 0 1 658
+09:50:19.30 Thermal device therm2 stable at 65.8
+09:50:21.28 THERM: 0 1 668
+09:50:21.62 Thermal device therm2 stable at 66.8
+09:50:23.28 THERM: 0 1 678
+09:50:23.54 Thermal device therm2 stable at 67.8
+09:50:24.28 THERM: 0 1 690
+09:50:24.63 Thermal device therm2 stable at 69.0
+09:50:25.29 THERM: 0 1 702
+09:50:25.63 Thermal device therm2 stable at 70.2
+09:50:27.29 THERM: 0 1 980
+09:50:27.49 Firmware throw: 10002,44
+09:50:30.30 Thermal device therm2 stable at 98.0
+09:50:32.61 THERM: 0 1 650
+09:50:36.60 Thermal device therm2 stable at 65.0
+09:50:43.76 THERM: 0 1 658
+09:50:43.98 Thermal device therm2 stable at 65.8
+09:50:45.76 THERM: 0 1 668
+09:50:45.99 Thermal device therm2 stable at 66.8
+09:50:46.49 Firmware throw: 10002,45
+09:50:47.75 THERM: 0 1 678
+09:50:48.14 Thermal device therm2 stable at 67.8
+09:50:48.75 THERM: 0 1 690
+09:50:49.13 Thermal device therm2 stable at 69.0
+09:50:49.77 THERM: 0 1 702
+09:50:50.13 Thermal device therm2 stable at 70.2
+09:50:51.76 THERM: 0 1 980
+09:50:54.63 Thermal device therm2 stable at 98.0
+09:50:56.94 THERM: 0 1 650
+09:51:01.00 Thermal device therm2 stable at 65.0
+09:51:05.51 Firmware throw: 10002,46
+09:51:08.16 THERM: 0 1 658
+09:51:08.17 Thermal device therm2 stable at 65.8
+09:51:10.16 THERM: 0 1 668
+09:51:10.44 Thermal device therm2 stable at 66.8
+09:51:12.15 THERM: 0 1 678
+09:51:12.48 Thermal device therm2 stable at 67.8
+09:51:13.17 THERM: 0 1 690
+09:51:13.45 Thermal device therm2 stable at 69.0
+09:51:14.16 THERM: 0 1 702
+09:51:14.54 Thermal device therm2 stable at 70.2
+09:51:16.16 THERM: 0 1 980
+09:51:19.00 Thermal device therm2 stable at 98.0
+09:51:21.29 THERM: 0 1 650
+09:51:24.51 Firmware throw: 10002,47
+09:51:25.40 Thermal device therm2 stable at 65.0
+09:51:32.54 THERM: 0 1 658
+09:51:32.67 Thermal device therm2 stable at 65.8
+09:51:34.55 THERM: 0 1 668
+09:51:34.90 Thermal device therm2 stable at 66.8
+09:51:36.55 THERM: 0 1 678
+09:51:36.83 Thermal device therm2 stable at 67.8
+09:51:37.55 THERM: 0 1 690
+09:51:37.89 Thermal device therm2 stable at 69.0
+09:51:38.55 THERM: 0 1 702
+09:51:38.89 Thermal device therm2 stable at 70.2
+09:51:40.56 THERM: 0 1 980
+09:51:43.43 Thermal device therm2 stable at 98.0
+09:51:43.51 Firmware throw: 10002,48
+09:51:45.72 THERM: 0 1 650
+09:51:49.76 Thermal device therm2 stable at 65.0
+09:51:56.92 THERM: 0 1 658
+09:51:57.03 Thermal device therm2 stable at 65.8
+09:51:58.92 THERM: 0 1 668
+09:51:59.22 Thermal device therm2 stable at 66.8
+09:52:00.92 THERM: 0 1 678
+09:52:01.26 Thermal device therm2 stable at 67.8
+09:52:01.92 THERM: 0 1 690
+09:52:02.23 Thermal device therm2 stable at 69.0
+09:52:02.51 Firmware throw: 10002,49
+09:52:02.91 THERM: 0 1 702
+09:52:03.16 Thermal device therm2 stable at 70.2
+09:52:04.93 THERM: 0 1 980
+09:52:07.80 Thermal device therm2 stable at 98.0
+09:52:10.11 THERM: 0 1 650
+09:52:14.19 Thermal device therm2 stable at 65.0
+09:52:21.35 THERM: 0 1 658
+09:52:21.51 Firmware throw: 10002,50
+09:52:21.59 Thermal device therm2 stable at 65.8
+09:52:23.35 THERM: 0 1 668
+09:52:23.65 Thermal device therm2 stable at 66.8
+09:52:25.35 THERM: 0 1 678
+09:52:25.69 Thermal device therm2 stable at 67.8
+09:52:26.35 THERM: 0 1 690
+09:52:26.60 Thermal device therm2 stable at 69.0
+09:52:27.36 THERM: 0 1 702
+09:52:27.72 Thermal device therm2 stable at 70.2
+09:52:29.36 THERM: 0 1 980
+09:52:32.16 Thermal device therm2 stable at 98.0
+09:52:34.47 THERM: 0 1 650
+09:52:38.59 Thermal device therm2 stable at 65.0
+09:52:40.51 Firmware throw: 10002,51
+09:52:45.75 THERM: 0 1 658
+09:52:46.05 Thermal device therm2 stable at 65.8
+09:52:47.75 THERM: 0 1 668
+09:52:47.80 Thermal device therm2 stable at 66.8
+09:52:49.75 THERM: 0 1 678
+09:52:50.09 Thermal device therm2 stable at 67.8
+09:52:50.74 THERM: 0 1 690
+09:52:51.10 Thermal device therm2 stable at 69.0
+09:52:51.76 THERM: 0 1 702
+09:52:52.02 Thermal device therm2 stable at 70.2
+09:52:53.76 THERM: 0 1 980
+09:52:56.59 Thermal device therm2 stable at 98.0
+09:52:58.90 THERM: 0 1 650
+09:52:59.51 Firmware throw: 10002,52
+09:53:03.01 Thermal device therm2 stable at 65.0
+09:53:10.15 THERM: 0 1 658
+09:53:10.24 Thermal device therm2 stable at 65.8
+09:53:12.16 THERM: 0 1 668
+09:53:12.46 Thermal device therm2 stable at 66.8
+09:53:14.16 THERM: 0 1 678
+09:53:14.49 Thermal device therm2 stable at 67.8
+09:53:15.16 THERM: 0 1 690
+09:53:15.49 Thermal device therm2 stable at 69.0
+09:53:16.16 THERM: 0 1 702
+09:53:16.53 Thermal device therm2 stable at 70.2
+09:53:18.17 THERM: 0 1 980
+09:53:18.51 Firmware throw: 10002,53
+09:53:20.99 Thermal device therm2 stable at 98.0
+09:53:23.29 THERM: 0 1 650
+09:53:27.39 Thermal device therm2 stable at 65.0
+09:53:34.55 THERM: 0 1 658
+09:53:34.88 Thermal device therm2 stable at 65.8
+09:53:36.55 THERM: 0 1 668
+09:53:36.83 Thermal device therm2 stable at 66.8
+09:53:37.51 Firmware throw: 10002,54
+09:53:38.54 THERM: 0 1 678
+09:53:38.90 Thermal device therm2 stable at 67.8
+09:53:39.54 THERM: 0 1 690
+09:53:39.90 Thermal device therm2 stable at 69.0
+09:53:40.56 THERM: 0 1 702
+09:53:40.91 Thermal device therm2 stable at 70.2
+09:53:42.55 THERM: 0 1 980
+09:53:45.41 Thermal device therm2 stable at 98.0
+09:53:47.70 THERM: 0 1 650
+09:53:51.82 Thermal device therm2 stable at 65.0
+09:53:56.51 Firmware throw: 10002,55
+09:53:58.96 THERM: 0 1 658
+09:53:59.24 Thermal device therm2 stable at 65.8
+09:54:00.96 THERM: 0 1 668
+09:54:01.27 Thermal device therm2 stable at 66.8
+09:54:02.99 THERM: 0 1 678
+09:54:03.30 Thermal device therm2 stable at 67.8
+09:54:03.97 THERM: 0 1 690
+09:54:04.22 Thermal device therm2 stable at 69.0
+09:54:04.97 THERM: 0 1 702
+09:54:05.31 Thermal device therm2 stable at 70.2
+09:54:06.97 THERM: 0 1 980
+09:54:09.74 Thermal device therm2 stable at 98.0
+09:54:12.05 THERM: 0 1 650
+09:54:15.52 Firmware throw: 10002,56
+09:54:16.17 Thermal device therm2 stable at 65.0
+09:54:23.32 THERM: 0 1 658
+09:54:23.33 Thermal device therm2 stable at 65.8
+09:54:25.31 THERM: 0 1 668
+09:54:25.67 Thermal device therm2 stable at 66.8
+09:54:27.32 THERM: 0 1 678
+09:54:27.37 Thermal device therm2 stable at 67.8
+09:54:28.32 THERM: 0 1 690
+09:54:28.63 Thermal device therm2 stable at 69.0
+09:54:29.32 THERM: 0 1 702
+09:54:29.68 Thermal device therm2 stable at 70.2
+09:54:31.32 THERM: 0 1 980
+09:54:34.08 Thermal device therm2 stable at 98.0
+09:54:34.52 Firmware throw: 10002,57
+09:54:36.39 THERM: 0 1 650
+09:54:40.55 Thermal device therm2 stable at 65.0
+09:54:47.70 THERM: 0 1 658
+09:54:47.73 Thermal device therm2 stable at 65.8
+09:54:49.69 THERM: 0 1 668
+09:54:50.02 Thermal device therm2 stable at 66.8
+09:54:51.71 THERM: 0 1 678
+09:54:52.05 Thermal device therm2 stable at 67.8
+09:54:52.71 THERM: 0 1 690
+09:54:52.97 Thermal device therm2 stable at 69.0
+09:54:53.52 Firmware throw: 10002,58
+09:54:53.70 THERM: 0 1 702
+09:54:54.03 Thermal device therm2 stable at 70.2
+09:54:55.70 THERM: 0 1 980
+09:54:58.62 Thermal device therm2 stable at 98.0
+09:55:00.93 THERM: 0 1 650
+09:55:05.05 Thermal device therm2 stable at 65.0
+09:55:12.19 THERM: 0 1 658
+09:55:12.24 Thermal device therm2 stable at 65.8
+09:55:12.52 Firmware throw: 10002,59
+09:55:14.19 THERM: 0 1 668
+09:55:14.51 Thermal device therm2 stable at 66.8
+09:55:16.20 THERM: 0 1 678
+09:55:16.51 Thermal device therm2 stable at 67.8
+09:55:17.20 THERM: 0 1 690
+09:55:17.56 Thermal device therm2 stable at 69.0
+09:55:18.20 THERM: 0 1 702
+09:55:18.54 Thermal device therm2 stable at 70.2
+09:55:20.19 THERM: 0 1 980
+09:55:23.02 Thermal device therm2 stable at 98.0
+09:55:25.33 THERM: 0 1 650
+09:55:29.41 Thermal device therm2 stable at 65.0
+09:55:31.52 Firmware throw: 10002,60
+09:55:36.57 THERM: 0 1 658
+09:55:36.79 Thermal device therm2 stable at 65.8
+09:55:38.57 THERM: 0 1 668
+09:55:38.88 Thermal device therm2 stable at 66.8
+09:55:40.57 THERM: 0 1 678
+09:55:40.88 Thermal device therm2 stable at 67.8
+09:55:41.56 THERM: 0 1 690
+09:55:41.86 Thermal device therm2 stable at 69.0
+09:55:42.58 THERM: 0 1 702
+09:55:42.91 Thermal device therm2 stable at 70.2
+09:55:44.58 THERM: 0 1 980
+09:55:47.38 Thermal device therm2 stable at 98.0
+09:55:49.68 THERM: 0 1 650
+09:55:50.52 Firmware throw: 10002,61
+09:55:53.84 Thermal device therm2 stable at 65.0
+09:56:00.99 THERM: 0 1 658
+09:56:01.05 Thermal device therm2 stable at 65.8
+09:56:02.98 THERM: 0 1 668
+09:56:03.34 Thermal device therm2 stable at 66.8
+09:56:05.00 THERM: 0 1 678
+09:56:05.32 Thermal device therm2 stable at 67.8
+09:56:05.99 THERM: 0 1 690
+09:56:06.29 Thermal device therm2 stable at 69.0
+09:56:06.99 THERM: 0 1 702
+09:56:07.23 Thermal device therm2 stable at 70.2
+09:56:08.99 THERM: 0 1 980
+09:56:09.52 Firmware throw: 10002,62
+09:56:11.86 Thermal device therm2 stable at 98.0
+09:56:14.17 THERM: 0 1 650
+09:56:18.21 Thermal device therm2 stable at 65.0
+09:56:25.37 THERM: 0 1 658
+09:56:25.57 Thermal device therm2 stable at 65.8
+09:56:27.37 THERM: 0 1 668
+09:56:27.63 Thermal device therm2 stable at 66.8
+09:56:28.52 Firmware throw: 10002,63
+09:56:29.36 THERM: 0 1 678
+09:56:29.72 Thermal device therm2 stable at 67.8
+09:56:30.38 THERM: 0 1 690
+09:56:30.77 Thermal device therm2 stable at 69.0
+09:56:31.38 THERM: 0 1 702
+09:56:31.75 Thermal device therm2 stable at 70.2
+09:56:33.37 THERM: 0 1 980
+09:56:36.16 Thermal device therm2 stable at 98.0
+09:56:38.46 THERM: 0 1 650
+09:56:42.58 Thermal device therm2 stable at 65.0
+09:56:47.52 Firmware throw: 10002,64
+09:56:49.72 THERM: 0 1 658
+09:56:49.78 Thermal device therm2 stable at 65.8
+09:56:51.72 THERM: 0 1 668
+09:56:52.09 Thermal device therm2 stable at 66.8
+09:56:53.73 THERM: 0 1 678
+09:56:54.03 Thermal device therm2 stable at 67.8
+09:56:54.73 THERM: 0 1 690
+09:56:55.04 Thermal device therm2 stable at 69.0
+09:56:55.73 THERM: 0 1 702
+09:56:56.05 Thermal device therm2 stable at 70.2
+09:56:57.72 THERM: 0 1 980
+09:57:00.56 Thermal device therm2 stable at 98.0
+09:57:02.87 THERM: 0 1 650
+09:57:06.52 Firmware throw: 10002,65
+09:57:07.04 Thermal device therm2 stable at 65.0
+09:57:14.18 THERM: 0 1 658
+09:57:14.46 Thermal device therm2 stable at 65.8
+09:57:16.18 THERM: 0 1 668
+09:57:16.43 Thermal device therm2 stable at 66.8
+09:57:18.19 THERM: 0 1 678
+09:57:18.50 Thermal device therm2 stable at 67.8
+09:57:19.19 THERM: 0 1 690
+09:57:19.58 Thermal device therm2 stable at 69.0
+09:57:20.19 THERM: 0 1 702
+09:57:20.52 Thermal device therm2 stable at 70.2
+09:57:22.18 THERM: 0 1 980
+09:57:25.01 Thermal device therm2 stable at 98.0
+09:57:25.52 Firmware throw: 10002,66
+09:57:27.30 THERM: 0 1 650
+09:57:31.44 Thermal device therm2 stable at 65.0
+09:57:38.60 THERM: 0 1 658
+09:57:38.61 Thermal device therm2 stable at 65.8
+09:57:40.59 THERM: 0 1 668
+09:57:40.90 Thermal device therm2 stable at 66.8
+09:57:42.59 THERM: 0 1 678
+09:57:42.89 Thermal device therm2 stable at 67.8
+09:57:43.59 THERM: 0 1 690
+09:57:43.92 Thermal device therm2 stable at 69.0
+09:57:44.52 Firmware throw: 10002,67
+09:57:44.60 THERM: 0 1 702
+09:57:44.87 Thermal device therm2 stable at 70.2
+09:57:46.60 THERM: 0 1 980
+09:57:49.41 Thermal device therm2 stable at 98.0
+09:57:51.72 THERM: 0 1 650
+09:57:55.83 Thermal device therm2 stable at 65.0
+09:58:02.99 THERM: 0 1 658
+09:58:03.03 Thermal device therm2 stable at 65.8
+09:58:03.53 Firmware throw: 10002,68
+09:58:04.99 THERM: 0 1 668
+09:58:05.23 Thermal device therm2 stable at 66.8
+09:58:06.99 THERM: 0 1 678
+09:58:07.33 Thermal device therm2 stable at 67.8
+09:58:08.00 THERM: 0 1 690
+09:58:08.30 Thermal device therm2 stable at 69.0
+09:58:09.00 THERM: 0 1 702
+09:58:09.33 Thermal device therm2 stable at 70.2
+09:58:11.00 THERM: 0 1 980
+09:58:13.96 Thermal device therm2 stable at 98.0
+09:58:16.25 THERM: 0 1 650
+09:58:20.39 Thermal device therm2 stable at 65.0
+09:58:22.54 Firmware throw: 10002,69
+09:58:27.53 THERM: 0 1 658
+09:58:27.56 Thermal device therm2 stable at 65.8
+09:58:29.55 THERM: 0 1 668
+09:58:29.76 Thermal device therm2 stable at 66.8
+09:58:31.54 THERM: 0 1 678
+09:58:31.90 Thermal device therm2 stable at 67.8
+09:58:32.54 THERM: 0 1 690
+09:58:32.81 Thermal device therm2 stable at 69.0
+09:58:33.54 THERM: 0 1 702
+09:58:33.88 Thermal device therm2 stable at 70.2
+09:58:35.55 THERM: 0 1 980
+09:58:38.41 Thermal device therm2 stable at 98.0
+09:58:40.72 THERM: 0 1 650
+09:58:41.54 Firmware throw: 10002,70
+09:58:44.93 Thermal device therm2 stable at 65.0
+09:58:52.09 THERM: 0 1 658
+09:58:52.31 Thermal device therm2 stable at 65.8
+09:58:54.08 THERM: 0 1 668
+09:58:54.35 Thermal device therm2 stable at 66.8
+09:58:56.08 THERM: 0 1 678
+09:58:56.41 Thermal device therm2 stable at 67.8
+09:58:57.08 THERM: 0 1 690
+09:58:57.49 Thermal device therm2 stable at 69.0
+09:58:58.09 THERM: 0 1 702
+09:58:58.44 Thermal device therm2 stable at 70.2
+09:59:00.09 THERM: 0 1 980
+09:59:00.54 Firmware throw: 10002,71
+09:59:02.88 Thermal device therm2 stable at 98.0
+09:59:05.19 THERM: 0 1 650
+09:59:09.34 Thermal device therm2 stable at 65.0
+09:59:16.50 THERM: 0 1 658
+09:59:16.60 Thermal device therm2 stable at 65.8
+09:59:18.50 THERM: 0 1 668
+09:59:18.83 Thermal device therm2 stable at 66.8
+09:59:19.54 Firmware throw: 10002,72
+09:59:20.50 THERM: 0 1 678
+09:59:20.81 Thermal device therm2 stable at 67.8
+09:59:21.51 THERM: 0 1 690
+09:59:21.81 Thermal device therm2 stable at 69.0
+09:59:22.51 THERM: 0 1 702
+09:59:22.77 Thermal device therm2 stable at 70.2
+09:59:24.50 THERM: 0 1 980
+09:59:27.28 Thermal device therm2 stable at 98.0
+09:59:29.59 THERM: 0 1 650
+09:59:33.74 Thermal device therm2 stable at 65.0
+09:59:38.54 Firmware throw: 10002,73
+09:59:40.90 THERM: 0 1 658
+09:59:41.04 Thermal device therm2 stable at 65.8
+09:59:42.90 THERM: 0 1 668
+09:59:43.18 Thermal device therm2 stable at 66.8
+09:59:44.89 THERM: 0 1 678
+09:59:45.21 Thermal device therm2 stable at 67.8
+09:59:45.91 THERM: 0 1 690
+09:59:46.20 Thermal device therm2 stable at 69.0
+09:59:46.91 THERM: 0 1 702
+09:59:47.22 Thermal device therm2 stable at 70.2
+09:59:48.90 THERM: 0 1 980
+09:59:51.80 Thermal device therm2 stable at 98.0
+09:59:54.11 THERM: 0 1 650
+09:59:57.55 Firmware throw: 10002,74
+09:59:58.22 Thermal device therm2 stable at 65.0
+10:00:05.38 THERM: 0 1 658
+10:00:05.45 Thermal device therm2 stable at 65.8
+10:00:07.37 THERM: 0 1 668
+10:00:07.72 Thermal device therm2 stable at 66.8
+10:00:09.37 THERM: 0 1 678
+10:00:09.65 Thermal device therm2 stable at 67.8
+10:00:10.38 THERM: 0 1 690
+10:00:10.68 Thermal device therm2 stable at 69.0
+10:00:11.38 THERM: 0 1 702
+10:00:11.71 Thermal device therm2 stable at 70.2
+10:00:13.38 THERM: 0 1 980
+10:00:16.23 Thermal device therm2 stable at 98.0
+10:00:16.55 Firmware throw: 10002,75
+10:00:18.54 THERM: 0 1 650
+10:00:22.72 Thermal device therm2 stable at 65.0
+10:00:29.87 THERM: 0 1 658
+10:00:30.12 Thermal device therm2 stable at 65.8
+10:00:31.88 THERM: 0 1 668
+10:00:32.08 Thermal device therm2 stable at 66.8
+10:00:33.88 THERM: 0 1 678
+10:00:34.16 Thermal device therm2 stable at 67.8
+10:00:34.88 THERM: 0 1 690
+10:00:35.19 Thermal device therm2 stable at 69.0
+10:00:35.55 Firmware throw: 10002,76
+10:00:35.87 THERM: 0 1 702
+10:00:36.19 Thermal device therm2 stable at 70.2
+10:00:37.89 THERM: 0 1 980
+10:00:40.68 Thermal device therm2 stable at 98.0
+10:00:42.99 THERM: 0 1 650
+10:00:47.18 Thermal device therm2 stable at 65.0
+10:00:54.33 THERM: 0 1 658
+10:00:54.35 Thermal device therm2 stable at 65.8
+10:00:54.55 Firmware throw: 10002,77
+10:00:56.34 THERM: 0 1 668
+10:00:56.62 Thermal device therm2 stable at 66.8
+10:00:58.34 THERM: 0 1 678
+10:00:58.64 Thermal device therm2 stable at 67.8
+10:00:59.34 THERM: 0 1 690
+10:00:59.65 Thermal device therm2 stable at 69.0
+10:01:00.34 THERM: 0 1 702
+10:01:00.69 Thermal device therm2 stable at 70.2
+10:01:02.35 THERM: 0 1 980
+10:01:05.12 Thermal device therm2 stable at 98.0
+10:01:07.43 THERM: 0 1 650
+10:01:11.65 Thermal device therm2 stable at 65.0
+10:01:13.55 Firmware throw: 10002,78
+10:01:18.79 THERM: 0 1 658
+10:01:19.02 Thermal device therm2 stable at 65.8
+10:01:20.79 THERM: 0 1 668
+10:01:21.15 Thermal device therm2 stable at 66.8
+10:01:22.80 THERM: 0 1 678
+10:01:23.13 Thermal device therm2 stable at 67.8
+10:01:23.80 THERM: 0 1 690
+10:01:24.13 Thermal device therm2 stable at 69.0
+10:01:24.80 THERM: 0 1 702
+10:01:25.16 Thermal device therm2 stable at 70.2
+10:01:26.79 THERM: 0 1 980
+10:01:29.65 Thermal device therm2 stable at 98.0
+10:01:31.96 THERM: 0 1 650
+10:01:32.55 Firmware throw: 10002,79
+10:01:36.04 Thermal device therm2 stable at 65.0
+10:01:43.19 THERM: 0 1 658
+10:01:43.20 Thermal device therm2 stable at 65.8
+10:01:45.20 THERM: 0 1 668
+10:01:45.45 Thermal device therm2 stable at 66.8
+10:01:47.20 THERM: 0 1 678
+10:01:47.51 Thermal device therm2 stable at 67.8
+10:01:48.20 THERM: 0 1 690
+10:01:48.57 Thermal device therm2 stable at 69.0
+10:01:49.20 THERM: 0 1 702
+10:01:49.48 Thermal device therm2 stable at 70.2
+10:01:51.21 THERM: 0 1 980
+10:01:51.55 Firmware throw: 10002,80
+10:01:54.05 Thermal device therm2 stable at 98.0
+10:01:56.34 THERM: 0 1 650
+10:02:00.52 Thermal device therm2 stable at 65.0
+10:02:07.68 THERM: 0 1 658
+10:02:07.95 Thermal device therm2 stable at 65.8
+10:02:09.68 THERM: 0 1 668
+10:02:10.01 Thermal device therm2 stable at 66.8
+10:02:10.55 Firmware throw: 10002,81
+10:02:11.67 THERM: 0 1 678
+10:02:11.96 Thermal device therm2 stable at 67.8
+10:02:12.69 THERM: 0 1 690
+10:02:12.95 Thermal device therm2 stable at 69.0
+10:02:13.69 THERM: 0 1 702
+10:02:13.94 Thermal device therm2 stable at 70.2
+10:02:15.68 THERM: 0 1 980
+10:02:18.43 Thermal device therm2 stable at 98.0
+10:02:20.74 THERM: 0 1 650
+10:02:24.79 Thermal device therm2 stable at 65.0
+10:02:29.55 Firmware throw: 10002,82
+10:02:31.95 THERM: 0 1 658
+10:02:32.16 Thermal device therm2 stable at 65.8
+10:02:33.95 THERM: 0 1 668
+10:02:34.29 Thermal device therm2 stable at 66.8
+10:02:35.95 THERM: 0 1 678
+10:02:36.24 Thermal device therm2 stable at 67.8
+10:02:36.96 THERM: 0 1 690
+10:02:37.31 Thermal device therm2 stable at 69.0
+10:02:37.96 THERM: 0 1 702
+10:02:38.29 Thermal device therm2 stable at 70.2
+10:02:39.96 THERM: 0 1 980
+10:02:42.75 Thermal device therm2 stable at 98.0
+10:02:45.06 THERM: 0 1 650
+10:02:48.55 Firmware throw: 10002,83
+10:02:49.21 Thermal device therm2 stable at 65.0
+10:02:56.37 THERM: 0 1 658
+10:02:56.38 Thermal device therm2 stable at 65.8
+10:02:58.37 THERM: 0 1 668
+10:02:58.69 Thermal device therm2 stable at 66.8
+10:03:00.36 THERM: 0 1 678
+10:03:00.74 Thermal device therm2 stable at 67.8
+10:03:01.38 THERM: 0 1 690
+10:03:01.72 Thermal device therm2 stable at 69.0
+10:03:02.37 THERM: 0 1 702
+10:03:02.83 Thermal device therm2 stable at 70.2
+10:03:04.37 THERM: 0 1 980
+10:03:07.16 Thermal device therm2 stable at 98.0
+10:03:07.55 Firmware throw: 10002,84
+10:03:09.47 THERM: 0 1 650
+10:03:13.65 Thermal device therm2 stable at 65.0
+10:03:20.81 THERM: 0 1 658
+10:03:20.83 Thermal device therm2 stable at 65.8
+10:03:22.81 THERM: 0 1 668
+10:03:22.86 Thermal device therm2 stable at 66.8
+10:03:24.82 THERM: 0 1 678
+10:03:25.15 Thermal device therm2 stable at 67.8
+10:03:25.82 THERM: 0 1 690
+10:03:26.18 Thermal device therm2 stable at 69.0
+10:03:26.55 Firmware throw: 10002,85
+10:03:26.82 THERM: 0 1 702
+10:03:27.07 Thermal device therm2 stable at 70.2
+10:03:28.82 THERM: 0 1 980
+10:03:31.59 Thermal device therm2 stable at 98.0
+10:03:33.90 THERM: 0 1 650
+10:03:38.05 Thermal device therm2 stable at 65.0
+10:03:45.21 THERM: 0 1 658
+10:03:45.23 Thermal device therm2 stable at 65.8
+10:03:45.56 Firmware throw: 10002,86
+10:03:47.21 THERM: 0 1 668
+10:03:47.44 Thermal device therm2 stable at 66.8
+10:03:49.21 THERM: 0 1 678
+10:03:49.53 Thermal device therm2 stable at 67.8
+10:03:50.20 THERM: 0 1 690
+10:03:50.53 Thermal device therm2 stable at 69.0
+10:03:51.22 THERM: 0 1 702
+10:03:51.53 Thermal device therm2 stable at 70.2
+10:03:53.22 THERM: 0 1 980
+10:03:56.01 Thermal device therm2 stable at 98.0
+10:03:58.32 THERM: 0 1 650
+10:04:02.51 Thermal device therm2 stable at 65.0
+10:04:04.56 Firmware throw: 10002,87
+10:04:09.66 THERM: 0 1 658
+10:04:09.69 Thermal device therm2 stable at 65.8
+10:04:11.65 THERM: 0 1 668
+10:04:11.95 Thermal device therm2 stable at 66.8
+10:04:13.67 THERM: 0 1 678
+10:04:14.03 Thermal device therm2 stable at 67.8
+10:04:14.67 THERM: 0 1 690
+10:04:15.02 Thermal device therm2 stable at 69.0
+10:04:15.66 THERM: 0 1 702
+10:04:15.99 Thermal device therm2 stable at 70.2
+10:04:17.66 THERM: 0 1 980
+10:04:20.42 Thermal device therm2 stable at 98.0
+10:04:22.73 THERM: 0 1 650
+10:04:26.83 Thermal device therm2 stable at 65.0
+10:04:33.99 THERM: 0 1 658
+10:04:34.23 Thermal device therm2 stable at 65.8
+10:04:35.99 THERM: 0 1 668
+10:04:36.27 Thermal device therm2 stable at 66.8
+10:04:37.99 THERM: 0 1 678
+10:04:38.35 Thermal device therm2 stable at 67.8
+10:04:39.00 THERM: 0 1 690
+10:04:39.30 Thermal device therm2 stable at 69.0
+10:04:40.00 THERM: 0 1 702
+10:04:40.37 Thermal device therm2 stable at 70.2
+10:04:42.00 THERM: 0 1 980
+10:04:44.77 Thermal device therm2 stable at 98.0
+10:04:47.08 THERM: 0 1 650
+10:04:51.26 Thermal device therm2 stable at 65.0
+10:04:58.42 THERM: 1 1 420
+10:04:58.42 THERM: 0 1 658
+10:04:58.75 Thermal device therm2 stable at 65.8
+10:05:00.42 THERM: 0 1 668
+10:05:00.73 Thermal device therm2 stable at 66.8
+10:05:01.32 Thermal device therm3 stable at 42.0
+10:05:02.43 THERM: 0 1 678
+10:05:02.67 Thermal device therm2 stable at 67.8
+10:05:03.43 THERM: 0 1 690
+10:05:03.77 Thermal device therm2 stable at 69.0
+10:05:04.43 THERM: 0 1 702
+10:05:04.82 Thermal device therm2 stable at 70.2
+10:05:06.43 THERM: 0 1 420
+10:05:11.03 Thermal device therm2 stable at 42.0
+10:05:11.03 Calling MOB-D-022
+10:05:11.03 v1,0
+10:05:11.03 v2,1
+10:05:11.04 v3,1
+10:05:11.04 v4,1
+10:05:11.04 v5,1
+10:05:11.04 v6,1
+10:05:11.04 v7,1
+10:05:11.04 v8,1
+10:05:11.04 v16,0
+10:05:11.04 v17,1
+10:05:11.14 STEPPER: 4 200 300
+10:05:13.13 STEPPER: 4 50 310
+10:05:23.13 dpr,1,2,0
+10:05:23.13 v16,1
+10:05:23.24 v2,0
+10:05:23.34 v2,1
+10:05:23.35 dpr,1,28,9000
+10:05:23.84 v2,0
+10:05:24.34 v2,1
+10:05:24.85 v2,0
+10:05:25.35 v2,1
+10:05:25.85 v2,0
+10:05:26.35 v2,1
+10:05:26.85 v2,0
+10:05:27.35 v2,1
+10:05:27.85 v2,0
+10:05:28.34 v2,1
+10:05:28.86 v2,0
+10:05:29.36 v2,1
+10:05:29.86 v2,0
+10:05:30.36 v2,1
+10:05:30.86 v2,0
+10:05:32.84 v2,1
+10:05:33.34 v17,0
+10:05:33.34 Calling MOB-D-015
+10:05:33.35 Firmware throw: 10002,89
+10:05:33.35 THERM: 1 1 370
+10:05:33.35 THERM: 0 1 370
+10:05:34.46 Thermal device therm2 stable at 37.0
+10:05:36.04 Thermal device therm3 stable at 37.0
+10:05:51.54 Firmware throw: 10002,90
+10:06:09.75 Firmware throw: 10002,91
+10:06:27.95 Firmware throw: 10002,92
+10:06:46.14 Firmware throw: 10002,93
+10:07:04.35 Firmware throw: 10002,94
+10:07:22.55 Firmware throw: 10002,95
+10:07:40.76 Firmware throw: 10002,96
+10:07:58.95 Firmware throw: 10002,97
+10:08:17.15 Firmware throw: 10002,98
+10:08:28.37 Firmware potentiostat data: 0,10,212,195,184,182,289,249,261,236,277,242,263,238,287,251,272,249,296,258,282,252,318,274,300,278,314,280,307,282,312,277,309,288,323,286,328,311,352,304,359,334,372,327,403,373,375,329,449,404,417,366,542,481,485,419,681,600,547,469,853,734,652,548,1074,916,768,652,1361,1145,900,758,1665,1384,1061,900,1977,1619,1184,1020,2197,1775,1248,1086,2262,1807,1272,1130,2129,1698,1248,1151,1974,1566,1241,1194,1740,1393,1203,1208,1468,1194,1207,1254,1237,1024,1277,1386,1095,929,1411,1590,1021,871,1634,1920,965,829,1993,2412,970,821,2517,3086,996,829,3219,3931,1044,852,4073,4897,1106,885,4985,5900,1146,901,5907,6910,1209,939,6716,7813,1272,984,7263,8515,1286,990,7537,9027,1366,1067,7224,9136,1403,1097,6579,8864,1466,1150,5372,7981,1505,1191,4079,6552,1544,1236,3049,4865,1591,1282,2429,3469,1646,1337,2162,2641,1743,1430,2037,2173,1774,1469,2006,2014,1867,1564,2014,1981,1924,1621,2098,1970,2042,1744,2168,2020,2146,1847,2248,2081,2253,1965,2329,2122,2368,2079,2409,2184,2505,2216,2527,2263,2664,2368,2670,2350,2825,2529,2826,2470,3005,2714,3019,2619,3214,2910,3284,2833,3494,3179,3540,3046,3754,3430,3864,3318,4090,3744
+10:08:36.03 Peak data received: algorithm "MultiPeak1Analysis" 1000 1000 6 49
+10:08:36.04 Peak data received: define "CTIC" Positive 1 110 310 200 32 90 Infinity 25 60 160 90 4
+10:08:36.04 Peak data received: define "CT" Positive 1 295 510 390 60 115 Infinity 25 60 160 90 4
+10:08:36.04 Peak data received: define "clearend" Ignore 1 520 620
+10:08:36.04 Peak data received: define "NG1IC" Positive 3 110 310 200 32 90 Infinity 25 60 160 90 4
+10:08:36.04 Peak data received: define "NG1" Positive 3 295 510 390 60 50 Infinity 25 60 160 90 4
+10:08:36.04 Peak data received: define "clearend" Ignore 3 520 620
+10:08:36.04 Peak data received: define "NG2IC" Positive 4 110 310 200 32 60 Infinity 25 60 160 90 4
+10:08:36.04 Peak data received: define "NG2" Positive 4 295 510 390 60 45 Infinity 25 60 160 90 4
+10:08:36.04 Peak data received: define "clearend" Ignore 4 520 620
+10:08:36.04 Calling MOB-D-016
+10:08:36.04 Firmware throw: 10002,99
+10:08:57.71 Firmware potentiostat data: 0,3,294,264,268,261,336,294,300,285,329,291,294,283,334,301,299,287,326,292,293,284,321,287,293,279,320,285,286,274,324,287,293,279,323,287,286,280,334,295,300,293,323,288,292,280,333,291,296,287,334,299,304,293,322,286,298,283,322,281,296,282,326,282,297,284,328,286,305,295,332,284,300,286,324,284,300,284,323,287,303,288,327,292,309,289,326,289,309,289,327,290,312,300,331,297,316,302,329,293,323,307,331,295,326,310,337,300,331,314,345,307,346,328,343,307,346,328,332,299,339,323,332,288,352,322,343,303,357,341,338,299,375,349,358,315,380,354,364,320,408,378,367,322,423,391,372,324,433,396,399,345,475,436,399,347,477,442,414,356,518,468,423,371,554,495,425,372,576,519,442,385,616,547,443,385,650,575,463,406,704,619,490,422,761,666,521,443,821,713,534,450,874,760,557,468,947,815,589,494,1021,877,615,517,1105,940,648,544,1180,996,685,572,1270,1077,710,595,1358,1141,761,635,1451,1218,789,652,1528,1275,836,694,1627,1356,876,732,1722,1429,914,760,1801,1483,947,785,1876,1538,975,808,1933,1587,983,826,1981,1613,1029,859,2048,1657,1048,884,2079,1679,1060,897,2086,1675,1100,942,2126,1706,1121,958,2110,1696,1110,961,2078,1659,1122,978,2063,1646,1102,976,2000,1594,1111,994,1960,1566,1095,989,1888,1504,1099,1006,1828,1462,1080,987,1727,1382,1061,993,1658,1335,1052,987,1580,1268,1049,994,1511,1218,1027,994,1423,1154,1008,993,1346,1094,993,987,1261,1031,993,998,1201,978,990,1005,1136,936,988,1016,1079,901,1003,1045,1033,867,1009,1064,990,832,1014,1087,941,794,1033,1124,903,763,1060,1178,891,751,1087,1226,873,743,1130,1292,844,715,1168,1357,815,696,1229,1436,809,686,1285,1526,810,687,1358,1646,799,670,1444,1755,786,658,1527,1881,786,658,1652,2059,794,652,1773,2214,791,649,1900,2391,800,652,2048,2594,801,653,2217,2800,802,647,2390,3030,817,654,2582,3267,830,665,2769,3493,835,660,2965,3728,846,662,3206,4023,871,669,3403,4258,872,679,3622,4515,890,683,3834,4757,899,689,4029,4987,900,682,4244,5234,915,691,4436,5465,920,699,4612,5674,942,709,4772,5869,948,709,4927,6052,959,724,5048,6201,964,728,5146,6329,975,727,5226,6436,983,732,5267,6513,981,726,5287,6565,998,746,5270,6589,999,743,5248,6612,1042,785,5174,6553,1033,777,5102,6507,1049,780,4977,6417,1059,797,4815,6282,1071,809,4627,6128,1080,816,4400,5920,1073,808,4155,5688,1071,808,3916,5445,1096,829,3663,5164,1112,848,3387,4854,1103,840,3135,4537,1105,846,2911,4232,1146,880,2681,3895,1153,891,2460,3565,1148,887,2265,3246,1150,895,2118,2980,1178,925,1976,2721,1197,932,1824,2461,1180,923,1718,2239,1184,931,1663,2094,1221,968,1565,1925,1213,962,1509,1790,1225,979,1457,1686,1232,983,1428,1596,1250,1009,1405,1519,1270,1019,1369,1440,1261,1029,1349,1391,1273,1039,1334,1353,1292,1045,1320,1308,1288,1049,1320,1287,1312,1076,1333,1285,1349,1120,1321,1256,1348,1119,1321,1239,1347,1122,1311,1237,1360,1137,1326,1234,1390,1168,1338,1234,1408,1180,1346,1233,1428,1208,1334,1225,1415,1193,1343,1220,1452,1222,1370,1231,1460,1245,1375,1243,1499,1278,1401,1257,1517,1303,1416,1259,1538,1330,1432,1274,1564,1350,1435,1272,1570,1356,1473,1293,1615,1406,1462,1290,1608,1404,1506,1318,1652,1444,1514,1324,1678,1465,1544,1353,1705,1495,1586,1378,1746,1536,1582,1382,1745,1537,1641,1417,1812,1611,1637,1422,1815,1613,1675,1455,1851,1642,1719,1487,1890,1683,1756,1516,1936,1732,1790,1546,1965,1762,1828,1579,2008,1811,1854,1603,2036,1823,1886,1618,2067,1857,1935,1663,2121,1908,1988,1711,2164,1951,2041,1761,2236,2016,2083,1789,2258,2047,2139,1838,2322,2098,2182,1877,2374,2143,2261,1940,2439,2215,2315,1999,2505,2277,2353,2028,2551,2325,2423,2077,2605,2371,2471,2130,2679,2431,2527,2177,2731,2490,2602,2245,2814,2567,2660,2300,2882,2630,2744,2364,2964,2708,2817,2432,3049,2783,2902,2511,3134,2867
+10:08:58.06 Firmware throw: 10002,100
+10:08:58.06 v2,1
+10:08:58.06 v3,0
+10:08:58.07 v4,1
+10:08:58.07 v5,1
+10:08:58.07 v6,1
+10:08:58.07 v7,0
+10:08:58.07 v8,1
+10:08:58.37 v1,1
+10:08:58.37 Analysing potentiostat(s) 1, 3, 4
+10:08:58.38 Script 'Main' finished
+10:08:58.38 44 PCR cycles run
+10:08:58.38 Pump 1 ran for 49s
+10:08:58.38 Pump 2 ran for 8s
+10:08:59.21 Analysis starting for potentiostat 1
+10:08:59.21 SavitskyGolay(17, 2)
+10:08:59.21 Variance for raw data is 12.9365735477321
+10:08:59.21 CurveFit(6)
+10:08:59.21 CurveFit(6)
+10:08:59.21 CurveFit(6)
+10:08:59.21 CurveFit(6)
+10:08:59.21 CurveFit(6)
+10:08:59.21 CurveFit(6)
+10:08:59.21 CurveFit(6)
+10:08:59.21 CurveFit(6)
+10:08:59.21 CurveFit(6)
+10:08:59.21 CurveFit(6)
+10:08:59.21 Variance for polynomial is 12.0418952170469
+10:08:59.21 FitGaussianForPeak(...)
+10:08:59.21 Variance is 4.8396832333776 after iteration 1
+10:08:59.21 Variance is 4.6394812417468 after iteration 2
+10:08:59.21 Variance is 4.59384616305679 after iteration 3
+10:08:59.21 Variance is 4.57726159265851 after iteration 4
+10:08:59.21 Variance is 4.57148236486573 after iteration 5
+10:08:59.21 Variance is 4.56587921251726 after iteration 6
+10:08:59.21 Variance is 4.56053365249241 after iteration 7
+10:08:59.21 Variance is 4.55640372581156 after iteration 8
+10:08:59.21 Variance is 4.55307687625458 after iteration 9
+10:08:59.21 Variance is 4.54763485648498 after iteration 10
+10:08:59.21 Variance is 4.54335283999992 after iteration 11
+10:08:59.21 Algorithm converged after 12 iterations with variance of 4.54021175779622
+10:08:59.21 Variance for peak CTIC is 4.54021175779622
+10:08:59.21 Peak position for peak CTIC is 192.887422459888
+10:08:59.21 Peak width for peak CTIC is 108.83203125
+10:08:59.21 Peak CTIC is positive (135.983155415588)
+10:08:59.21 FitGaussianForPeak(...)
+10:08:59.21 Variance is 419.986774965617 after iteration 1
+10:08:59.21 Variance is 399.495637201587 after iteration 2
+10:08:59.21 Variance is 395.660043279751 after iteration 3
+10:08:59.21 Variance is 395.012125994302 after iteration 4
+10:08:59.21 Variance is 394.678271642305 after iteration 5
+10:08:59.21 Variance is 394.678271642305 after iteration 6
+10:08:59.21 Variance is 394.678271642305 after iteration 7
+10:08:59.21 Variance is 394.678271642305 after iteration 8
+10:08:59.21 Variance is 394.678271642305 after iteration 9
+10:08:59.21 Variance is 394.678271642305 after iteration 10
+10:08:59.21 Variance is 394.678271642305 after iteration 11
+10:08:59.21 Algorithm converged after 12 iterations with variance of 394.678271642305
+10:08:59.21 Variance for peak CT is 394.678271642305
+10:08:59.21 Peak position for peak CT is 355.9171875
+10:08:59.21 Peak width for peak CT is 134.165625
+10:08:59.21 Peak CT is positive (1536.84636726853)
+10:08:59.21 Analysis done for potentiostat 1
+10:08:59.21 
+10:08:59.23 Analysis starting for potentiostat 3
+10:08:59.23 SavitskyGolay(17, 2)
+10:08:59.23 Variance for raw data is 9.87086740330275
+10:08:59.23 CurveFit(6)
+10:08:59.23 CurveFit(6)
+10:08:59.23 CurveFit(6)
+10:08:59.23 CurveFit(6)
+10:08:59.23 CurveFit(6)
+10:08:59.23 CurveFit(6)
+10:08:59.23 CurveFit(6)
+10:08:59.23 CurveFit(6)
+10:08:59.23 CurveFit(6)
+10:08:59.23 CurveFit(6)
+10:08:59.23 CurveFit(6)
+10:08:59.23 Variance for polynomial is 17.5617703374589
+10:08:59.23 FitGaussianForPeak(...)
+10:08:59.23 Variance is 4.26955160142557 after iteration 1
+10:08:59.23 Variance is 4.19864279942765 after iteration 2
+10:08:59.23 Variance is 4.18674304762455 after iteration 3
+10:08:59.23 Variance is 4.18065755690016 after iteration 4
+10:08:59.23 Variance is 4.180053053546 after iteration 5
+10:08:59.23 Variance is 4.180053053546 after iteration 6
+10:08:59.23 Variance is 4.180053053546 after iteration 7
+10:08:59.23 Variance is 4.180053053546 after iteration 8
+10:08:59.23 Variance is 4.180053053546 after iteration 9
+10:08:59.23 Variance is 4.180053053546 after iteration 10
+10:08:59.23 Variance is 4.180053053546 after iteration 11
+10:08:59.23 Algorithm converged after 12 iterations with variance of 4.180053053546
+10:08:59.23 Variance for peak NG1IC is 4.180053053546
+10:08:59.23 Peak position for peak NG1IC is 193.44375
+10:08:59.23 Peak width for peak NG1IC is 129.215625
+10:08:59.23 Peak NG1IC is positive (585.586354231161)
+10:08:59.23 FitGaussianForPeak(...)
+10:08:59.23 Variance for peak NG1 is 16.5640419455905
+10:08:59.23 Peak NG1 is negative (0)
+10:08:59.23 Analysis done for potentiostat 3
+10:08:59.24 
+10:08:59.24 Analysis starting for potentiostat 4
+10:08:59.24 SavitskyGolay(17, 2)
+10:08:59.24 Variance for raw data is 9.42108670618472
+10:08:59.24 CurveFit(6)
+10:08:59.24 CurveFit(6)
+10:08:59.24 CurveFit(6)
+10:08:59.24 CurveFit(6)
+10:08:59.24 CurveFit(6)
+10:08:59.24 CurveFit(6)
+10:08:59.24 CurveFit(6)
+10:08:59.24 CurveFit(6)
+10:08:59.24 CurveFit(6)
+10:08:59.24 CurveFit(6)
+10:08:59.24 Variance for polynomial is 14.8019216779995
+10:08:59.24 FitGaussianForPeak(...)
+10:08:59.24 Variance is 0.360459174825238 after iteration 1
+10:08:59.24 Variance is 0.360459174825238 after iteration 2
+10:08:59.24 Variance is 0.360459174825238 after iteration 3
+10:08:59.24 Variance is 0.360459174825238 after iteration 4
+10:08:59.24 Variance is 0.360459174825238 after iteration 5
+10:08:59.24 Variance is 0.360459174825238 after iteration 6
+10:08:59.24 Variance is 0.360459174825238 after iteration 7
+10:08:59.24 Variance is 0.360459174825238 after iteration 8
+10:08:59.24 Variance is 0.360459174825238 after iteration 9
+10:08:59.24 Variance is 0.360459174825238 after iteration 10
+10:08:59.24 Variance is 0.360459174825238 after iteration 11
+10:08:59.24 Algorithm converged after 12 iterations with variance of 0.360459174825238
+10:08:59.24 Variance for peak NG2IC is 0.360459174825238
+10:08:59.24 Peak position for peak NG2IC is 192.928125
+10:08:59.24 Peak width for peak NG2IC is 130.659375
+10:08:59.24 Peak NG2IC is positive (452.271987833859)
+10:08:59.24 FitGaussianForPeak(...)
+10:08:59.24 Variance for peak NG2 is 2.9862673882011
+10:08:59.24 Peak NG2 is negative (0)
+10:08:59.24 Analysis done for potentiostat 4
+10:08:59.24 
+10:08:59.24 Peak outcome for CTIC is Positive, peak height is 136.0nA
+10:08:59.24 Peak outcome for CT is Positive, peak height is 1536.8nA
+10:08:59.24 Peak outcome for clearend is Ignore
+10:08:59.24 Peak outcome for NG1IC is Positive, peak height is 585.6nA
+10:08:59.24 Peak outcome for NG1 is Negative, peak height is 0.0nA
+10:08:59.24 Peak outcome for clearend is Ignore
+10:08:59.24 Peak outcome for NG2IC is Positive, peak height is 452.3nA
+10:08:59.24 Peak outcome for NG2 is Negative, peak height is 0.0nA
+10:08:59.26 Peak outcome for clearend is Ignore
+10:08:59.26 STD target CT for peak CT is found
+10:08:59.26 Control NG1IC for target NG1 is positive
+10:08:59.26 STD target NG1 for peak NG1 is not found
+10:08:59.26 Control NG2IC for target NG2 is positive
+10:08:59.26 STD target NG2 for peak NG2 is not found
+10:08:59.26 Disease CT is detected using CT
+10:08:59.26 Disease NG is not detected
+10:08:59.26 Scanned barcode: 97011234567000000789
+10:08:59.26 Assay code: 970
+10:08:59.26 Assay version: 3
+10:08:59.26 Assay signature: JDUi2KsysJuoMNjGe+dAWPI+rMnRt7nV0xmJLvPde2ymEcmHqv+mQJ0VSBDC8JjAbIbVA33gDvq1KLl85PEOwn7uS3C11z8r3Msl2qzbsg8DIJrFps5JmycYP+zQjRA8m0Yh28XzXSIc2sRa0exSqz1drBqZFr2gc07+Ko4jyGD8sFQHppWIINxeB9UiKIluJZLf8/JcoOsm4DnkJLwmnYD5K/shapGym+CJA+U2SdVC/YyorEWvZKPyyapLsYaKMCORuDKv+BSTCQPDgdiyKvSkb1ANplnmZ0Pq02Wigk/HRcRjNsZ8/G82Bz3clmhi2J69m7vrUaZq7TzbJkaGkYy791ZMmnZ93SFUnK7KerE3JWuF6/JNEtBHRLjKsfVC2BO5VdTfuR5uq2m3QimHqmYD5baRRDcJ7xf+AeODC/gEP2wt+VKbIos7vA1d9n8F3t8QLtx3frD4I8ilOuk6EllekTzDflEqRcFvPNb0/l0tLLJ2WXzssJD8S7PcXib6QADT0CZvqfo6ekeMW6TxpzkM4ttU8pSXtJtY5LMUAUFpbSdTh9m7Qh2aN0qXDkHYjlmPwsJhmqYjh6gisD0ogNbzU1QvGddN+hYWZmKPnaMh4sQ7h3Vx+Aq0xHqsrUWOleVZ/VhMs6jd8iUTjfpQtkMWSgS9B4WsjsCJsLgoZf8=
+10:08:59.26 Serial number: 0284
+10:08:59.26 Reader name: IO_0284
+10:08:59.26 Specimen ID: 0790_mob734_244_17-m6155_b2
+10:08:59.26 User: admin
+10:08:59.27 Script 'Unclamp' executed
+10:08:59.27 Phase changed to 'Testing.Unclamping'
+</log>
+    <startPotential>0</startPotential>
+    <incrementalPotential>3</incrementalPotential>
+    <cellValues0>112.152099609375,128.173828125,125.5035400390625,127.410888671875,124.359130859375,122.4517822265625,122.0703125,123.59619140625,123.2147216796875,127.410888671875,123.2147216796875,127.0294189453125,127.410888671875,122.833251953125,122.833251953125,124.359130859375,125.1220703125,126.64794921875,123.59619140625,123.2147216796875,124.7406005859375,124.359130859375,124.7406005859375,126.2664794921875,125.5035400390625,126.2664794921875,128.5552978515625,131.6070556640625,130.8441162109375,126.64794921875,126.64794921875,130.8441162109375,128.936767578125,136.566162109375,138.85498046875,139.9993896484375,141.90673828125,152.2064208984375,152.2064208984375,157.928466796875,161.3616943359375,162.1246337890625,168.609619140625,168.9910888671875,176.6204833984375,186.920166015625,198.7457275390625,203.704833984375,212.4786376953125,224.6856689453125,234.6038818359375,247.1923828125,261.3067626953125,270.843505859375,290.2984619140625,300.9796142578125,318.90869140625,334.16748046875,348.663330078125,361.2518310546875,371.9329833984375,374.9847412109375,392.5323486328125,399.7802734375,404.35791015625,419.61669921875,427.6275634765625,423.431396484375,428.009033203125,420.379638671875,423.8128662109375,417.7093505859375,419.2352294921875,411.9873046875,404.7393798828125,401.30615234375,400.1617431640625,391.7694091796875,384.521484375,378.7994384765625,378.7994384765625,377.655029296875,376.89208984375,382.6141357421875,384.9029541015625,386.810302734375,394.0582275390625,404.35791015625,414.6575927734375,431.060791015625,445.556640625,468.8262939453125,490.1885986328125,518.035888671875,550.84228515625,582.5042724609375,630.18798828125,676.3458251953125,724.79248046875,781.25,845.7183837890625,911.712646484375,984.954833984375,1056.2896728515625,1131.0577392578125,1222.991943359375,1298.1414794921875,1381.683349609375,1462.554931640625,1536.9415283203125,1618.95751953125,1692.19970703125,1759.33837890625,1820.37353515625,1879.5013427734375,1925.6591796875,1963.043212890625,1993.560791015625,2009.2010498046875,2016.8304443359375,2010.345458984375,2001.953125,1973.724365234375,1946.258544921875,1898.5748291015625,1836.7767333984375,1765.0604248046875,1678.466796875,1585.0067138671875,1493.83544921875,1397.3236083984375,1292.0379638671875,1195.9075927734375,1110.4583740234375,1022.7203369140625,938.41552734375,864.0289306640625,807.952880859375,753.7841796875,695.80078125,655.364990234375,634.3841552734375,597.0001220703125,575.6378173828125,555.8013916015625,544.73876953125,535.9649658203125,522.2320556640625,514.6026611328125,508.880615234375,503.5400390625,503.5400390625,508.4991455078125,503.9215087890625,503.9215087890625,500.1068115234375,505.828857421875,510.406494140625,513.458251953125,508.880615234375,512.3138427734375,522.613525390625,524.5208740234375,534.4390869140625,540.1611328125,546.2646484375,547.4090576171875,561.9049072265625,557.708740234375,574.493408203125,577.545166015625,588.9892578125,605.010986328125,603.485107421875,625.9918212890625,624.4659423828125,638.9617919921875,655.7464599609375,669.86083984375,682.830810546875,697.32666015625,707.244873046875,719.451904296875,738.1439208984375,758.36181640625,778.5797119140625,794.6014404296875,815.9637451171875,832.366943359375,862.5030517578125,883.1024169921875,897.5982666015625,924.3011474609375,942.6116943359375,963.9739990234375,992.584228515625,1014.70947265625,1046.7529296875,1074.6002197265625,1107.025146484375</cellValues0>
+    <cellValues1>100.7080078125,112.152099609375,111.0076904296875,114.8223876953125,111.38916015625,109.4818115234375,108.7188720703125,109.4818115234375,109.4818115234375,112.5335693359375,109.86328125,111.0076904296875,114.0594482421875,109.100341796875,107.1929931640625,107.574462890625,109.100341796875,108.33740234375,108.33740234375,109.4818115234375,111.38916015625,110.2447509765625,110.626220703125,113.2965087890625,111.7706298828125,112.5335693359375,114.44091796875,117.1112060546875,117.1112060546875,114.0594482421875,109.86328125,115.5853271484375,114.0594482421875,120.1629638671875,122.0703125,122.833251953125,123.59619140625,131.6070556640625,132.3699951171875,135.80322265625,141.5252685546875,141.90673828125,146.8658447265625,146.8658447265625,154.876708984375,160.980224609375,168.9910888671875,171.661376953125,178.52783203125,188.446044921875,197.2198486328125,207.51953125,218.20068359375,226.9744873046875,242.2332763671875,248.71826171875,264.739990234375,279.23583984375,289.9169921875,299.4537353515625,308.2275390625,315.093994140625,327.6824951171875,337.21923828125,342.1783447265625,359.344482421875,365.447998046875,366.5924072265625,373.077392578125,372.314453125,379.180908203125,377.2735595703125,383.758544921875,376.5106201171875,378.7994384765625,376.5106201171875,379.180908203125,379.180908203125,378.7994384765625,376.5106201171875,380.706787109375,383.3770751953125,387.5732421875,398.6358642578125,405.8837890625,414.6575927734375,428.77197265625,449.371337890625,467.681884765625,492.85888671875,517.6544189453125,547.79052734375,582.122802734375,627.899169921875,669.4793701171875,717.5445556640625,785.4461669921875,844.573974609375,912.0941162109375,989.532470703125,1068.115234375,1155.853271484375,1246.2615966796875,1332.4737548828125,1422.119140625,1534.6527099609375,1624.298095703125,1722.3358154296875,1814.6514892578125,1902.3895263671875,1996.612548828125,2084.7320556640625,2164.459228515625,2238.8458251953125,2308.65478515625,2365.4937744140625,2414.3218994140625,2455.13916015625,2484.5123291015625,2504.3487548828125,2513.5040283203125,2522.27783203125,2499.7711181640625,2482.2235107421875,2447.8912353515625,2396.392822265625,2337.646484375,2258.30078125,2169.7998046875,2077.1026611328125,1969.90966796875,1851.654052734375,1730.7281494140625,1614.3798828125,1485.8245849609375,1359.9395751953125,1238.250732421875,1136.77978515625,1037.9791259765625,938.7969970703125,854.1107177734375,798.797607421875,734.3292236328125,682.830810546875,643.157958984375,608.82568359375,579.4525146484375,549.31640625,530.6243896484375,516.1285400390625,498.96240234375,490.9515380859375,490.1885986328125,479.1259765625,472.6409912109375,471.8780517578125,470.733642578125,470.733642578125,470.3521728515625,467.3004150390625,465.39306640625,469.5892333984375,474.1668701171875,479.5074462890625,480.2703857421875,485.992431640625,485.2294921875,493.2403564453125,492.095947265625,502.777099609375,505.06591796875,516.1285400390625,525.665283203125,527.191162109375,540.5426025390625,542.449951171875,555.0384521484375,567.2454833984375,578.30810546875,589.752197265625,602.3406982421875,611.4959716796875,617.218017578125,634.3841552734375,652.6947021484375,671.7681884765625,682.4493408203125,701.141357421875,716.0186767578125,740.05126953125,762.5579833984375,773.62060546875,792.3126220703125,812.530517578125,830.4595947265625,856.3995361328125,877.38037109375,901.79443359375,927.734375,957.8704833984375</cellValues1>
+    <cellValues2>102.23388671875,114.44091796875,112.152099609375,114.0594482421875,111.7706298828125,111.7706298828125,109.100341796875,111.7706298828125,109.100341796875,114.44091796875,111.38916015625,112.9150390625,115.966796875,113.677978515625,112.9150390625,113.2965087890625,116.3482666015625,114.44091796875,114.44091796875,115.5853271484375,117.8741455078125,117.8741455078125,119.0185546875,120.54443359375,123.2147216796875,124.359130859375,126.2664794921875,131.988525390625,131.988525390625,129.3182373046875,134.27734375,136.1846923828125,143.0511474609375,144.95849609375,155.6396484375,161.3616943359375,165.1763916015625,181.1981201171875,181.9610595703125,197.601318359375,211.334228515625,219.7265625,234.9853515625,247.955322265625,268.5546875,290.2984619140625,313.1866455078125,333.404541015625,361.2518310546875,389.4805908203125,421.5240478515625,450.13427734375,484.466552734375,518.035888671875,553.5125732421875,582.8857421875,620.6512451171875,656.890869140625,687.0269775390625,715.63720703125,737.3809814453125,755.6915283203125,781.25,793.0755615234375,795.745849609375,811.004638671875,804.901123046875,792.694091796875,786.9720458984375,762.939453125,747.6806640625,720.21484375,697.32666015625,658.7982177734375,632.476806640625,602.72216796875,576.4007568359375,542.8314208984375,513.458251953125,481.0333251953125,458.1451416015625,433.349609375,411.6058349609375,394.0582275390625,377.655029296875,358.9630126953125,344.4671630859375,339.8895263671875,333.0230712890625,321.96044921875,310.8978271484375,308.6090087890625,308.990478515625,304.7943115234375,299.835205078125,299.835205078125,302.886962890625,301.7425537109375,305.17578125,305.5572509765625,305.938720703125,311.6607666015625,316.619873046875,318.5272216796875,322.723388671875,332.2601318359375,332.6416015625,339.508056640625,342.9412841796875,343.32275390625,349.0447998046875,350.9521484375,359.344482421875,361.63330078125,365.8294677734375,367.73681640625,371.9329833984375,374.9847412109375,374.2218017578125,380.706787109375,381.0882568359375,397.491455078125,394.0582275390625,400.1617431640625,403.9764404296875,408.5540771484375,411.9873046875,409.3170166015625,408.5540771484375,418.0908203125,424.1943359375,420.7611083984375,421.5240478515625,437.164306640625,439.8345947265625,437.92724609375,438.690185546875,449.371337890625,456.6192626953125,450.13427734375,451.66015625,465.7745361328125,462.7227783203125,467.3004150390625,469.970703125,476.837158203125,484.466552734375,481.0333251953125,485.6109619140625,492.85888671875,491.3330078125,500.48828125,514.6026611328125,514.22119140625,513.8397216796875,518.798828125,530.242919921875,537.109375,544.73876953125,539.7796630859375,553.89404296875,556.94580078125,571.8231201171875,578.6895751953125,586.700439453125,596.61865234375,598.907470703125,616.0736083984375,613.4033203125,630.18798828125,640.106201171875,650.4058837890625,666.046142578125,665.6646728515625,691.22314453125,692.3675537109375,706.1004638671875,720.977783203125,738.525390625,749.5880126953125,765.9912109375,776.67236328125,788.4979248046875,809.0972900390625,825.50048828125,852.96630859375,861.358642578125,885.772705078125,905.609130859375,930.4046630859375,955.5816650390625,973.1292724609375,993.7286376953125,1021.9573974609375,1041.7938232421875,1073.455810546875,1099.395751953125,1130.67626953125,1163.1011962890625,1195.526123046875</cellValues2>
+    <cellValues3>99.5635986328125,108.7188720703125,107.9559326171875,109.4818115234375,108.33740234375,106.4300537109375,104.522705078125,106.4300537109375,106.8115234375,111.7706298828125,106.8115234375,109.4818115234375,111.7706298828125,107.9559326171875,107.574462890625,108.33740234375,112.5335693359375,109.100341796875,108.33740234375,109.86328125,110.2447509765625,110.2447509765625,114.44091796875,115.203857421875,117.1112060546875,118.255615234375,119.781494140625,125.1220703125,125.1220703125,123.2147216796875,122.833251953125,130.0811767578125,133.1329345703125,135.040283203125,144.195556640625,149.1546630859375,151.06201171875,166.32080078125,168.609619140625,178.52783203125,188.8275146484375,197.9827880859375,208.6639404296875,219.3450927734375,236.1297607421875,254.058837890625,271.9879150390625,289.9169921875,310.8978271484375,334.5489501953125,358.58154296875,379.94384765625,410.8428955078125,435.2569580078125,464.630126953125,486.3739013671875,517.27294921875,545.1202392578125,565.7196044921875,586.700439453125,605.3924560546875,615.3106689453125,632.0953369140625,640.4876708984375,638.9617919921875,650.787353515625,646.97265625,632.8582763671875,627.899169921875,608.062744140625,597.381591796875,573.73046875,557.708740234375,527.191162109375,509.2620849609375,483.70361328125,464.630126953125,440.216064453125,417.327880859375,393.2952880859375,373.077392578125,357.0556640625,343.7042236328125,330.7342529296875,317.3828125,302.886962890625,291.0614013671875,286.4837646484375,283.4320068359375,272.7508544921875,265.5029296875,261.688232421875,262.0697021484375,255.584716796875,251.007080078125,251.007080078125,248.71826171875,247.5738525390625,248.71826171875,249.0997314453125,246.8109130859375,249.481201171875,253.6773681640625,251.77001953125,252.532958984375,255.2032470703125,259.0179443359375,260.5438232421875,262.8326416015625,260.162353515625,263.5955810546875,266.6473388671875,270.4620361328125,270.4620361328125,276.18408203125,277.7099609375,277.3284912109375,279.23583984375,276.947021484375,284.576416015625,283.4320068359375,299.4537353515625,296.4019775390625,297.54638671875,304.0313720703125,308.6090087890625,311.279296875,308.2275390625,308.2275390625,316.2384033203125,323.486328125,320.4345703125,322.723388671875,335.693359375,339.8895263671875,338.3636474609375,341.4154052734375,352.8594970703125,355.52978515625,352.0965576171875,355.1483154296875,369.2626953125,366.973876953125,373.4588623046875,374.9847412109375,384.9029541015625,388.7176513671875,392.5323486328125,396.3470458984375,398.6358642578125,400.1617431640625,410.46142578125,427.24609375,426.8646240234375,428.009033203125,433.7310791015625,445.556640625,450.13427734375,460.8154296875,455.0933837890625,466.156005859375,474.9298095703125,487.518310546875,497.0550537109375,507.354736328125,514.984130859375,517.27294921875,536.346435546875,535.58349609375,550.84228515625,558.8531494140625,570.2972412109375,585.9375,586.3189697265625,614.5477294921875,615.3106689453125,626.373291015625,642.0135498046875,660.70556640625,672.149658203125,690.8416748046875,695.4193115234375,708.3892822265625,727.84423828125,744.2474365234375,769.04296875,780.8685302734375,800.323486328125,817.4896240234375,844.9554443359375,868.6065673828125,886.9171142578125,904.4647216796875,927.3529052734375,949.859619140625,979.2327880859375,1003.265380859375,1033.02001953125,1061.6302490234375,1093.6737060546875</cellValues3>
+    <analysisType>MultiPeak1Analysis</analysisType>
+    <peak>
+      <type>Positive</type>
+      <name>CTIC</name>
+      <potentiostat>1</potentiostat>
+      <minPotential>110</minPotential>
+      <maxPotential>310</maxPotential>
+      <mean>200</mean>
+      <tolerance>32</tolerance>
+      <lowerLimit>90</lowerLimit>
+      <upperLimit>Infinity</upperLimit>
+      <maxVarianceForCurveFit>25</maxVarianceForCurveFit>
+      <topFractionForCurveFit>0.59999999999999998</topFractionForCurveFit>
+      <maxSdAsFractionOfHeight>0.040000000000000001</maxSdAsFractionOfHeight>
+      <maxWidth>160</maxWidth>
+      <minWidth>90</minWidth>
+    </peak>
+    <peak>
+      <type>Positive</type>
+      <name>CT</name>
+      <potentiostat>1</potentiostat>
+      <minPotential>295</minPotential>
+      <maxPotential>510</maxPotential>
+      <mean>390</mean>
+      <tolerance>60</tolerance>
+      <lowerLimit>115</lowerLimit>
+      <upperLimit>Infinity</upperLimit>
+      <maxVarianceForCurveFit>25</maxVarianceForCurveFit>
+      <topFractionForCurveFit>0.59999999999999998</topFractionForCurveFit>
+      <maxSdAsFractionOfHeight>0.040000000000000001</maxSdAsFractionOfHeight>
+      <maxWidth>160</maxWidth>
+      <minWidth>90</minWidth>
+    </peak>
+    <peak>
+      <type>Ignore</type>
+      <name>clearend</name>
+      <potentiostat>1</potentiostat>
+      <minPotential>520</minPotential>
+      <maxPotential>620</maxPotential>
+      <mean>0</mean>
+      <tolerance>0</tolerance>
+      <lowerLimit>0</lowerLimit>
+      <upperLimit>0</upperLimit>
+      <maxVarianceForCurveFit>0</maxVarianceForCurveFit>
+      <topFractionForCurveFit>0</topFractionForCurveFit>
+      <maxSdAsFractionOfHeight>0</maxSdAsFractionOfHeight>
+      <maxWidth>0</maxWidth>
+      <minWidth>0</minWidth>
+    </peak>
+    <peak>
+      <type>Positive</type>
+      <name>NG1IC</name>
+      <potentiostat>3</potentiostat>
+      <minPotential>110</minPotential>
+      <maxPotential>310</maxPotential>
+      <mean>200</mean>
+      <tolerance>32</tolerance>
+      <lowerLimit>90</lowerLimit>
+      <upperLimit>Infinity</upperLimit>
+      <maxVarianceForCurveFit>25</maxVarianceForCurveFit>
+      <topFractionForCurveFit>0.59999999999999998</topFractionForCurveFit>
+      <maxSdAsFractionOfHeight>0.040000000000000001</maxSdAsFractionOfHeight>
+      <maxWidth>160</maxWidth>
+      <minWidth>90</minWidth>
+    </peak>
+    <peak>
+      <type>Positive</type>
+      <name>NG1</name>
+      <potentiostat>3</potentiostat>
+      <minPotential>295</minPotential>
+      <maxPotential>510</maxPotential>
+      <mean>390</mean>
+      <tolerance>60</tolerance>
+      <lowerLimit>50</lowerLimit>
+      <upperLimit>Infinity</upperLimit>
+      <maxVarianceForCurveFit>25</maxVarianceForCurveFit>
+      <topFractionForCurveFit>0.59999999999999998</topFractionForCurveFit>
+      <maxSdAsFractionOfHeight>0.040000000000000001</maxSdAsFractionOfHeight>
+      <maxWidth>160</maxWidth>
+      <minWidth>90</minWidth>
+    </peak>
+    <peak>
+      <type>Ignore</type>
+      <name>clearend</name>
+      <potentiostat>3</potentiostat>
+      <minPotential>520</minPotential>
+      <maxPotential>620</maxPotential>
+      <mean>0</mean>
+      <tolerance>0</tolerance>
+      <lowerLimit>0</lowerLimit>
+      <upperLimit>0</upperLimit>
+      <maxVarianceForCurveFit>0</maxVarianceForCurveFit>
+      <topFractionForCurveFit>0</topFractionForCurveFit>
+      <maxSdAsFractionOfHeight>0</maxSdAsFractionOfHeight>
+      <maxWidth>0</maxWidth>
+      <minWidth>0</minWidth>
+    </peak>
+    <peak>
+      <type>Positive</type>
+      <name>NG2IC</name>
+      <potentiostat>4</potentiostat>
+      <minPotential>110</minPotential>
+      <maxPotential>310</maxPotential>
+      <mean>200</mean>
+      <tolerance>32</tolerance>
+      <lowerLimit>60</lowerLimit>
+      <upperLimit>Infinity</upperLimit>
+      <maxVarianceForCurveFit>25</maxVarianceForCurveFit>
+      <topFractionForCurveFit>0.59999999999999998</topFractionForCurveFit>
+      <maxSdAsFractionOfHeight>0.040000000000000001</maxSdAsFractionOfHeight>
+      <maxWidth>160</maxWidth>
+      <minWidth>90</minWidth>
+    </peak>
+    <peak>
+      <type>Positive</type>
+      <name>NG2</name>
+      <potentiostat>4</potentiostat>
+      <minPotential>295</minPotential>
+      <maxPotential>510</maxPotential>
+      <mean>390</mean>
+      <tolerance>60</tolerance>
+      <lowerLimit>45</lowerLimit>
+      <upperLimit>Infinity</upperLimit>
+      <maxVarianceForCurveFit>25</maxVarianceForCurveFit>
+      <topFractionForCurveFit>0.59999999999999998</topFractionForCurveFit>
+      <maxSdAsFractionOfHeight>0.040000000000000001</maxSdAsFractionOfHeight>
+      <maxWidth>160</maxWidth>
+      <minWidth>90</minWidth>
+    </peak>
+    <peak>
+      <type>Ignore</type>
+      <name>clearend</name>
+      <potentiostat>4</potentiostat>
+      <minPotential>520</minPotential>
+      <maxPotential>620</maxPotential>
+      <mean>0</mean>
+      <tolerance>0</tolerance>
+      <lowerLimit>0</lowerLimit>
+      <upperLimit>0</upperLimit>
+      <maxVarianceForCurveFit>0</maxVarianceForCurveFit>
+      <topFractionForCurveFit>0</topFractionForCurveFit>
+      <maxSdAsFractionOfHeight>0</maxSdAsFractionOfHeight>
+      <maxWidth>0</maxWidth>
+      <minWidth>0</minWidth>
+    </peak>
+    <fastReportingPeriod>500</fastReportingPeriod>
+    <pcrValues>25.699999999999999,32.899999999999999,37.899999999999999,37,36.5,36.200000000000003,36.399999999999999,36.5,36.399999999999999,36.399999999999999,36.399999999999999,36.399999999999999,36.799999999999997,36.399999999999999,36.200000000000003,36.399999999999999,36.399999999999999,36.399999999999999,36.399999999999999,36.5,36.5,36.799999999999997,36.399999999999999,36.5,36.5,36.5,36.399999999999999,36.5,36.5,36.5,36.399999999999999,36.5,37,36.5,37,36.5,36.5,36.5,36.700000000000003,36.5,36.700000000000003,36.5,36.5,36.5,36.5,36.5,36.5,36.5,36.5,36.700000000000003,36.700000000000003,36.700000000000003,36.700000000000003,36.700000000000003,36.5,36.700000000000003,36.700000000000003,36.700000000000003,36.5,36.799999999999997,36.700000000000003,36.799999999999997,36.799999999999997,36.700000000000003,36.700000000000003,36.799999999999997,36.799999999999997,36.700000000000003,36.799999999999997,36.799999999999997,36.799999999999997,36.700000000000003,36.799999999999997,36.799999999999997,36.799999999999997,36.700000000000003,36.799999999999997,37,36.799999999999997,36.799999999999997,36.799999999999997,36.700000000000003,36.799999999999997,36.700000000000003,36.799999999999997,36.799999999999997,36.700000000000003,36.799999999999997,36.700000000000003,36.700000000000003,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,37,36.799999999999997,36.799999999999997,36.799999999999997,37,36.799999999999997,37,37,36.799999999999997,37,36.799999999999997,36.799999999999997,36.799999999999997,37,36.799999999999997,36.799999999999997,37,36.799999999999997,37,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,37,36.799999999999997,37,36.799999999999997,37,37,37,37,36.799999999999997,37,36.799999999999997,37,36.799999999999997,36.799999999999997,36.799999999999997,37,36.799999999999997,36.799999999999997,36.799999999999997,37,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,37,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,37,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,37,36.799999999999997,36.799999999999997,36.799999999999997,37,37,37,37,36.799999999999997,36.799999999999997,37,37,37,37,37,37,37,36.799999999999997,37,37,37.399999999999999,37,37,36.799999999999997,37,37.100000000000001,37,37.299999999999997,37,37.100000000000001,37,37,37,36.799999999999997,37,36.799999999999997,37.100000000000001,37,37,37,36.799999999999997,37,37,37,36.799999999999997,37,37,37,37,37,37,37,36.799999999999997,36.799999999999997,37,37,37,37,37,37,37,37,37,37,37,37,37,37,37,37,37,37,37,37,37,37,37,37,37,37,36.799999999999997,37,37,37,37,36.799999999999997,37.100000000000001,37,36.799999999999997,37,37,37,37,36.799999999999997,37,37,37,37,37,37,37,37,37,37,37,37,37,37,37,36.799999999999997,37,36.799999999999997,37,37,37,37,37,37,37,37,37,36.799999999999997,37.100000000000001,36.799999999999997,37,37,37,37,37,37,37,37,37,37,37,37,37,37,37.100000000000001,37,37,37,37,37,37,37,37,36.799999999999997,37,36.799999999999997,37,36.799999999999997,37,37.299999999999997,36.799999999999997,37,36.799999999999997,37,37,37,37,37,37,37,37,37,37,36.799999999999997,36.799999999999997,36.799999999999997,37,37,37,37,37,37,36.799999999999997,37,37,37,36.799999999999997,37,37,37,37,37,36.799999999999997,36.799999999999997,37,37,37,37,37,37,36.799999999999997,37,37,37,37,37.100000000000001,37,36.799999999999997,36.200000000000003,36.100000000000001,36.100000000000001,36.100000000000001,36.100000000000001,36.200000000000003,36.100000000000001,36.100000000000001,36.200000000000003,36.200000000000003,36.200000000000003,36.200000000000003,36.200000000000003,36.200000000000003,36.200000000000003,36.200000000000003,36.100000000000001,36.200000000000003,36.200000000000003,36.200000000000003,36.200000000000003,36.200000000000003,36.399999999999999,36.200000000000003,36.200000000000003,36.200000000000003,36.5,36.399999999999999,36.200000000000003,36.200000000000003,36.200000000000003,36.399999999999999,36.399999999999999,36.200000000000003,36.399999999999999,36.200000000000003,36.5,36.399999999999999,36.399999999999999,36.200000000000003,36.5,36.200000000000003,36.200000000000003,36.5,36.399999999999999,36.399999999999999,36.399999999999999,36.399999999999999,36.200000000000003,36.399999999999999,36.399999999999999,36.399999999999999,36.5,36.399999999999999,36.399999999999999,36.399999999999999,36.399999999999999,36.399999999999999,36.5,36.5,36.5,36.5,36.5,36.399999999999999,36.399999999999999,36.5,36.5,36.5,36.399999999999999,36.399999999999999,36.5,36.5,36.5,36.5,36.5,36.399999999999999,36.399999999999999,36.399999999999999,36.399999999999999,36.5,36.5,36.5,36.700000000000003,36.700000000000003,36.5,36.799999999999997,36.5,36.5,36.5,36.5,36.700000000000003,36.5,36.5,36.5,36.5,36.5,36.700000000000003,36.700000000000003,36.700000000000003,36.700000000000003,36.700000000000003,36.700000000000003,36.5,36.5,36.700000000000003,36.5,36.700000000000003,36.5,36.5,36.700000000000003,36.700000000000003,36.5,36.799999999999997,36.5,36.799999999999997,36.700000000000003,36.5,36.700000000000003,36.799999999999997,36.700000000000003,36.700000000000003,36.700000000000003,36.5,36.700000000000003,36.700000000000003,36.799999999999997,36.700000000000003,36.799999999999997,36.5,36.700000000000003,36.700000000000003,36.5,36.700000000000003,36.700000000000003,36.5,36.700000000000003,36.700000000000003,36.700000000000003,36.700000000000003,36.700000000000003,36.700000000000003,36.5,36.700000000000003,36.700000000000003,36.799999999999997,36.700000000000003,36.799999999999997,36.700000000000003,36.799999999999997,36.799999999999997,36.799999999999997,36.700000000000003,36.700000000000003,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.700000000000003,36.700000000000003,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.700000000000003,36.799999999999997,36.700000000000003,36.799999999999997,36.700000000000003,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.700000000000003,36.799999999999997,36.799999999999997,40.299999999999997,48,55.200000000000003,61.799999999999997,67.799999999999997,73.5,78.700000000000003,83.599999999999994,88.099999999999994,92.299999999999997,94.900000000000006,93.5,94.400000000000006,94,94.299999999999997,94,94,94,94.299999999999997,94.099999999999994,94.099999999999994,94.099999999999994,94.299999999999997,94,94.099999999999994,94.299999999999997,94,94.099999999999994,94.299999999999997,94.099999999999994,94,94.099999999999994,94.099999999999994,94.299999999999997,94.099999999999994,94.099999999999994,94,94.099999999999994,94.099999999999994,94.299999999999997,94,94,94.299999999999997,94,94.099999999999994,94.099999999999994,94.099999999999994,94.099999999999994,94,94.099999999999994,94.299999999999997,94.099999999999994,94,94.099999999999994,94.099999999999994,94.299999999999997,94.099999999999994,94.099999999999994,94.099999999999994,94.099999999999994,94.299999999999997,94.299999999999997,94.099999999999994,94.099999999999994,94.299999999999997,94.099999999999994,94,94,94.299999999999997,94.099999999999994,94,94.299999999999997,94,94.299999999999997,94.299999999999997,94,94.299999999999997,94.299999999999997,94.299999999999997,94,94,94,94.299999999999997,94.099999999999994,94.099999999999994,94.299999999999997,94,94.299999999999997,94.099999999999994,94.299999999999997,94,94.299999999999997,94,94.099999999999994,94,94.099999999999994,94.299999999999997,94.099999999999994,94.099999999999994,94,94.099999999999994,94.099999999999994,94.299999999999997,94,94.099999999999994,94.099999999999994,94.099999999999994,94.299999999999997,94.099999999999994,94.299999999999997,94,94.299999999999997,94.099999999999994,94.099999999999994,94,94.099999999999994,94.099999999999994,94.099999999999994,94.099999999999994,94,94.099999999999994,94.099999999999994,94.099999999999994,94,94.099999999999994,94.099999999999994,94.099999999999994,94,94.099999999999994,94.299999999999997,94,94.299999999999997,94.099999999999994,94.299999999999997,94,94,94.099999999999994,94.299999999999997,94.299999999999997,93.799999999999997,94.299999999999997,94,94.299999999999997,94.099999999999994,94.099999999999994,94,94.099999999999994,94.299999999999997,94.099999999999994,94,94.099999999999994,94,94.099999999999994,94,94.299999999999997,94,94.099999999999994,94,94.099999999999994,94,94,94.099999999999994,94,94.299999999999997,94,94.299999999999997,94,93.799999999999997,94.299999999999997,94.099999999999994,94.099999999999994,94.299999999999997,94,94.099999999999994,94.299999999999997,94,94,94,94.099999999999994,94.099999999999994,94.299999999999997,94,94.299999999999997,94.299999999999997,94.099999999999994,94.099999999999994,94,94.099999999999994,94,94.099999999999994,94,94,94,94.099999999999994,94.099999999999994,94,94.099999999999994,94.099999999999994,94.099999999999994,94,94.099999999999994,94.099999999999994,94,94.099999999999994,94.099999999999994,94.099999999999994,94,94,94.099999999999994,94.299999999999997,94,94.099999999999994,94,94.099999999999994,94.099999999999994,94.099999999999994,94.099999999999994,94,94.099999999999994,94.099999999999994,94,94.299999999999997,94,94,94.099999999999994,94,94.099999999999994,94.099999999999994,94,94.099999999999994,94,94.299999999999997,94.099999999999994,94,94,94.099999999999994,94,94,94.099999999999994,94.099999999999994,94.099999999999994,94,94.099999999999994,94,94,94,94.099999999999994,94,94.299999999999997,94,94,94.099999999999994,94,94,94,94,94.599999999999994,94.400000000000006,94.299999999999997,94.099999999999994,94.299999999999997,94.099999999999994,94.299999999999997,94,94.299999999999997,94.099999999999994,94,94,94.099999999999994,94.099999999999994,94,94.299999999999997,94,94,94,94.099999999999994,94.099999999999994,94.099999999999994,94,94,94.299999999999997,94.099999999999994,94.099999999999994,94.099999999999994,94.099999999999994,94.099999999999994,94,94.099999999999994,94.099999999999994,94,94.099999999999994,94.099999999999994,94,94.099999999999994,94,94,94.099999999999994,94,94,94,94,94.299999999999997,94,94,94,94.099999999999994,94.299999999999997,94,94,94.099999999999994,94,94,94,94,94,94,94,94,94,94,94.099999999999994,94,94.099999999999994,94.099999999999994,94,94,94,94,94,94.099999999999994,94.099999999999994,94.099999999999994,94,94,94,94,94,94,94,94,94,94,94,94,94,94,94.099999999999994,94,94,94.099999999999994,94.099999999999994,94,94.099999999999994,94,94,94.099999999999994,94,94.099999999999994,94,94,94,94,94,94,94,94,94,94.099999999999994,94,94.099999999999994,92,86.900000000000006,81.799999999999997,77.099999999999994,72.799999999999997,68.700000000000003,65.700000000000003,64.799999999999997,64.799999999999997,65,64.799999999999997,64.799999999999997,64.799999999999997,64.799999999999997,65,65.099999999999994,64.5,64.200000000000003,64.099999999999994,64.5,64.400000000000006,64.5,65.700000000000003,65.299999999999997,65.599999999999994,66,66.5,66.299999999999997,66.299999999999997,66.599999999999994,67.700000000000003,67.799999999999997,68.700000000000003,69.200000000000003,70.200000000000003,70.099999999999994,70.200000000000003,70.700000000000003,76.5,82.599999999999994,87.799999999999997,92.799999999999997,96.400000000000006,98.200000000000003,97.599999999999994,97.799999999999997,97.599999999999994,97.799999999999997,94.900000000000006,89.299999999999997,84.200000000000003,79.700000000000003,75.299999999999997,71.099999999999994,67.700000000000003,65.299999999999997,64.799999999999997,65.099999999999994,64.799999999999997,65,64.799999999999997,65.099999999999994,64.799999999999997,64.700000000000003,65.099999999999994,64.799999999999997,64.799999999999997,64.5,64.700000000000003,64.400000000000006,65.700000000000003,65.700000000000003,65.599999999999994,65.599999999999994,66.599999999999994,66.5,66.799999999999997,66.5,67.5,67.400000000000006,68.900000000000006,68.700000000000003,69.900000000000006,69.599999999999994,69.799999999999997,69.599999999999994,72.799999999999997,79,84.799999999999997,89.799999999999997,94.400000000000006,97.299999999999997,97.799999999999997,97.900000000000006,97.599999999999994,97.799999999999997,97.5,92.5,87.200000000000003,82.400000000000006,78.099999999999994,73.700000000000003,69.5,66.5,65,65.099999999999994,65.099999999999994,65,65,65.099999999999994,65.099999999999994,64.799999999999997,65,65.099999999999994,64.799999999999997,64.5,65.099999999999994,65,65.299999999999997,65.599999999999994,65.599999999999994,65.599999999999994,65.299999999999997,66.799999999999997,66.200000000000003,66.299999999999997,66.299999999999997,67.700000000000003,67.400000000000006,69,69.200000000000003,69.799999999999997,69.599999999999994,69.799999999999997,69.599999999999994,74.400000000000006,80.599999999999994,86,91.400000000000006,95.900000000000006,98.099999999999994,97.299999999999997,97.900000000000006,97.799999999999997,97.799999999999997,95.299999999999997,90.099999999999994,85,80.299999999999997,76.099999999999994,72,68.400000000000006,65.599999999999994,64.799999999999997,65,64.799999999999997,65.299999999999997,64.799999999999997,64.799999999999997,64.5,65,64.799999999999997,65,64.799999999999997,65.099999999999994,65.099999999999994,64.799999999999997,65.299999999999997,65.599999999999994,65.599999999999994,65.599999999999994,66.299999999999997,66.799999999999997,66.599999999999994,66.5,67.099999999999994,67.700000000000003,68.599999999999994,68.900000000000006,69.5,70.099999999999994,70.200000000000003,69.799999999999997,71.099999999999994,77.299999999999997,83.299999999999997,88.900000000000006,93.799999999999997,97,97.799999999999997,97.599999999999994,97.799999999999997,97.799999999999997,97.599999999999994,93.099999999999994,87.799999999999997,83,78.700000000000003,74.299999999999997,70.5,67.099999999999994,65.599999999999994,65,64.799999999999997,65.099999999999994,64.799999999999997,65.099999999999994,65,65,65.099999999999994,65,65.099999999999994,64.799999999999997,65.099999999999994,65.299999999999997,64.799999999999997,65.700000000000003,65.700000000000003,65.700000000000003,65.599999999999994,66.599999999999994,66.5,66.799999999999997,66.599999999999994,67.700000000000003,67.799999999999997,68.599999999999994,69,69.900000000000006,69.900000000000006,69.900000000000006,69.900000000000006,72.799999999999997,78.700000000000003,84.799999999999997,90.200000000000003,94.700000000000003,97.599999999999994,97.5,97.799999999999997,97.5,97.799999999999997,97,91.900000000000006,86.799999999999997,82.099999999999994,77.799999999999997,73.400000000000006,69.799999999999997,66.599999999999994,65,64.700000000000003,64.799999999999997,64.799999999999997,65,64.799999999999997,65,65.099999999999994,65,64.700000000000003,64.799999999999997,65,64.700000000000003,65.099999999999994,65,65.599999999999994,65.599999999999994,65.700000000000003,65.599999999999994,66.799999999999997,66.299999999999997,66.799999999999997,66.799999999999997,67.799999999999997,68.099999999999994,69,68.700000000000003,70.099999999999994,69.599999999999994,69.900000000000006,69.599999999999994,74.400000000000006,80.900000000000006,86.299999999999997,91.599999999999994,95.5,97.799999999999997,97.599999999999994,97.799999999999997,97.599999999999994,97.900000000000006,96.599999999999994,91.599999999999994,86.5,81.799999999999997,77.599999999999994,73.400000000000006,69.599999999999994,66.299999999999997,65,64.799999999999997,65.099999999999994,65,65.299999999999997,64.799999999999997,65.099999999999994,65.299999999999997,65,65,65.099999999999994,64.799999999999997,65.099999999999994,65.299999999999997,64.799999999999997,65.599999999999994,65.599999999999994,65.700000000000003,65.900000000000006,66.799999999999997,66.299999999999997,66.5,66.799999999999997,67.700000000000003,67.400000000000006,69.200000000000003,68.599999999999994,70.400000000000006,69.599999999999994,69.799999999999997,69.799999999999997,74.900000000000006,81.200000000000003,86.799999999999997,92.299999999999997,96.099999999999994,98.200000000000003,97.799999999999997,97.799999999999997,97.599999999999994,97.599999999999994,95.299999999999997,90.099999999999994,85.299999999999997,80.5,76.700000000000003,72.299999999999997,68.599999999999994,65.900000000000006,64.799999999999997,65,65,65.099999999999994,65,65,65.299999999999997,65.099999999999994,65.099999999999994,64.799999999999997,65.099999999999994,64.799999999999997,65,64.799999999999997,65,65.599999999999994,65.700000000000003,65.700000000000003,66.200000000000003,66.799999999999997,66.299999999999997,66.5,66.799999999999997,67.700000000000003,68.099999999999994,68.900000000000006,69,70.099999999999994,70.400000000000006,69.900000000000006,70.200000000000003,76.200000000000003,82.099999999999994,88.099999999999994,92.799999999999997,96.700000000000003,97.900000000000006,97.799999999999997,97.799999999999997,97.799999999999997,97.799999999999997,93.400000000000006,88.900000000000006,83.599999999999994,79.299999999999997,75,71,67.700000000000003,65.599999999999994,65,65,65.099999999999994,64.799999999999997,64.799999999999997,64.799999999999997,64.799999999999997,64.799999999999997,65,65.099999999999994,64.799999999999997,64.799999999999997,65,65,65.400000000000006,65.599999999999994,65.599999999999994,65.599999999999994,66.299999999999997,66.599999999999994,66.799999999999997,66.799999999999997,67.5,67.5,68.299999999999997,68.900000000000006,69.799999999999997,70.200000000000003,70.099999999999994,70.400000000000006,71.599999999999994,77.900000000000006,83.900000000000006,89.299999999999997,94.099999999999994,97.200000000000003,97.900000000000006,97.599999999999994,97.799999999999997,97.799999999999997,97.599999999999994,93.099999999999994,88,83,78.799999999999997,74.700000000000003,70.700000000000003,67.200000000000003,65.099999999999994,64.799999999999997,65.099999999999994,65.599999999999994,64.5,65,65,65.299999999999997,64.799999999999997,65.299999999999997,65,65.299999999999997,65,65.099999999999994,64.799999999999997,65.599999999999994,65.700000000000003,65.599999999999994,66,66.799999999999997,66.599999999999994,66.799999999999997,66.900000000000006,67.400000000000006,67.799999999999997,69,69,69.900000000000006,69.599999999999994,69.799999999999997,69.599999999999994,72.900000000000006,79.400000000000006,84.799999999999997,90.5,95,97.900000000000006,97.599999999999994,97.799999999999997,97.599999999999994,97.799999999999997,96.900000000000006,91.700000000000003,86.599999999999994,82.099999999999994,77.799999999999997,73.5,69.799999999999997,66.799999999999997,64.799999999999997,65.099999999999994,65,64.799999999999997,65.299999999999997,64.799999999999997,65,64.799999999999997,64.799999999999997,65,65.099999999999994,65,64.799999999999997,65.299999999999997,64.799999999999997,65.700000000000003,65.400000000000006,65.599999999999994,65.700000000000003,66.900000000000006,66.5,66.5,66.599999999999994,67.799999999999997,67.700000000000003,68.900000000000006,68.700000000000003,69.900000000000006,70.099999999999994,70.200000000000003,70.099999999999994,74,80.299999999999997,86.299999999999997,91.400000000000006,95.5,98.200000000000003,97.599999999999994,97.900000000000006,97.599999999999994,97.599999999999994,95.299999999999997,90.099999999999994,85.299999999999997,80.799999999999997,76.400000000000006,72.5,69,66.299999999999997,64.799999999999997,64.799999999999997,65.099999999999994,65.099999999999994,65.099999999999994,65.099999999999994,65.299999999999997,64.799999999999997,65.099999999999994,65.099999999999994,64.799999999999997,65.099999999999994,65,65.099999999999994,64.700000000000003,65.900000000000006,65.900000000000006,65.599999999999994,65.900000000000006,66.599999999999994,66.599999999999994,66.5,66.200000000000003,67.799999999999997,68,68.900000000000006,69.200000000000003,70.200000000000003,70.200000000000003,69.900000000000006,69.799999999999997,75.200000000000003,81.5,87.099999999999994,92.299999999999997,96.400000000000006,98.099999999999994,97.599999999999994,97.799999999999997,97.5,97.799999999999997,94.700000000000003,89.599999999999994,84.799999999999997,80.299999999999997,76.400000000000006,72.200000000000003,68.599999999999994,65.900000000000006,64.799999999999997,64.799999999999997,65.099999999999994,65,64.799999999999997,65.099999999999994,65.099999999999994,64.799999999999997,65.099999999999994,64.799999999999997,65.099999999999994,65.099999999999994,64.799999999999997,65.099999999999994,65.099999999999994,65.599999999999994,65.700000000000003,65.400000000000006,65.700000000000003,66.799999999999997,66.5,66.299999999999997,66.900000000000006,67.799999999999997,68.299999999999997,68.900000000000006,69,70.200000000000003,69.900000000000006,69.799999999999997,70.200000000000003,76.400000000000006,82.400000000000006,88,93.400000000000006,97,98.099999999999994,97.5,97.799999999999997,98.099999999999994,97.799999999999997,93.799999999999997,88.700000000000003,83.900000000000006,79.599999999999994,75.200000000000003,71.099999999999994,68,65.400000000000006,65,65.299999999999997,65.099999999999994,64.799999999999997,65.299999999999997,65.099999999999994,64.799999999999997,65.299999999999997,64.799999999999997,64.799999999999997,65.099999999999994,65,65.099999999999994,65.099999999999994,65.299999999999997,65.700000000000003,65.599999999999994,65.700000000000003,66.5,66.599999999999994,66.799999999999997,66.5,67.200000000000003,67.700000000000003,68.400000000000006,69,69.5,69.900000000000006,69.799999999999997,69.5,71.700000000000003,77.799999999999997,83.900000000000006,89.5,94.299999999999997,97.299999999999997,97.799999999999997,97.5,98.099999999999994,97.799999999999997,97.299999999999997,92.599999999999994,87.700000000000003,82.700000000000003,78.5,74.400000000000006,70.5,67.400000000000006,65.400000000000006,64.799999999999997,65.099999999999994,65,65.099999999999994,65,65.099999999999994,65,65.099999999999994,65.099999999999994,64.799999999999997,64.799999999999997,65,65,65,65.599999999999994,65.599999999999994,66,65.700000000000003,66.5,66.799999999999997,66.599999999999994,66.799999999999997,67.700000000000003,67.799999999999997,68.900000000000006,68.599999999999994,69.900000000000006,69.900000000000006,69.900000000000006,69.799999999999997,72.299999999999997,78.700000000000003,84.700000000000003,90.099999999999994,94.700000000000003,97.900000000000006,97.599999999999994,97.900000000000006,97.799999999999997,97.799999999999997,96.299999999999997,91.099999999999994,86,81.700000000000003,77.299999999999997,73.200000000000003,69.5,66.200000000000003,65.099999999999994,65,64.799999999999997,65.099999999999994,65.299999999999997,65,64.799999999999997,65,64.799999999999997,65.299999999999997,64.799999999999997,64.799999999999997,65.099999999999994,65.099999999999994,65.299999999999997,65.599999999999994,65.700000000000003,65.599999999999994,65.400000000000006,66.799999999999997,66.799999999999997,66.5,66.799999999999997,67.400000000000006,67.700000000000003,69,69,69.900000000000006,70.099999999999994,70.200000000000003,69.900000000000006,74.299999999999997,80.5,86.5,91.700000000000003,96.400000000000006,98.200000000000003,97.599999999999994,97.599999999999994,97.799999999999997,97.5,94.700000000000003,89.599999999999994,84.799999999999997,80.599999999999994,76.200000000000003,72,68.400000000000006,65.900000000000006,64.700000000000003,65.299999999999997,64.799999999999997,64.700000000000003,65,65.099999999999994,65,65,65.099999999999994,65.099999999999994,65.099999999999994,65,65.099999999999994,65,65.099999999999994,65.700000000000003,65.599999999999994,65.700000000000003,65.700000000000003,66.900000000000006,66.599999999999994,66.799999999999997,66.799999999999997,68.099999999999994,68.099999999999994,69.299999999999997,69.299999999999997,69.900000000000006,69.5,69.799999999999997,69.900000000000006,75.900000000000006,82.099999999999994,87.799999999999997,92.299999999999997,96.299999999999997,98.200000000000003,97.5,97.900000000000006,97.599999999999994,97.599999999999994,95,89.799999999999997,85,80.599999999999994,76.200000000000003,72.200000000000003,68.900000000000006,65.900000000000006,65,65,65.299999999999997,65.099999999999994,65.299999999999997,64.799999999999997,65.299999999999997,64.799999999999997,65.099999999999994,64.799999999999997,65.099999999999994,64.799999999999997,65,64.799999999999997,65.599999999999994,65.599999999999994,65.599999999999994,65.599999999999994,65.599999999999994,66.900000000000006,66.5,66.799999999999997,66.900000000000006,67.700000000000003,67.799999999999997,68.900000000000006,69.200000000000003,70.700000000000003,69.900000000000006,69.799999999999997,70.400000000000006,76.099999999999994,82.299999999999997,87.700000000000003,92.799999999999997,96.700000000000003,98.200000000000003,97.5,97.799999999999997,97.799999999999997,97.799999999999997,94,88.900000000000006,84.099999999999994,79.700000000000003,75.5,71.900000000000006,68,65.599999999999994,64.799999999999997,64.799999999999997,65.099999999999994,64.700000000000003,64.799999999999997,65,64.799999999999997,64.799999999999997,65.599999999999994,64.700000000000003,64.700000000000003,64.799999999999997,64.700000000000003,65,65.599999999999994,65.700000000000003,65.700000000000003,65.700000000000003,66.5,66.5,66.799999999999997,66.599999999999994,67.200000000000003,67.700000000000003,68.599999999999994,69.200000000000003,69.599999999999994,70.200000000000003,70.099999999999994,70.099999999999994,72.200000000000003,78.400000000000006,84.200000000000003,90.099999999999994,94.700000000000003,97.299999999999997,97.900000000000006,97.5,97.599999999999994,97.799999999999997,97.299999999999997,92.299999999999997,87.5,82.700000000000003,78.5,74.400000000000006,70.5,67.700000000000003,65.400000000000006,64.700000000000003,65.299999999999997,64.799999999999997,65,65.099999999999994,65.099999999999994,64.799999999999997,65.099999999999994,65.299999999999997,64.799999999999997,65.099999999999994,64.799999999999997,65,65.099999999999994,65.400000000000006,65.700000000000003,65.700000000000003,65.599999999999994,66.5,66.5,66.200000000000003,66.5,67.5,67.700000000000003,68.900000000000006,68.900000000000006,70.200000000000003,70.200000000000003,69.900000000000006,70.200000000000003,72.299999999999997,78.799999999999997,84.700000000000003,90.099999999999994,94.299999999999997,97.5,97.900000000000006,97.599999999999994,97.799999999999997,97.599999999999994,97.200000000000003,91.900000000000006,87.200000000000003,82.599999999999994,78.099999999999994,74,70.200000000000003,66.900000000000006,65.099999999999994,65.099999999999994,65,65.099999999999994,65.299999999999997,64.799999999999997,65.099999999999994,65.299999999999997,65,65,65,65.099999999999994,65,65.299999999999997,64.799999999999997,65.700000000000003,65.599999999999994,65.599999999999994,65.900000000000006,66.799999999999997,66.5,66.799999999999997,66.799999999999997,67.700000000000003,68.299999999999997,68.900000000000006,68.700000000000003,69.900000000000006,70.200000000000003,70.200000000000003,69.799999999999997,73.799999999999997,80.200000000000003,86,91.099999999999994,95.599999999999994,98.200000000000003,97.299999999999997,97.900000000000006,98.099999999999994,97.799999999999997,95.200000000000003,90.099999999999994,85.299999999999997,81.099999999999994,76.5,72.599999999999994,69,66.200000000000003,64.799999999999997,65.099999999999994,65,64.799999999999997,65.299999999999997,64.799999999999997,65.099999999999994,65.099999999999994,65.099999999999994,65,65,65,64.799999999999997,65.099999999999994,65.299999999999997,65.900000000000006,65.700000000000003,65.599999999999994,65.400000000000006,66.799999999999997,66.299999999999997,66.5,66.599999999999994,67.799999999999997,67.799999999999997,69,69.200000000000003,70.200000000000003,69.799999999999997,69.900000000000006,70.200000000000003,75.599999999999994,82,87.700000000000003,92.799999999999997,96.700000000000003,98.099999999999994,97.799999999999997,97.900000000000006,97.900000000000006,97.799999999999997,94.400000000000006,89.299999999999997,84.5,80.200000000000003,75.900000000000006,72.200000000000003,68.299999999999997,65.900000000000006,64.799999999999997,65.299999999999997,65,65.299999999999997,65,65,65,65.099999999999994,65.099999999999994,65.099999999999994,65.099999999999994,65.099999999999994,65.099999999999994,64.799999999999997,65,65.700000000000003,65.400000000000006,65.700000000000003,65.900000000000006,67.099999999999994,66.5,66.799999999999997,66.799999999999997,67.700000000000003,68,68.900000000000006,69.200000000000003,70.099999999999994,70.5,69.900000000000006,70.099999999999994,76.099999999999994,82.099999999999994,88.099999999999994,93.099999999999994,96.599999999999994,98.099999999999994,97.799999999999997,97.799999999999997,97.799999999999997,97.599999999999994,93.700000000000003,88.599999999999994,83.799999999999997,79.400000000000006,75.5,71.400000000000006,68,65.599999999999994,64.799999999999997,65.099999999999994,65.299999999999997,64.799999999999997,64.799999999999997,65.099999999999994,65.099999999999994,65,65.099999999999994,65.299999999999997,65.099999999999994,64.799999999999997,65.099999999999994,65.099999999999994,65.299999999999997,65.900000000000006,65.700000000000003,65.700000000000003,66.299999999999997,66.900000000000006,66.599999999999994,66.900000000000006,67.400000000000006,67.700000000000003,68.400000000000006,69,69.599999999999994,70.099999999999994,70.200000000000003,70.099999999999994,70.700000000000003,77.299999999999997,83.5,89,93.799999999999997,97.299999999999997,97.900000000000006,97.599999999999994,97.799999999999997,97.900000000000006,97.5,92.900000000000006,88,83.299999999999997,79,74.700000000000003,70.700000000000003,67.799999999999997,65.400000000000006,65.099999999999994,64.799999999999997,65.299999999999997,64.799999999999997,65,64.799999999999997,65,64.799999999999997,65.099999999999994,65.099999999999994,64.799999999999997,65,64.799999999999997,65.299999999999997,65.400000000000006,65.599999999999994,65.700000000000003,65.700000000000003,66.5,66.599999999999994,66.5,66.5,67.5,67.700000000000003,68.900000000000006,68.900000000000006,69.900000000000006,70.099999999999994,70.400000000000006,69.900000000000006,72,78.5,84.700000000000003,90.099999999999994,94.299999999999997,97.200000000000003,98.099999999999994,97.599999999999994,98.200000000000003,97.900000000000006,97.599999999999994,93.200000000000003,88.299999999999997,83.5,79.099999999999994,75.200000000000003,71.099999999999994,67.700000000000003,65.299999999999997,64.700000000000003,64.799999999999997,65,65.099999999999994,65.099999999999994,64.799999999999997,65.299999999999997,64.799999999999997,65.099999999999994,65,65,65.599999999999994,65,64.799999999999997,65.400000000000006,66,65.900000000000006,65.599999999999994,66.599999999999994,66.799999999999997,66.5,66.599999999999994,67.200000000000003,67.700000000000003,68.900000000000006,68.900000000000006,69.5,70.099999999999994,69.799999999999997,69.799999999999997,71.599999999999994,77.799999999999997,83.900000000000006,89.299999999999997,94.299999999999997,97.299999999999997,98.099999999999994,97.599999999999994,97.599999999999994,97.599999999999994,97.299999999999997,92.5,87.799999999999997,83,78.700000000000003,74.400000000000006,70.700000000000003,67.5,65.599999999999994,64.799999999999997,65,65,65,65.099999999999994,65.099999999999994,65,65,64.799999999999997,64.799999999999997,65,65.400000000000006,64.799999999999997,65.099999999999994,65.299999999999997,65.599999999999994,65.599999999999994,65.599999999999994,66.5,66.799999999999997,66.5,66.799999999999997,67.200000000000003,67.700000000000003,68.299999999999997,68.599999999999994,69.5,70.099999999999994,69.900000000000006,69.799999999999997,71,77.299999999999997,83.599999999999994,89,94.299999999999997,97.5,97.900000000000006,97.599999999999994,97.900000000000006,97.799999999999997,97.200000000000003,92.599999999999994,87.5,83,78.400000000000006,74.400000000000006,70.5,67.400000000000006,65.299999999999997,65,65.099999999999994,64.700000000000003,65.299999999999997,65,65,64.799999999999997,65.099999999999994,65.099999999999994,64.799999999999997,65.099999999999994,65.099999999999994,65.099999999999994,64.799999999999997,65.700000000000003,65.700000000000003,65.900000000000006,65.700000000000003,66.599999999999994,66.799999999999997,66.599999999999994,66.799999999999997,67.5,67.700000000000003,68.700000000000003,69,69.900000000000006,70.099999999999994,69.900000000000006,69.799999999999997,72,78.400000000000006,84.400000000000006,90.099999999999994,94.700000000000003,97.900000000000006,97.799999999999997,97.799999999999997,97.5,97.799999999999997,96.599999999999994,91.400000000000006,86.299999999999997,82,77.599999999999994,73.5,69.900000000000006,67.099999999999994,65.099999999999994,65.099999999999994,64.799999999999997,65.299999999999997,65.099999999999994,64.799999999999997,65.099999999999994,65.099999999999994,65,65.099999999999994,65,65,65.099999999999994,65.299999999999997,64.700000000000003,65.700000000000003,65.599999999999994,65.700000000000003,65.700000000000003,66.799999999999997,66.599999999999994,66.5,67.200000000000003,67.700000000000003,67.799999999999997,68.900000000000006,69,69.799999999999997,69.799999999999997,69.799999999999997,69.799999999999997,73.099999999999994,79.700000000000003,85.400000000000006,91,95.299999999999997,97.799999999999997,97.599999999999994,97.799999999999997,97.599999999999994,97.599999999999994,96.900000000000006,91.700000000000003,86.799999999999997,82.299999999999997,77.799999999999997,74,70.200000000000003,66.799999999999997,65.099999999999994,65,65.099999999999994,65.299999999999997,64.799999999999997,65,65.099999999999994,64.799999999999997,65.099999999999994,65,65.099999999999994,64.799999999999997,65.299999999999997,64.799999999999997,64.799999999999997,65.700000000000003,65.599999999999994,65.599999999999994,65.299999999999997,66.900000000000006,66.5,66.799999999999997,66.799999999999997,67.700000000000003,67.700000000000003,69,69,70.099999999999994,70.099999999999994,69.900000000000006,69.799999999999997,74,80.200000000000003,85.700000000000003,91.099999999999994,95.5,98.099999999999994,97.5,98.099999999999994,97.599999999999994,97.599999999999994,96.099999999999994,91,86.299999999999997,81.799999999999997,77.400000000000006,73.200000000000003,69.799999999999997,66.799999999999997,65.299999999999997,65,64.799999999999997,65.299999999999997,64.799999999999997,64.799999999999997,65.099999999999994,65.099999999999994,64.799999999999997,65.299999999999997,64.799999999999997,65,65.099999999999994,65,65.099999999999994,65.700000000000003,65.700000000000003,66,65.599999999999994,66.900000000000006,66.5,66.599999999999994,66.599999999999994,67.799999999999997,67.700000000000003,69,68.900000000000006,70.200000000000003,70.099999999999994,70.200000000000003,70.200000000000003,74,80.799999999999997,86.5,91.900000000000006,95.900000000000006,98.200000000000003,97.599999999999994,97.799999999999997,97.799999999999997,97.799999999999997,95.599999999999994,90.5,85.599999999999994,81.400000000000006,77,73.099999999999994,69.5,66.299999999999997,65.299999999999997,65,64.799999999999997,65,65.099999999999994,65.099999999999994,65.099999999999994,65,65.099999999999994,64.799999999999997,65.299999999999997,65,65.099999999999994,65.099999999999994,64.700000000000003,65.700000000000003,65.599999999999994,65.900000000000006,65.900000000000006,66.900000000000006,66.5,66.799999999999997,66.900000000000006,67.700000000000003,67.5,69,68.599999999999994,70.200000000000003,70.200000000000003,70.099999999999994,70.200000000000003,74.400000000000006,80.599999999999994,86.599999999999994,91.900000000000006,96.099999999999994,98.200000000000003,97.599999999999994,97.900000000000006,97.799999999999997,97.799999999999997,95,89.799999999999997,85.099999999999994,80.599999999999994,76.400000000000006,72.299999999999997,69,66,65.099999999999994,64.799999999999997,65,65,64.799999999999997,65.299999999999997,64.799999999999997,65.299999999999997,65.299999999999997,65,64.799999999999997,65.299999999999997,65.299999999999997,64.700000000000003,64.799999999999997,65.700000000000003,65.700000000000003,65.700000000000003,65.700000000000003,66.799999999999997,66.5,66.5,66.599999999999994,67.700000000000003,67.799999999999997,69,69.200000000000003,69.900000000000006,69.799999999999997,69.799999999999997,69.799999999999997,74.700000000000003,80.900000000000006,86.799999999999997,91.900000000000006,96.099999999999994,98.099999999999994,97.799999999999997,97.799999999999997,97.599999999999994,97.900000000000006,95,89.900000000000006,85.099999999999994,80.799999999999997,76.400000000000006,72.599999999999994,68.900000000000006,66.200000000000003,64.799999999999997,65.299999999999997,64.799999999999997,65.599999999999994,64.799999999999997,64.799999999999997,64.799999999999997,64.799999999999997,65.099999999999994,65,65.099999999999994,64.799999999999997,65.299999999999997,64.799999999999997,65.299999999999997,65.599999999999994,65.599999999999994,65.599999999999994,65.700000000000003,66.799999999999997,66.799999999999997,66.799999999999997,66.900000000000006,67.799999999999997,67.799999999999997,68.900000000000006,69.5,69.900000000000006,69.799999999999997,69.799999999999997,70.200000000000003,76.099999999999994,82.400000000000006,88.099999999999994,93.400000000000006,96.700000000000003,97.900000000000006,97.599999999999994,97.799999999999997,97.799999999999997,97.799999999999997,94.299999999999997,89,84.099999999999994,80,75.599999999999994,71.700000000000003,68.400000000000006,65.700000000000003,64.799999999999997,64.799999999999997,64.799999999999997,65,64.799999999999997,65.099999999999994,65,64.799999999999997,65.299999999999997,65,64.799999999999997,65.299999999999997,64.799999999999997,65,65.099999999999994,65.700000000000003,65.700000000000003,65.599999999999994,65.700000000000003,66.799999999999997,66.5,66.799999999999997,66.900000000000006,67.799999999999997,68.099999999999994,68.900000000000006,69.299999999999997,69.900000000000006,69.799999999999997,69.799999999999997,70.5,76.400000000000006,82.599999999999994,88.400000000000006,93.5,97.299999999999997,97.799999999999997,97.599999999999994,98.099999999999994,97.599999999999994,97.299999999999997,92.799999999999997,87.799999999999997,83,78.700000000000003,74.700000000000003,70.700000000000003,67.400000000000006,65.299999999999997,65,64.799999999999997,65.299999999999997,65.099999999999994,65,65,65,65.299999999999997,65,64.799999999999997,65.099999999999994,64.799999999999997,64.799999999999997,65,65.599999999999994,66,65.599999999999994,65.700000000000003,66.799999999999997,66.5,66.799999999999997,66.900000000000006,67.700000000000003,68,68.900000000000006,69,70.200000000000003,69.900000000000006,69.900000000000006,69.799999999999997,72.900000000000006,79.400000000000006,85.400000000000006,90.700000000000003,95.200000000000003,97.799999999999997,97.599999999999994,98.099999999999994,97.599999999999994,98.099999999999994,96.400000000000006,91.299999999999997,86.5,82,77.599999999999994,73.799999999999997,69.900000000000006,66.900000000000006,65.099999999999994,64.799999999999997,65,65.099999999999994,65.099999999999994,64.799999999999997,65.099999999999994,64.799999999999997,65.099999999999994,65.099999999999994,64.799999999999997,64.799999999999997,64.799999999999997,64.799999999999997,65.400000000000006,65.400000000000006,65.599999999999994,65.599999999999994,65.700000000000003,66.599999999999994,66.5,66.599999999999994,66.599999999999994,67.700000000000003,67.799999999999997,68.900000000000006,68.599999999999994,69.900000000000006,69.900000000000006,69.599999999999994,69.599999999999994,73.5,80.200000000000003,86,91.299999999999997,95.599999999999994,98.400000000000006,97.599999999999994,97.799999999999997,97.599999999999994,97.799999999999997,95.5,90.200000000000003,85.400000000000006,80.900000000000006,76.700000000000003,72.799999999999997,69,66.299999999999997,65,65,64.799999999999997,65.299999999999997,64.799999999999997,65.099999999999994,65.299999999999997,64.799999999999997,65.099999999999994,65.099999999999994,65,64.799999999999997,65.400000000000006,64.799999999999997,65.299999999999997,65.599999999999994,65.599999999999994,65.700000000000003,65.700000000000003,66.599999999999994,66.599999999999994,66.599999999999994,66.799999999999997,67.799999999999997,67.799999999999997,68.900000000000006,69.200000000000003,69.799999999999997,69.900000000000006,69.799999999999997,69.599999999999994,75,80.900000000000006,86.599999999999994,91.700000000000003,96.400000000000006,98.200000000000003,97.599999999999994,97.799999999999997,97.5,97.799999999999997,94.700000000000003,89.599999999999994,84.799999999999997,80.5,76.099999999999994,72.299999999999997,68.599999999999994,66,65,64.799999999999997,65.099999999999994,65.099999999999994,65.099999999999994,64.799999999999997,65.099999999999994,65,65.299999999999997,64.799999999999997,65.099999999999994,64.700000000000003,65.099999999999994,64.799999999999997,65.099999999999994,65.700000000000003,65.900000000000006,66,65.900000000000006,66.900000000000006,66.5,66.799999999999997,66.799999999999997,67.799999999999997,67.799999999999997,69,69,70.200000000000003,70.200000000000003,70.400000000000006,70.5,76.5,82.700000000000003,88.400000000000006,93.400000000000006,96.900000000000006,97.900000000000006,97.799999999999997,97.599999999999994,97.599999999999994,97.799999999999997,94,89,84.200000000000003,79.900000000000006,75.799999999999997,71.900000000000006,68.299999999999997,65.700000000000003,64.799999999999997,65.299999999999997,65.099999999999994,65.099999999999994,65.099999999999994,65.099999999999994,65,65,65.400000000000006,65,64.799999999999997,65.099999999999994,65,64.799999999999997,65.599999999999994,65.599999999999994,65.900000000000006,65.900000000000006,66,66.799999999999997,66.5,66.5,66.900000000000006,67.5,67.799999999999997,68.900000000000006,69.299999999999997,69.900000000000006,69.799999999999997,69.799999999999997,70.200000000000003,76.400000000000006,82.700000000000003,88.099999999999994,93.700000000000003,97.200000000000003,97.599999999999994,97.599999999999994,97.799999999999997,97.799999999999997,97.5,92.799999999999997,87.799999999999997,83,78.799999999999997,74.599999999999994,71,67.700000000000003,65.599999999999994,65,65.099999999999994,65.099999999999994,64.799999999999997,65,65.299999999999997,64.799999999999997,65.099999999999994,65,64.799999999999997,65.299999999999997,64.799999999999997,64.799999999999997,65.299999999999997,65.599999999999994,65.400000000000006,65.900000000000006,65.900000000000006,66.599999999999994,66.599999999999994,66.799999999999997,66.5,67.700000000000003,67.700000000000003,69,68.900000000000006,69.799999999999997,70.400000000000006,70.200000000000003,70.400000000000006,72.599999999999994,79.299999999999997,85.299999999999997,90.700000000000003,95.5,98.099999999999994,97.599999999999994,98.099999999999994,97.599999999999994,97.799999999999997,96.400000000000006,91.400000000000006,86.5,82,77.799999999999997,73.5,69.900000000000006,66.900000000000006,65.299999999999997,64.799999999999997,65.299999999999997,64.799999999999997,65.299999999999997,65,64.799999999999997,65.099999999999994,65.099999999999994,64.799999999999997,65.299999999999997,64.799999999999997,65.299999999999997,64.799999999999997,65,65.700000000000003,65.700000000000003,65.599999999999994,65.599999999999994,66.799999999999997,66.5,66.799999999999997,66.799999999999997,67.700000000000003,67.799999999999997,68.900000000000006,69.299999999999997,69.900000000000006,69.799999999999997,69.5,70.099999999999994,67.5,63.5,60,56.5,53.799999999999997,50.399999999999999,47.799999999999997,45.299999999999997,43.200000000000003,42,42,42,42,42,41.799999999999997,42,41.799999999999997,41.799999999999997,41.799999999999997,41.799999999999997,41.799999999999997,41.799999999999997,41.799999999999997,41.799999999999997,41.799999999999997,41.700000000000003,41.799999999999997,41.799999999999997,41.700000000000003,41.799999999999997,41.700000000000003,41.700000000000003,41.5,41.799999999999997,41.700000000000003,41.5,41.5,41.700000000000003,41.700000000000003,41.700000000000003,41.700000000000003,41.700000000000003,41.700000000000003,41.799999999999997,41.700000000000003,41.799999999999997,41.799999999999997,41.799999999999997,41.700000000000003,41.799999999999997,41.700000000000003,41.700000000000003,41.700000000000003,41.5,39.399999999999999,37.600000000000001,37.600000000000001,37.700000000000003,37.600000000000001,37.399999999999999,37.600000000000001,37.600000000000001,37.700000000000003,37.600000000000001,37.600000000000001,37.399999999999999,37.600000000000001,37.399999999999999,37.399999999999999,37.600000000000001,37.399999999999999,37.399999999999999,37.399999999999999,37.600000000000001,37.600000000000001,37.399999999999999,37.600000000000001,37.600000000000001,37.600000000000001,37.399999999999999,37.399999999999999,37.600000000000001,37.399999999999999,37.399999999999999,37.399999999999999,37.600000000000001,37.399999999999999,37.399999999999999,37.399999999999999,37.600000000000001,37.399999999999999,37.399999999999999,37.399999999999999,37.399999999999999,37.399999999999999,37.399999999999999,37.399999999999999,37.399999999999999,37.399999999999999,37.399999999999999,37.299999999999997,37.299999999999997,37.399999999999999,37.299999999999997,37.299999999999997,37.299999999999997,37.299999999999997,37.299999999999997,37.299999999999997,37.299999999999997,37.100000000000001,37.299999999999997,37.299999999999997,37.100000000000001,37.100000000000001,37,37,37,37,37,37,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.5,36.5,36.700000000000003,36.5,36.5,36.5,36.5,36.399999999999999,36.200000000000003,36.100000000000001,36.200000000000003,36.200000000000003,36.100000000000001,36.100000000000001,36.200000000000003,36.200000000000003,36.200000000000003,36.200000000000003,36.200000000000003,36.200000000000003,36.100000000000001,36.200000000000003,36.200000000000003,36.200000000000003,36.5,36.399999999999999,36.200000000000003,36.200000000000003,36.399999999999999,36.200000000000003,36.200000000000003,36.200000000000003,36.200000000000003,36.399999999999999,36.399999999999999,36.200000000000003,36.200000000000003,36.200000000000003,36.399999999999999,36.399999999999999,36.200000000000003,36.399999999999999,36.200000000000003,36.200000000000003,36.5,36.399999999999999,36.399999999999999,36.5,36.399999999999999,36.200000000000003,36.200000000000003,36.399999999999999,36.200000000000003,36.5,36.399999999999999,36.5,36.5,36.5,36.5,36.5,36.5,36.399999999999999,36.399999999999999,36.5,36.200000000000003,36.5,36.5,36.399999999999999,36.5,36.399999999999999,36.5,36.5,36.5,36.5,36.5,36.5,36.5,36.5,36.5,36.5,36.5,36.5,36.5,36.5,36.700000000000003,36.5,36.700000000000003,36.700000000000003,36.5,36.700000000000003,36.5,36.700000000000003,36.5,36.5,36.5,36.5,36.5,36.5,36.5,36.5,36.5,36.5,36.5,36.5,36.700000000000003,36.700000000000003,36.5,36.5,36.5,36.5,36.700000000000003,36.5,36.700000000000003,36.5,36.700000000000003,36.700000000000003,36.700000000000003,36.700000000000003,36.5,36.5,36.700000000000003,36.799999999999997,36.700000000000003,36.799999999999997,36.799999999999997,36.799999999999997,36.5,36.799999999999997,36.5,36.700000000000003,36.700000000000003,36.700000000000003,36.700000000000003,36.700000000000003,36.700000000000003,36.700000000000003,36.799999999999997,36.700000000000003,36.700000000000003,36.700000000000003,36.5,36.799999999999997,36.799999999999997,36.5,36.799999999999997,36.5,36.700000000000003,36.700000000000003,36.700000000000003,36.700000000000003,36.799999999999997,36.700000000000003,36.5,36.799999999999997,36.5,36.700000000000003,36.5,36.700000000000003,36.700000000000003,36.700000000000003,36.799999999999997,36.700000000000003,36.700000000000003,36.799999999999997,36.700000000000003,36.700000000000003,36.799999999999997,36.700000000000003,36.700000000000003,36.799999999999997,36.799999999999997,36.700000000000003,36.799999999999997,36.5,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.700000000000003,36.799999999999997,36.700000000000003,36.700000000000003,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,37,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,37,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,37,36.799999999999997,36.799999999999997,36.799999999999997,37,37,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,37,37,36.799999999999997,36.799999999999997,37,37,37,37,36.799999999999997,36.799999999999997,37,36.799999999999997,37,36.799999999999997,37,37,36.799999999999997,36.799999999999997,37,36.799999999999997,36.799999999999997,36.799999999999997,37,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,37,37,36.799999999999997,36.799999999999997,36.799999999999997,37,36.799999999999997,36.799999999999997,37,36.799999999999997,36.799999999999997,36.799999999999997,37,37,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,37,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,36.799999999999997,37,36.799999999999997,37,36.799999999999997,36.799999999999997,37,36.799999999999997,36.799999999999997,37,37,37.299999999999997,37,36.799999999999997,37,37,37,37,37,37,37,37,36.799999999999997,37,37,37,37,36.799999999999997,37,37,36.799999999999997,36.799999999999997,37,37,36.799999999999997,37,37,37,36.799999999999997</pcrValues>
+  </data>
+</test>

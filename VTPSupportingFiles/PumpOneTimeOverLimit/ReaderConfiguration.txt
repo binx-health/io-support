@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <field>
+    <name>PatientId</name>
+    <policy>Display</policy>
+  </field>
+  <autoLogoffPeriodInSeconds>600</autoLogoffPeriodInSeconds>
+  <locale>English</locale>
+  <instrumentName>IO_SoftwareDev</instrumentName>
+  <passwordRulesEnabled>False</passwordRulesEnabled>
+  <passwordMinimumLength>6</passwordMinimumLength>
+  <passwordExpiryTimeInDays>1</passwordExpiryTimeInDays>
+  <autoSampleId>True</autoSampleId>
+  <qcDueAction>DoNotQuarantine</qcDueAction>
+  <qcDuration>1</qcDuration>
+  <qcTestDateTime>0001-01-01 00:00:00</qcTestDateTime>
+  <pcrCycles>0</pcrCycles>
+  <pump1Time>108000000</pump1Time>
+  <pump2Time>0</pump2Time>
+  <customDataLine1></customDataLine1>
+  <customDataLine2></customDataLine2>
+  <customDataLine3></customDataLine3>
+  <customDataLine4></customDataLine4>
+</configuration>

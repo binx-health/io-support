@@ -1,0 +1,2231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<test>
+  <serialNumber>0284</serialNumber>
+  <instrumentName>IO_0284</instrumentName>
+  <readerVersion>5.10.0</readerVersion>
+  <readerIntegrity>Release</readerIntegrity>
+  <firmwareVersion>5.0 build 908-t4-p2</firmwareVersion>
+  <biosVersion>ALASKA - 1072009|BIOS Date: 04/24/13 11:36:35 Ver: 04.06.05|BIOS Date: 04/24/13 11:36:35 Ver: 04.06.05</biosVersion>
+  <lockingUserID>{7d21f6c6-a052-4036-a57e-94fd6002709e}</lockingUserID>
+  <scannedBarcode>97011234567000000090</scannedBarcode>
+  <assay>
+    <assay>
+      <code>970</code>
+      <version>4</version>
+      <name>Candidate_CTNG_Assay(new)</name>
+      <shortName>CTNG</shortName>
+      <target>
+        <targetName>CT</targetName>
+        <targetType>STD</targetType>
+        <peakName>CT</peakName>
+        <control>CTIC</control>
+      </target>
+      <target>
+        <targetName>NG1</targetName>
+        <targetType>STD</targetType>
+        <peakName>NG1</peakName>
+        <control>NG1IC</control>
+      </target>
+      <target>
+        <targetName>NG2</targetName>
+        <targetType>STD</targetType>
+        <peakName>NG2</peakName>
+        <control>NG2IC</control>
+      </target>
+      <disease>
+        <diseaseName>CT</diseaseName>
+        <loinc>47212-6</loinc>
+        <target>CT</target>
+        <detectionCriteria>CT</detectionCriteria>
+      </disease>
+      <disease>
+        <diseaseName>NG</diseaseName>
+        <loinc>24111-7</loinc>
+        <target>NG1</target>
+        <target>NG2</target>
+        <detectionCriteria>NG1,NG2</detectionCriteria>
+      </disease>
+      <flatLineInvalidatesAssay>False</flatLineInvalidatesAssay>
+      <diseasesIndependentlyValidated>False</diseasesIndependentlyValidated>
+      <script>Main</script>
+      <estimatedDuration>1968</estimatedDuration>
+    </assay>
+    <metrics>General.Log.FastReporting 500
+Peltier.Detection.MaxTemp 77</metrics>
+    <scripts>
+      <script>
+        <name>error_30010</name>
+        <value>
+          <text>#---------------------------------------------
+#beta script error_30010
+#Based on: PAN-D-088 V1.0
+#Date originated: 06 May 2014
+#Author: Antony Brown
+#
+#Initialed to confirm this is a direct copy of the scipt listed above
+#
+#
+#
+#Copyright Atlas Genetics Ltd 2014
+#---------------------------------------------
+
+
+#-------------revision history----------------
+#1.0 30072014 AB - Copied from PAN-D-088 Version 1.0
+
+
+buzzer 1 30 2
+throw 30010                 # failure to charge positive logic reservoir
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>error_30011</name>
+        <value>
+          <text>#---------------------------------------------
+#beta script error_30011
+#Based on: PAN-D-089 V1.0
+#Date originated: 06 May 2014
+#Author: Antony Brown
+#
+#Initialed to confirm this is a direct copy of the scipt listed above
+#
+#
+#
+#Copyright Atlas Genetics Ltd 2014
+#---------------------------------------------
+
+
+#-------------revision history----------------
+#1.0 30072014 AB - Copied from PAN-D-089 Version 1.0
+
+
+buzzer 1 30 2
+throw 30011           #failure to charge vacuum reservoir
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>error_30013</name>
+        <value>
+          <text>#---------------------------------------------
+#beta script error_30013
+#Based on: PAN-D-090 V1.0
+#Date originated: 06 May 2014
+#Author: Antony Brown
+#
+#Initialed to confirm this is a direct copy of the scipt listed above
+#
+#
+#
+#Copyright Atlas Genetics Ltd 2014
+#---------------------------------------------
+
+
+#-------------revision history----------------
+#1.0 30072014 AB - Copied from PAN-D-090 Version 1.0
+
+
+buzzer 1 30 2
+throw 30013       #failure to turn on sample well heater
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>error_30014</name>
+        <value>
+          <text>#---------------------------------------------
+#beta script error_30014
+#Based on: PAN-D-091 V1.0
+#Date originated: 06 May 2014
+#Author: Antony Brown
+#
+#Initialed to confirm this is a direct copy of the scipt listed above
+#
+#
+#
+#Copyright Atlas Genetics Ltd 2014
+#---------------------------------------------
+
+
+#-------------revision history----------------
+#1.0 30072014 AB - Copied from PAN-D-091 Version 1.0
+
+
+buzzer 1 30 2
+throw 30014       #failure to charge res3</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>error_30015</name>
+        <value>
+          <text>#---------------------------------------------
+#error_30015
+#Based on: PAN-D-092 V2.0
+#Date originated: 11 May 2017
+#Author: Antony Brown
+#
+#Initialed to confirm this is a direct copy of the scipt listed above
+#
+#
+#
+#Copyright Atlas Genetics Ltd 2017
+#---------------------------------------------
+
+
+#-------------revision history----------------
+#Version 1.0 - Copied from PAN-D-092 V1.0
+#version 2.0 - Copied from PAN-D-092 V2.0
+#---------------------------------------------
+
+dpr dpr1 off
+buzzer 1 30 2
+throw 30015       #therm2 timeout</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>error_30016</name>
+        <value>
+          <text>#---------------------------------------------
+#error_30016
+#Based on: PAN-D-093 V2.0
+#Date originated: 11 May 2017
+#Author: Antony Brown
+#
+#Initialed to confirm this is a direct copy of the scipt listed above
+#
+#
+#
+#Copyright Atlas Genetics Ltd 2017
+#---------------------------------------------
+
+
+#-------------revision history----------------
+#Version 1.0 - Copied from PAN-D-093 V1.0
+#Version 2.0 - copied from PAN-D-093 V2.0
+#---------------------------------------------
+
+dpr dpr1 off 
+buzzer 1 30 2
+throw 30016       #therm3 timeout</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>error_30018</name>
+        <value>
+          <text>#---------------------------------------------
+#beta script error_30018
+#Based on: PAN-D-094 V2.0
+#Date originated: 20 May 2014
+#Author: Antony Brown
+#
+#Initialed to confirm this is a direct copy of the scipt listed above
+#
+#
+#
+#Copyright Atlas Genetics Ltd 2014
+#---------------------------------------------
+
+
+#-------------revision history----------------
+#2.0 14102014 AB: Copied from PAN-D-094 Version 2.0
+
+
+buzzer 1 30 2
+throw 30018       #therm2 timeout failed to reach Anneal temp</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>Main</name>
+        <value>
+          <text>#---------------------------------------------
+#Main
+#based on MOB-D-017 V10 
+#Antony Brown 19 April 2018
+#copyright Atlas Genetics Ltd 2018
+
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - Copied from MOB-D-019 V10 
+#            - call MOB-EP-576_PCR_fill V9 AKA DPR PCR fill
+#            - Increase PCR CYles to 42 cycles from MOB-D-014 V4.0
+#Version 2.0 - MOB-CM-0176
+#Version 3.0 - MOB-CM-0183 - CONCH 25
+#Verison 4.0 - MOB-CM-0192
+#---------------------------------------------
+
+
+call MOB-D-049                     #Progress Indicator NEW MOB-D-049 Version 1.0
+
+call MOB-D-025                     #Initialise Run MOB-D-025 Version 3.0
+
+#Sample extract 
+call MOB-D-026                     #Lysis Release MOB-D-026 version 1.0
+call MOB-D-027                     #Mix MOB-D-027 version 3.0
+call MOB-D-028                     #Pump MOB-D-028 version 2.0
+call MOB-D-020                     #Air_purge_1 MOB-D-020 version 5.0
+call MOB-D-029                     #Wash Release MOB-D-029 version 2.0
+call MOB-D-047                     #air_dry_1min_750 MOB-D-047 version 2.0
+call MOB-D-048                     #elution_dispense_1min MOB-D-048 Version 1.0
+
+#pcr and detection
+call MOB-D-023                     #Homogenise MOB-D-023 version 3.0
+call MOB-D-046                     #PCR_DPR_Fill MOB-D-046 v1.0
+call PAN-D-078                     #UNG Step PAN-D-078 version 3.0
+call MOB-D-045                     #42 cycle Rapid PCR MOB-D-045 version 1.0  
+call MOB-D-022                     #Fill Detection Chambers MOB-D-022 version 2.0
+call MOB-D-050                     #Detection Incubation NEW MOB-D-050 version 1.0
+
+
+#setup peak search parameters and call voltammetry
+#peak algorithm "type"  rawnoise permissible noise polyorder targetnoise
+peak algorithm "MultiPeak1Analysis"  1000 1000 6 49 
+
+#peak define  "name" outcome ch vstart vend vexp vtol thresh maxnoise prop widthmax widthmin propnoise
+
+peak define "CTIC" Positive 1 110 310 200 32 90 Infinity 25 60 160 90 4
+peak define "CT" Positive 1 295 510 390 60 115 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 1 520 620                            #this ignores the last part of the scan
+
+peak define "NG1IC" Positive 3 110 310 200 32 90 Infinity 25 60 160 90 4
+peak define "NG1" Positive 3 295 510 390 60 50 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 3 520 620                            #this ignores the last part of the scan
+
+peak define "NG2IC" Positive 4 110 310 200 32 60 Infinity 25 60 160 90 4
+peak define "NG2" Positive 4 295 510 390 60 45 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 4 520 620                            #this ignores the last part of the scan
+
+call MOB-D-016    #Mob-D-016 Version 3.0  voltammetry
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>MOB-D-016</name>
+        <value>
+          <text>#---------------------------------------------
+#NAT_CTNG_Volatmmetry
+#MOB-D-016
+#Antony Brown 05 Oct 2016
+#Copyright Atlas Genetics Ltd 2016
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - MOB-CM-0024
+#version 2.0 - MOB-CM-0055
+#version 3.0 - MOB-CM-0066
+#---------------------------------------------
+
+
+#syntax is start voltage mV, pulse amplitude mV, sweep increment mV, end voltage mV, pulse time ms, base time ms
+
+throw 10002,99
+
+#Data Scan
+voltammetry differential 0 50 3 600 40 60 
+delay 2200
+
+throw 10002,100
+#End process sequence - release pressure from bellows to waste
+begin atomic 1
+#set starting valve conditions so flow through to waste
+valve v2 on
+valve v3 off
+valve v4 on
+valve v5 on
+valve v6 on
+valve v7 off
+valve v8 on
+
+delay 30
+valve v1 on
+
+
+end
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>MOB-D-020</name>
+        <value>
+          <text>#---------------------------------------------
+#NAT_CTNG_air_purge_1
+#Mob-D-020
+#Antony Brown 11 MAY 2017
+#Copyright Atlas Genetics Ltd 2017
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - MOB-CM-0041
+#Version 2.0 - MOB-CM-0055
+#version 3.0 - MOB-CM-0108
+#version 4.0 - MOB-CM-0113
+#version 5.0 - MOB-CM-0125
+#---------------------------------------------
+
+
+#setup start conditions
+valve v1 off
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 on 
+valve v6 on
+valve v7 off
+valve v8 on
+dpr dpr1 off
+delay 50
+
+
+#check for res 3 charged 
+if res2800
+# do nothing
+else
+call error_30014
+endif
+delay 10
+
+#blow out back for 4.5s
+valve v9 on
+delay 10
+valve v8 off
+valve v4 off
+delay 20
+
+delay 450
+
+#shutdown
+valve v8 on
+delay 10
+valve v9 off
+delay 20
+valve v4 on
+
+#allow pressure to disapate. 
+delay 100
+
+#vent any remaining to sample well
+valve v3 off
+valve v2 off
+delay 30
+valve v3 on
+delay 30 
+valve v4 on</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>MOB-D-022</name>
+        <value>
+          <text>#---------------------------------------------
+#NAT_CTNG_fill_detection_chambers
+#MOB-D-022
+#Antony Brown 19 July 2016
+#Copyright Atlas Genetics Ltd 2016
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - MOB-CM-0041
+#version 2.0 - MOB-CM-0055
+#---------------------------------------------
+
+
+#set starting valve conditions
+valve v1 off
+valve v2 on
+valve v3 on
+valve v4 on
+valve v5 on
+valve v6 on
+valve v7 on
+valve v8 on
+valve v16 off
+valve v17 on
+delay 10
+
+#Set Pstat to internal circuit
+pstat 0 internal
+
+#Engage mechanical valve 
+stepper l5 200 300   # slow down mech valve to top of tpe
+delay 200
+stepper l5 50 310 mechengage
+wait mechengage 5
+delay 500
+
+#set up DPR
+dpr dpr1 on 2 0
+valve v16 on
+delay 10
+
+#set up fill Detection chambers
+valve v2 off
+delay 10
+
+begin atomic 8
+valve v2 on
+delay 50
+valve v2 off
+delay 50
+end
+
+#Fill
+dpr dpr1 on 28 900
+delay 950
+valve v2 on
+delay 50
+
+#keep dpr on during reach and prtect instrument
+valve v17 off         # protect instrument from potential back wash
+
+
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>MOB-D-023</name>
+        <value>
+          <text>#---------------------------------------------
+#NAT_CTNG_homogenisation
+#MOB-D-023
+#Antony Brown 11 MAY 2017
+#Copyright Atlas Genetics Ltd 2017
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - MOB-CM-0041
+#Version 2.0 - MOB-CM-0055
+#Version 3.0 - MOB-CM-0125
+#---------------------------------------------
+
+
+begin atomic 1
+
+#lift elution blister actuator
+stepper l2 500 -600 elutionlift
+wait elutionlift 5               
+
+#retract wash stepper
+stepper L4 200 -550 washretract
+wait washretract 15
+
+#back off actuator from stop
+stepper l2 500 20 backoff
+stepper l4 500 20 backoffw
+wait backoff 2
+wait backoffw 2
+
+end
+
+#set start conditions
+valve v1 off
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 on
+valve v6 on
+valve v7 off
+valve v8 on
+valve v17 on
+delay 10
+
+
+#open to DPR
+dpr dpr1 on 5 0
+delay 30
+valve v16 on
+delay 20
+
+#cycle between 1-5% atmospheric
+begin nonatomic 30 done
+	valve v16 on
+	delay 20
+	valve v16 off
+	delay 20
+end
+wait done 30
+dpr dpr1 on 2 0
+
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>MOB-D-025</name>
+        <value>
+          <text>#---------------------------------------------
+#NAT_CTNG_Initialise_Run
+#MOB-D-025
+#Antony Brown 12 MAY 2017
+#copyright Atlas Genetics Ltd 2017
+#---------------------------------------------
+
+#-------------Revision-History---------------
+#version 1.0 - MOB-CM-0055
+#version 2.0 - MOB-CM-0108
+#Version 3.0 - MOB-CM-0125
+#--------------------------------------------
+
+
+#Set Pstat to internal circuit
+pstat 0 internal
+
+begin atomic 1 done
+set Motor.Steppers.Pwm 100    #high force movements
+  stepper l2 500 60 step
+  stepper l4 500 60 stepwash
+  wait step 1
+  wait stepwash 1
+  stepper l2 500 -50 step2
+  stepper l4 500 -50 stepwash2 
+  wait step2 1
+  wait stepwash2 1
+  stepper l2 500 60 step
+  stepper l4 500 60 stepwash
+  wait step 1
+  wait stepwash 1
+  stepper l2 500 -50 step2
+  stepper l4 500 -50 stepwash2 
+  wait step2 1
+  wait stepwash2 1
+  stepper l2 500 60 step
+  stepper l4 500 60 stepwash
+  wait step 1
+  wait stepwash 1
+  stepper l2 500 -50 step2
+  stepper l4 500 -50 stepwash2 
+  wait step2 1
+  wait stepwash2 1
+
+set Motor.Steppers.Pwm 70    #standard force movements
+
+
+stepper l2 500 -70 done
+stepper l4 500 -70 done2      
+wait done 5
+wait done2 5
+stepper l2 500 20 done        # reset to initial position 
+stepper l4 500 20 done2
+wait done 5
+wait done2 5
+
+end
+
+res res1 dump
+res res2 dump
+res res3 dump
+
+#set dpr off so that new one does not buzz whilst res 3 is empty 
+dpr dpr1 off
+	
+solenoid m1 on #isolation_release on 		# isolation solenoid should be powered up indefinitely
+solenoid s1 off #drawer_catch off   		# drawer_catch should be left off normally
+
+#pressure valves are rippled on-and-off 
+valve v12 on #vacuum_enable on
+valve v13 on #Low_High_Pressure_Select on
+valve v1 on  #bellows on
+valve v2 on  #pump_V1_pcr on
+valve v3 on  #pump_V2 on
+valve v4 on  #V3_wash_inlet on
+valve v5 on  #V4_elute_inlet on
+valve v6 on  #V5_elute_enable on
+valve v7 on  #v6_waste_enable on
+valve v8 on
+valve v9 on  #wash_air_dry on
+valve v10 on #elute_air_dry on
+valve v14 on #low_pressure_dump on
+valve v15 on #high_pressure_dump on 
+valve v16 on #digital_enable on
+valve v11 on #vacuum_dump on
+valve v17 on
+
+delay 10
+
+valve v12 off #vacuum_enable off
+valve v13 off #Low_High_Pressure_Select off
+valve v1 off  #bellows off
+valve v2 off  #pump_V1_pcr off
+valve v3 off  #pump_V2 off
+valve v4 off  #V3_wash_inlet off
+valve v5 off  #V4_elute_inlet off
+valve v6 off  #V5_elute_enable off
+valve v7 off  #v6_waste_enable off
+valve v8 off  #air_dry_enable off
+valve v9 off  #wash_air_dry off
+valve v10 off #elute_air_dry off
+valve v14 off #low_pressure_dump off
+valve v15 off #high_pressure_dump off 
+valve v16 off #digital_enable off
+valve v11 off #vacuum_dump off
+valve v17 off #digital_outlet atmospheric off
+
+#open manifold with no pressure in reservoirs
+valve v13 on
+valve v12 on
+delay 50
+
+#charge positive hard 
+res res2 hold 900 1100 2 initpswID 
+
+#set up valve conditions to suck in fluid forming a meniscus in sample well inlet
+valve v2 on
+delay 50
+valve v1 on
+delay 100
+#allow bellows to close fully before closing v3
+valve v3 on
+valve v4 on
+valve v5 on
+valve v6 on
+valve v7 on
+valve v8 on
+delay 20
+
+#charge res3 atomicly to stop original DPR form buzzing
+begin atomic 1
+res res3 hold 700 900 3 res2800
+delay 300
+wait res2800 5
+end
+
+#turn on Sample well peltier to get to temp before mix
+set Peltier.Lysis.Kp 500000
+set Peltier.Lysis.Ki 500
+set Peltier.Lysis.Kd 0
+set Peltier.Lysis.TargetOffset 5
+
+#Turn on sample well heater
+therm therm1 on 37 heatsample
+
+#Charge vacuum logic pressure for a softer mixing process
+res res1 hold 500 700 2 initvswID
+wait initpswID 10
+wait initvswID 10
+
+#check for pressures
+if initpswID
+#do nothing
+else 
+call error_30010 
+endif
+if initvswID
+#do nothing
+else 
+call error_30011
+endif
+
+#remove meniscus from sample well inlet with bellows 
+valve v1 off
+delay 50
+valve v2 off
+delay 2000
+
+#Rattle bellows to remove any remaining meniscus
+begin nonatomic 2 done
+valve v1 on
+delay 40
+valve v1 off
+delay 100
+end
+
+#relax reservoir to allow to recharge to gentle pressure for mix.
+res res2 dump
+delay 100
+res res2 hold 400 550 2 initpswID
+wait initpswID 10</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>MOB-D-026</name>
+        <value>
+          <text>#---------------------------------------------
+#NAT_CTNG_Lysis_Release
+#MOB-D-026
+#Antony Brown 28 July 2016
+#copyright Atlas Genetics Ltd 2016
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History---------------
+#version 1.0 - MOB-CM-0055
+#--------------------------------------------
+
+
+#set start conditions to check manifold protection
+valve v1 off
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 on
+valve v6 on
+valve v7 on
+valve v8 on
+
+
+#Reach blister
+stepper l3 500 250 lysisreach1
+wait lysisreach1 3
+
+
+#crush blister slow and totally
+stepper l3 100 340 lysissquash
+
+delay 370
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>MOB-D-027</name>
+        <value>
+          <text>#---------------------------------------------
+#NAT_CTNG_Mix
+#MOB-D-027
+#Antony Brown 11 Jan 2017
+#copyright Atlas Genetics Ltd 2017
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History---------------
+#version 1.0 - MOB-CM-0055
+#version 2.0 - MOB-CM-0066
+#version 3.0 - MOB-CM-0108 
+#--------------------------------------------
+
+
+wait heatsample 30                 # only needs this long if it starts from warm. 
+if heatsample
+#do nothing
+else
+call error_30013
+endif
+
+#set PID for sample well heater to stop control loop ringing
+therm therm1 off
+set Peltier.Lysis.Kp 350000
+set Peltier.Lysis.Ki 15
+therm therm1 on 37 ackvar
+
+#Set up the fluidic path
+valve v1 off
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 on 
+valve v6 on
+valve v7 on
+valve v8 on
+
+begin atomic 1
+#back off lysis actuator to protect manifold from leaking.
+stepper l3 500 -400 lysisretract
+wait lysisretract 5
+end
+
+
+#mix fluid                    # v1 bellows off and on in that order to keep as much sample as possible over heater
+begin nonatomic 11 ACK        # 11 cycles as first on is a false pump
+valve v1 off
+delay 100
+valve v1 on
+delay 100
+#back gulp 2.8seconds
+valve v2 on
+delay 30
+valve v3 off
+delay 30
+valve v1 off
+delay 100
+valve v3 on
+delay 30
+valve v2 off
+delay 30
+valve v1 on
+delay 60
+#extra delay to evenly space 11 pumps over 1 min (cycle time = 4.8s)
+delay 65
+end
+wait ACK 25
+
+#turn off sample well heater
+therm therm1 off 
+
+
+#return positive logic to normal operational pressure
+res res2 hold 1100 1250 2 initpswID
+wait initpswID 10
+if initpswID
+                                 # leave blank to leave visual marker in script. 
+else 
+call error_30010 
+endif
+
+
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>MOB-D-028</name>
+        <value>
+          <text>#---------------------------------------------
+#NAT_CTNG_Pump
+#MOB-D-028
+#Antony Brown 11 Jan 2017
+#copyright Atlas Genetics Ltd 2017
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History---------------
+#version 1.0 - MOB-CM-0055
+#version 2.0 - MOB-CM-0108
+#--------------------------------------------
+
+#Prime_to_pump_to_waste:  sets up the fluidic path
+valve v1 on
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 on 
+valve v6 on
+valve v7 off
+valve v8 on
+
+#pumps fluid
+begin nonatomic 12 pumped
+	 valve v3 on
+	 delay 5			
+	 valve v2 off
+	 delay 5	
+	 valve v1 off
+	 delay 100
+	 valve v2 on
+	 delay 5
+	 valve v3 off
+	 delay 5
+	 valve v1 on
+	 delay 200
+valve v1 off
+delay 30
+valve v1 on
+delay 200
+end
+wait pumped 25
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>MOB-D-029</name>
+        <value>
+          <text>#---------------------------------------------
+#NAT_CTNG_Wash_Release
+#MOB-D-029
+#Antony Brown 05 Spet 2016
+#copyright Atlas Genetics Ltd 2016
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History---------------
+#version 1.0 - MOB-CM-0055
+#Version 2.0 - MOB-CM-0066
+#--------------------------------------------
+
+
+#set start conditions to check manifold protection
+valve v1 off
+valve v2 on
+valve v3 on
+valve v4 off
+valve v5 on
+valve v6 on 
+valve v7 off
+valve v8 on
+delay 50
+
+#crush blister slow
+stepper l4 250 230 washreach1
+wait washreach1 15
+delay 10
+
+#begin repeatedly crushing slightly then releasing back pressure until a displacment on 480 steps is reached
+begin nonatomic 12		
+stepper l4 100 40 washsquash
+wait washsquash 3
+delay 140
+end
+
+#leave stepper down to stop blister inflating during air purges
+
+
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>MOB-D-045</name>
+        <value>
+          <text>#---------------------------------------------
+#NAT_CTNG_42_Cycle_Rapid PCR
+#MOB-D-045
+#Antony Brown 30 Apr 2018
+#copyright Atlas Genetics Ltd 2018
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#version 1.0 - MOB-CM-0176
+#---------------------------------------------
+
+
+#Set up PCR peltier PID
+set Peltier.Pcr.Kp 600000
+set Peltier.Pcr.Ki 10
+set Peltier.Pcr.Kd 12000000
+set Peltier.Pcr.Imax 120000
+
+
+
+begin atomic 41 all_done     #41 cycles starting from annealing to add in commands to run parrallel to save time in assay
+
+#anneal
+#use accuracy-optimised parameters to return at 50% power.
+set Peltier.Pcr.Kp 400000
+set Peltier.Pcr.Ki 0
+set Peltier.Pcr.Kd 8000000
+set Peltier.Pcr.Imax 50
+set Peltier.Pcr.PwmMax 50
+therm therm2 on 65 anneal
+wait anneal 15
+       if anneal
+       #do nothing
+       else
+       call error_30018
+       endif
+delay 715
+
+#extend                 
+#using re-optimised values to accurately edge up.
+set Peltier.Pcr.Kp 600000
+set Peltier.Pcr.Ki 50
+set Peltier.Pcr.Kd 10000000
+set Peltier.Pcr.Imax 120
+set Peltier.Pcr.PwmMax 50
+therm therm2 on 65.8 adjust          
+delay 200
+therm therm2 on 66.8 phase3
+delay 200
+therm therm2 on 67.8 phase4
+delay 100
+therm therm2 on 69.0 phase5
+delay 100
+therm therm2 on 70.2 phase6
+delay 200
+
+#denature using original setting
+set Peltier.Pcr.Kp 600000
+set Peltier.Pcr.Ki 10
+set Peltier.Pcr.Kd 12000000
+set Peltier.Pcr.Imax 120000
+set Peltier.Pcr.PwmMax 50
+therm therm2 on 98 phase1
+wait phase1 6
+delay 230
+end
+wait all_done 1400
+
+
+#final anneal at end of 41 cycles           # to make up to 42 cycles and to preheat detection peltier. 
+
+#use accuracy-optimised parameters to return at 50% power.
+set Peltier.Pcr.Kp 400000
+set Peltier.Pcr.Ki 0
+set Peltier.Pcr.Kd 8000000
+set Peltier.Pcr.Imax 50
+set Peltier.Pcr.PwmMax 50
+therm therm2 on 65 anneal
+wait anneal 15
+       if anneal
+       #do nothing
+       else
+       call error_30018
+       endif
+delay 715
+
+#--------------------------------------------
+# preheat Detection peltier
+#using accuracy amended parameters 
+begin atomic 1
+set Peltier.Detection.Kp 255000
+set Peltier.Detection.Ki 16
+set Peltier.Detection.Kd  100000
+
+therm therm3 on 42 preheatdetection
+delay 1000                    # to equalise temperature
+wait preheatdetection 15
+if  preheatdetection
+#do nothing
+else
+call error_30016
+endif
+end
+#-------------------------------------------
+
+#extend                 
+#using re-optimised values to accurately edge up.
+set Peltier.Pcr.Kp 600000
+set Peltier.Pcr.Ki 50
+set Peltier.Pcr.Kd 10000000
+set Peltier.Pcr.Imax 120
+set Peltier.Pcr.PwmMax 50
+therm therm2 on 65.8 adjust
+delay 200
+therm therm2 on 66.8 phase3
+delay 200
+therm therm2 on 67.8 phase4
+delay 100
+therm therm2 on 69.0 phase5
+delay 100
+therm therm2 on 70.2 phase6 
+delay 200
+
+
+#equalise temperature through cartridge use anneal PIDs
+set Peltier.Pcr.Kp 300000
+set Peltier.Pcr.Ki 5
+set Peltier.Pcr.Kd 0
+set Peltier.Pcr.Imax 120000
+set Peltier.Pcr.PwmMax 50
+
+therm therm2 on 42 PCR42
+wait PCR42 12
+if PCR42
+#do nothing
+else
+call error_30015
+endif
+                  
+
+                  
+
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>MOB-D-046</name>
+        <value>
+          <text>#---------------------------------------------
+#NAT_CTNG_PCR_DPR_fill
+#MOB-D-045
+#Antony Brown 30 Apr 2018
+#copyright Atlas Genetics Ltd 2018
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#version 1.0 - MOB-CM-0176
+#---------------------------------------------
+
+
+#Set start conditions
+valve v1 off
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 on
+valve v6 on
+valve v7 on
+valve v8 on
+valve v16 on
+
+#Set DPR to on and fill to 19% atmospheric and saturate first spot for 10 secs to rehydrate
+dpr dpr1 on 19 300
+delay 1330
+
+# flux 5 times to disturb lifted reagent
+begin nonatomic 5
+dpr dpr1 on 14 5
+delay 50
+dpr dpr1 on 17 5
+delay 50
+end
+
+#Saturate second spot for 10 secs to rehydrate
+dpr dpr1 on 32 30
+delay 1000
+
+# flux 8 times over the 2nd spot
+begin nonatomic 8
+dpr dpr1 on 23 5
+delay 50
+dpr dpr1 on 29 5
+delay 50
+end
+
+#Retract to spread mix across chamber
+dpr dpr1 on 23 200
+delay 500
+
+#fill PCR chambers and finish sequence
+dpr dpr1 on 34 300
+delay 300
+valve v2 on
+delay 30
+
+set Motor.Steppers.Pwm 100   #allow 100% current just for this move.
+
+#Shut down DPR valve 
+valve v16 off
+dpr dpr1 off
+delay 20
+
+#Lift mechanical valve for PCR
+stepper l5 350 -900 liftMV
+delay 250
+wait liftMV 5
+
+stepper l5 350 20            # move mechnical valve off its stop
+set Motor.Steppers.Pwm 70   
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>MOB-D-047</name>
+        <value>
+          <text>#---------------------------------------------
+# NAT_CTNG_air_dry_1min_750
+#MOB-D-047
+#Antony Brown 06 Aug 2018
+#copyright Atlas Genetics Ltd 2018
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - MOB-CM-0183
+#Version 2.0 - MOB-CM-0192
+#---------------------------------------------
+
+ 
+#setup start conditions
+valve v1 off
+valve v3 on
+valve v2 off
+valve v4 on
+valve v5 on
+valve v6 on 
+valve v7 off
+valve v8 on
+valve v16 off
+valve v17 off 
+
+
+#clear wash downstream from blister for 2 seconds to remove excess wash from upstream 
+valve v9 on
+delay 20
+valve v8 off 
+valve v4 off
+delay 200
+valve v8 on
+
+#short pressure release 
+delay 200
+
+# blow again to displace extra wash fluid. 
+valve v8 off
+delay 500
+valve v8 on
+delay 25
+valve v4 on
+delay 25
+valve v9 off
+delay 30
+
+
+#clear wash back to sample well prep for air dry for 0.2s to clear any excess between valves 3 and 4
+valve v3 off
+delay 100       #disapate pressure
+valve v10 on
+delay 30
+valve v8 off
+delay 30
+valve v5 off
+#This is the period that the air flows to sample well
+delay 20
+valve v3 on
+
+#charge res2 higher to maintain valve seal during airdry
+res res2 hold 1200 1350 20 res21200
+wait res21200 5
+if res21200
+#do nothing
+else
+call error_30010
+endif
+
+#airdry set up higher pressure
+res res3 hold 700 800 10 res31000
+
+#airdry start
+delay 4000
+
+#start peltier during airdry to preheat back end
+begin atomic 1 preheat
+set Peltier.Pcr.Kp 300000
+set Peltier.Pcr.Ki 10
+set Peltier.Pcr.Kd 0
+set Peltier.Pcr.MinTemp 10
+set Peltier.Pcr.Imax 120000
+
+set Peltier.Detection.Kp 100000
+set Peltier.Detection.Ki 10
+set Peltier.Detection.Kd 0
+
+therm therm3 on 22 cooldc
+therm therm2 on 37 warmstart
+wait cooldc 10
+wait warmstart 10
+end
+
+#finish airdry
+delay 2000
+valve v8 on
+delay 20
+
+#check high pressure reservoir is able to hold pressure retrospectivly
+wait res31000 5
+if res31000
+#do nothing
+else
+call error_30014
+endif 
+
+begin atomic 1 complete
+#lift lysis stepper motor
+stepper L3 200 -200 lysisretract
+wait lysisretract 5 
+end
+
+#dump res3 after airdry and close air dry line
+res res3 dump
+delay 200
+valve v10 off
+
+
+#stop DPR buzzing during elute phase, favouring the new DPR
+dpr dpr1 off            
+#res3 charge happens in elution dispence phase immediatly after this script
+
+
+#set res 2 to lower valve logic pressure back to normal in due course
+res res2 hold 900 1100 3 
+
+
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>MOB-D-048</name>
+        <value>
+          <text>#---------------------------------------------
+#NAT_CTNG_elution_dispense_1min
+#MOB-D-048
+#Antony Brown 08 June 2018
+#copyright Atlas Genetics Ltd 2018
+#---------------------------------------------
+
+
+#set start conditions to check manifold protection
+valve v1 off
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 off
+valve v6 off
+valve v7 on
+valve v8 on
+valve v16 off                                           #set valve v16 to vent elution well
+valve v17 on
+
+begin atomic 1
+#Charge Reservoir
+dpr dpr1 off 
+delay 50
+res res3 hold 700 900 3 initregID
+wait initregID 5
+if initregID
+#do nothing
+else
+call error_30014
+endif
+end
+
+#engage menchanical valve
+stepper l5 500 600 mechvengage
+wait mechvengage 15
+delay 125
+
+
+#reach blister elution
+stepper L2 500 200 elutionreach1
+wait elutionreach1 15
+
+begin atomic 1
+#check peltier is preheated
+
+#PCR check
+if warmstart
+#do nothing
+else
+call error_30015
+endif
+end
+
+begin nonatomic  2					#2 steps to pop blister and cover column
+stepper L2 50 42 elutionsquash
+wait elutionsquash 3
+delay 200                                         
+end
+
+#delay 1 min
+delay 6000
+
+begin nonatomic  8					#8 slow steps dispence eluate over column and into elution well
+stepper L2 50 50 elutionsquash
+wait elutionsquash 3
+delay 200                                         
+end
+
+#shutdown
+valve v6 on
+delay 100</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>MOB-D-049</name>
+        <value>
+          <text>#---------------------------------------------
+#NAT_CTNG_Progress_Indicator_NEW
+#MOB-D-049
+#Antony Brown 06 Aug 2018
+#copyright Atlas Genetics Ltd 2018
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History---------------
+#version 1.0 - MOB-CM-192
+#--------------------------------------------
+
+
+begin atomic 1
+
+throw 10002,0
+delay 1963
+throw 10002,1
+delay 1963
+throw 10002,2
+delay 1963
+throw 10002,3
+delay 1963
+throw 10002,4
+delay 1963
+throw 10002,5
+delay 1963
+throw 10002,6
+delay 1963
+throw 10002,7
+delay 1963
+throw 10002,8
+delay 1963
+throw 10002,9
+delay 1963
+throw 10002,10
+delay 1963
+throw 10002,11
+delay 1963
+throw 10002,12
+delay 1963
+throw 10002,13
+delay 1963
+throw 10002,14
+delay 1963
+throw 10002,15
+delay 1963
+throw 10002,16
+delay 1963
+throw 10002,17
+delay 1963
+throw 10002,18
+delay 1963
+throw 10002,19
+delay 1963
+throw 10002,20
+delay 1963
+throw 10002,21
+delay 1963
+throw 10002,22
+delay 1963
+throw 10002,23
+delay 1963
+throw 10002,24
+delay 1963
+throw 10002,25
+delay 1963
+throw 10002,26
+delay 1963
+throw 10002,27
+delay 1963
+throw 10002,28
+delay 1963
+throw 10002,29
+delay 1963
+throw 10002,30
+delay 1963
+throw 10002,31
+delay 1963
+throw 10002,32
+delay 1963
+throw 10002,33
+delay 1963
+throw 10002,34
+delay 1963
+throw 10002,35
+delay 1963
+throw 10002,36
+delay 1963
+throw 10002,37
+delay 1963
+throw 10002,38
+delay 1963
+throw 10002,39
+delay 1963
+throw 10002,40
+delay 1963
+throw 10002,41
+delay 1963
+throw 10002,42
+delay 1963
+throw 10002,43
+delay 1963
+throw 10002,44
+delay 1963
+throw 10002,45
+delay 1963
+throw 10002,46
+delay 1963
+throw 10002,47
+delay 1963
+throw 10002,48
+delay 1963
+throw 10002,49
+delay 1963
+throw 10002,50
+delay 1963
+throw 10002,51
+delay 1963
+throw 10002,52
+delay 1963
+throw 10002,53
+delay 1963
+throw 10002,54
+delay 1963
+throw 10002,55
+delay 1963
+throw 10002,56
+delay 1963
+throw 10002,57
+delay 1963
+throw 10002,58
+delay 1963
+throw 10002,59
+delay 1963
+throw 10002,60
+delay 1963
+throw 10002,61
+delay 1963
+throw 10002,62
+delay 1963
+throw 10002,63
+delay 1963
+throw 10002,64
+delay 1963
+throw 10002,65
+delay 1963
+throw 10002,66
+delay 1963
+throw 10002,67
+delay 1963
+throw 10002,68
+delay 1963
+throw 10002,69
+delay 1963
+throw 10002,70
+delay 1963
+throw 10002,71
+delay 1963
+throw 10002,72
+delay 1963
+throw 10002,73
+delay 1963
+throw 10002,74
+delay 1963
+throw 10002,75
+delay 1963
+throw 10002,76
+delay 1963
+throw 10002,77
+delay 1963
+throw 10002,78
+delay 1963
+throw 10002,79
+delay 1963
+throw 10002,80
+delay 1963
+throw 10002,81
+delay 1963
+throw 10002,82
+delay 1963
+throw 10002,83
+delay 1963
+throw 10002,84
+delay 1963
+throw 10002,85
+delay 1963
+throw 10002,86
+delay 1963
+throw 10002,87
+delay 1963
+throw 10002,88
+
+end
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>MOB-D-050</name>
+        <value>
+          <text>
+#---------------------------------------------
+#NAT_CTNG_Detection_Incubation_NEW
+#MOB-D-050
+#Antony Brown 06 Aug 2018
+#copyright Atlas Genetics Ltd 2018
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+
+#-------------Revision-History----------------
+#Version 1.0 - MOB-CM-0192
+#---------------------------------------------
+
+
+
+begin atomic 1
+delay 1963
+throw 10002,90
+delay 1963
+throw 10002,91
+delay 1963
+throw 10002,92
+delay 1963
+throw 10002,93
+delay 1963
+throw 10002,94
+delay 1963
+throw 10002,95
+delay 1963
+throw 10002,96
+delay 1963
+throw 10002,97
+delay 1963
+throw 10002,98
+
+end
+
+#set incubation temperature
+therm therm3 on 37 INCDT        
+
+set peltier.pcr.ki 20
+therm therm2 on 37 INCPCR
+wait INCPCR 30
+wait INCDT 30
+
+if INCDT
+#do nothing
+else
+call error_30016
+endif
+
+if INCPCR
+#do nothing
+else
+call error_30015
+endif
+
+set peltier.pcr.ki 6
+
+#delay for incubation before read
+delay 16500
+
+
+
+#start prescan
+begin atomic 1
+pstat 210 external
+voltammetry differential 0 50 10 600 40 60             #Full prescan  
+end
+
+#delay to finish 3 min incubation time
+delay 1500
+
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+      <script>
+        <name>PAN-D-078</name>
+        <value>
+          <text>
+#---------------------------------------------
+#NAT_CT_UNG_Step
+#PAN-D-078
+#Antony Brown 21 Feb 2014
+#Copyright Atlas Genetics Ltd 2014
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - PAN-CM-0128
+#version 2.0 - PAN-CM-0146
+#version 3.0 - PAN-CM-0178
+#---------------------------------------------
+
+
+set Peltier.Pcr.Kp 300000
+set Peltier.Pcr.Ki 5
+set Peltier.Pcr.Kd 0
+set Peltier.Pcr.Imax 120000
+
+
+therm therm2 on 37 incubate   #2 minute UNG activation
+wait incubate 9
+delay 9120           
+
+                  
+therm therm2 on 94 denat      
+wait denat 15
+if denat
+#do nothing
+else
+call error_30015
+endif
+
+delay 18000
+
+#--------------------------------------------
+</text>
+          <signature isNull="True" />
+        </value>
+      </script>
+    </scripts>
+    <signature>JNGuJ9TGKfUiSXg7dGB0Iv3qVeCxkmx7y4hIi/eFCEE5DueCLIsCME9Qhh9nRWvis00uikmjOn9VX34UAs3i0L+xhD16MFqk9P6mGzuARPR/+KaxYau+sJ3XTpduHWaUpIY4LeooVI0JIuF2jhcPUomHYAmTxL1o9j5MmgtitWeIpJtSpOj3HCU/GJabxLQr7NHR/aOJmIT3jcahCCSUgUMA68Cvokm3y2tU8UVfVE4GH1FP7Iv02bnP/6FqAuOYRNlIqobs13pRYOkvIjB4EM1Q3Hm9I9MT6g9JIT0WWOvwfxRwixSCrtXoDkcusD2PnbeOcGHKjxv/5G1EnLL2z/ZneINRP6U5fgWPLik6O1EBmSYxweNnsmvXW5aO/WLAV5mhnUAE0KcFAYDz/vkf3yw72dbNYp/IJks6psFXErLr4SibcksiT28Fx/P+FlH4sMy9mKft8184ezNHhwyAmvk9FIFaisdvE9c4iYo+iW6nY3gtH54IXtdPxGRo4R4tp70c9MWwLwuAWxZHTP/Tqs3wJrWEYUDqGdQnxSCOnWIz1tZZ71QVceY2uuGfqnqhbhAuXIDZ4SdvtWES4Am4hyzmt9g2V0q5wv48+ybpIVYG5fNdEYXInZcAArPv04b+4VGASy7xsuboYhwHAONRU1kldQKoPQkZ/T9/37ksF3M=</signature>
+    <installedDateTime>2018-08-09 14:36:16</installedDateTime>
+  </assay>
+  <percentComplete>13</percentComplete>
+  <result>
+    <identity>{15518f2c-9fd9-4b67-bb07-f9bcabf70ebe}</identity>
+    <sampleId>MOB-VTP-010_secB_1</sampleId>
+    <instrumentName>IO_0284</instrumentName>
+    <instrumentSerialNumber>0284</instrumentSerialNumber>
+    <patientInformation>
+      <name>PatientId</name>
+      <value>MOB-VTP-010_secB_1</value>
+      <fieldType>Text</fieldType>
+    </patientInformation>
+    <user>admin</user>
+    <qcTest>False</qcTest>
+    <startDateTime>2018-08-10 09:33:31</startDateTime>
+    <endDateTime>2018-08-10 09:37:59</endDateTime>
+    <assayName>Candidate_CTNG_Assay(new)</assayName>
+    <assayShortName>CTNG</assayShortName>
+    <assayVersion>4</assayVersion>
+    <assaySignature>JNGuJ9TGKfUiSXg7dGB0Iv3qVeCxkmx7y4hIi/eFCEE5DueCLIsCME9Qhh9nRWvis00uikmjOn9VX34UAs3i0L+xhD16MFqk9P6mGzuARPR/+KaxYau+sJ3XTpduHWaUpIY4LeooVI0JIuF2jhcPUomHYAmTxL1o9j5MmgtitWeIpJtSpOj3HCU/GJabxLQr7NHR/aOJmIT3jcahCCSUgUMA68Cvokm3y2tU8UVfVE4GH1FP7Iv02bnP/6FqAuOYRNlIqobs13pRYOkvIjB4EM1Q3Hm9I9MT6g9JIT0WWOvwfxRwixSCrtXoDkcusD2PnbeOcGHKjxv/5G1EnLL2z/ZneINRP6U5fgWPLik6O1EBmSYxweNnsmvXW5aO/WLAV5mhnUAE0KcFAYDz/vkf3yw72dbNYp/IJks6psFXErLr4SibcksiT28Fx/P+FlH4sMy9mKft8184ezNHhwyAmvk9FIFaisdvE9c4iYo+iW6nY3gtH54IXtdPxGRo4R4tp70c9MWwLwuAWxZHTP/Tqs3wJrWEYUDqGdQnxSCOnWIz1tZZ71QVceY2uuGfqnqhbhAuXIDZ4SdvtWES4Am4hyzmt9g2V0q5wv48+ybpIVYG5fNdEYXInZcAArPv04b+4VGASy7xsuboYhwHAONRU1kldQKoPQkZ/T9/37ksF3M=</assaySignature>
+    <cartridgeData>97011234567000000090</cartridgeData>
+    <qcTestDue>False</qcTestDue>
+    <outcome>Error</outcome>
+    <testFileIndex>-1</testFileIndex>
+  </result>
+  <data>
+    <log>09:33:31.97 Ambient temperature 20.8°C
+09:33:31.97 Ambient pressure 1010mb
+09:33:32.31 Script 'Main' executed
+09:33:32.31 Phase changed to 'Testing.Main'
+09:33:32.31 Script 'Clamp' finished
+09:33:32.36 Calling MOB-D-049
+09:33:32.36 Firmware throw: 10002,0
+09:33:32.36 Calling MOB-D-025
+09:33:32.36 STEPPER: 1 500 60
+09:33:32.36 STEPPER: 2 500 60
+09:33:32.37 dpr,0,16384,0
+09:33:32.37 SOLENOID 1 1
+09:33:32.37 SOLENOID 0 0
+09:33:32.37 v12,1
+09:33:32.37 v13,1
+09:33:32.37 v1,1
+09:33:32.39 v2,1
+09:33:32.39 v3,1
+09:33:32.39 v4,1
+09:33:32.39 v5,1
+09:33:32.39 v6,1
+09:33:32.39 v7,1
+09:33:32.39 v8,1
+09:33:32.39 v9,1
+09:33:32.39 v10,1
+09:33:32.39 v14,1
+09:33:32.39 v15,1
+09:33:32.39 v16,1
+09:33:32.39 v11,1
+09:33:32.39 v17,1
+09:33:32.48 v12,0
+09:33:32.48 v13,0
+09:33:32.48 v1,0
+09:33:32.48 v2,0
+09:33:32.48 v3,0
+09:33:32.48 v4,0
+09:33:32.48 v5,0
+09:33:32.48 v6,0
+09:33:32.48 v7,0
+09:33:32.48 v8,0
+09:33:32.50 v9,0
+09:33:32.50 v10,0
+09:33:32.50 v14,0
+09:33:32.50 v15,0
+09:33:32.50 v16,0
+09:33:32.50 v11,0
+09:33:32.50 v17,0
+09:33:32.50 v13,1
+09:33:32.50 v12,1
+09:33:32.55 STEPPER: 1 500 -50
+09:33:32.55 STEPPER: 2 500 -50
+09:33:32.69 STEPPER: 1 500 60
+09:33:32.70 STEPPER: 2 500 60
+09:33:32.87 STEPPER: 1 500 -50
+09:33:32.87 STEPPER: 2 500 -50
+09:33:32.98 v2,1
+09:33:33.03 STEPPER: 1 500 60
+09:33:33.03 STEPPER: 2 500 60
+09:33:33.20 STEPPER: 1 500 -50
+09:33:33.20 STEPPER: 2 500 -50
+09:33:33.36 STEPPER: 1 500 -70
+09:33:33.36 STEPPER: 2 500 -70
+09:33:33.48 v1,1
+09:33:33.56 STEPPER: 1 500 20
+09:33:33.56 STEPPER: 2 500 20
+09:33:34.21 Reservoir res2 stable at 900mbar
+09:33:34.50 v3,1
+09:33:34.50 v4,1
+09:33:34.50 v5,1
+09:33:34.50 v6,1
+09:33:34.50 v7,1
+09:33:34.50 v8,1
+09:33:34.70 THERM: 2 1 370
+09:33:35.17 Reservoir res1 stable at 500mbar
+09:33:35.17 v1,0
+09:33:35.20 Reservoir res3 stable at 700mbar
+09:33:35.68 v2,0
+09:33:47.33 Thermal device therm1 stable at 37.0
+09:33:51.98 Firmware throw: 10002,1
+09:33:55.68 v1,1
+09:33:56.07 v1,0
+09:33:57.08 v1,1
+09:33:57.47 v1,0
+09:34:00.11 Reservoir res2 stable at 400mbar
+09:34:00.11 Calling MOB-D-026
+09:34:00.11 v1,0
+09:34:00.11 v2,0
+09:34:00.11 v3,1
+09:34:00.11 v4,1
+09:34:00.11 v5,1
+09:34:00.11 v6,1
+09:34:00.11 v7,1
+09:34:00.11 v8,1
+09:34:00.11 STEPPER: 3 500 250
+09:34:00.73 STEPPER: 3 100 340
+09:34:04.43 Calling MOB-D-027
+09:34:04.43 THERM: 2 0 0
+09:34:04.43 THERM: 2 1 370
+09:34:04.43 v1,0
+09:34:04.43 v2,0
+09:34:04.43 v3,1
+09:34:04.45 v4,1
+09:34:04.45 v5,1
+09:34:04.45 v6,1
+09:34:04.45 v7,1
+09:34:04.45 v8,1
+09:34:04.45 STEPPER: 3 500 -400
+09:34:04.45 v1,0
+09:34:05.45 v1,1
+09:34:06.44 v2,1
+09:34:06.74 v3,0
+09:34:07.05 v1,0
+09:34:08.05 v3,1
+09:34:08.30 Thermal device therm1 stable at 37.0
+09:34:08.35 v2,0
+09:34:08.64 v1,1
+09:34:09.91 v1,0
+09:34:10.91 v1,1
+09:34:11.61 Firmware throw: 10002,2
+09:34:11.90 v2,1
+09:34:12.20 v3,0
+09:34:12.51 v1,0
+09:34:13.51 v3,1
+09:34:13.81 v2,0
+09:34:14.10 v1,1
+09:34:15.37 v1,0
+09:34:16.37 v1,1
+09:34:17.36 v2,1
+09:34:17.66 v3,0
+09:34:17.97 v1,0
+09:34:18.97 v3,1
+09:34:19.27 v2,0
+09:34:19.56 v1,1
+09:34:20.83 v1,0
+09:34:21.83 v1,1
+09:34:22.82 v2,1
+09:34:23.12 v3,0
+09:34:23.43 v1,0
+09:34:24.43 v3,1
+09:34:24.73 v2,0
+09:34:25.02 v1,1
+09:34:26.29 v1,0
+09:34:27.29 v1,1
+09:34:28.28 v2,1
+09:34:28.58 v3,0
+09:34:28.89 v1,0
+09:34:29.89 v3,1
+09:34:30.19 v2,0
+09:34:30.48 v1,1
+09:34:31.25 Firmware throw: 10002,3
+09:34:31.75 v1,0
+09:34:32.75 v1,1
+09:34:33.74 v2,1
+09:34:34.04 v3,0
+09:34:34.35 v1,0
+09:34:35.35 v3,1
+09:34:35.65 v2,0
+09:34:35.94 v1,1
+09:34:37.21 v1,0
+09:34:38.21 v1,1
+09:34:39.20 v2,1
+09:34:39.50 v3,0
+09:34:39.81 v1,0
+09:34:40.81 v3,1
+09:34:41.11 v2,0
+09:34:41.40 v1,1
+09:34:42.67 v1,0
+09:34:43.67 v1,1
+09:34:44.66 v2,1
+09:34:44.96 v3,0
+09:34:45.27 v1,0
+09:34:46.27 v3,1
+09:34:46.57 v2,0
+09:34:46.86 v1,1
+09:34:48.13 v1,0
+09:34:49.13 v1,1
+09:34:50.12 v2,1
+09:34:50.42 v3,0
+09:34:50.73 v1,0
+09:34:50.87 Firmware throw: 10002,4
+09:34:51.73 v3,1
+09:34:52.03 v2,0
+09:34:52.32 v1,1
+09:34:53.59 v1,0
+09:34:54.59 v1,1
+09:34:55.58 v2,1
+09:34:55.88 v3,0
+09:34:56.19 v1,0
+09:34:57.19 v3,1
+09:34:57.49 v2,0
+09:34:57.78 v1,1
+09:34:59.05 v1,0
+09:35:00.05 v1,1
+09:35:01.04 v2,1
+09:35:01.34 v3,0
+09:35:01.65 v1,0
+09:35:02.65 v3,1
+09:35:02.95 v2,0
+09:35:03.24 v1,1
+09:35:04.51 THERM: 2 0 0
+09:35:05.57 Reservoir res2 stable at 1100mbar
+09:35:05.57 Calling MOB-D-028
+09:35:05.57 v1,1
+09:35:05.57 v2,0
+09:35:05.57 v3,1
+09:35:05.57 v4,1
+09:35:05.58 v5,1
+09:35:05.58 v6,1
+09:35:05.58 v7,0
+09:35:05.58 v8,1
+09:35:05.58 v3,1
+09:35:05.63 v2,0
+09:35:05.68 v1,0
+09:35:06.68 v2,1
+09:35:06.72 v3,0
+09:35:06.79 v1,1
+09:35:08.78 v1,0
+09:35:09.08 v1,1
+09:35:10.51 Firmware throw: 10002,5
+09:35:11.09 v3,1
+09:35:11.14 v2,0
+09:35:11.18 v1,0
+09:35:12.18 v2,1
+09:35:12.25 v3,0
+09:35:12.29 v1,1
+09:35:14.29 v1,0
+09:35:14.60 v1,1
+09:35:16.60 v3,1
+09:35:16.64 v2,0
+09:35:16.69 v1,0
+09:35:17.71 v2,1
+09:35:17.75 v3,0
+09:35:17.80 v1,1
+09:35:19.80 v1,0
+09:35:20.11 v1,1
+09:35:22.10 v3,1
+09:35:22.15 v2,0
+09:35:22.21 v1,0
+09:35:23.21 v2,1
+09:35:23.26 v3,0
+09:35:23.31 v1,1
+09:35:25.32 v1,0
+09:35:25.61 v1,1
+09:35:27.61 v3,1
+09:35:27.67 v2,0
+09:35:27.72 v1,0
+09:35:28.72 v2,1
+09:35:28.77 v3,0
+09:35:28.83 v1,1
+09:35:30.14 Firmware throw: 10002,6
+09:35:30.83 v1,0
+09:35:31.12 v1,1
+09:35:33.12 v3,1
+09:35:33.18 v2,0
+09:35:33.23 v1,0
+09:35:34.23 v2,1
+09:35:34.27 v3,0
+09:35:34.34 v1,1
+09:35:36.33 v1,0
+09:35:36.63 v1,1
+09:35:38.64 v3,1
+09:35:38.69 v2,0
+09:35:38.73 v1,0
+09:35:39.73 v2,1
+09:35:39.80 v3,0
+09:35:39.84 v1,1
+09:35:41.84 v1,0
+09:35:42.15 v1,1
+09:35:44.15 v3,1
+09:35:44.19 v2,0
+09:35:44.24 v1,0
+09:35:45.26 v2,1
+09:35:45.30 v3,0
+09:35:45.35 v1,1
+09:35:47.35 v1,0
+09:35:47.66 v1,1
+09:35:49.65 v3,1
+09:35:49.70 v2,0
+09:35:49.76 v1,0
+09:35:49.76 Firmware throw: 10002,7
+09:35:50.76 v2,1
+09:35:50.81 v3,0
+09:35:50.86 v1,1
+09:35:52.87 v1,0
+09:35:53.16 v1,1
+09:35:55.16 v3,1
+09:35:55.22 v2,0
+09:35:55.27 v1,0
+09:35:56.27 v2,1
+09:35:56.32 v3,0
+09:35:56.38 v1,1
+09:35:58.37 v1,0
+09:35:58.67 v1,1
+09:36:00.67 v3,1
+09:36:00.73 v2,0
+09:36:00.78 v1,0
+09:36:01.78 v2,1
+09:36:01.82 v3,0
+09:36:01.88 v1,1
+09:36:03.88 v1,0
+09:36:04.18 v1,1
+09:36:06.19 v3,1
+09:36:06.24 v2,0
+09:36:06.28 v1,0
+09:36:07.28 v2,1
+09:36:07.34 v3,0
+09:36:07.39 v1,1
+09:36:09.39 v1,0
+09:36:09.40 Firmware throw: 10002,8
+09:36:09.70 v1,1
+09:36:11.70 Calling MOB-D-020
+09:36:11.70 v1,0
+09:36:11.70 v2,0
+09:36:11.70 v3,1
+09:36:11.70 v4,1
+09:36:11.70 v5,1
+09:36:11.70 v6,1
+09:36:11.70 v7,0
+09:36:11.70 v8,1
+09:36:11.70 dpr,0,16384,0
+09:36:12.31 v9,1
+09:36:12.40 v8,0
+09:36:12.40 v4,0
+09:36:17.11 v8,1
+09:36:17.20 v9,0
+09:36:17.41 v4,1
+09:36:18.41 v3,0
+09:36:18.41 v2,0
+09:36:18.70 v3,1
+09:36:19.01 v4,1
+09:36:19.01 Calling MOB-D-029
+09:36:19.01 v1,0
+09:36:19.01 v2,1
+09:36:19.01 v3,1
+09:36:19.01 v4,0
+09:36:19.01 v5,1
+09:36:19.01 v6,1
+09:36:19.01 v7,0
+09:36:19.01 v8,1
+09:36:19.51 STEPPER: 2 250 230
+09:36:20.65 STEPPER: 2 100 40
+09:36:22.48 STEPPER: 2 100 40
+09:36:24.32 STEPPER: 2 100 40
+09:36:26.16 STEPPER: 2 100 40
+09:36:27.98 STEPPER: 2 100 40
+09:36:29.03 Firmware throw: 10002,9
+09:36:29.82 STEPPER: 2 100 40
+09:36:31.65 STEPPER: 2 100 40
+09:36:33.49 STEPPER: 2 100 40
+09:36:35.33 STEPPER: 2 100 40
+09:36:37.16 STEPPER: 2 100 40
+09:36:39.00 STEPPER: 2 100 40
+09:36:40.84 STEPPER: 2 100 40
+09:36:42.66 Calling MOB-D-047
+09:36:42.66 v1,0
+09:36:42.66 v3,1
+09:36:42.66 v2,0
+09:36:42.68 v4,1
+09:36:42.68 v5,1
+09:36:42.68 v6,1
+09:36:42.68 v7,0
+09:36:42.68 v8,1
+09:36:42.68 v16,0
+09:36:42.68 v17,0
+09:36:42.68 v9,1
+09:36:42.87 v8,0
+09:36:42.87 v4,0
+09:36:44.88 v8,1
+09:36:46.88 v8,0
+09:36:48.65 Firmware throw: 10002,10
+09:36:51.87 v8,1
+09:36:52.13 v4,1
+09:36:52.38 v9,0
+09:36:52.68 v3,0
+09:36:53.68 v10,1
+09:36:53.97 v8,0
+09:36:54.29 v5,0
+09:36:54.49 v3,1
+09:36:54.71 Reservoir res2 stable at 1200mbar
+09:37:08.29 Firmware throw: 10002,11
+09:37:27.92 Firmware throw: 10002,12
+09:37:34.72 THERM: 1 1 220
+09:37:34.72 THERM: 0 1 370
+09:37:35.84 Thermal device therm2 stable at 37.0
+09:37:47.56 Firmware throw: 10002,13
+09:37:54.72 v8,1
+09:37:59.91 Calling error_30014
+09:37:59.91 Buzzer: 1 30 2
+09:37:59.91 Firmware throw: 30014
+09:37:59.93 Fault occurred: 'Main' script threw error 30014 in phase Testing.Main
+</log>
+    <startPotential>0</startPotential>
+    <incrementalPotential>0</incrementalPotential>
+    <cellValues0 isNull="True" />
+    <cellValues1 isNull="True" />
+    <cellValues2 isNull="True" />
+    <cellValues3 isNull="True" />
+    <analysisType></analysisType>
+    <fastReportingPeriod>500</fastReportingPeriod>
+    <pcrValues>25.399999999999999,34,37.899999999999999,36.799999999999997,36.200000000000003,36.399999999999999,36.200000000000003,36.399999999999999,36.200000000000003,36.5,36.399999999999999,36.399999999999999,36.399999999999999,36.700000000000003,36.399999999999999,36.399999999999999,36.399999999999999,36.399999999999999,36.5,36.399999999999999,36.399999999999999,36.5,36.5,36.5,36.5,36.5,36.399999999999999,36.5,36.700000000000003,36.5,36.700000000000003,36.700000000000003,36.5,36.5,36.700000000000003,36.799999999999997,36.5,36.700000000000003,36.700000000000003,36.5,36.700000000000003,36.700000000000003,36.700000000000003,36.700000000000003,36.700000000000003,36.700000000000003,36.5,36.5,36.799999999999997,36.700000000000003</pcrValues>
+  </data>
+</test>
