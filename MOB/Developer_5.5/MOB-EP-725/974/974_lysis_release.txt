@@ -1,0 +1,39 @@
+﻿#---------------------------------------------
+#974_lysis_release
+#copied from MOB-D-026 V1.0
+#Antony Brown 11 Jan 2017
+#copyright Atlas Genetics Ltd 2017
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History---------------
+#version 1.0 - copied from MOB-D-026 V1.0
+#--------------------------------------------
+
+
+#set start conditions to check manifold protection
+valve v1 off
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 on
+valve v6 on
+valve v7 on
+valve v8 on
+
+
+#Reach blister
+stepper l3 500 250 lysisreach1
+wait lysisreach1 3
+
+
+#crush blister slow and totally
+stepper l3 100 340 lysissquash
+
+delay 370
+
+

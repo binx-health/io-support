@@ -1,0 +1,45 @@
+﻿#---------------------------------------------
+#974_wash_release
+#copied from MOB-D-029 V2.0
+#Antony Brown 11 Jan 2017
+#copyright Atlas Genetics Ltd 2017
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History---------------
+#version 1.0 - copied from MOB-D-029 V2.0
+#--------------------------------------------
+
+
+#set start conditions to check manifold protection
+valve v1 off
+valve v2 on
+valve v3 on
+valve v4 off
+valve v5 on
+valve v6 on 
+valve v7 off
+valve v8 on
+delay 50
+
+#crush blister slow
+stepper l4 250 230 washreach1
+wait washreach1 15
+delay 10
+
+#begin repeatedly crushing slightly then releasing back pressure until a displacment on 480 steps is reached
+begin nonatomic 12		
+stepper l4 100 40 washsquash
+wait washsquash 3
+delay 140
+end
+
+#leave stepper down to stop blister inflating during air purges
+
+
+
+

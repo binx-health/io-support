@@ -1,0 +1,4 @@
+maxVarianceForRawData, The threshold used to detect noisy signals (signals where the variance between the raw signal and the smoothed signal is greater than this threshold will not be analysed for peaks), Decimal, 0, 2000, 100
+maxVarianceForPolynomialCurve, The threshold used to detect bad baseline fit (signals where the variance between the smoothed signal and the fitted baseline is greater than this threshold will not be analysed for peaks), Decimal, 0, 2000, 70
+polynomialDegree, The degree of the polynomial to fit as the base baseline fit, Integer, 0, 10, 6
+maxVarianceForPolynomialPoint, The maximum squared distance of a point from the baseline fit for the point to be considered in the next iteration of baseline fit, Decimal, 0, 500, 49

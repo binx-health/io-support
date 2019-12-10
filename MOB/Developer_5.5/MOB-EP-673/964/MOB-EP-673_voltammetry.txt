@@ -1,0 +1,40 @@
+﻿
+#---------------------------------------------
+# MOB-EP-673_voltammetry
+#copied from MOB-D-016 V3.0
+#Antony Brown 20 DEC 2016
+#Copyright Atlas Genetics Ltd 2016
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - copied from MOB-D_016 v3 - do only one scan to finish assay pronto
+#---------------------------------------------
+
+
+#syntax is start voltage mV, pulse amplitude mV, sweep increment mV, end voltage mV, pulse time ms, base time ms
+
+throw 10002,99
+
+#Data Scan
+voltammetry differential 0 50 3 3 40 60 
+delay 100
+
+throw 10002,100
+#End process sequence - release pressure from bellows to waste
+begin atomic 1
+#set starting valve conditions so flow through to waste
+valve v2 on
+valve v3 off
+valve v4 on
+valve v5 on
+valve v6 on
+valve v7 off
+valve v8 on
+
+delay 30
+valve v1 on
+
+
+end
+
+

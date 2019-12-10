@@ -1,0 +1,22 @@
+﻿#---------------------------------------------
+#error_30015
+#Based on: PAN-D-092 V2.0
+#Date originated: 11 May 2017
+#Author: Antony Brown
+#
+#Initialed to confirm this is a direct copy of the scipt listed above
+#
+#
+#
+#Copyright Atlas Genetics Ltd 2017
+#---------------------------------------------
+
+
+#-------------revision history----------------
+#Version 1.0 - Copied from PAN-D-092 V1.0
+#version 2.0 - Copied from PAN-D-092 V2.0
+#---------------------------------------------
+
+dpr dpr1 off
+buzzer 1 30 2
+throw 30015       #therm2 timeout

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<assay>
+  <code>980</code>
+  <version>1</version>
+  <name>NGresist</name>
+  <shortName>NGresist</shortName>
+  <target>
+    <targetName>NG1</targetName>
+    <targetType>STD</targetType>
+    <peakName>NG1</peakName>
+    <control>NG1IC</control>
+  </target>
+  <target>
+    <targetName>NG2</targetName>
+    <targetType>STD</targetType>
+    <peakName>NG2</peakName>
+    <control>NG2IC</control>
+  </target>
+  <target>
+    <targetName>S91</targetName>
+    <targetType>STD</targetType>
+    <peakName>S91</peakName>
+    <control>S91IC</control>
+  </target>
+  <target>
+    <targetName>D95</targetName>
+    <targetType>STD</targetType>
+    <peakName>D95</peakName>
+    <control>D95IC</control>
+  </target>
+  <disease>
+    <diseaseName>NG</diseaseName>
+    <loinc></loinc>
+    <target>NG1,NG2</target>
+    <detectionCriteria>NG1,NG2</detectionCriteria>
+  </disease>
+  <disease>
+    <diseaseName>NGresist</diseaseName>
+    <loinc></loinc>
+    <target>S91,D95,NG1,NG2</target>
+    <detectionCriteria>S91,D95,NG1,NG2</detectionCriteria>
+  </disease>
+  <flatLineInvalidatesAssay>False</flatLineInvalidatesAssay>
+  <diseasesIndependentlyValidated>False</diseasesIndependentlyValidated>
+  <script>Main</script>
+  <estimatedDuration>0</estimatedDuration>
+</assay>

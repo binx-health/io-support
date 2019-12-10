@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<assay>
+  <code>968</code>
+  <version>7</version>
+  <name>MOB-EP-586_Detection_fill_series</name>
+  <shortName>MOB-EP-586_Detection_fill_series</shortName>
+  <flatLineInvalidatesAssay>False</flatLineInvalidatesAssay>
+  <diseasesIndependentlyValidated>False</diseasesIndependentlyValidated>
+  <script>MOB-EP-586_Detection_fill_seriesMain</script>
+  <estimatedDuration>1900</estimatedDuration>
+</assay>

@@ -1,0 +1,54 @@
+﻿#---------------------------------------------
+#NGresistMain
+#i4i-D-004 V1.0
+#Antony Brown 11 Jan 2017
+#copyright Atlas Genetics Ltd 2017
+#---------------------------------------------
+
+#-----------revision history--------------
+#Version 1.0 - i4i-CM-0001
+#-----------------------------------------
+
+
+call MOB-D-025                     #Initialise Run MOB-D-025 Version 3.0
+
+#Sample extract 
+call MOB-D-026                     #Lysis Release MOB-D-026 version 1.0
+call MOB-D-027                     #Mix MOB-D-027 version 3.0
+call MOB-D-028                     #Pump MOB-D-028 version 3.0
+call MOB-D-020                     #Air_purge_1 MOB-D-020 version 5.0
+call MOB-D-029                     #Wash Release MOB-D-029 version 2.0
+call MOB-D-021                     #Air_dry MOB-D-021 version 6.0
+call MOB-D-012                     #Elution release MOB-D-012 Version 2.0
+
+#pcr and detection
+call MOB-D-023                     #Homogenise MOB-D-023 version 3.0
+call MOB-D-013                     #Fill PCR Chambers MOB-D-013 version 5.0
+call PAN-D-078                     #UNG Step PAN-D-078 version 3.0
+call i4i-D-002                     #i4i-EP-046 V6 PCR
+call MOB-D-022                     #Fill Detection Chambers MOB-D-022 version 2.0
+call MOB-D-015                     #Detection Incubation MOB-D-015 version 3.0
+
+#setup peak search parameters and call voltammetry
+#peak algorithm "type"  rawnoise permissiblenoise polyorder targetnoise
+peak algorithm "MultiPeak1Analysis"  300 300 6 49 
+
+#peak define  "name" outcome ch vstart vend vexp vtol thresh maxnoise prop widthmax widthmin propnoise
+
+peak define "S91IC" Positive 1 110 310 200 32 30 Infinity 25 60 160 90 4
+peak define "S91" Positive 1 295 510 390 60 35 Infinity 25 40 160 90 4
+peak define "clearend" Ignore 1 520 620                            #this ignores the last part of the scan
+
+peak define "NG1IC" Positive 1 110 310 200 32 30 Infinity 25 60 160 90 4
+peak define "NG1" Positive 1 295 510 390 60 35 Infinity 25 40 160 90 4
+peak define "clearend" Ignore 1 520 620                            #this ignores the last part of the scan
+
+peak define "D95IC" Positive 3 110 310 200 32 30 Infinity 25 60 160 90 4
+peak define "D95" Positive 3 295 510 390 60 35 Infinity 25 40 160 90 4
+peak define "clearend" Ignore 3 520 620                            #this ignores the last part of the scan
+
+peak define "NG2IC" Positive 4 110 310 200 32 30 Infinity 25 60 160 90 4
+peak define "NG2" Positive 4 295 510 390 60 35 Infinity 25 40 160 90 4
+peak define "clearend" Ignore 4 520 620                            #this ignores the last part of the scan
+
+call MOB-D-016    #Mob-D-016 Version 3.0  voltammetry

@@ -1,0 +1,64 @@
+﻿#---------------------------------------------
+#Fill_Detection_PCR_Valves_Closed
+#Based on MOB-D-022 V2.0
+#Antony Brown 25 May 2018
+#Copyright Atlas Genetics Ltd 2018
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - adjust set up conditions to account for PCR with valves closed. 
+#---------------------------------------------
+
+
+#set starting valve conditions
+valve v1 off
+valve v2 on
+valve v3 on
+valve v4 on
+valve v5 on
+valve v6 on
+valve v7 on
+valve v8 on
+delay 100
+
+#turn off DPR to vent back end of carrtidge after PCR
+dpr dpr1  off
+valve v16 off
+valve v17 on
+delay 200
+
+#Set Pstat to internal circuit
+pstat 0 internal
+
+#Engage mechanical valve slow from just off membrane position. 
+stepper l5 50 410 mechengage
+wait mechengage 9
+delay 200
+
+#set up DPR
+dpr dpr1 on 2 0
+valve v16 on
+delay 10
+
+#set up fill Detection chambers
+valve v2 off
+delay 10
+
+begin atomic 8
+valve v2 on
+delay 50
+valve v2 off
+delay 50
+end
+
+#Fill
+dpr dpr1 on 28 900
+delay 950
+valve v2 on
+delay 50
+
+#keep dpr on during reach and prtect instrument
+valve v17 off         # protect instrument from potential back wash
+
+
+
