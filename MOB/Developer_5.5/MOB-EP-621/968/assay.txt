@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<assay>
+  <code>968</code>
+  <version>1</version>
+  <name>MOB-EP-621_Extraction_only_No_Lysis</name>
+  <shortName>MOB-EP-621_Extraction_only_No_Lysis</shortName>
+  <flatLineInvalidatesAssay>False</flatLineInvalidatesAssay>
+  <diseasesIndependentlyValidated>False</diseasesIndependentlyValidated>
+  <script>Main</script>
+  <estimatedDuration>0</estimatedDuration>
+</assay>

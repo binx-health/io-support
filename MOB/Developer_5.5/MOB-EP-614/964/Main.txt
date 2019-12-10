@@ -1,0 +1,43 @@
+﻿#---------------------------------------------
+#mob-ep-614_lONG_air_dry_ext_onlyMain
+#Based on MOB-D-017 V10.0
+#Antony Brown 13 Mar 2018
+#copyright Atlas Genetics Ltd 2018
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - run and extraction only to CTNG v10 bit with a modified air dry to MOB-EP-614
+#---------------------------------------------
+
+#call MOB-D-024                     #Progress Indicator MOB-D-024 Version 2.0
+
+call MOB-D-025                     #Initialise Run MOB-D-025 Version 3.0
+
+#Sample extract 
+call MOB-D-026                     #Lysis Release MOB-D-026 version 1.0
+call MOB-D-027                     #Mix MOB-D-027 version 3.0
+call MOB-D-028                     #Pump MOB-D-028 version 2.0
+call MOB-D-020                     #Air_purge_1 MOB-D-020 version 5.0
+call MOB-D-029                     #Wash Release MOB-D-029 version 2.0
+call MOB-EP-614_airdry                     #Air_dry MOB-D-021 version 6.0
+call MOB-D-012                     #Elution release MOB-D-012 Version 2.0
+
+#setup peak search parameters and call voltammetry
+#peak algorithm "type"  rawnoise permissiblenoise polyorder targetnoise
+peak algorithm "MultiPeak1Analysis"  1000 1000 6 49 
+
+#peak define  "name" outcome ch vstart vend vexp vtol thresh maxnoise prop widthmax widthmin propnoise
+
+peak define "CTIC" Positive 1 110 310 200 32 90 Infinity 25 60 160 90 4
+peak define "CT" Positive 1 295 510 390 60 115 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 1 520 620                            #this ignores the last part of the scan
+
+peak define "NG1IC" Positive 3 110 310 200 32 90 Infinity 25 60 160 90 4
+peak define "NG1" Positive 3 295 510 390 60 50 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 3 520 620                            #this ignores the last part of the scan
+
+peak define "NG2IC" Positive 4 110 310 200 32 60 Infinity 25 60 160 90 4
+peak define "NG2" Positive 4 295 510 390 60 45 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 4 520 620    
+
+call MOB-D-016    #Mob-D-016 Version 3.0  voltammetry

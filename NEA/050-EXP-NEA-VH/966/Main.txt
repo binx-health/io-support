@@ -1,0 +1,58 @@
+﻿#---------------------------------------------
+#Main
+#050-EXP-NEA-VH
+#Antony Brown 15 MAY 2019
+#copyright Atlas Genetics Ltd 2019
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - COPIED FROM 990 NEA END TO END NEA-D-004 V2.0
+#            - NO LYSIS INCUBATE, MINIMAL MIXING, copied from 042_EXP_NEA_VH
+#---------------------------------------------
+
+
+#call NEA-D-006                     #Progress Indicator NEA-D-006 Version 2.0
+
+call 042-EXP-NEA-VH_InitialiseRun        #Initialise Run, no heat, based on MOB-D-025 Version 3.0
+
+#Sample extract 
+call MOB-D-026                     #Lysis Release MOB-D-026 version 1.0
+call 042-EXP-NEA-VH_LysisMix       #Mix, short, no heat, based on MOB-D-027 version 3.0
+call MOB-D-028                     #Pump MOB-D-028 version 2.0
+call MOB-D-020                     #Air_purge_1 MOB-D-020 version 5.0
+call MOB-D-029                     #Wash Release MOB-D-029 version 2.0
+call MOB-D-047                     #air_dry_1min_750 MOB-D-047 version 2.0
+call MOB-D-048                     #elution_dispense_1min MOB-D-048 Version 1.0
+
+#pcr and detection
+call MOB-D-023                     #Homogenise MOB-D-023 version 3.0
+call MOB-D-046                     #PCR_DPR_Fill MOB-D-046 v1.0
+call PAN-D-078                     #UNG Step PAN-D-078 version 3.0
+call MOB-D-045                     #42 cycle Rapid PCR MOB-D-045 version 1.0  
+call MOB-D-022                     #Fill Detection Chambers MOB-D-022 version 2.0
+call MOB-D-050                     #Detection Incubation NEW MOB-D-050 version 1.0
+
+ 
+#setup peak search parameters and call voltammetry
+#peak algorithm "type"  rawnoise permissiblenoise polyorder targetnoise
+peak algorithm "MultiPeak1Analysis"  1000 1000 6 49 
+ 
+#peak define  "name" outcome ch vstart vend vexp vtol thresh maxnoise prop widthmax widthmin propnoise
+
+peak define "CTIC" Positive 1 110 310 200 32 90 Infinity 25 60 160 90 4
+peak define "CT" Positive 1 295 510 390 60 115 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 1 520 620                            #this ignores the last part of the scan
+
+peak define "TVIC" Positive 2 110 310 200 32 90 Infinity 25 60 160 90 4
+peak define "TV" Positive 2 295 510 390 60 115 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 2 520 620                            #this ignores the last part of the scan
+
+peak define "MGIC" Positive 3 110 310 200 32 90 Infinity 25 60 160 90 4
+peak define "MG" Positive 3 295 510 390 60 115 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 3 520 620                            #this ignores the last part of the scan
+
+peak define "NG2" Positive 4 110 310 200 32 90 Infinity 25 60 160 90 4
+peak define "NG1" Positive 4 295 510 390 60 115 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 4 520 620                            #this ignores the last part of the scan
+
+call NEA-D-007                     #MSTI Voltammetry NEA-D-007 Version 1.0

@@ -1,0 +1,208 @@
+﻿#---------------------------------------------
+#MOB-EP-609_PCR3
+#Based on MOB-EP-602_PCR and a modified MOB-D-014 V4.0 PCR 
+#Antony Brown 07 MAR 2018
+#copyright Atlas Genetics Ltd 2018
+#
+#---------------------------------------------
+
+#-------------Revision------------------------
+#version 1.0 - copied from MOB-EP-602_PCR for first 10 cycles, first PCR part set as nonatomic!
+#            - Copied form MOB-D-014 V4.0 for 32 cycles. including finishing  final anneal and preheat phase. lowering anneal temp by 1C whilst maintaining denature. 
+#            - lowered aneal set point to 63.5C
+#            - Lowered extend by 1C all round
+#            - lowered denature to 95C
+#---------------------------------------------
+
+
+
+##-----start of Modified PCR, 10 cycles-----
+
+#Set up PCR peltier PID
+set Peltier.Pcr.Kp 600000
+set Peltier.Pcr.Ki 10
+set Peltier.Pcr.Kd 12000000
+set Peltier.Pcr.Imax 120000
+
+
+
+begin nonatomic 10 all_done     #39 cycles starting from annealing to add in commands to run parrallel to save time in assay
+
+#anneal
+#use accuracy-optimised parameters to return at 50% power.
+set Peltier.Pcr.Kp 400000
+set Peltier.Pcr.Ki 0
+set Peltier.Pcr.Kd 8000000
+set Peltier.Pcr.Imax 50
+set Peltier.Pcr.PwmMax 50
+therm therm2 on 64.0 anneal
+wait anneal 15
+       if anneal
+       #do nothing
+       else
+       call error_30018
+       endif
+delay 795
+
+#extend                 
+#using re-optimised values to accurately edge up.
+set Peltier.Pcr.Kp 600000
+set Peltier.Pcr.Ki 50
+set Peltier.Pcr.Kd 10000000
+set Peltier.Pcr.Imax 120
+set Peltier.Pcr.PwmMax 50
+therm therm2 on 65.8 adjust          
+delay 200
+therm therm2 on 66.8 phase3
+delay 200
+therm therm2 on 67.8 phase4
+delay 100
+therm therm2 on 69.0 phase5
+delay 100
+therm therm2 on 70.2 phase6
+delay 200
+
+#denature using original setting
+set Peltier.Pcr.Kp 600000
+set Peltier.Pcr.Ki 10
+set Peltier.Pcr.Kd 12000000
+set Peltier.Pcr.Imax 120000
+set Peltier.Pcr.PwmMax 50
+therm therm2 on 98 phase1
+wait phase1 6
+delay 1000
+end
+wait all_done 1200
+
+##------------end of modified PCR-------------------
+
+##-----start of standard PCR 31 cycles +end cycle---
+
+#Set up PCR peltier PID
+set Peltier.Pcr.Kp 600000
+set Peltier.Pcr.Ki 10
+set Peltier.Pcr.Kd 12000000
+set Peltier.Pcr.Imax 120000
+
+
+
+begin atomic 31 all_done     #39 cycles starting from annealing to add in commands to run parrallel to save time in assay
+
+#anneal
+#use accuracy-optimised parameters to return at 50% power.
+set Peltier.Pcr.Kp 400000
+set Peltier.Pcr.Ki 0
+set Peltier.Pcr.Kd 8000000
+set Peltier.Pcr.Imax 50
+set Peltier.Pcr.PwmMax 50
+therm therm2 on 63.5 anneal
+wait anneal 15
+       if anneal
+       #do nothing
+       else
+       call error_30018
+       endif
+delay 715
+
+#extend                 
+#using re-optimised values to accurately edge up.
+set Peltier.Pcr.Kp 600000
+set Peltier.Pcr.Ki 50
+set Peltier.Pcr.Kd 10000000
+set Peltier.Pcr.Imax 120
+set Peltier.Pcr.PwmMax 50
+therm therm2 on 64.8 adjust          
+delay 200
+therm therm2 on 65.8 phase3
+delay 200
+therm therm2 on 66.8 phase4
+delay 100
+therm therm2 on 68.0 phase5
+delay 100
+therm therm2 on 69.2 phase6
+delay 200
+
+#denature using original setting
+set Peltier.Pcr.Kp 600000
+set Peltier.Pcr.Ki 10
+set Peltier.Pcr.Kd 12000000
+set Peltier.Pcr.Imax 120000
+set Peltier.Pcr.PwmMax 50
+therm therm2 on 95 phase1
+wait phase1 6
+delay 230
+end
+wait all_done 1200
+
+
+#final anneal at end of 39 cycles           # to make up to 40 cycles and to preheat detection peltier. 
+
+#use accuracy-optimised parameters to return at 50% power.
+set Peltier.Pcr.Kp 400000
+set Peltier.Pcr.Ki 0
+set Peltier.Pcr.Kd 8000000
+set Peltier.Pcr.Imax 50
+set Peltier.Pcr.PwmMax 50
+therm therm2 on 63.5 anneal
+wait anneal 15
+       if anneal
+       #do nothing
+       else
+       call error_30018
+       endif
+delay 715
+
+#--------------------------------------------
+# preheat Detection peltier
+#using accuracy amended parameters 
+begin atomic 1
+set Peltier.Detection.Kp 255000
+set Peltier.Detection.Ki 16
+set Peltier.Detection.Kd  100000
+
+therm therm3 on 42 preheatdetection
+delay 1000                    # to equalise temperature
+wait preheatdetection 15
+if  preheatdetection
+#do nothing
+else
+call error_30016
+endif
+end
+#-------------------------------------------
+
+#extend                                  
+#using re-optimised values to accurately edge up.
+set Peltier.Pcr.Kp 600000
+set Peltier.Pcr.Ki 50
+set Peltier.Pcr.Kd 10000000
+set Peltier.Pcr.Imax 120
+set Peltier.Pcr.PwmMax 50
+therm therm2 on 64.8 adjust          
+delay 200
+therm therm2 on 65.8 phase3
+delay 200
+therm therm2 on 66.8 phase4
+delay 100
+therm therm2 on 68.0 phase5
+delay 100
+therm therm2 on 69.2 phase6
+delay 200
+
+
+#equalise temperature through cartridge use anneal PIDs
+set Peltier.Pcr.Kp 300000
+set Peltier.Pcr.Ki 5
+set Peltier.Pcr.Kd 0
+set Peltier.Pcr.Imax 120000
+set Peltier.Pcr.PwmMax 50
+
+therm therm2 on 42 PCR42
+wait PCR42 12
+if PCR42
+#do nothing
+else
+call error_30015
+endif
+                  
+##-------------end of standard PCR cyles------------

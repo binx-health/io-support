@@ -1,0 +1,20 @@
+﻿#---------------------------------------------
+#beta script error_30011
+#Based on: PAN-D-089 V1.0
+#Date originated: 06 May 2014
+#Author: Antony Brown
+#
+#Initialed to confirm this is a direct copy of the scipt listed above
+#
+#
+#
+#Copyright Atlas Genetics Ltd 2014
+#---------------------------------------------
+
+
+#-------------revision history----------------
+#1.0 30072014 AB - Copied from PAN-D-089 Version 1.0
+
+
+buzzer 1 30 2
+throw 30011           #failure to charge vacuum reservoir

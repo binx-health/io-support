@@ -1,0 +1,185 @@
+﻿# 
+#---------------------------------------------
+#Script i4i-EP-105Test1_PCR
+#based on i4i-D-002
+#Originated antony brown 12/07/2018
+#Copyright Atlas Genetics Ltd 2018
+#---------------------------------------------
+
+
+#-----------revision history--------------
+#Version 1.0 - copied from i4i-D-002 V1.0 and adjusted denature time to 8s and denature temp to 98C
+#-----------------------------------------
+
+
+set Peltier.Pcr.MaxTemp 110
+Set Peltier.detection.Maxtemp 110
+Set Peltier.Lysis.MaxTemp 110
+
+
+#Initial Denataure
+#Set up PCR peltier PID
+set Peltier.Pcr.Kp 600000
+set Peltier.Pcr.Ki 10
+set Peltier.Pcr.Kd 12000000
+set Peltier.Pcr.Imax 120000
+
+therm therm2 on 98 phase1    # to hit 94 sc temp
+delay 800
+wait phase1 6
+
+#PCR PCR
+#---------------
+begin atomic 39 all_done     #39 cycles starting from annealing to add in commands to run parrallel to save time in assay
+
+#anneal Step Down 2C/s from 72 to 60
+#use accuracy-optimised parameters to return at 50% power.
+set Peltier.Pcr.Kp 400000
+set Peltier.Pcr.Ki 0
+set Peltier.Pcr.Kd 8000000
+set Peltier.Pcr.Imax 50
+set Peltier.Pcr.PwmMax 50
+
+therm therm2 on 74 ramp
+wait ramp 10
+delay 150
+therm therm2 on 72 ramp
+delay 150
+therm therm2 on 70 ramp
+delay 150
+therm therm2 on 68 ramp
+delay 150
+therm therm2 on 66 ramp
+delay 150
+therm therm2 on 64 ramp
+delay 150
+
+#anneal 
+therm therm2 on 63 anneal     #to hit 60 sc temp
+wait anneal 15
+if anneal
+#do nothing
+else
+call error_30018
+endif
+delay 1200
+
+#extend       
+therm therm2 on 64 ramp
+delay 150
+therm therm2 on 66 ramp
+delay 150
+therm therm2 on 68 ramp
+delay 150
+therm therm2 on 70 ramp
+delay 150
+therm therm2 on 72 ramp
+delay 150
+therm therm2 on 74 ramp
+delay 150
+therm therm2 on 76 ramp
+delay 250
+
+#denature 
+#Set up PCR peltier PID
+set Peltier.Pcr.Kp 600000
+set Peltier.Pcr.Ki 10
+set Peltier.Pcr.Kd 12000000
+set Peltier.Pcr.Imax 120000
+
+therm therm2 on 98 phase1      # to hit 94 sc temp 
+wait phase1 6
+delay 800
+
+end
+
+
+
+#------------------------
+wait all_done 18000
+
+#final anneal & extend at end of 39 cycles           # to make up to 40 cycles and to preheat detection peltier. 
+#anneal Step Down 2C/s from 72 to 60
+#use accuracy-optimised parameters to return at 50% power.
+set Peltier.Pcr.Kp 400000
+set Peltier.Pcr.Ki 0
+set Peltier.Pcr.Kd 8000000
+set Peltier.Pcr.Imax 50
+set Peltier.Pcr.PwmMax 50
+therm therm2 on 74 ramp
+wait ramp 10
+delay 150
+therm therm2 on 72 ramp
+delay 150
+therm therm2 on 70 ramp
+delay 150
+therm therm2 on 68 ramp
+delay 150
+therm therm2 on 66 ramp
+delay 150
+therm therm2 on 64 ramp
+delay 150
+
+
+
+#anneal 
+therm therm2 on 63 anneal      # to hit 60C sc temp
+wait anneal 15
+if anneal
+#do nothing
+else
+call error_30018
+endif
+delay 1200
+
+#--------------------------------------------
+# preheat Detection peltier
+#using accuracy amended parameters 
+begin atomic 1
+set Peltier.Detection.Kp 255000
+set Peltier.Detection.Ki 16
+set Peltier.Detection.Kd  100000
+
+therm therm3 on 42 preheatdetection
+delay 1000                    # to equalise temperature
+wait preheatdetection 15
+if  preheatdetection
+#do nothing
+else
+call error_30016
+endif
+end
+#-------------------------------------------
+
+
+#extend                 
+therm therm2 on 64 ramp
+delay 150
+therm therm2 on 66 ramp
+delay 150
+therm therm2 on 68 ramp
+delay 150
+therm therm2 on 70 ramp
+delay 150
+therm therm2 on 72 ramp
+delay 150
+therm therm2 on 74 ramp
+delay 150
+therm therm2 on 76 ramp
+delay 250
+
+#equalise temperature through cartridge use anneal PIDs
+set Peltier.Pcr.Kp 300000
+set Peltier.Pcr.Ki 5
+set Peltier.Pcr.Kd 0
+set Peltier.Pcr.Imax 120000
+set Peltier.Pcr.PwmMax 50
+
+therm therm2 on 42 PCR41
+wait PCR41 12
+if PCR41
+#do nothing
+else
+call error_30015
+endif
+                  

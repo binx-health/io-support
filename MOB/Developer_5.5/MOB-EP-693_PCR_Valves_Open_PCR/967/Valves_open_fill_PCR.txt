@@ -1,0 +1,77 @@
+﻿#---------------------------------------------
+#Valves_Open_fill_PCR
+#MOB-D-045
+#Antony Brown 30 Apr 2018
+#copyright Atlas Genetics Ltd 2018
+#
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#version 1.0 - Copied from MOB-EP-045 V1.0
+#            - lift mech valve after V2 closes and leave DPR on to equalise pressure,
+#            - turn DPR up to 50% (full)
+#            - open PCR valves for PCR
+#Version 2.0 - minor modifications to allow more time to vent pressure and lift mech valve up a bit more before and after PCR.
+#---------------------------------------------
+
+
+#Set start conditions
+valve v1 off
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 on
+valve v6 on
+valve v7 on
+valve v8 on
+valve v16 on
+
+#Set DPR to on and fill to 19% atmospheric and saturate first spot for 10 secs to rehydrate
+dpr dpr1 on 19 300
+delay 1330
+
+# flux 5 times to disturb lifted reagent
+begin nonatomic 5
+dpr dpr1 on 14 5
+delay 50
+dpr dpr1 on 17 5
+delay 50
+end
+
+#Saturate second spot for 10 secs to rehydrate
+dpr dpr1 on 32 30
+delay 1000
+
+# flux 8 times over the 2nd spot
+begin nonatomic 8
+dpr dpr1 on 23 5
+delay 50
+dpr dpr1 on 29 5
+delay 50
+end
+
+#Retract to spread mix across chamber
+dpr dpr1 on 23 200
+delay 500
+
+#fill PCR chambers and finish sequence
+dpr dpr1 on 34 300
+delay 300
+valve v2 on
+delay 30
+
+set Motor.Steppers.Pwm 100   #allow 100% current just for this move.
+
+#Lift mechanical foot so just above valve to allow venting during PCR and TPE not to balloon
+stepper l5 350 -300 liftMV
+#allow pressure to equalise
+wait liftMV 5
+#set Motor.Steppers.Pwm 70   
+
+#turn DPR up to 50% slowely to not bias pressure against front or back of PCR chambers
+dpr dpr1 on 50 200
+delay 300
+ 
+#Open PCR Valves 
+valve v2 off
+delay 30

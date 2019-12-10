@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<assay>
+  <code>981</code>
+  <version>1</version>
+  <name>Candidate_CTNG _extraction_only</name>
+  <shortName>Candidate_CTNG _extraction_only</shortName>
+  <flatLineInvalidatesAssay>False</flatLineInvalidatesAssay>
+  <diseasesIndependentlyValidated>False</diseasesIndependentlyValidated>
+  <script>Main</script>
+  <estimatedDuration>0</estimatedDuration>
+</assay>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<assay>
+  <code>968</code>
+  <version>1</version>
+  <name>MOB-EP-690_1AirDry_90sDwell_750</name>
+  <shortName>MOB-EP-690_1airdry_90sdwell_750</shortName>
+  <flatLineInvalidatesAssay>False</flatLineInvalidatesAssay>
+  <diseasesIndependentlyValidated>False</diseasesIndependentlyValidated>
+  <script>Main</script>
+  <estimatedDuration>0</estimatedDuration>
+</assay>

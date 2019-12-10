@@ -1,0 +1,78 @@
+﻿
+#---------------------------------------------
+#MOB-EP-657_1min_elution
+#copied from MOB-D-012 v2.0
+#Antony Brown 26 Apr 2018
+#copyright Atlas Genetics Ltd 2018
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - copied form MOB-D-012 v2.0
+#            - 1 min dwell time soon after blisters is dispenced and eluate covering column
+#---------------------------------------------
+
+#set start conditions to check manifold protection
+valve v1 off
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 off
+valve v6 off
+valve v7 on
+valve v8 on
+valve v16 off                                           #set valve v16 to vent elution well
+valve v17 on
+
+begin atomic 1
+#Charge Reservoir
+dpr dpr1 off 
+delay 50
+res res3 hold 700 900 3 initregID
+wait initregID 5
+if initregID
+#do nothing
+else
+call error_30014
+endif
+end
+
+#engage menchanical valve
+stepper l5 500 600 mechvengage
+wait mechvengage 15
+delay 125
+
+
+#reach blister elution
+stepper L2 500 200 elutionreach1
+wait elutionreach1 15
+
+begin atomic 1
+#check peltier is preheated
+
+#PCR check
+if warmstart
+#do nothing
+else
+call error_30015
+endif
+end
+
+begin nonatomic  2					#2 steps to pop blister and cover column
+stepper L2 50 42 elutionsquash
+wait elutionsquash 3
+delay 200                                         
+end
+
+#delay 1 min
+delay 6000
+
+begin nonatomic  8					#8 slow steps dispence eluate over column and into elution well
+stepper L2 50 50 elutionsquash
+wait elutionsquash 3
+delay 200                                         
+end
+
+#shutdown
+valve v6 on
+delay 100
+
