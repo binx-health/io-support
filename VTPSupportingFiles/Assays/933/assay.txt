@@ -2,34 +2,10 @@
 <assay>
   <code>933</code>
   <version>1</version>
-  <name>CTNG_Invalid</name>
+  <name>CTNG_INV</name>
   <shortName>CTNG_INV</shortName>
-  <target>
-    <targetName>CT</targetName>
-    <targetType>STD</targetType>
-    <peakName>CT</peakName>
-    <control>CTIC</control>
-  </target>
-  <target>
-    <targetName>NG</targetName>
-    <targetType>STD</targetType>
-    <peakName>NG</peakName>
-    <control>NGIC</control>
-  </target>
-  <disease>
-    <diseaseName>CT</diseaseName>
-    <loinc>47121-6</loinc>
-    <target>CT</target>
-    <detectionCriteria>CT</detectionCriteria>
-  </disease>
-  <disease>
-    <diseaseName>NG</diseaseName>
-    <loinc>47111-7</loinc>
-    <target>NG</target>
-    <detectionCriteria>NG</detectionCriteria>
-  </disease>
   <flatLineInvalidatesAssay>False</flatLineInvalidatesAssay>
   <diseasesIndependentlyValidated>False</diseasesIndependentlyValidated>
-  <script>CTNG_INV</script>
-  <estimatedDuration>10</estimatedDuration>
+  <script>Main</script>
+  <estimatedDuration>0</estimatedDuration>
 </assay>

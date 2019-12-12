@@ -1,4 +1,5 @@
-﻿# MDNI test assay
+﻿# Main
+# MDNI test assay
 # test to show standard logic with invalid control.
 # Should produce an Invalid result
 
@@ -11,11 +12,10 @@ peak define "Ignore" Ignore 1 520 620
 peak define "NGIC" Ignore 2 100 310 220 32 30 Infinity 14 60 170 90 1
 peak define "NG" Ignore 2 295 510 390 60 30 Infinity 14 60 170 90 1
 peak define "Ignore" Ignore 2 520 620
-
-throw 10002,0
-delay 100
-throw 10002,10
+ throw 10002,0
 delay 100 
+throw 10002,10
+delay 100
 throw 10002,20
 delay 100
 throw 10002,30
