@@ -1,0 +1,57 @@
+﻿#---------------------------------------------
+#airpurge_1
+#based on Mob-D-020 v5.0
+#Antony Brown 31 Mar 2020
+#Copyright binx health Ltd 2020
+#
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - copied from MOB-D-020 v5.0, added charge res 3 at begining to lower pressure, and reset at end. 
+#---------------------------------------------
+
+
+#setup start conditions
+valve v1 off
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 on 
+valve v6 on
+valve v7 off
+valve v8 on
+dpr dpr1 off
+delay 50
+
+res res3 hold 500 700 3 
+delay 200
+
+#blow out back for 4.5s
+valve v9 on
+delay 10
+valve v8 off
+valve v4 off
+delay 20
+
+delay 450
+
+#shutdown
+valve v8 on
+delay 10
+valve v9 off
+delay 20
+valve v4 on
+
+#allow pressure to disapate. 
+delay 100
+
+#vent any remaining to sample well
+valve v3 off
+valve v2 off
+delay 30
+valve v3 on
+delay 30 
+valve v4 on
+
+
+res res3 hold 900 1100 2 

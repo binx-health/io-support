@@ -1,0 +1,41 @@
+﻿# other_peltiers
+begin nonatomic 2
+  therm therm1 on 50 t150
+  therm therm3 on 50 t350
+  
+  delay 1000
+
+  wait t150 30
+    if t150
+      throw detection peltier OK
+    else
+      throw 20013
+    endif
+
+  wait t350 30
+    if t350
+      throw sample peltier OK
+    else
+      throw 20016
+    endif
+
+  therm therm1 on 30 t120
+  therm therm3 on 20 t320
+
+  delay 1000
+
+  wait t120 30
+    if t120
+      throw detection peltier OK
+    else
+      throw 20013
+    endif
+
+  wait t320 30
+    if t320
+      throw sample peltier OK
+    else
+      throw 20016
+    endif
+
+end

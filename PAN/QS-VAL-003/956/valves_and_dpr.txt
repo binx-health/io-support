@@ -1,0 +1,147 @@
+﻿# Main
+
+# valves_and_dpr
+
+begin atomic 1
+  valve v13 on #Low_High_Pressure_Select on
+  valve v1 on  #bellows on
+  valve v2 on  #pump_V1_pcr on
+  valve v3 on  #pump_V2 on
+  valve v4 on  #V3_wash_inlet on
+  valve v5 on  #V4_elute_inlet on
+  valve v6 on  #V5_elute_enable on
+  valve v7 on  #v6_waste_enable on
+  valve v8 on
+  valve v9 on  #wash_air_dry on
+  valve v10 on #elute_air_dry on
+  valve v14 on #low_pressure_dump on
+  valve v15 on #high_pressure_dump on 
+  valve v16 on #digital_enable on
+  valve v11 on #vacuum_dump on
+  valve v17 on
+  dpr dpr1 on 25 0
+
+  delay 50
+
+  valve v12 off #vacuum_enable off
+  valve v13 off #Low_High_Pressure_Select off
+  valve v1 off  #bellows off
+  valve v2 off  #pump_V1_pcr off
+  valve v3 off  #pump_V2 off
+  valve v4 off  #V3_wash_inlet off
+  valve v5 off  #V4_elute_inlet off
+  valve v6 off  #V5_elute_enable off
+  valve v7 off  #v6_waste_enable off
+  valve v8 off  #air_dry_enable off
+  valve v9 off  #wash_air_dry off
+  valve v10 off #elute_air_dry off
+  valve v14 off #low_pressure_dump off
+  valve v15 off #high_pressure_dump off 
+  valve v16 off #digital_enable off
+  valve v11 off #vacuum_dump off
+  valve v17 off #digital_outlet atmospheric off
+  dpr dpr1 off
+
+  #----------------------------------------------
+  #set up reservoirs
+  valve v13 on    #high low pressure select
+
+  res res1 hold 500 700 3 vac
+  res res2 hold 900 1100 3 pos1
+  res res3 hold 900 1100 3 pos2
+
+  delay 300
+
+  wait vac 5
+    if vac
+     throw vac reservoir OK
+    else
+     buzzer 1 30 2
+     throw vac reservoir leak
+    endif
+
+  wait pos1 5
+    if pos1
+     throw positive logic reservoir OK
+    else
+      buzzer 1 30 2
+      throw positive logic reservoir leak
+    endif
+
+  wait pos2 5
+    if pos2
+      throw dpr/airdry reservoir OK
+    else
+      buzzer 1 30 2
+      throw dpr/airdry reservoir leak
+    endif
+
+#------------blow from wash---------------
+  valve v1 off  #bellows off
+  valve v2 off  #pump_V1_pcr off
+  valve v3 on   #pump_V2 on
+  valve v4 off  #V3_wash_inlet off
+  valve v5 on   #V4_elute_inlet on
+  valve v6 on   #V5_elute_enable on
+  valve v7 off  #v6_waste_enable off
+  valve v8 off  #air_dry_enable 
+  valve v9 on   #wash_air_dry on
+  valve v10 off #elute_air_dry off
+  valve v16 off #digital_enable off
+  valve v17 off #digital_outlet atmospheric off
+
+  res res3 dump
+  delay 50
+  res res3 hold 1100 1300 3 pos3
+  delay 150
+
+
+    if pos3
+      buzzer 1 30 2
+      throw wash not airdrying
+    else
+      throw  wash airdry OK
+    endif
+valve v4 on
+valve v9 off
+
+#-----------other airdry line----------
+res res3 dump
+delay 50
+res res3 hold 1100 1300 3 pos4
+valve v5 off
+valve v10 on
+  delay 150
+
+    if pos4
+      buzzer 1 30 2
+      throw elute not airdrying
+    else
+       throw elute airdry OK
+    endif
+
+#--------reset as before-----------
+
+
+  valve v12 off #vacuum_enable off
+  valve v13 off #Low_High_Pressure_Select off
+  valve v1 off  #bellows off
+  valve v2 off  #pump_V1_pcr off
+  valve v3 off  #pump_V2 off
+  valve v4 off  #V3_wash_inlet off
+  valve v5 off  #V4_elute_inlet off
+  valve v6 off  #V5_elute_enable off
+  valve v7 off  #v6_waste_enable off
+  valve v8 off  #air_dry_enable off
+  valve v9 off  #wash_air_dry off
+  valve v10 off #elute_air_dry off
+  valve v14 off #low_pressure_dump off
+  valve v15 off #high_pressure_dump off 
+  valve v16 off #digital_enable off
+  valve v11 off #vacuum_dump off
+  valve v17 off #digital_outlet atmospheric off
+  dpr dpr1 off
+  res res1 hold 500 700 3 post1
+  res res2 hold 900 1100 3 post2
+  res res3 hold 900 1100 3 post3
+end

@@ -1,0 +1,23 @@
+﻿# actuators
+#check all actuators
+#only one needed to test is wash blister.....by squashing it.
+
+#set start conditions to check manifold protection
+valve v1 off
+valve v2 on
+valve v3 on
+valve v4 off
+valve v5 on
+valve v6 on 
+valve v7 off
+valve v8 on
+delay 50
+
+#press and release wash blister into waste.
+  stepper l4 500 800 down
+  delay 200
+  wait down 3
+  stepper l4 500 -850 
+  delay 200
+  wait down 3
+  stepper l4 500 20 

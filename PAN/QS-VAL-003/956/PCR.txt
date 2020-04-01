@@ -1,0 +1,173 @@
+﻿# PCR
+
+
+#set peltier PIDs
+set Peltier.Lysis.Kp 500000
+set Peltier.Lysis.Ki 500
+set Peltier.Lysis.Kd 0
+set Peltier.Lysis.TargetOffset 5
+
+set Peltier.Pcr.Kp 600000
+set Peltier.Pcr.Ki 10
+set Peltier.Pcr.Kd 12000000
+set Peltier.Pcr.Imax 120000
+
+set Peltier.Detection.Kp 255000
+set Peltier.Detection.Ki 16
+set Peltier.Detection.Kd  100000
+
+
+therm therm2 on 70 t290
+wait t290 10
+
+#thermocycle
+#----------------------------------------------------
+begin atomic 1 all_done
+#anneal 1
+  #use accuracy-optimised parameters to return at 50% power.
+  set Peltier.Pcr.Kp 400000
+  set Peltier.Pcr.Ki 0
+  set Peltier.Pcr.Kd 8000000
+  set Peltier.Pcr.Imax 50
+  set Peltier.Pcr.PwmMax 50
+  therm therm2 on 65 anneal1
+  wait anneal1 15
+    if anneal1
+       throw 1st annealed OK
+    else
+       throw 20018 did not anneal
+    endif
+  delay 715
+
+  #extend                 
+  #using re-optimised values to accurately edge up.
+  set Peltier.Pcr.Kp 600000
+  set Peltier.Pcr.Ki 50
+  set Peltier.Pcr.Kd 10000000
+  set Peltier.Pcr.Imax 120
+  set Peltier.Pcr.PwmMax 50
+  therm therm2 on 65.8 adjust          
+  delay 200
+  therm therm2 on 66.8 phase3
+  delay 200
+  therm therm2 on 67.8 phase4
+  delay 100
+  therm therm2 on 69.0 phase5
+  delay 100
+  therm therm2 on 70.2 phase6
+  delay 200
+
+  #denature using original setting
+  set Peltier.Pcr.Kp 600000
+  set Peltier.Pcr.Ki 10
+  set Peltier.Pcr.Kd 12000000
+  set Peltier.Pcr.Imax 120000
+  set Peltier.Pcr.PwmMax 50
+  therm therm2 on 98 1phase1
+  wait 1phase1 6
+  delay 230
+  if 1phase1
+    throw 1st denature OK
+  else
+    throw 20015 denature not reached
+  endif
+
+  #anneal 2
+  #use accuracy-optimised parameters to return at 50% power.
+  set Peltier.Pcr.Kp 400000
+  set Peltier.Pcr.Ki 0
+  set Peltier.Pcr.Kd 8000000
+  set Peltier.Pcr.Imax 50
+  set Peltier.Pcr.PwmMax 50
+  therm therm2 on 65 anneal
+  wait anneal 15
+    if anneal
+       throw annealed OK
+    else
+       throw 20018 did not anneal
+    endif
+  delay 715
+
+  #extend                 
+  #using re-optimised values to accurately edge up.
+  set Peltier.Pcr.Kp 600000
+  set Peltier.Pcr.Ki 50
+  set Peltier.Pcr.Kd 10000000
+  set Peltier.Pcr.Imax 120
+  set Peltier.Pcr.PwmMax 50
+  therm therm2 on 65.8 adjust          
+  delay 200
+  therm therm2 on 66.8 phase3
+  delay 200
+  therm therm2 on 67.8 phase4
+  delay 100
+  therm therm2 on 69.0 phase5
+  delay 100
+  therm therm2 on 70.2 phase6
+  delay 200
+
+  #denature using original setting
+  set Peltier.Pcr.Kp 600000
+  set Peltier.Pcr.Ki 10
+  set Peltier.Pcr.Kd 12000000
+  set Peltier.Pcr.Imax 120000
+  set Peltier.Pcr.PwmMax 50
+  therm therm2 on 98 phase1
+  wait phase1 6
+  delay 230
+  if phase1
+    throw denature OK
+  else
+    throw 20015 denature not reached
+  endif
+
+
+  #anneal 31
+  #use accuracy-optimised parameters to return at 50% power.
+  set Peltier.Pcr.Kp 400000
+  set Peltier.Pcr.Ki 0
+  set Peltier.Pcr.Kd 8000000
+  set Peltier.Pcr.Imax 50
+  set Peltier.Pcr.PwmMax 50
+  therm therm2 on 65 anneal
+  wait anneal 15
+    if anneal
+       throw annealed OK
+    else
+       throw 20018 did not anneal
+    endif
+  delay 715
+
+  #extend                 
+  #using re-optimised values to accurately edge up.
+  set Peltier.Pcr.Kp 600000
+  set Peltier.Pcr.Ki 50
+  set Peltier.Pcr.Kd 10000000
+  set Peltier.Pcr.Imax 120
+  set Peltier.Pcr.PwmMax 50
+  therm therm2 on 65.8 adjust          
+  delay 200
+  therm therm2 on 66.8 phase3
+  delay 200
+  therm therm2 on 67.8 phase4
+  delay 100
+  therm therm2 on 69.0 phase5
+  delay 100
+  therm therm2 on 70.2 phase6
+  delay 200
+
+  #denature using original setting
+  set Peltier.Pcr.Kp 600000
+  set Peltier.Pcr.Ki 10
+  set Peltier.Pcr.Kd 12000000
+  set Peltier.Pcr.Imax 120000
+  set Peltier.Pcr.PwmMax 50
+  therm therm2 on 98 phase1
+  wait phase1 6
+  delay 230
+  if phase1
+    throw denature OK
+  else
+    throw 20015 denature not reached
+  endif
+end
