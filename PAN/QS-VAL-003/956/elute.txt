@@ -1,0 +1,47 @@
+﻿# elute
+#---------------------------------------------
+# based on NAT_CTNG_elution_dispense_1min
+# MOB-D-048
+#--------------------------------------------
+
+#set start conditions to check manifold protection
+valve v1 off
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 off
+valve v6 off
+valve v7 on
+valve v8 on
+valve v16 off                                           #set valve v16 to vent elution well
+valve v17 on
+
+#engage menchanical valve
+stepper l5 500 600 mechvengage
+wait mechvengage 15
+delay 125
+
+
+#reach blister elution
+stepper L2 500 200 elutionreach1
+wait elutionreach1 15
+
+
+begin nonatomic  1					#slow steps dispense eluate over column and into elution well
+stepper L2 50 500 elutionsquash
+wait elutionsquash 3
+delay 1000                                         
+end
+
+#shutdown
+valve v6 on
+delay 10
+
+#remove elution blister in background
+begin atomic 1
+  stepper l2 500 -600 elutionlift
+  wait elutionlift 5               
+  stepper l4 500 20 backoffw
+  wait backoffw 2
+end
+

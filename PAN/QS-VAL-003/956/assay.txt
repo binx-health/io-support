@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <assay>
   <code>956</code>
-  <version>1</version>
+  <version>4</version>
   <name>QS-VAL-003</name>
   <shortName>QS-VAL-003</shortName>
   <flatLineInvalidatesAssay>False</flatLineInvalidatesAssay>
