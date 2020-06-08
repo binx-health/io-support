@@ -1,0 +1,117 @@
+﻿#---------------------------------------------
+#Main
+#based on MOB-D-017 V10 
+#Antony Brown 08 June 2020
+#copyright binx health LTD 2020
+
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - Copied from MOB-D-019 v13.0 assay 982 adapted for amp and det cartrigdes 
+#            - called new PCR fill script MK1A_Candidate_PCR_fill
+#---------------------------------------------
+
+
+call MOB-D-025                     #Initialise Run MOB-D-025 Version 3.0
+
+
+#------------------------------------
+#peltier format and temperature set
+#------------------------------------
+
+set Peltier.Pcr.Kp 300000 
+set Peltier.Pcr.Ki 10
+set Peltier.Pcr.Kd 0
+set Peltier.Pcr.MinTemp 10
+set Peltier.Pcr.Imax 120000
+
+set Peltier.Detection.Kp 100000
+set Peltier.Detection.Ki 10
+set Peltier.Detection.Kd 0
+
+therm therm3 on 22 cooldc
+wait cooldc 10
+
+therm therm2 on 37 warmstart
+wait warmstart 10
+delay 1000
+
+res res2 hold 900 1100 2 ackvar
+wait ackvar 10
+if ackvar
+
+else 
+call error_30010
+endif
+
+res res3 hold 900 1100 2 ack
+wait ack 10
+if ack
+
+else
+call error_30013
+endif
+
+#engage menchanical valve
+stepper l5 500 600 mechvengage
+wait mechvengage 15
+delay 125
+
+#set start conditions
+valve v1 off
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 on
+valve v6 on
+valve v7 off
+valve v8 on
+valve v17 on
+delay 10
+
+
+valve v16 off
+delay 50
+dpr dpr1 on 2 0
+delay 50
+
+
+#open PCR valve before closing the mechvalve to improve elute position
+valve v2 off
+delay 30
+stepper l5 500 900
+delay 200
+
+buzzer 1 10 1
+delay 1000         # to inject sample into well. 
+buzzer 1 50 1
+delay 200
+
+#pcr and detection
+call MOB-D-023                     #Homogenise MOB-D-023 version 3.0
+call MK1A_Candidate_PCR_Fill       #Based on PCR_DPR_Fill MOB-D-046 v1.0 with MK1A fill levels
+call PAN-D-078                     #UNG Step PAN-D-078 version 3.0
+call MOB-D-045                     #42 cycle Rapid PCR MOB-D-045 version 1.0  
+call MOB-D-022                     #Fill Detection Chambers MOB-D-022 version 2.0
+call MOB-D-050                     #Detection Incubation NEW MOB-D-050 version 1.0
+
+
+#setup peak search parameters and call voltammetry
+#peak algorithm "type"  rawnoise permissible noise polyorder targetnoise
+peak algorithm "MultiPeak1Analysis"  1000 1000 6 49 
+
+#peak define  "name" outcome ch vstart vend vexp vtol thresh maxnoise prop widthmax widthmin propnoise
+
+peak define "CTIC" Positive 1 110 310 200 32 90 Infinity 25 60 160 90 4
+peak define "CT" Positive 1 295 510 390 60 115 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 1 520 620                            #this ignores the last part of the scan
+
+peak define "NG1IC" Positive 3 110 310 200 32 90 Infinity 25 60 160 90 4
+peak define "NG1" Positive 3 295 510 390 60 50 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 3 520 620                            #this ignores the last part of the scan
+
+peak define "NG2IC" Positive 4 110 310 200 32 60 Infinity 25 60 160 90 4
+peak define "NG2" Positive 4 295 510 390 60 45 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 4 520 620                            #this ignores the last part of the scan
+
+call MOB-D-016    #Mob-D-016 Version 3.0  voltammetry
