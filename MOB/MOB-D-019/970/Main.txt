@@ -1,8 +1,8 @@
 ﻿#---------------------------------------------
 #Main
-#based on MOB-D-017 V10 
-#Antony Brown 19 April 2018
-#copyright Atlas Genetics Ltd 2018
+#based on MOB-D-017 V11 
+#Antony Brown 12 Aug 2020
+#copyright binx health LTD 2020
 
 #---------------------------------------------
 
@@ -13,6 +13,7 @@
 #Version 2.0 - MOB-CM-0176
 #Version 3.0 - MOB-CM-0183 - CONCH 25
 #Verison 4.0 - MOB-CM-0192
+#Version 5.0 - MOB-CM-0367
 #---------------------------------------------
 
 
@@ -31,10 +32,10 @@ call MOB-D-048                     #elution_dispense_1min MOB-D-048 Version 1.0
 
 #pcr and detection
 call MOB-D-023                     #Homogenise MOB-D-023 version 3.0
-call MOB-D-046                     #PCR_DPR_Fill MOB-D-046 v1.0
+call MOB-D-056                     #MK1A_PCR_Fill MOB-D-056 v1.0
 call PAN-D-078                     #UNG Step PAN-D-078 version 3.0
 call MOB-D-045                     #42 cycle Rapid PCR MOB-D-045 version 1.0  
-call MOB-D-022                     #Fill Detection Chambers MOB-D-022 version 2.0
+call MOB-D-057                     #MK1A_Detection_Fill MOB-D-057 version 1.0
 call MOB-D-050                     #Detection Incubation NEW MOB-D-050 version 1.0
 
 
