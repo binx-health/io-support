@@ -1,20 +1,14 @@
 ﻿#---------------------------------------------
-#NAT_CTNG_fill_detection_chambers
-#MOB-D-022
-#Antony Brown 19 July 2016
-#Copyright Atlas Genetics Ltd 2016
-#
-#Initialed to verify that this is a copy of the master script
-#
-#
+#NAT_CTNG_MK1A_Detection_Fill
+#MOB-D-057
+#Antony Brown 28 July 2020
+#Copyright binx health Ltd 2020
 #
 #---------------------------------------------
 
 #-------------Revision-History----------------
-#Version 1.0 - MOB-CM-0041
-#version 2.0 - MOB-CM-0055
+#Version 1.0 - MOB-CM-0367
 #---------------------------------------------
-
 
 #set starting valve conditions
 valve v1 off
@@ -56,7 +50,7 @@ delay 50
 end
 
 #Fill
-dpr dpr1 on 28 900
+dpr dpr1 on 30 900
 delay 950
 valve v2 on
 delay 50
