@@ -1,0 +1,45 @@
+﻿#---------------------------------------------
+#NAT_CTNG_Volatmmetry
+#MOB-D-016
+#Antony Brown 05 Oct 2016
+#copyright Atlas Genetics Ltd 2020
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - MOB-CM-0024
+#version 2.0 - MOB-CM-0055
+#version 3.0 - MOB-CM-0066
+#---------------------------------------------
+
+
+#syntax is start voltage mV, pulse amplitude mV, sweep increment mV, end voltage mV, pulse time ms, base time ms
+
+throw 10002,99
+
+#Data Scan
+voltammetry differential 0 50 3 600 40 60 
+delay 2200
+
+throw 10002,100
+#End process sequence - release pressure from bellows to waste
+begin atomic 1
+#set starting valve conditions so flow through to waste
+valve v2 on
+valve v3 off
+valve v4 on
+valve v5 on
+valve v6 on
+valve v7 off
+valve v8 on
+
+delay 30
+valve v1 on
+
+
+end
+

@@ -1,0 +1,88 @@
+﻿#---------------------------------------------
+#NAT_CTNG_Mix
+#MOB-D-027
+#Antony Brown 11 Jan 2017
+#copyright Atlas Genetics Ltd 2020
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History---------------
+#version 1.0 - MOB-CM-0055
+#version 2.0 - MOB-CM-0066
+#version 3.0 - MOB-CM-0108 
+#--------------------------------------------
+
+
+wait heatsample 30                 # only needs this long if it starts from warm. 
+if heatsample
+#do nothing
+else
+call error_30013
+endif
+
+#set PID for sample well heater to stop control loop ringing
+therm therm1 off
+set Peltier.Lysis.Kp 350000
+set Peltier.Lysis.Ki 15
+therm therm1 on 37 ackvar
+
+#Set up the fluidic path
+valve v1 off
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 on 
+valve v6 on
+valve v7 on
+valve v8 on
+
+begin atomic 1
+#back off lysis actuator to protect manifold from leaking.
+stepper l3 500 -400 lysisretract
+wait lysisretract 5
+end
+
+
+#mix fluid                    # v1 bellows off and on in that order to keep as much sample as possible over heater
+begin nonatomic 11 ACK        # 11 cycles as first on is a false pump
+valve v1 off
+delay 100
+valve v1 on
+delay 100
+#back gulp 2.8seconds
+valve v2 on
+delay 30
+valve v3 off
+delay 30
+valve v1 off
+delay 100
+valve v3 on
+delay 30
+valve v2 off
+delay 30
+valve v1 on
+delay 60
+#extra delay to evenly space 11 pumps over 1 min (cycle time = 4.8s)
+delay 65
+end
+wait ACK 25
+
+#turn off sample well heater
+therm therm1 off 
+
+
+#return positive logic to normal operational pressure
+res res2 hold 1100 1250 2 initpswID
+wait initpswID 10
+if initpswID
+                                 # leave blank to leave visual marker in script. 
+else 
+call error_30010 
+endif
+
+
+

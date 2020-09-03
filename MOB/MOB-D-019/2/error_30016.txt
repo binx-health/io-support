@@ -1,0 +1,22 @@
+﻿#---------------------------------------------
+#error_30016
+#Based on: PAN-D-093 V2.0
+#Date originated: 11 May 2017
+#Author: Antony Brown
+#copyright Atlas Genetics Ltd 2020
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+
+#-------------revision history----------------
+#Version 1.0 - Copied from PAN-D-093 V1.0
+#Version 2.0 - copied from PAN-D-093 V2.0
+#---------------------------------------------
+
+dpr dpr1 off 
+buzzer 1 30 2
+throw 30016       #therm3 timeout
