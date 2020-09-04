@@ -2,7 +2,7 @@
 #NAT_CTNG_Progress_Indicator_NEW
 #MOB-D-049
 #Antony Brown 06 Aug 2018
-#copyright Atlas Genetics Ltd 2020
+#copyright binx health Ltd 2020
 #
 #Initialed to verify that this is a copy of the master script
 #

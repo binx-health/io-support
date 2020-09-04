@@ -2,7 +2,7 @@
 #NAT_CTNG_Initialise_Run
 #MOB-D-025
 #Antony Brown 12 MAY 2017
-#copyright Atlas Genetics Ltd 2020
+#copyright binx health Ltd 2020
 #
 #Initialed to verify that this is a copy of the master script
 #

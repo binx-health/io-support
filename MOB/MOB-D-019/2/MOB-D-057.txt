@@ -2,7 +2,7 @@
 #NAT_CTNG_MK1A_Detection_Fill
 #MOB-D-057
 #Antony Brown 28 July 2020
-#copyright Atlas Genetics Ltd 2020
+#copyright binx health Ltd 2020
 #
 #Initialed to verify that this is a copy of the master script
 #

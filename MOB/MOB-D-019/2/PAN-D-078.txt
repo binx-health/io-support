@@ -3,7 +3,7 @@
 #NAT_CT_UNG_Step
 #PAN-D-078
 #Antony Brown 21 Feb 2014
-#copyright Atlas Genetics Ltd 2020
+#copyright binx health Ltd 2020
 #
 #Initialed to verify that this is a copy of the master script
 #

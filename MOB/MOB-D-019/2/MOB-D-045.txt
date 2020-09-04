@@ -2,7 +2,7 @@
 #NAT_CTNG_42_Cycle_Rapid PCR
 #MOB-D-045
 #Antony Brown 30 Apr 2018
-#copyright Atlas Genetics Ltd 2020
+#copyright binx health Ltd 2020
 #
 #Initialed to verify that this is a copy of the master script
 #

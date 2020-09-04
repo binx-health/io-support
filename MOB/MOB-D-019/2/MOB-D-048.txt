@@ -2,7 +2,7 @@
 #NAT_CTNG_elution_dispense_1min
 #MOB-D-048
 #Antony Brown 08 June 2018
-#copyright Atlas Genetics Ltd 2020
+#copyright binx health Ltd 2020
 #
 #Initialed to verify that this is a copy of the master script
 #

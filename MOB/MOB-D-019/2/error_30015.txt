@@ -3,7 +3,7 @@
 #Based on: PAN-D-092 V2.0
 #Date originated: 11 May 2017
 #Author: Antony Brown
-#copyright Atlas Genetics Ltd 2020
+#copyright binx health Ltd 2020
 #
 #Initialed to verify that this is a copy of the master script
 #

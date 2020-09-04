@@ -2,7 +2,7 @@
 #NAT_CTNG_homogenisation
 #MOB-D-023
 #Antony Brown 11 MAY 2017
-#copyright Atlas Genetics Ltd 2020
+#copyright binx health Ltd 2020
 #
 #Initialed to verify that this is a copy of the master script
 #
