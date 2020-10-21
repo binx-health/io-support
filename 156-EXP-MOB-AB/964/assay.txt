@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<assay>
+  <code>964</code>
+  <version>1</version>
+  <name>156-EXP-MOB-AB_MK1A_E2E</name>
+  <shortName>156-EXP-MOB-AB_MK1A_E2E</shortName>
+  <flatLineInvalidatesAssay>False</flatLineInvalidatesAssay>
+  <diseasesIndependentlyValidated>False</diseasesIndependentlyValidated>
+  <script>Main</script>
+  <estimatedDuration>0</estimatedDuration>
+</assay>
