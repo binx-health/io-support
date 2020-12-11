@@ -1,0 +1,33 @@
+﻿#---------------------------------------------
+#LAMP-SARS-COV-2
+#based on COR-D-003 V1.0
+#Antony Brown 21 Oct 2020
+#copyright binx health LTD 2020
+
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - COR-CM-0008
+#---------------------------------------------
+
+
+set Peltier.Pcr.Kp 300000
+set Peltier.Pcr.Ki 5
+set Peltier.Pcr.Kd 0
+set Peltier.Pcr.Imax 120000
+
+
+therm therm2 on 30 incubate
+wait incubate 9
+delay 3000           
+
+                  
+therm therm2 on 65 lamp     
+wait lamp 15
+if lamp
+#do nothing
+else
+call error_30015
+endif
+
+delay 120000
