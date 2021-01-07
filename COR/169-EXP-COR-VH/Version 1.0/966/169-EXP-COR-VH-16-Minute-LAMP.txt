@@ -1,0 +1,34 @@
+﻿#---------------------------------------------
+#169-EXP-COR-VH-16-Minute-LAMP
+#based on COR-D-003 V1.0 & 169-EXP-COR-VH-18-Minute-LAMP
+#Lewis Oakley 17 DEC 2020
+#copyright binx health LTD 2020
+
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - Based on COR-D-003 V1.0 & 169-EXP-COR-VH-18-Minute-LAMP
+#            - Changed LAMP time from 108000 (18 Minutes) to 96000 (16 Minutes)
+#---------------------------------------------
+
+
+set Peltier.Pcr.Kp 300000
+set Peltier.Pcr.Ki 5
+set Peltier.Pcr.Kd 0
+set Peltier.Pcr.Imax 120000
+
+
+therm therm2 on 30 incubate
+wait incubate 9
+delay 3000           
+
+                  
+therm therm2 on 65 lamp     
+wait lamp 15
+if lamp
+#do nothing
+else
+call error_30015
+endif
+
+delay 96000

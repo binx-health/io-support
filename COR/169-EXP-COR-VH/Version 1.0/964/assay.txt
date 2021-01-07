@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<assay>
+  <code>964</code>
+  <version>1</version>
+  <name>169-EXP-COR-VH-e-to-e-6-det-20-LAMP</name>
+  <shortName>169-EXP-COR-VH-e-to-e-6-det-20-LAMP</shortName>
+  <target>
+    <targetName>N</targetName>
+    <targetType>OR</targetType>
+    <peakName>N</peakName>
+    <control>RP</control>
+  </target>
+  <target>
+    <targetName>O</targetName>
+    <targetType>OR</targetType>
+    <peakName>O</peakName>
+    <control>RP</control>
+  </target>
+  <disease>
+    <diseaseName>SC2</diseaseName>
+    <loinc></loinc>
+    <target>N</target>
+    <target>O</target>
+    <detectionCriteria>N,O</detectionCriteria>
+  </disease>
+  <flatLineInvalidatesAssay>False</flatLineInvalidatesAssay>
+  <diseasesIndependentlyValidated>False</diseasesIndependentlyValidated>
+  <script>Main</script>
+  <estimatedDuration>1800</estimatedDuration>
+</assay>
