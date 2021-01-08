@@ -1,0 +1,119 @@
+﻿#---------------------------------------------
+#Main
+#Based on MOB-D-019 970V5 & 982 - Pre-Clinical_AMP_and_DET
+#Lewis Oakley 17 DEC 2020
+#copyright binx health Ltd 2020
+#
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - Based on MOB-D-019 970V5 & 982 - Pre-Clinical_AMP_and_DET
+#            - Changed peak search parameters based on 169-EXP-COR-VH-Detection-Voltammetry
+#            - Added 169-EXP-COR-VH-Detection-Voltammetry
+#            - Added 169-EXP-COR-VH-Detection-Incubation
+#            - Removed MOB-D-045 replaced with COR-D-003 v1.0 20 minute LAMP
+#            - Removed UNG PAN-D-078, UDG step for COR assay included in COR-D-003
+#Version 2.0 - Changed 6th scan on detection voltammetry to Pstat external
+#---------------------------------------------
+
+
+call MOB-D-025                     #Initialise Run MOB-D-025 Version 3.0
+
+
+#------------------------------------
+#peltier format and temperature set
+#------------------------------------
+
+set Peltier.Pcr.Kp 300000
+set Peltier.Pcr.Ki 10
+set Peltier.Pcr.Kd 0
+set Peltier.Pcr.MinTemp 10
+set Peltier.Pcr.Imax 120000
+
+set Peltier.Detection.Kp 100000
+set Peltier.Detection.Ki 10
+set Peltier.Detection.Kd 0
+
+therm therm3 on 22 cooldc
+wait cooldc 10
+
+therm therm2 on 37 warmstart
+wait warmstart 10
+delay 1000
+
+res res2 hold 900 1100 2 ackvar
+wait ackvar 10
+if ackvar
+
+else 
+call error_30010
+endif
+
+res res3 hold 900 1100 2 ack
+wait ack 10
+if ack
+
+else
+call error_30013
+endif
+
+#engage menchanical valve
+stepper l5 500 600 mechvengage
+wait mechvengage 15
+delay 125
+
+#set start conditions
+valve v1 off
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 on
+valve v6 on
+valve v7 off
+valve v8 on
+valve v17 on
+delay 10
+
+
+valve v16 off
+delay 50
+dpr dpr1 on 2 0
+delay 50
+
+
+#open PCR valve before closing the mechvalve to improve elute position
+valve v2 off
+delay 30
+stepper l5 500 900
+delay 200
+
+buzzer 1 10 1
+delay 1000         # to inject sample into well. 
+buzzer 1 50 1
+delay 200
+
+#pcr and detection
+call MOB-D-023                                              #Homogenise MOB-D-023 version 3.0
+call MOB-D-056                                              #MK1A_PCR_Fill MOB-D-056 v1.0
+call COR-D-003                                              #LAMP COR-D-003 v1.0 
+call MOB-D-057                                              #MK1A_Detection_Fill MOB-D-057 version 1.0
+call 169-EXP-COR-VH-Detection-Incubation                    #Detection Incubation NEW script to run for 1 minute from 3 minutes version 1.0
+
+#setup peak search parameters and call voltammetry
+#peak algorithm "type"  rawnoise permissible noise polyorder target noise
+peak algorithm "MultiPeak1Analysis"  1000 1000 6 49 
+
+#peak define  "name" outcome ch vstart vend vexp vtol thresh maxnoise prop widthmax widthmin propnoise
+
+peak define "RP" Positive 1 295 510 390 60 115 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 1 520 620                            #this ignores the last part of the scan
+
+peak define "N" Positive 3 295 510 390 60 50 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 3 520 620                            #this ignores the last part of the scan
+
+peak define "O" Positive 4 295 510 390 60 45 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 4 520 620                            #this ignores the last part of the scan
+
+call 169-EXP-COR-VH-Detection-Voltammetry    #New 6 scan Detection Voltammetry version 2.0
+
+

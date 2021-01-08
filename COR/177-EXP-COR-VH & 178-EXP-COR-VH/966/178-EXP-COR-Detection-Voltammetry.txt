@@ -1,0 +1,43 @@
+﻿#---------------------------------------------
+#178-EXP-COR-Detection-Voltammetry V1.0
+#Based on MOB-D-016 Version 3.0
+#Lewis Oakley 21 DEC 2020
+#Copyright binx 2020
+#
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - Based on MOB-D-016 version 3.0 - NAT_CTNG_Volatmmetry
+#Version 2.0 - Removed 2 - 6 minute scans - change the one scan to a very quick 2 point scan for making assay script valid. 
+#---------------------------------------------
+
+#syntax is start voltage mV, pulse amplitude mV, sweep increment mV, end voltage mV, pulse time ms, base time ms
+
+# run 1 very quick scan to generate valid assay script
+pstat 210 external
+voltammetry differential 0 50 3 3 40 60 
+delay 2200
+pstat 0 internal
+
+throw 10002,100
+
+#End process sequence - release pressure from bellows to waste
+begin atomic 1
+#set starting valve conditions so flow through to waste
+valve v2 on
+valve v3 off
+valve v4 on
+valve v5 on
+valve v6 on
+valve v7 off
+valve v8 on
+
+delay 30
+valve v1 on
+
+
+end
+

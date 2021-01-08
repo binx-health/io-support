@@ -1,0 +1,54 @@
+﻿
+#---------------------------------------------
+# 169-EXP-COR-VH-Detection-Incubation
+#Based on MOB-D-050
+#Lewis Oakley 11 DEC 2020
+#copyright binx 2020
+#
+#
+#
+#
+#---------------------------------------------
+
+
+#-------------Revision-History----------------
+#Version 1.0 - Copied from NAT_CTNG_Detection_Incubation_NEW Version 1.0
+#            - Changed duration of incubation from 16500 to 4500
+#---------------------------------------------
+
+#set incubation temperature
+therm therm3 on 37 INCDT        
+
+set peltier.pcr.ki 20
+therm therm2 on 37 INCPCR
+wait INCPCR 30
+wait INCDT 30
+
+if INCDT
+#do nothing
+else
+call error_30016
+endif
+
+if INCPCR
+#do nothing
+else
+call error_30015
+endif
+
+set peltier.pcr.ki 6
+
+#delay for incubation before read
+delay 4500
+
+
+
+#start prescan
+begin atomic 1
+pstat 210 external
+voltammetry differential 0 50 10 600 40 60             #Full prescan  
+end
+
+#delay to finish 3 min incubation time
+delay 1500
+
