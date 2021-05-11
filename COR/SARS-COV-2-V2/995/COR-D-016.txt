@@ -1,0 +1,50 @@
+﻿#---------------------------------------------
+#SARS-CoV-2 Detection Incubation Script COR-D-016 Version 1.0
+#COR-D-016 Version 1.0
+#Lewis Oakley 05 May 2021
+#Copyright binx health LTD 2021
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - COR-CM-0014
+#---------------------------------------------
+
+#set incubation temperature
+therm therm3 on 33 INCDT        
+
+set peltier.pcr.ki 20
+therm therm2 on 33 INCPCR
+wait INCPCR 30
+wait INCDT 30
+
+if INCDT
+#do nothing
+else
+call error_30016
+endif
+
+if INCPCR
+#do nothing
+else
+call error_30015
+endif
+
+set peltier.pcr.ki 6
+
+#delay for incubation before read
+delay 4500
+
+#start prescan
+begin atomic 1
+pstat 210 external
+voltammetry differential 0 50 10 600 40 60             #Full prescan  
+end
+
+#delay to finish 3 min incubation time
+delay 1500
+
