@@ -1,0 +1,96 @@
+﻿#---------------------------------------------
+#SARS-CoV-2 Detection Voltammetry Script
+#267-EXP-COR-LO - 3 Min/3 Scan Detection
+#Based on COR-D-017 Version 1.0
+#Lewis Oakley 26 MAR 2021
+#Copyright binx health LTD 2021
+#
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - Based on COR-CM-0014
+#            - 6 scans accross 6 minutes
+#---------------------------------------------
+
+#syntax is start voltage mV, pulse amplitude mV, sweep increment mV, end voltage mV, pulse time ms, base time ms
+
+#start scan 1 @ 1min
+begin atomic 1
+pstat 210 external
+voltammetry differential 0 50 3 600 40 60            #Full Scan  
+delay 2200
+pstat 0 internal
+end
+
+#delay to next scan
+delay 6000
+
+
+#start scan 2 @ 2min
+begin atomic 1
+pstat 210 external
+voltammetry differential 0 50 3 600 40 60            #Full Scan  
+delay 2200
+pstat 0 internal
+end
+
+#delay to next scan
+delay 6000
+
+#start scan 3 @ 3min
+begin atomic 1
+pstat 210 external
+voltammetry differential 0 50 3 600 40 60            #Full Scan  
+delay 2200
+pstat 0 internal
+end
+
+#delay to next scan
+delay 6000
+
+#start scan 4 @ 4min
+begin atomic 1
+pstat 210 external
+voltammetry differential 0 50 3 600 40 60            #Full Scan  
+delay 2200
+pstat 0 internal
+end
+
+#delay to next scan
+delay 6000
+
+#start scan 5 @ 5min
+begin atomic 1
+pstat 210 external
+voltammetry differential 0 50 3 600 40 60            #Full Scan  
+delay 2200
+pstat 0 internal
+end
+
+#delay to next scan
+delay 6000
+
+#Data Scan - scan 6 @ 6min
+pstat 210 external
+voltammetry differential 0 50 3 600 40 60 
+delay 2200
+pstat 0 internal
+
+throw 10002,100
+
+#End process sequence - release pressure from bellows to waste
+begin atomic 1
+#set starting valve conditions so flow through to waste
+valve v2 on
+valve v3 off
+valve v4 on
+valve v5 on
+valve v6 on
+valve v7 off
+valve v8 on
+
+delay 30
+valve v1 on
+
+
+end

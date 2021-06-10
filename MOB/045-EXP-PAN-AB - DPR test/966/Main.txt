@@ -1,0 +1,137 @@
+﻿#---------------------------------------------
+#Main
+#Based on New Script 
+#Antony Brown 12 MAR 2021
+#copyright binx health Ltd 2021
+#
+#---------------------------------------------
+
+
+#-------------------------------------------
+#Verison History
+#1.0 AB 12 MAR 2021 - new script to test the function of the DPR using the EOL test Pneumatics Cartridge. 
+#-------------------------------------------
+
+# Clamp up
+stepper l1 300 -1350 ackVar
+wait ackVar 60
+
+# map valves to friendly names
+map v1 bellows
+map v2 pump_v1_pcr
+map v3 pump_v2
+map v4 wash_inlet
+map v5 elute_inlet
+map v6 elute_enable
+map v7 waste_enable
+map v8 airdry_enable
+map v9 wash_airdry
+map v10 elute_airdry
+map v16 digital_enable
+
+
+
+res res1 dump
+res res2 dump
+res res3 dump
+
+#set dpr off so that new one does not buzz whilst res 3 is empty 
+dpr dpr1 off
+	
+solenoid m1 on #isolation_release on 		# isolation solenoid should be powered up indefinitely
+solenoid s1 off #drawer_catch off   		# drawer_catch should be left off normally
+
+#pressure valves are rippled on-and-off 
+valve v12 on #vacuum_enable on
+valve v13 on #Low_High_Pressure_Select on
+valve v1 on  #bellows on
+valve v2 on  #pump_V1_pcr on
+valve v3 on  #pump_V2 on
+valve v4 on  #V3_wash_inlet on
+valve v5 on  #V4_elute_inlet on
+valve v6 on  #V5_elute_enable on
+valve v7 on  #v6_waste_enable on
+valve v8 on
+valve v9 on  #wash_air_dry on
+valve v10 on #elute_air_dry on
+valve v14 on #low_pressure_dump on
+valve v15 on #high_pressure_dump on 
+valve v16 on #digital_enable on
+valve v11 on #vacuum_dump on
+valve v17 on
+
+delay 10
+
+valve v12 off #vacuum_enable off
+valve v13 off #Low_High_Pressure_Select off
+valve v1 off  #bellows off
+valve v2 off  #pump_V1_pcr off
+valve v3 off  #pump_V2 off
+valve v4 off  #V3_wash_inlet off
+valve v5 off  #V4_elute_inlet off
+valve v6 off  #V5_elute_enable off
+valve v7 off  #v6_waste_enable off
+valve v8 off  #air_dry_enable off
+valve v9 off  #wash_air_dry off
+valve v10 off #elute_air_dry off
+valve v14 off #low_pressure_dump off
+valve v15 off #high_pressure_dump off 
+valve v16 off #digital_enable off
+valve v11 off #vacuum_dump off
+valve v17 off #digital_outlet atmospheric off
+
+#open manifold with no pressure in reservoirs
+valve v13 on
+valve v12 on
+delay 50
+
+#charge positive hard 
+res res2 hold 900 1100 2 initpswID 
+delay 200
+res res3 hold 900 1000 2 initPSW2D
+
+#set up valve conditions to suck in fluid forming a meniscus in sample well inlet
+valve v2 on
+delay 50
+valve v1 on
+delay 100
+#allow bellows to close fully before closing v3
+valve v3 on
+valve v4 on
+valve v5 on
+valve v6 on
+valve v7 on
+valve v8 on
+delay 20
+
+valve v17 on
+valve v16 on
+
+delay 100
+
+dpr dpr1 on 48 0 
+delay 500
+dpr dpr1 on 25 0
+delay 1000
+dpr dpr1 on 50 0
+delay 500
+dpr dpr1 on 10 0
+delay 1000
+
+
+regpressure 150 
+delay 500
+regpressure 400
+delay 500
+regpressure 150
+delay 500
+dpr dpr1 off
+
+
+res res2 dump
+res res3 dump
+
+# Clamp down
+stepper l1 500 1350 ackVar
+wait ackVar 60
+

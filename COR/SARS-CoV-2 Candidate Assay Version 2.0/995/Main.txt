@@ -1,0 +1,59 @@
+﻿#---------------------------------------------
+#Main
+#SARS-COV-2 Main Script - COR-D-002 - Version 3.0
+#based on COR-D-002 - Version 2.0
+#Lewis Oakley 11 May 2021
+#copyright binx health LTD 2021
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - Based on COR-D-002
+#Version 2.0 - COR-CM-0014
+#Version 3.0 - COR-CM-0020
+#---------------------------------------------
+
+#SARS-CoV-2 LAMP Progress Indicator COR-D-020 version 1.0
+call COR-D-020                     #SARS-CoV-2 Progress Indicator Script COR-D-020 Version 1.0
+
+call MOB-D-025                     #Initialise Run MOB-D-025 Version 3.0
+
+#Sample Extraction - Lysis, Wash & ELution 
+call MOB-D-026                     #Lysis Release MOB-D-026 version 1.0
+call MOB-D-027                     #Mix MOB-D-027 version 3.0
+call MOB-D-028                     #Pump MOB-D-028 version 2.0
+call MOB-D-020                     #Air_purge_1 MOB-D-020 version 5.0
+call MOB-D-029                     #Wash Release MOB-D-029 version 2.0
+call MOB-D-047                     #air_dry_1min_750 MOB-D-047 version 2.0
+call MOB-D-048                     #elution_dispense_1min MOB-D-048 Version 1.0
+
+#LAMP and Detection
+call MOB-D-023                     #Homogenise MOB-D-023 version 3.0
+call COR-D-018                     #SARS-CoV-2 LAMP Loading Script COR-D-018 Version 1.0
+call COR-D-003                     #SARS-CoV-2 LAMP Script COR-D-003 Version 2.0
+call COR-D-019                     #SARS-CoV-2 LAMP Loading Script COR-D-019 Version 1.0
+call COR-D-016                     #SARS-CoV-2 Detection Incubation Script COR-D-016 Version 2.0
+
+#setup peak search parameters and call voltammetry
+#peak algorithm "type"  rawnoise permissible noise polyorder target noise
+peak algorithm "MultiPeak1Analysis" 55 150 5 49 
+
+#peak define  "name" outcome ch vstart vend vexp vtol thresh maxnoise prop widthmax widthmin propnoise
+
+peak define "N" Positive 1 250 510 390 60 112 Infinity 25 60 250 90 4
+peak define "clearend" Ignore 1 520 620
+peak define "low" Ignore 1 -100 200                            #this ignores the last part of the scan
+
+peak define "O" Positive 2 250 510 390 60 100 Infinity 25 60 250 90 4
+peak define "clearend" Ignore 2 520 620
+peak define "low" Ignore 2 -100 200                             #this ignores the last part of the scan
+
+peak define "RP" Positive 3 250 510 390 60 55 Infinity 25 60 250 90 4
+peak define "clearend" Ignore 3 520 620
+peak define "low" Ignore 3 -100 200                             #this ignores the last part of the scan
+
+call COR-D-017             #SARS-CoV-2 Detection Voltammetry Script COR-D-017 Version 1.0
