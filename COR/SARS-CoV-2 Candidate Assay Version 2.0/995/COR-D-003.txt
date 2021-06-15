@@ -1,0 +1,80 @@
+﻿#---------------------------------------------
+#SARS-CoV-2 LAMP Script
+#COR-D-003 Version 2.0
+#Lewis Oakley 05 May 2021
+#Copyright binx health LTD 2021
+#
+#Initialed to verify that this is a copy of the master script
+#
+#
+#
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - COR-CM-0008
+#Version 2.0 - COR-CM-0014
+#---------------------------------------------
+
+set Peltier.Pcr.Kp 300000
+set Peltier.Pcr.Ki 5
+set Peltier.Pcr.Kd 0
+set Peltier.Pcr.Imax 120000
+
+#UDG Step 30°C for 30 Seconds
+therm therm2 on 30 incubate
+wait incubate 9
+delay 3000           
+
+#LAMP Incubation step at 67 °C for 20 minutes                  
+therm therm2 on 67 lamp     
+wait lamp 15
+if lamp
+#do nothing
+else
+call error_30015
+endif
+
+delay 120000
+
+#Cool LAMP and detection peltier to 30°C before detection load
+therm therm2 on 30 det2
+therm therm3 on 30 det3
+wait det2 30
+wait det3 30
+
+if det2
+#do nothing
+else
+call error_30015
+endif
+
+if det3
+#do nothing
+else 
+call error_30016
+endif
+
+#Hold at 30°C for 30 seconds to ensure liquid cooling
+delay 3000
+
+#Warm LAMP and detection peltier to 33°C before detection load (To aid reconstitution)
+
+therm therm2 on 33 det2
+therm therm3 on 33 det3
+wait det2 30
+wait det3 30
+
+if det2
+#do nothing
+else
+call error_30015
+endif
+
+if det3
+#do nothing
+else 
+call error_30016
+endif
+
+#Hold at 33°C for 10 seconds to ensure liquid cooling prior to loading in detection chamber
+delay 1000

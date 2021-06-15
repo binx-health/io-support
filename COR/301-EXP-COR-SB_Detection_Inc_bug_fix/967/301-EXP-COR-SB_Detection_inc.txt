@@ -1,0 +1,26 @@
+﻿#---------------------------------------------
+#301-EXP-COR-SB SARS-CoV-2 Detection Incubation Script COR-D-016 Version 2.1
+#based on COR-D-016 Version 2
+#Lewis Oakley 11 May 2021
+#Copyright binx health LTD 2021
+#
+
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - removed secondary set thermx 33 commands 
+#---------------------------------------------
+
+
+#delay for incubation before read
+delay 4500
+
+#start prescan
+begin atomic 1
+pstat 210 external
+voltammetry differential 0 50 10 600 40 60             #Full prescan  
+end
+
+#Additional delay for total 1 minute incubation prior to voltammertry
+delay 1500
+
