@@ -1,0 +1,107 @@
+﻿#---------------------------------------------
+#Main
+#SARS-COV-2 AmpDet Main Script
+#based on COR-D-002 - Version 3.0
+#Lewis Oakley 11 Jun 2021
+#copyright binx health LTD 2021
+#
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#Version 1.0 - Based on COR-D-002 Version 3.0
+#---------------------------------------------
+
+set Peltier.Pcr.Kp 300000
+set Peltier.Pcr.Ki 10
+set Peltier.Pcr.Kd 0
+set Peltier.Pcr.MinTemp 10
+set Peltier.Pcr.Imax 120000
+
+set Peltier.Detection.Kp 100000
+set Peltier.Detection.Ki 10
+set Peltier.Detection.Kd 0
+
+therm therm3 on 22 cooldc
+wait cooldc 10
+
+therm therm2 on 37 warmstart
+wait warmstart 10
+delay 1000
+
+res res2 hold 900 1100 2 ackvar
+wait ackvar 10
+if ackvar
+
+else 
+call error_30010
+endif
+
+res res3 hold 900 1100 2 ack
+wait ack 10
+if ack
+
+else
+call error_30013
+endif
+
+#engage menchanical valve
+stepper l5 500 600 mechvengage
+wait mechvengage 15
+delay 125
+
+#set start conditions
+valve v1 off
+valve v2 off
+valve v3 on
+valve v4 on
+valve v5 on
+valve v6 on
+valve v7 off
+valve v8 on
+valve v17 on
+delay 10
+
+
+valve v16 off
+delay 50
+dpr dpr1 on 2 0
+delay 50
+
+
+#open PCR valve before closing the mechvalve to improve elute position
+valve v2 off
+delay 30
+stepper l5 500 900
+delay 200
+
+buzzer 1 10 1
+delay 1000         # to inject sample into well. 
+buzzer 1 50 1
+delay 200
+
+#LAMP and Detection
+call MOB-D-023                     #Homogenise MOB-D-023 version 3.0
+call COR-D-018                     #SARS-CoV-2 LAMP Loading Script COR-D-018 Version 1.0
+call COR-D-003                     #SARS-CoV-2 LAMP Script COR-D-003 Version 2.0
+call COR-D-019                     #SARS-CoV-2 Detection Loading Script COR-D-019 Version 1.0
+call COR-D-016                     #SARS-CoV-2 Detection Incubation Script COR-D-016 Version 2.0
+
+#setup peak search parameters and call voltammetry
+#peak algorithm "type"  rawnoise permissible noise polyorder target noise
+peak algorithm "MultiPeak1Analysis" 55 150 5 49 
+
+#peak define  "name" outcome ch vstart vend vexp vtol thresh maxnoise prop widthmax widthmin propnoise
+
+peak define "N" Positive 1 250 510 390 60 112 Infinity 25 60 250 90 4
+peak define "clearend" Ignore 1 520 620
+peak define "low" Ignore 1 -100 200                            #this ignores the last part of the scan
+
+peak define "O" Positive 2 250 510 390 60 100 Infinity 25 60 250 90 4
+peak define "clearend" Ignore 2 520 620
+peak define "low" Ignore 2 -100 200                             #this ignores the last part of the scan
+
+peak define "RP" Positive 3 250 510 390 60 55 Infinity 25 60 250 90 4
+peak define "clearend" Ignore 3 520 620
+peak define "low" Ignore 3 -100 200                             #this ignores the last part of the scan
+
+call COR-D-017             #SARS-CoV-2 Detection Voltammetry Script COR-D-017 Version 1.0
