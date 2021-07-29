@@ -1,7 +1,7 @@
 ﻿# Main
 # =============================================================================
-# 21011-4502 EOL Test Script - Pneumatic Test
-# Version 4.0
+# Based on - 21011-4502 EOL Test Script - Pneumatic Test -Version 4.0
+# added extra leak test for requirment CIS245
 # =============================================================================
 
 # Clamp up
@@ -259,6 +259,40 @@ delay 100
 res res1 dump
 res res2 dump
 res res3 dump
+
+#Charge up reservoirs again for CIS245
+res res1 hold 750 760 5
+res res2 hold 1200 1210 2
+
+
+# low pressure leak test
+valve v12 on
+valve bellows on
+valve pump_v1_pcr on
+valve pump_v2 on
+valve wash_inlet on
+valve elute_inlet on
+valve elute_enable on
+valve waste_enable on
+valve airdry_enable on
+delay 15000
+
+
+# vacuum pressure leak test
+valve bellows off
+valve pump_v1_pcr off
+valve pump_v2 off
+valve wash_inlet off
+valve elute_inlet off
+valve elute_enable off
+valve waste_enable off
+valve airdry_enable off
+delay 15000
+res res1 dump
+res res2 dump
+delay 100
+# end of pressure leak tests
+
 
 # Clamp down
 stepper l1 500 1350 ackVar
