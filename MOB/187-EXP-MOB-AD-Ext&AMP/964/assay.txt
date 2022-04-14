@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<assay>
+  <code>964</code>
+  <version>1</version>
+  <name>187-EXP-MOB-AD_EXT_AMP</name>
+  <shortName>CTNG_EXT_AMP</shortName>
+  <target>
+    <targetName>CT</targetName>
+    <targetType>STD</targetType>
+    <peakName>CT</peakName>
+    <control>CTIC</control>
+  </target>
+  <target>
+    <targetName>NG1</targetName>
+    <targetType>STD</targetType>
+    <peakName>NG1</peakName>
+    <control>NG1IC</control>
+  </target>
+  <target>
+    <targetName>NG2</targetName>
+    <targetType>STD</targetType>
+    <peakName>NG2</peakName>
+    <control>NG2IC</control>
+  </target>
+  <disease>
+    <diseaseName>CT</diseaseName>
+    <loinc>47212-6</loinc>
+    <target>CT</target>
+    <detectionCriteria>CT</detectionCriteria>
+  </disease>
+  <disease>
+    <diseaseName>NG</diseaseName>
+    <loinc>24111-7</loinc>
+    <target>NG1</target>
+    <target>NG2</target>
+    <detectionCriteria>NG1,NG2</detectionCriteria>
+  </disease>
+  <flatLineInvalidatesAssay>False</flatLineInvalidatesAssay>
+  <diseasesIndependentlyValidated>False</diseasesIndependentlyValidated>
+  <script>Main</script>
+  <estimatedDuration>0</estimatedDuration>
+</assay>

@@ -1,0 +1,295 @@
+﻿#--------------------------------------------
+#Data_Collection_Test
+#Antony Brown 06 Apr 2022
+#copyright binx Health Ltd 2022
+#--------------------------------------------
+
+#-------------Revision-History---------------
+#version 0.1 - initial release PAN-CM-0802
+#--------------------------------------------
+
+#============================================
+#Peltier 
+#============================================
+#---------------------------------
+#Sample Well Peltier test
+
+begin atomic 1
+
+  #turn on Sample well peltier to get to temp before mix
+  set Peltier.Lysis.Kp 500000
+  set Peltier.Lysis.Ki 500
+  set Peltier.Lysis.Kd 0
+  set Peltier.Lysis.TargetOffset 5
+
+  #Turn on sample well heater
+  therm therm1 on 37 heatsample
+  delay 6000
+  wait heatsample 30
+  if heatsample
+    therm therm1 off
+  else
+    buzzer 1 30 5
+    throw 30015
+  endif
+
+end
+
+#----------------------------------------
+# Detection Peltier test
+
+#using accuracy amended parameters 
+begin atomic 1
+  set Peltier.Detection.Kp 255000
+  set Peltier.Detection.Ki 16
+  set Peltier.Detection.Kd  100000
+
+  therm therm3 on 42 preheatdetection
+  delay 8000                    # to equalise temperature
+  wait preheatdetection 15
+  if  preheatdetection
+    therm therm3 off
+  else
+    buzzer 1 30 5
+    throw 30016
+  endif
+end
+#------------------------------------- 
+
+
+#PCR peltier Stability 
+ 
+  set Peltier.Pcr.Kp 300000
+  set Peltier.Pcr.Ki 5
+  set Peltier.Pcr.Kd 0
+  set Peltier.Pcr.Imax 120000
+
+
+  therm therm2 on 37 incubate   #2 minute UNG activation
+  delay 912  
+  wait incubate 9      
+    if incubate
+      #do nothing
+     else
+      buzzer 1 30 5
+      throw 30015
+    endif 
+                  
+  therm therm2 on 94 denat      
+  delay 3000  
+  wait denat 15
+    if denat
+      #do nothing
+    else
+      buzzer 1 30 5
+      throw 30015
+    endif
+
+#------------------------------ 
+#10 PCR cycles
+begin atomic 10 all_done     #5 cycles starting from annealing to add in commands to run parrallel to save time in assay
+
+#anneal
+  #use accuracy-optimised parameters to return at 50% power.
+  set Peltier.Pcr.Kp 400000
+  set Peltier.Pcr.Ki 0
+  set Peltier.Pcr.Kd 8000000
+  set Peltier.Pcr.Imax 50
+  set Peltier.Pcr.PwmMax 50
+  therm therm2 on 65 anneal
+    wait anneal 15
+       if anneal
+        #do nothing
+       else
+        buzzer 1 30 5
+        throw 30018
+       endif
+    delay 715
+
+#extend                 
+  #using re-optimised values to accurately edge up.
+  set Peltier.Pcr.Kp 600000
+  set Peltier.Pcr.Ki 50
+  set Peltier.Pcr.Kd 10000000
+  set Peltier.Pcr.Imax 120
+  set Peltier.Pcr.PwmMax 50
+  therm therm2 on 65.8 adjust          
+  delay 200
+  therm therm2 on 66.8 phase3
+  delay 200
+  therm therm2 on 67.8 phase4
+  delay 100
+  therm therm2 on 69.0 phase5
+  delay 100
+  therm therm2 on 70.2 phase6
+  delay 200
+
+#denature using original setting
+  set Peltier.Pcr.Kp 600000
+  set Peltier.Pcr.Ki 10
+  set Peltier.Pcr.Kd 12000000
+  set Peltier.Pcr.Imax 120000
+  set Peltier.Pcr.PwmMax 50
+  therm therm2 on 98 phase1
+  wait phase1 6
+  delay 230
+end
+
+#----------------------------------
+wait all_done 256     # wait for a maximum allowable cycle time of 10 cycles with spec of 24.6 +- 1s
+
+  If all_done
+    therm therm2 off
+  else
+    buzzer 1 30 5
+    throw 30020
+  endif
+
+
+
+
+#====================================
+#Pneumatics
+#====================================
+#Charge Pumps 5 times and check sensor read out
+ 
+ #empty reservoirs 
+  res res1 dump
+  res res2 dump
+  res res3 dump
+
+  #set dpr off 
+  dpr dpr1 off
+  delay 100
+
+#-------------------------------------
+    #cycle valves to get known state
+      #pressure valves are rippled on-and-off 
+      valve v12 on #vacuum_enable on
+      valve v13 on #Low_High_Pressure_Select on
+      valve v1 on  #bellows on
+      valve v2 on  #pump_V1_pcr on
+      valve v3 on  #pump_V2 on
+      valve v4 on  #V3_wash_inlet on
+      valve v5 on  #V4_elute_inlet on
+      valve v6 on  #V5_elute_enable on
+      valve v7 on  #v6_waste_enable on
+      valve v8 on
+      valve v9 on  #wash_air_dry on
+      valve v10 on #elute_air_dry on
+      valve v14 on #low_pressure_dump on
+      valve v15 on #high_pressure_dump on 
+      valve v16 on #digital_enable on
+      valve v11 on #vacuum_dump on
+      valve v17 on
+  
+      delay 100
+    
+      valve v12 off #vacuum_enable off
+      valve v13 off #Low_High_Pressure_Select off
+      valve v1 off  #bellows off
+      valve v2 off  #pump_V1_pcr off
+      valve v3 off  #pump_V2 off
+      valve v4 off  #V3_wash_inlet off
+      valve v5 off  #V4_elute_inlet off
+      valve v6 off  #V5_elute_enable off
+      valve v7 off  #v6_waste_enable off
+      valve v8 off  #air_dry_enable off
+      valve v9 off  #wash_air_dry off
+      valve v10 off #elute_air_dry off
+      valve v14 off #low_pressure_dump off
+      valve v15 off #high_pressure_dump off 
+      valve v16 off #digital_enable off
+      valve v11 off #vacuum_dump off
+      valve v17 off #digital_outlet atmospheric off
+      delay 100
+ 
+#---------------------------------------------
+ 
+begin nonatomic 5
+   #test Vac pump charging and the seal to the cartridge
+
+
+      valve v1 off  #bellows off
+      valve v2 off  #pump_V1_pcr off
+      valve v3 off  #pump_V2 off
+      valve v4 off  #V3_wash_inlet off
+      valve v5 off  #V4_elute_inlet off
+      valve v6 off  #V5_elute_enable off
+      valve v7 off  #v6_waste_enable off
+      valve v8 off  #V7/8_airdry_enable off
+      delay 100
+
+        res res1 hold 500 600 2 ackres1
+        delay 500        
+        wait ackres1 5
+        if ackres1
+          #do nothing
+        else
+          buzzer 1 30 5 
+          throw 30011
+        endif 
+
+   res res1 dump
+   delay 100
+
+  
+  #test Pos Logic pump charging and seal to cartridge
+
+      valve v1 on  #bellows on
+      valve v2 on  #pump_V1_pcr on
+      valve v3 on  #pump_V2 on
+      valve v4 on  #V3_wash_inlet on
+      valve v5 on  #V4_elute_inlet on
+      valve v6 on  #V5_elute_enable on
+      valve v7 on  #v6_waste_enable on
+      valve v8 on  #V7/8_airdry_enable on
+      delay 100
+
+      res res2 hold 900 1100 2 ackres2
+      delay 500 
+      res res3 hold 1100 1300 3 ackres3
+      delay 500
+
+        wait ackres2 5
+        if ackres2
+          #do nothing
+        else
+          buzzer 1 30 5
+          throw 30010
+        endif
+
+        wait ackres3 5
+        if ackres3
+           #do nothing
+        else
+          buzzer 1 30 5
+          throw 30014
+        endif 
+    res res3 dump
+    res res2 dump
+  end
+
+
+#setup peak search parameters and call voltammetry
+#peak algorithm "type"  rawnoise permissible noise polyorder targetnoise
+peak algorithm "MultiPeak1Analysis"  1000 1000 6 49 
+
+#peak define  "name" outcome ch vstart vend vexp vtol thresh maxnoise prop widthmax widthmin propnoise
+
+peak define "CTIC" Positive 1 110 310 200 32 90 Infinity 25 60 160 90 4
+peak define "CT" Positive 1 295 510 390 60 115 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 1 520 620                            #this ignores the last part of the scan
+
+peak define "NG1IC" Positive 3 110 310 200 32 90 Infinity 25 60 160 90 4
+peak define "NG1" Positive 3 295 510 390 60 50 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 3 520 620                            #this ignores the last part of the scan
+
+peak define "NG2IC" Positive 4 110 310 200 32 60 Infinity 25 60 160 90 4
+peak define "NG2" Positive 4 295 510 390 60 45 Infinity 25 60 160 90 4
+peak define "clearend" Ignore 4 520 620                            #this ignores the last part of the scan
+
+pstat 210 external
+voltammetry differential 0 50 10 600 40 60             #Full prescan  
+delay 1500
+   

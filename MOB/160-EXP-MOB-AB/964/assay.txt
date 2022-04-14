@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <assay>
-  <code>969</code>
-  <version>2</version>
-  <name>Pnaumatc_EOL_Test</name>
-  <shortName>Pnaumatc_EOL_Test</shortName>
+  <code>964</code>
+  <version>1</version>
+  <name>160-EXP-MOB-VH_AmpDet_no Peltier</name>
+  <shortName>160-EXP-MOB-VH_AmpDet_no Peltier</shortName>
   <flatLineInvalidatesAssay>False</flatLineInvalidatesAssay>
   <diseasesIndependentlyValidated>False</diseasesIndependentlyValidated>
   <script>Main</script>
