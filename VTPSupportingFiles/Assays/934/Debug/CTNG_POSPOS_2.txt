@@ -1,4 +1,0 @@
-# Should show the pie chart on 0 percent and wait for 1 second
-
-throw 10002,0
-delay 100

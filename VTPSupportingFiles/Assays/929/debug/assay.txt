@@ -30,6 +30,6 @@
   </disease>
   <flatLineInvalidatesAssay>False</flatLineInvalidatesAssay>
   <diseasesIndependentlyValidated>False</diseasesIndependentlyValidated>
-  <script>CTNG_INV</script>
+  <script>Main</script>
   <estimatedDuration>10</estimatedDuration>
 </assay>

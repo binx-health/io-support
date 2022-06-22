@@ -1,1 +1,4 @@
-﻿
+﻿General.ModState 3
+DigitalReg.LowPressure 140
+DigitalReg.HighPressure 600
+Valve.VacuumEnableInvert 0
