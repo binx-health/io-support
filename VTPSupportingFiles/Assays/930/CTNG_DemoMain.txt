@@ -1,34 +1,178 @@
 ﻿# MDNI test assay
-#Should produce a negative CT and positive NG
+#test to show standard logic with invalid control.
+#Should produce a positive CT and a negative NG
 
+
+begin atomic 1
 throw 10002,0
+delay 100
+throw 10002,5
 delay 100
 throw 10002,10
 delay 100
-throw 10002,20
+throw 10002,15
+delay 100
+throw 10002,20 
+delay 100
+throw 10002,25
 delay 100
 throw 10002,30
 delay 100
+throw 10002,35
+delay 100
 throw 10002,40
+delay 100
+throw 10002,45
 delay 100
 throw 10002,50
 delay 100
+throw 10002,55
+delay 100
 throw 10002,60
-delay 100 
+delay 100
+throw 10002,65
+delay 100
 throw 10002,70
+delay 100
+throw 10002,75
 delay 100
 throw 10002,80
 delay 100
+throw 10002,85
+delay 100
 throw 10002,90
+delay 100
+throw 10002,95
+delay 100
+end
+
+#-------Simulate initialise run---------------------
+res res1 dump
+res res2 dump
+res res3 dump
+
+#set dpr off so that new one does not buzz whilst res 3 is empty 
+dpr dpr1 off
+	
+solenoid m1 on #isolation_release on 		# isolation solenoid should be powered up indefinitely
+solenoid s1 off #drawer_catch off   		# drawer_catch should be left off normally
+
+#pressure valves are rippled on-and-off 
+valve v12 on #vacuum_enable on
+valve v13 on #Low_High_Pressure_Select on
+valve v1 on  #bellows on
+valve v2 on  #pump_V1_pcr on
+valve v3 on  #pump_V2 on
+valve v4 on  #V3_wash_inlet on
+valve v5 on  #V4_elute_inlet on
+valve v6 on  #V5_elute_enable on
+valve v7 on  #v6_waste_enable on
+valve v8 on
+valve v9 on  #wash_air_dry on
+valve v10 on #elute_air_dry on
+valve v14 on #low_pressure_dump on
+valve v15 on #high_pressure_dump on 
+valve v16 on #digital_enable on
+valve v11 on #vacuum_dump on
+valve v17 on
+
+delay 10
+
+valve v12 off #vacuum_enable off
+valve v13 off #Low_High_Pressure_Select off
+valve v1 off  #bellows off
+valve v2 off  #pump_V1_pcr off
+valve v3 off  #pump_V2 off
+valve v4 off  #V3_wash_inlet off
+valve v5 off  #V4_elute_inlet off
+valve v6 off  #V5_elute_enable off
+valve v7 off  #v6_waste_enable off
+valve v8 off  #air_dry_enable off
+valve v9 off  #wash_air_dry off
+valve v10 off #elute_air_dry off
+valve v14 off #low_pressure_dump off
+valve v15 off #high_pressure_dump off 
+valve v16 off #digital_enable off
+valve v11 off #vacuum_dump off
+valve v17 off #digital_outlet atmospheric off
+
+#open manifold with no pressure in reservoirs
+valve v13 on
+valve v12 on
+delay 50
+
+#charge vacuum
+#res res1 hold 500 700 2 ackvac
+#charge positive hard 
+res res2 hold 900 1100 2 initpswID 
+res res3 hold 500 700 3 ack1
+delay 300
+
+#-------Simulate Pump in noise--------------------- 
+
+#pumps fluid
+begin nonatomic 3 pumped
+	  valve v3 on
+          delay 30
+          valve v3 off
+          delay 30
+end
+
+
+#--------3s airdry noise------------------------------------
+
+delay 100
+valve v1 on
+delay 300 
+valve v1 off
+
+#-------Simulate PCR fill with DPR---------------------
+#Homogenisation ramp
+
+#Set DPR to on and fill to 17% atmospheric
+dpr dpr1 on 30 100
+delay 120
+dpr dpr1 off
+valve v16 off
+
+#-------1 PCR Cycle---------------------
+#1 PCR cycle
+#anneal
+#use accuracy-optimised parameters to return at 50% power.
+begin atomic 1
+set Peltier.Pcr.Kp 400000
+set Peltier.Pcr.Ki 0
+set Peltier.Pcr.Kd 8000000
+set Peltier.Pcr.Imax 50
+set Peltier.Pcr.PwmMax 50
+therm therm2 on 65 anneal
+wait anneal 3
+
+#denature using original setting
+set Peltier.Pcr.Kp 600000
+set Peltier.Pcr.Ki 10
+set Peltier.Pcr.Kd 12000000
+set Peltier.Pcr.Imax 120000
+set Peltier.Pcr.PwmMax 50
+therm therm2 on 98 phase1
+wait phase1 6
+
+therm therm2 off
+end
+
+begin nonatomic 1
+stepper l5 500 -500 ack
+wait ack 2 
+end
 
 peak algorithm "MultiPeak1Analysis" 60 70 6 30
 
-peak define "CTIC" Positive 1 100 310 220 32 30 Infinity 14 60 170 90 1
-peak define "CT" Positive 1 295 510 390 60 30 Infinity 1 60 170 90 0
+peak define "NGIC" Positive 1 100 310 220 32 30 Infinity 14 60 170 90 1
+peak define "NG" Positive 1 295 510 390 60 30 Infinity 1 60 170 90 0
 peak define "Ignore" Ignore 1 520 620
 
-peak define "NGIC" Positive 2 100 310 220 32 30 Infinity 14 60 170 90 1
-peak define "NG" Positive 2 295 510 390 60 30 Infinity 14 60 170 90 1
+peak define "CTIC" Positive 2 100 310 220 32 30 Infinity 14 60 170 90 1
+peak define "CT" Positive 2 295 510 390 60 30 Infinity 14 60 170 90 1
 peak define "Ignore" Ignore 2 520 620
 
-throw 10002,100 
+throw 10002,100

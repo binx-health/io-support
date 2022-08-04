@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <assay>
   <code>930</code>
-  <version>1</version>
-  <name>CTNG_Demo</name>
-  <shortName>CTNGDemo</shortName>
+  <version>6</version>
+  <name>CTNG</name>
+  <shortName>CTNG</shortName>
   <target>
     <targetName>CT</targetName>
     <targetType>STD</targetType>
@@ -31,5 +31,5 @@
   <flatLineInvalidatesAssay>False</flatLineInvalidatesAssay>
   <diseasesIndependentlyValidated>False</diseasesIndependentlyValidated>
   <script>CTNG_DemoMain</script>
-  <estimatedDuration>10</estimatedDuration>
+  <estimatedDuration>20</estimatedDuration>
 </assay>
