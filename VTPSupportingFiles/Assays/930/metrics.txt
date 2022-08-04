@@ -1,1 +1,2 @@
-﻿
+﻿General.Log.FastReporting 500
+Peltier.Detection.MaxTemp 77
