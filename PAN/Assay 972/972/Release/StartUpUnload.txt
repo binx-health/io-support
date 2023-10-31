@@ -1,0 +1,80 @@
+﻿#Approvals:
+
+#Author:
+
+#Reviewer:
+#------------------------
+#Atlas Genetics 2019
+#io core script 'StartupUnload.txt'
+#used to start  the instrument if a cartridge is expected.
+#------------------------
+
+#revision history
+#1.0  20 Jan 2015  first release for distribution with PAN-D-050 and PAN-D-051 revision 4.0 based on StartUpUnload 3.7 see PAN-CM-0231
+#2.0  11 Apr 2018  Change Mechanical valve steps to stop catching drawer, change solenoid turn on point PAN-CM-0493.
+#3.0  17 Sep 2019  PAN-CM-0648 
+#                  Removed duplicated PWM 100 command
+#                  Removed Mech valve L5 command after Clamp high torque as its not needed. 
+#                  leave m1 solenoid on at start but test for isolation valve check after all actuators have reset
+#                  added delay and isolation valve fireing after drawer has been ejected to stop user from closing drawer containing a cartridge.
+#                  Increased Buzzer DC to 40%
+#4.0     Nov 2019  PAN-CM-0661
+#		           added vslow close/shut to overcome hard-to-release jams
+#		           moved action of blisters to during clamping to increase likelihood of unjamming actuators
+#			   turned on electromagnet prior to lifting the isolation valve. 
+#----------------------
+
+
+solenoid m1 off
+#recover jam
+stepper l1 100 -200 close1 
+wait close1 2
+stepper l1 25 100 edge_open  		
+wait edge_open 5
+
+
+set Motor.Steppers.Pwm 100		#overrides default for this script only.
+delay 40
+#stepper l1 450 850 ackVar  		#opens the clamp, initially fast
+#stepper l3 500 1000 lyseAck		#lysis actuator goes DOWN to eject cartridge
+#stepper l5 500 400 mechAck 		#mechanical valve actuator goes DOWN to eject cartridge
+#wait ackVar 5
+#wait mechAck 30
+#wait lyseAck 30
+
+stepper l1 250 550 done                 #finish opening clamp at high torque
+wait done 5
+
+#solenoid m1 on
+#reset torque to default
+set Motor.Steppers.Pwm 70
+
+#lift isolation valve to eject cartridge
+stepper l1 500 -550 ackVar			#lift isolation valve	
+
+#retract all lysis and mechanical valve actuators to release cartridge 
+#stepper l4 500 -1000 washAck
+#stepper l2 500 -1000 eluteAck
+#stepper l3 500 -1000 lyseAck
+#stepper l5 550 -800 mech_retract
+#wait lyseAck 30
+
+# Release actuators from stops.
+#stepper l2 500 20
+#stepper l3 400 20
+#stepper l4 500 20
+#stepper l5 500 20
+
+
+# Check the isolation valve
+
+#isovalve
+
+delay 50
+solenoid s1 on				#release drawer
+
+#set isolation valve down to stop coil overheating, and stop user from inserting a loaded drawer.
+delay 100
+solenoid M1 off
+buzzer 1 40 2                                   #40% buzz, 1 second interval, 2 cycles.
+
