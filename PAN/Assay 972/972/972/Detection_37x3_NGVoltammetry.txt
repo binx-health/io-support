@@ -1,0 +1,20 @@
+﻿# Detection_37x3_NGVoltammetry
+#---------------------------------------------
+#Detection_37x3_NG
+#Based on PAN-D-083 V6.0
+#Author: Antony Brown
+#
+#Copyright Atlas Genetics Ltd 2014
+#---------------------------------------------
+
+#-------------Revision-History----------------
+#1.0 - Copied from PAN-D-083 Version 6.0 changed voltametry to match that in MOD-D-010 v1.0, detection now at 38C
+#2.0 - moved prescan to detection incubation, to reflect that of MOB-D-019 V3.0
+#---------------------------------------------
+
+        
+#syntax is start voltage mV, pulse amplitude mV, sweep increment mV, end voltage mV, pulse time ms, base time ms
+
+                                               #Delay sufficient to complete first scan
+voltammetry differential 0 50 3 600 40 60 
+delay 2200

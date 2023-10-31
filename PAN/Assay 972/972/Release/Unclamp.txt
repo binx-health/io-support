@@ -1,0 +1,90 @@
+﻿#Approvals:
+
+#Author:
+
+#Reviewer:
+#------------------------
+#Atlas Genetics 2013
+#io core script 'Unclamp.txt'
+#used to disable a cartridge, then ready for opening drawer after assay run or aborted
+#------------------------ 
+
+#revision history
+#1.0 20 Jan 2015   based on Unclamp.txt 3.6 to be distributed with PAN-D-050 and PAN-D-051 revision 4.0 PAN-CM-0214 
+#2.0 08 Mar 2016   updated regvalve setting to work on EVS1 and EVS2 digital regulators. Was dpr dpr on 10 0, now regvalve 495 (direct setting)
+#                  for release with PAN-D-050 and PAN-D-051 revision 5.0 PAN-CM-0411
+#3.0 14 Mar 2017   Changed default power for stepper motors for this script only (85% instead of 70%). For release with PAN-D-050 and PAN-D-051 revision 5.4 PAN-CM-488
+#4.0 03 Apr 2018   Set Pstat to internal circuit at end of assay - mitigation for charging electrode unnecessarily, PAN-CM-0493.
+#5.0 11 Apr 2018   Change Mechanical valve steps to stop catching drawer PAN-CM-0493.
+#6.0 17 Sep 2019   PAN-CM-0648
+#                  removed buzzer from initial isolation valve drop
+#                  added delay before isovalve check of 0.3 second
+#                  added delay and isolation valve fireing after drawer has been ejected to stop user from closing drawer containing a cartridge.                  
+#                  increased buzzer DC to 40%
+#------------------------
+ 
+# Start from the clamped position
+# Fire the isolation valve, unclamp the cartridge, lift isolation and be ready to present tray (unload)
+# Make all of the devices safe
+
+#pressure_release				#releases all air pressure.
+
+#Vent DPR and close manifold
+valve v16 off                                   #digital_Enable off
+valve v12 off                                   #vacuum_enable off
+valve v13 off                                   #high_low_pressure_select off
+res res1 dump					#reservoirs are dumped
+res res2 dump
+res res3 dump
+regvalve 495                                    #stop dpr from making a horrible noise
+
+#-----------------------
+ 
+#unclamp sequence
+
+#retract clamps and use actuators to eject cartridge
+#solenoid m1 off					#drop isolation valve
+
+set Motor.Steppers.Pwm 85			#override defaultmetrics for this script only
+#stepper l1 450 850 ackVar			#clamp open fast to most extent.
+#stepper l3 500 1000 lyseAck			#extend lysis to eject cartridge
+#stepper l5 500 400 mechAck			#mechanical valve actuator goes DOWN to eject cartridge
+#stepper l2 500 -1000 elutehAck			#elute retracted
+#stepper l4 500 -1000 washAck			#wash retracted.
+#wait ackVar 30
+#stepper l1 250 550 done                 	#finish opening clamp at high torque
+#wait lyseAck 30
+#wait mechAck 30
+
+#retract lysis and mechanical valve actuators to release cartridge 
+#stepper l3 500 -1000 lyseAck
+#stepper l5 500 -800 mech_retract
+#wait done 30
+#set Motor.Steppers.Pwm 70			#restore defaultmetrics
+
+#solenoid m1 on                      #turns on the electromagnet
+#delay 10
+
+#stepper l1 500 -550 ackVar			#lift isolation valve	
+#wait mech_retract 30				#nudge back actuators.
+#wait lyseAck 30
+#stepper l3 400 20
+#stepper l5 500 20
+#stepper l2 500 20
+#stepper l4 500 20
+#wait ackVar 30					#make sure clamping complete before exiting script.
+
+# Check the isolation valve
+delay 30
+#isovalve
+
+#set pstat to internal circuit
+pstat 0 internal
+
+#eject drawer
+solenoid s1 on
+
+#set isolation valve down to stop coil overheating, and stop user from inserting a loaded drawer.
+delay 100
+#solenoid M1 off
+buzzer 1 40 2                                   #40% buzz, 1 second interval, 2 cycles.

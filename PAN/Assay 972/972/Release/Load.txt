@@ -1,0 +1,62 @@
+﻿#Approvals:
+
+#Author:
+
+#Reviewer:
+#------------------------
+#Atlas Genetics 2013
+#io core script 'Load.txt' 
+#used to check the clamp and open drawer for ejecting a cartridge.
+#------------------------
+#revision history
+#1.0  20 Jan 2015  based on Load.txt 2.4 for distribution with PAN-D-050 and PAN-D-051 revision 4.0 PAN-CM-0214
+#2.0  08 Apr 2016  removed unnecessary pstat and psensor commands
+#3.0  14 Mar 2017  Change to power supplied to stepper motors (85% instead of 70%) during script.For release with PAN-D-050 and PAN-D-051 revision 5.4 PAN-CM-488
+#4.0  03 Apr 2018  Set Pstat to internal circuit at end of assay - mitigation for charging electrode unnecessarily, PAN-CM-0493.
+#5.0  11 Apr 2018  Change Mechanical valve steps to stop catching drawer PAN-CM-0493.
+#6.0  13 Aug 2019  PAN-CM-0648
+#                  removed Clamp close to check Pstat commands
+#                  turn isolation valve solenoid on after initial clamp move
+#                  Test isolation valve after clamp moves to datum position
+#                  removed PAN-D-102 reference as scripts now embodied in PAN-D-051
+#                  increased second clamp stepper move from 500 to 550 steps 
+#-------------------------
+
+
+#Set Pstat circuit internal
+pstat 0 internal 
+
+set Motor.Steppers.Pwm 85			#override defaultmetrics for this script only
+# push any cartridge out using lyse and mech actuators as clamp opens. Unlikely that cartridge present and not detected by pstat.
+#stepper l1 500 850 ackVar		# Clamp
+#stepper l3 500 1000 lyseAck	        # Lyse	
+#stepper l5 500 800 mechAck		# Mechanical valve 
+#wait ackVar 30
+
+#turn on Isolation Valve Solenoid
+#solenoid m1 on
+
+#stepper l1 250 550 done                 #finish opening clamp at high torque to engage isolation valve.
+#wait lyseAck 30
+#wait mechAck 30
+#wait done 30
+set Motor.Steppers.Pwm 70			#restore defaultmetrics
+
+
+#stepper l5 500 -800 mech_retract
+#stepper l3 500 -1000 lyseAck
+#wait mech_retract 30
+#stepper l5 400 20
+#wait lyseAck 30
+#stepper l3 400 20
+
+#stepper l1 400 -550 done                    #reset clamp to ordinary positon
+#wait done 20
+
+#Check isolation valve
+#delay 30
+#isovalve
+
+#open drawer
+solenoid s1 on
+

@@ -1,0 +1,37 @@
+﻿# detection_rig_detection_incubation_37x3_NG
+#---------------------------------------------
+#beta script detection_rig_detection_incubation_37x3_NG
+#Based on PAN-D-082 V5.0
+#Date originated: 19/01/2016
+#Author: Antony Brown
+#
+#Copyright Atlas Genetics Ltd 2016
+#---------------------------------------------
+
+#-------------Revision-History---------------
+#0.1 AB 19/01/2016 - Copied form PAN-D-082 Version 5.0 removed PCr commands and timing throws. Removed the Detection temperture to 22C CONCH4 MOB-MM-027
+#0.2 AB 09/08/2016 - added prescan with atomic loop to reflect MOB-D-019 V3.0
+#--------------------------------------------
+
+
+#set incubation temperature
+therm therm3 on 37 INCDT
+wait INCDT 30
+
+if INCDT
+#do nothing
+else
+call error_30016
+endif
+
+#delay for incubation before read
+delay 16500
+
+#start prescan
+begin atomic 1
+pstat 210 external
+voltammetry differential 0 50 10 600 40 60             #Full prescan  
+end
+
+#delay to finish 3 min incubation time
+delay 1500

@@ -1,0 +1,61 @@
+﻿#Approvals:
+
+#Author: 
+
+#Reviewer:
+
+#------------------------
+#Atlas Genetics 2019
+#io core script 'StartUp.txt'
+#used to initialise the instrument from any condition where cartridge is not expected
+#leaves clamp fully open, isolation electromagnet off, drawer closed.
+#------------------------
+#revision history
+#1.0 20 Jan 2015   first release for release with PAN-D-050 and PAN-D-051 rev 4.0 based on StartUp.txt v3.6 PAN-CM-0214
+#2.0 13 Sep 2017   added preheat detection & PCR peltier step to preheat instrument to combat condensation. 
+#3.0 11 Apr 2018   Change Mechanical valve steps to stop catching drawer PAN-CM-0493.
+#4.0 17 Sep 2019   PAN-CM-648
+#                  Removed PAN-D-0101 Referance
+#                  Set stepper PWM to 100% for intial mtotor moves  
+#                  Added half stroke retraction of wash and elution actuators       
+#------------------------
+
+#start preheat procedure
+#therm therm3 on 50 AckDET
+#therm therm2 on 50 AckPCR
+
+#override defaultmetrics for this script only
+set Motor.Steppers.Pwm 100
+
+#lower clamp to datum
+stepper l1 450 850 ackVar		#high speed move most of distance
+stepper l3 500 1000 lyseAck		#lysis actuator goes DOWN to eject cartridge
+stepper l5 500 400 mechAck 		#mechanical valve actuator goes DOWN to eject cartridge
+wait ackVar 30
+stepper l1 250 550 ackVar		#low speed move to engage isolation spring.
+
+#reset actuators and jog back
+stepper l5 500 -800 mech_retract
+stepper l3 500 -1000 lyseAck
+stepper l2 500 -400 washAck
+stepper l4 500 -400 eluteAck
+
+wait ackVar 30
+wait mech_retract 30
+wait lyseAck 30
+wait washAck 30
+wait eluteAck 30
+
+stepper l5 500 20
+stepper l3 500 20
+stepper l2 500 20
+stepper l4 500 20
+
+#wait AckDET 20
+#wait AckPCR 20
+#delay 3000
+
+#therm therm3 off
+#therm therm2 off
+
+ 
